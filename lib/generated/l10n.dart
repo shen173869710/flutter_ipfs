@@ -1070,6 +1070,36 @@ class S {
     );
   }
 
+  /// `提现成功`
+  String get cny_withdrawal_record_suc {
+    return Intl.message(
+      '提现成功',
+      name: 'cny_withdrawal_record_suc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `提现失败`
+  String get cny_withdrawal_record_fail {
+    return Intl.message(
+      '提现失败',
+      name: 'cny_withdrawal_record_fail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `等待中`
+  String get cny_withdrawal_record_ing {
+    return Intl.message(
+      '等待中',
+      name: 'cny_withdrawal_record_ing',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `提现`
   String get cny_withdrawal_title {
     return Intl.message(
@@ -1110,10 +1140,10 @@ class S {
     );
   }
 
-  /// `1.仅支持USDT提现账户收款,手续费每笔5%;2.提现审核时间为9:00-18:00,T+1个工作日后到账;3.每次最低提现金额为100元及整数倍才能申请提现;`
+  /// `1.仅支持USDT提现账户收款,手续费每笔5%;\n\n2.提现审核时间为9:00-18:00,T+1个工作日后到账;\n\n3.每次最低提现金额为100元及整数倍才能申请提现;`
   String get cny_withdrawal_desc {
     return Intl.message(
-      '1.仅支持USDT提现账户收款,手续费每笔5%;2.提现审核时间为9:00-18:00,T+1个工作日后到账;3.每次最低提现金额为100元及整数倍才能申请提现;',
+      '1.仅支持USDT提现账户收款,手续费每笔5%;\n\n2.提现审核时间为9:00-18:00,T+1个工作日后到账;\n\n3.每次最低提现金额为100元及整数倍才能申请提现;',
       name: 'cny_withdrawal_desc',
       desc: '',
       args: [],
@@ -1295,6 +1325,36 @@ class S {
     return Intl.message(
       '请确认银行卡账号无误再提现',
       name: 'cny_withdrawal_end_band_desc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `新增地址`
+  String get withdraw_address_title {
+    return Intl.message(
+      '新增地址',
+      name: 'withdraw_address_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `请输入有效钱包地址`
+  String get withdraw_address_hitn {
+    return Intl.message(
+      '请输入有效钱包地址',
+      name: 'withdraw_address_hitn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `名称`
+  String get withdraw_address_name {
+    return Intl.message(
+      '名称',
+      name: 'withdraw_address_name',
       desc: '',
       args: [],
     );
@@ -1785,6 +1845,46 @@ class S {
     return Intl.message(
       '冲币记录',
       name: 'wallet_recharge_record_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `冲币`
+  String get wallet_recharge_title {
+    return Intl.message(
+      '冲币',
+      name: 'wallet_recharge_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `冲币钱包地址`
+  String get wallet_recharge_address {
+    return Intl.message(
+      '冲币钱包地址',
+      name: 'wallet_recharge_address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `复制地址`
+  String get wallet_recharge_copy {
+    return Intl.message(
+      '复制地址',
+      name: 'wallet_recharge_copy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `扫描二维码,获取地址`
+  String get wallet_recharge_scan {
+    return Intl.message(
+      '扫描二维码,获取地址',
+      name: 'wallet_recharge_scan',
       desc: '',
       args: [],
     );

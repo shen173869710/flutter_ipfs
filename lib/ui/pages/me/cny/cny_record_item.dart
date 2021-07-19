@@ -1,10 +1,12 @@
 import "package:ipfsnets/include.dart";
+import 'package:ipfsnets/models/cny_acount_record_entity.dart';
 import 'package:ipfsnets/models/cny_record_entiy.dart';
+import 'package:ipfsnets/utils/date_util.dart';
 /**
  *  CNY 充值提现记录
  */
 class CnyRecordItem extends StatelessWidget {
-  final CnyRecordEntiy data;
+  final CnyAcountRecordEntity data;
   CnyRecordItem(this.data);
   @override
   Widget build(BuildContext context) {
@@ -17,19 +19,19 @@ class CnyRecordItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Expanded(
-            child: Text(data.from,
+            child: Text(data.source.toString(),
                 style: ITextStyles.itemTitle),
             flex: 1,
           ),
           Expanded(
-            child: Text((data.income>0?"+"+data.income.toString():data.income.toString()),
+            child: Text((data.amount!>0?"+"+data.amount!.toString():data.amount!.toString()),
                 style: TextStyle(
                     fontSize: Dimens.font_sp16,
-                  color: data.income>0?Colours.item_red:Colours.item_green)),
+                  color: data.amount!>0?Colours.item_red:Colours.item_green)),
             flex: 1,
           ),
           Expanded(
-            child: Text(data.time,
+            child: Text(DateUtil.getTime(data.createTime),
                 style: ITextStyles.itemContent),
             flex: 1,
           ),

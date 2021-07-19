@@ -8,6 +8,7 @@ import 'package:ipfsnets/ui/pages/main_page.dart';
 import 'package:ipfsnets/ui/pages/me/cny/cny_withdrawal_end_page.dart';
 import 'package:ipfsnets/ui/pages/me/cny/cny_withdrawal_record_page.dart';
 import 'package:ipfsnets/ui/pages/me/more/more_page.dart';
+import 'package:ipfsnets/ui/pages/me/qrcode/qtcode_scanner_page.dart';
 import 'package:ipfsnets/ui/pages/me/setting/language_page.dart';
 import 'package:ipfsnets/ui/pages/me/setting/setting_page.dart';
 import 'package:ipfsnets/ui/pages/me/user/user_edit_page.dart';
@@ -15,8 +16,11 @@ import 'package:ipfsnets/ui/pages/me/user/user_manager_page.dart';
 import 'package:ipfsnets/ui/pages/me/wallet/walle_scan_page.dart';
 import 'package:ipfsnets/ui/pages/me/wallet/wallet_exchange_page.dart';
 import 'package:ipfsnets/ui/pages/me/wallet/wallet_page.dart';
-import 'package:ipfsnets/ui/pages/me/wallet/wallet_recharge_page.dart';
+import 'package:ipfsnets/ui/pages/me/wallet/wallet_rechage_record_page.dart';
+import 'package:ipfsnets/ui/pages/me/wallet/wallet_rechage_page.dart';
+import 'package:ipfsnets/ui/pages/me/wallet/wallet_withdrawal_address_page.dart';
 import 'package:ipfsnets/ui/pages/me/wallet/wallet_withdrawal_page.dart';
+import 'package:ipfsnets/ui/pages/me/wallet/wallet_withdrawal_record_page.dart';
 import 'package:ipfsnets/ui/pages/register/forget_page.dart';
 import 'package:ipfsnets/ui/pages/register/register_page.dart';
 import 'package:ipfsnets/ui/pages/me/cny/cny_account_page.dart';
@@ -56,6 +60,7 @@ var userManagerHandler = Handler(handlerFunc: (BuildContext? context, Map<String
   return UserManagerPage();
 });
 
+//########################   cny相关  ##########################//
 // cny账户
 var cnyAccountHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   return CnyAccountPage();
@@ -66,7 +71,7 @@ var cnyRechageHandler = Handler(handlerFunc: (BuildContext? context, Map<String,
 });
 // cny提现
 var cnyWithdrawalHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-  return CnyWithdrawalPage();
+  return CnyWithdrawalPage(params['type']?.first ?? '');
 });
 // cny充值记录
 var cnyRechageRecordHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
@@ -80,9 +85,11 @@ var cnyWithdrawalRecordHandler = Handler(handlerFunc: (BuildContext? context, Ma
 
 // cny提交到支付宝或者银行卡
 var cnyWithdrawalEndHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-  return CnyWithdrawalEndPage(type: params['type']?.first ?? '');
+  final String type = params['type']?.first ?? '';
+  final String money = params['money']?.first ?? '';
+  return CnyWithdrawalEndPage(type: type, money:money,);
 });
-
+//########################  我的钱包相关  ##########################//
 // 更多
 var moreHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   return MorePage();
@@ -97,22 +104,38 @@ var walletHandler = Handler(handlerFunc: (BuildContext? context, Map<String, Lis
 var walletScanHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   return WalletScanPage();
 });
-
+// 我的钱包 充币
+var walletRechageHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return WalletRechagePage();
+});
 // 我的钱包 提币
 var walletWithdrawalHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   return WalletWithdrawalPage();
 });
-
-// 我的钱包 充币
-var walletRechargeHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-  return WalletRechargePage();
-});
-
 // 我的钱包 兑换
 var walletExchangeHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   return WalletExchangePage();
 });
 
+// 提币记录
+var walletWithdrawalRecordHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return WalletWithDrawalRecordPage();
+});
+// 充值记录
+var walletRechageRecordHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return WalleRechageRecordPage();
+});
+// 我的钱包 提币地址
+var walletWithdrawalAddressHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return WalletWithdrawalAddressPage();
+});
+
+
+// 设置页面
+var qtcodeScannerHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return QrCodeScannerPage();
+});
+//########################  设置相关  ##########################//
 // 设置页面
 var settingHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   return SettingPage();
@@ -127,3 +150,4 @@ var baseListHandler = Handler(handlerFunc: (BuildContext? context, Map<String, L
   final String type = params['type']?.first ?? '';
   return BaseListPage(type: type);
 });
+

@@ -149,14 +149,6 @@ class GlobalEntiy{
     CnyRecordEntiy("兑换现金",28,"03-24 12:24"),
   ];
 
-  static List<AccountEntiy> accountList = [
-    AccountEntiy(R.assetsImgIconAlipay,"支付宝",false),
-    AccountEntiy(R.assetsImgIconBank,"工商银行",false),
-    AccountEntiy(R.assetsImgIconBank,"招商银行",false),
-    AccountEntiy(R.assetsImgIconBank,"招商银行",false),
-  ];
-
-
   static List<WalletEntiy> walletList = [
     WalletEntiy(R.assetsImgMyWalletNets,"NETS","0","=0 CNY"),
     WalletEntiy(R.assetsImgMyWalletFil,"FIL","0","=0 CNY"),
@@ -165,7 +157,6 @@ class GlobalEntiy{
     WalletEntiy(R.assetsImgMyWalletEth,"ETH","0","=0 CNY"),
     WalletEntiy(R.assetsImgMyWalletEos,"EOS","0","=0 CNY"),
   ];
-
 
   static List<AccountEntiy2> accountList2 = [
     AccountEntiy2(R.assetsImgIconAlipay,"1",false,0),

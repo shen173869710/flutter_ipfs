@@ -2,12 +2,29 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:ipfsnets/dialog/withdrawal_account_dialog.dart';
 import "package:ipfsnets/include.dart";
+import 'package:ipfsnets/ui/pages/me/baseListpage/base_list_factory.dart';
 import 'package:ipfsnets/ui/widget/login_button.dart';
+import 'package:ipfsnets/utils/string_util.dart';
 
 
-class CnyWithdrawalPage extends StatelessWidget {
+class CnyWithdrawalPage extends StatefulWidget{
+  late String type;
+  CnyWithdrawalPage(this.type);
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _CnyWithdrawalState();
+  }
+
+}
+
+
+class _CnyWithdrawalState extends State<CnyWithdrawalPage> {
 
   final _usernameController = TextEditingController();
+
+
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -58,9 +75,8 @@ class CnyWithdrawalPage extends StatelessWidget {
                   ),
                 ),
                 buildLogin(context),
-                Gaps.vGap8,
-                Text(S.current.cny_withdrawal_record, style: TextStyle(
-                    color: Colours.item_content_color,fontSize: 14
+                Gaps.vGap10,
+                Text(S.current.cny_withdrawal_desc, style: TextStyle(color: Colours.item_content_color,fontSize: 14
                 )),
               ],
             )
@@ -77,23 +93,32 @@ class CnyWithdrawalPage extends StatelessWidget {
         children: [
           Expanded(child:  TextFormField(
             onChanged: (value) {
+              setState(() {
 
+              });
             },
+            style: TextStyle(fontSize: 20,color: Colours.item_red),
             controller: _usernameController,
             inputFormatters: [
-              LengthLimitingTextInputFormatter(20)
+              LengthLimitingTextInputFormatter(20),
+              WhitelistingTextInputFormatter(RegExp("[0-9]")),
+
             ],
             decoration: InputDecoration(
                 focusedBorder: InputBorder.none,
                 enabledBorder: InputBorder.none,
                 border: InputBorder.none,
+                hintText: widget.type+"  cny"
                 ),
           )),
+
           Expanded(child: SizedBox()),
           GestureDetector(child: Text(S.current.cny_withdrawal_all,
               style:TextStyle(fontSize:
               Dimens.font_sp14,color:
               Colours.button_sel)),onTap: (){
+              _usernameController.text = widget.type;
+
           },),
 
         ],
@@ -104,7 +129,7 @@ class CnyWithdrawalPage extends StatelessWidget {
   Padding buildLogin(BuildContext context) {
     return  Padding(padding: EdgeInsets.fromLTRB(30.w, 30.h, 30.w, 0),
       child: LoginButton(text: S.current.sure,
-          endble :true,
+          endble :StringUtil.isEmpty(_usernameController.text)?false:true,
           onPressed: () {
             showChoostAccountDialog(context);
           }),
@@ -112,6 +137,6 @@ class CnyWithdrawalPage extends StatelessWidget {
   }
 
   void showChoostAccountDialog(BuildContext context) {
-    showModalBottomSheet(context: context,backgroundColor:Colours.transparent,builder:(BuildContext context) =>WithDrawalAccountDialog(onItemClickListener: (int index) {  },));
+    showModalBottomSheet(context: context,backgroundColor:Colours.transparent,builder:(BuildContext context) =>WithDrawalAccountDialog(onItemClickListener: (int index) {  },money: _usernameController.text,));
   }
 }

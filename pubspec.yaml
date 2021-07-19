@@ -66,6 +66,8 @@ dependencies:
   cached_network_image: ^3.0.0
   package_info: ^2.0.2
   common_utils: ^2.0.2
+  # 扫码 https://github.com/juliuscanute/qr_code_scanner
+  qr_code_scanner: 0.5.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

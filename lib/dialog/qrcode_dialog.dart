@@ -1,8 +1,15 @@
+import 'dart:core';
+import 'dart:core';
+
 import 'package:flutter/cupertino.dart';
 import '../include.dart';
 
 class QrcodeDialog extends StatelessWidget {
 
+  late String url;
+  late String title;
+
+  QrcodeDialog(this.url, this.title);
 
   @override
   Widget build(BuildContext context) {
@@ -16,23 +23,21 @@ class QrcodeDialog extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text("FIL收款"),
-                Gaps.vGap12,
-                Image.asset(R.assetsImgIcWelcome, width: 400.h,
-                    height: 400.h,
-                    fit: BoxFit.cover),
-                Gaps.vGap12,
-                Text("钱包地址", style: TextStyle(
-                  color: Colours.item_content_color,
-                  fontSize: 12,
-                ),),
-                Gaps.vGap4,
-                Text("111111111111111", style: TextStyle(
-                  color: Colours.item_title_color,
-                  fontSize: 12,
-                ),),
+                Text(title),
                 Gaps.vGap12,
 
+                ImageUtil.loadImage(url, 400.h, 400.h),
+                Gaps.vGap12,
+                // Text("钱包地址", style: TextStyle(
+                //   color: Colours.item_content_color,
+                //   fontSize: 12,
+                // ),),
+                // Gaps.vGap4,
+                // Text("111111111111111", style: TextStyle(
+                //   color: Colours.item_title_color,
+                //   fontSize: 12,
+                // ),),
+                Gaps.vGap12,
                 GestureDetector(
                   child:Text("关闭", style: TextStyle(
                     color: Colours.item_content_color,

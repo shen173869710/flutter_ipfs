@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ipfsnets/include.dart';
-import 'package:ipfsnets/models/rechage_record_model.dart';
+import 'package:ipfsnets/models/cny_withdrawal_record_entity.dart';
+import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/widget/base_list_page.dart';
+
 import 'base_list_factory.dart';
 
 class BaseListPage extends StatefulWidget {
@@ -18,13 +20,13 @@ class BaseListPage extends StatefulWidget {
 }
 
 class _BaseListState extends BaseListPageState<BaseListPage> {
-  late List<RechageRecordModel> list;
+  late List<CnyWithdrawalRecordEntity> list = [];
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    list = BaseListFactory.getListItemData(widget.type);
+    list.addAll(BaseListFactory.getListItemData(widget.type));
   }
 
   @override
@@ -50,14 +52,20 @@ class _BaseListState extends BaseListPageState<BaseListPage> {
 
   }
 
-  @override
-  void requestListData() {
-    LogUtil.e("----add"+list.length.toString());
-    list.add(list[0]);
-  }
 
   @override
   int getListLength() {
     return list.length;
+  }
+
+
+  @override
+  Future<BaseEntity> getData() {
+    throw new Object();
+  }
+
+  @override
+  void clearList() {
+    list.clear();
   }
 }

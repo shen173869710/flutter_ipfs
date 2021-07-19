@@ -62,7 +62,7 @@ class HttpManager {
     int code = 0;
     try {
       if (params != null) {
-        response = await _dio!.get(api);
+        response = await _dio!.get(api,queryParameters: params);
       }else{
         response = await _dio!.get(api);
       }
@@ -73,7 +73,7 @@ class HttpManager {
       code = response.statusCode!;
       if(code == 200) {
         final String data = response.data.toString();
-        LogUtil.e("请求结束"+data);
+        // LogUtil.e("请求结束"+data);
         final Map<String, dynamic> _map = parseData(data);
         return BaseEntity<T>.fromJson(_map);
       }
@@ -82,6 +82,7 @@ class HttpManager {
       if (withLoading) {
         LoadingUtils.dismiss();
       }
+      LogUtil.e("异常"+e.toString());
       // return resultError(e);
     }
     return BaseEntity(code, '数据解析错误！', null);

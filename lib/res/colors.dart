@@ -50,6 +50,7 @@ class Colours {
 
   static const Color user_vip = Color(0xff0E0677); //<!--204-->
   static const Color text_white = Color(0xFFFFFFFF);
+  static const Color white = Color(0xFFFFFFFF);
   // button选中
   static const Color button_sel = Color(0xff516DFF);
   // button没有选中

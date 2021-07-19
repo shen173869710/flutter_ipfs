@@ -3,7 +3,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ipfsnets/data/global_entiy.dart';
 import 'package:ipfsnets/generated/l10n.dart';
@@ -16,6 +15,7 @@ import 'package:ipfsnets/ui/bloc/login/login_bloc.dart';
 import 'package:ipfsnets/ui/bloc/login/login_repository.dart';
 import 'package:ipfsnets/ui/widget/login_button.dart';
 import 'package:ipfsnets/utils/log_util.dart';
+
 import '../../r.dart';
 
 class LoginPage extends StatelessWidget {
@@ -47,9 +47,9 @@ class _LoginPageState extends StatelessWidget {
                   buildTitle(),
                   buildTitlem(),
                   buildInput(),
-                  BlocBuilder<LoginBloc, LoginState>(builder: (context, state){
-                    return  buildpro(context,state);
-                  }),
+                  // BlocBuilder<LoginBloc, LoginState>(builder: (context, state){
+                  //   return  buildpro(context,state);
+                  // }),
                   BlocBuilder<LoginBloc, LoginState>(builder: (context, state){
                     return buildLogin(context,state);
                   }),

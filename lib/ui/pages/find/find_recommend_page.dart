@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ipfsnets/include.dart';
 import 'package:ipfsnets/models/news_model.dart';
+import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/pages/find/new_item.dart';
 import 'package:ipfsnets/ui/widget/base_list_page.dart';
@@ -80,17 +81,23 @@ class _FindRecommendState extends BaseListPageState<FindRecommend> {
   }
 
   @override
-  void requestListData() {
-    // TODO: implement requestListData
-    LogUtil.e("----add"+list.length.toString());
-    list.add(list[0]);
-  }
-
-  @override
   int getListLength() {
     // TODO: implement getListSize
     LogUtil.e("----"+list.length.toString());
 
     return list.length;
+  }
+
+
+  @override
+  Future<BaseEntity> getData() async{
+    // TODO: implement getData
+    BaseEntity entity = new BaseEntity(1, "2", newsList);
+    return BaseEntity(1, "2", newsList);
+  }
+
+  @override
+  void clearList() {
+    list.clear();
   }
 }

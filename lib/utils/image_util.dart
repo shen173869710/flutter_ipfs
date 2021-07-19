@@ -1,10 +1,7 @@
-
-
-import 'dart:ui';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:ipfsnets/include.dart';
+import 'package:ipfsnets/utils/string_util.dart';
 
 class ImageUtil{
 
@@ -30,6 +27,30 @@ class ImageUtil{
     );
   }
 
+  static CachedNetworkImage loadImage(String url, double width, double height,{def}) {
+      if (StringUtil.isEmpty(url)) {
+        url = "";
+      }
+
+    return CachedNetworkImage(
+      width: width,
+      height: height,
+      imageUrl: url,
+      fit: BoxFit.cover,
+      placeholder: (context, url) => Center(child: CupertinoActivityIndicator()),
+      errorWidget: (context, url, error) => Image.asset(getDefault(def),height: width,width: height,fit:BoxFit.cover ,),
+    );
+  }
+
+
+  static String getDefault(String def) {
+    if (StringUtil.isEmpty(def)) {
+      LogUtil.e("使用默认图片");
+      return R.assetsImgIcDefHead;
+    }else{
+      return def;
+    }
+  }
 
 
 

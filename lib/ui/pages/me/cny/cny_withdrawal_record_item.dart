@@ -1,11 +1,13 @@
 import "package:ipfsnets/include.dart";
 import 'package:ipfsnets/models/cny_record_entiy.dart';
+import 'package:ipfsnets/models/cny_withdrawal_record_entity.dart';
 import 'package:ipfsnets/models/rechage_record_model.dart';
+import 'package:ipfsnets/utils/date_util.dart';
 /**
  *  CNY 充值记录
  */
 class CnyWithdrawalRecordItem extends StatelessWidget {
-  final RechageRecordModel data;
+  final CnyWithdrawalRecordEntity data;
   CnyWithdrawalRecordItem(this.data);
   @override
   Widget build(BuildContext context) {
@@ -19,42 +21,50 @@ class CnyWithdrawalRecordItem extends StatelessWidget {
         children: <Widget>[
           Row(
             children: [
-              Text(data.title,style: ITextStyles.itemTitle,),
+              Text(data.amount.toString()+"CNY",style: ITextStyles.itemTitle,),
               Expanded(child: SizedBox()),
-              Text(data.source,style: ITextStyles.itemTitle,),
+              Text("实际到账:"+data.recordedAmount.toString()+"CNY",style: ITextStyles.itemTitle,),
             ],
           ),
           Gaps.vGap8,
           Row(
             children: [
-              Text(data.time,style: ITextStyles.itemContent,),
+              Text("手续费"+data.serviceCharge.toString()+"CNY",style: ITextStyles.itemContent,),
               Expanded(child: SizedBox()),
-              Text(getStatus(data.status),style: TextStyle(
+              Text("转化:"+data.recordedNets.toString()+"NETS",style: ITextStyles.itemContent,),
+            ],
+          ),
+          Gaps.vGap8,
+          Row(
+            children: [
+              Text(DateUtil.getTime(data.createTime),style: ITextStyles.itemContent,),
+              Expanded(child: SizedBox()),
+              Text(getStatus(data.status!),style: TextStyle(
                 fontSize: 14,
-                color: getStatusColor(data.status),
+                color: getStatusColor(data.status!),
               ),),
             ],
           ),
           Gaps.vGap8,
-          Text(data.time,style: ITextStyles.itemContent,),
+          Text("收款账户:"+data.accountName.toString() +" " +data.accountBank.toString(),style: ITextStyles.itemContent,),
         ],
       ),
     );
   }
 
-  String getStatus(int status) {
-    if (status == 0) {
-      return S.current.cny_rechage_record_suc;
-    }else if (status == 1) {
-      return S.current.cny_rechage_record_fail;
+  String getStatus(String status) {
+    if (status == "1") {
+      return S.current.cny_withdrawal_record_suc;
+    }else if (status == "2") {
+      return S.current.cny_withdrawal_record_fail;
     }
-    return S.current.cny_rechage_record_ing;
+    return S.current.cny_withdrawal_record_ing;
   }
 
-  Color getStatusColor(int status) {
-    if (status == 0) {
+  Color getStatusColor(String status) {
+    if (status == "1") {
       return Colours.item_green;
-    }else if (status == 1) {
+    }else if (status == "2") {
       return Colours.item_red;
     }
     return Colours.item_content_color;

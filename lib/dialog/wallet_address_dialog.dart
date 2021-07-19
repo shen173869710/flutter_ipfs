@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:ipfsnets/models/acount_entiy.dart';
 import 'package:ipfsnets/models/acount_entiy2.dart';
 import 'package:ipfsnets/ui/widget/login_button.dart';
-import 'package:ipfsnets/ui/widget/nex_button.dart';
 
 import '../include.dart';
 
@@ -16,7 +14,7 @@ class WalletAddressDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child:  Container(
-          padding: EdgeInsets.fromLTRB(20.w, 20.w, 20.w, 40.w),
+          padding: EdgeInsets.fromLTRB(20.w, 20.w, 20.w, 20.w),
           decoration: new BoxDecoration(
               color: Colours.text_white,
               borderRadius: BorderRadius.only(topLeft: Radius.circular(30.w), topRight: Radius.circular(30.w))
@@ -32,7 +30,7 @@ class WalletAddressDialog extends StatelessWidget {
                 shrinkWrap: true,
                 itemCount: list.length,
                 itemBuilder: (context, index)=>InkWell(onTap: () {
-                }, child: Container(child:getListItem(list[index], index) ),
+                }, child: Container(child:getListItem(context,list[index], index) ),
                 ),
               ),height: 380,),
 
@@ -54,10 +52,9 @@ class WalletAddressDialog extends StatelessWidget {
     );
   }
 
-  Container getListItem(AccountEntiy2 entiy, int index) {
+  Container getListItem(BuildContext context,AccountEntiy2 entiy, int index) {
     return Container(
-        padding: EdgeInsets.fromLTRB(0, 10.h, 0, 10.h),
-
+        padding: EdgeInsets.fromLTRB(0, 5.h, 0, 0),
         child:Column(
           children: [
             Visibility(child: Row(
@@ -66,12 +63,14 @@ class WalletAddressDialog extends StatelessWidget {
                     activeColor: Colours.dark_bg_color,
                     value: entiy.isBlank,
                     onChanged: (value){
+                      Navigator.of(context).pop();
                       onItemClickListener(index, 1);
                     },
                     shape: CircleBorder()),
                 Image.asset(entiy.imgUrl, width: 40.w, height: 40.w,),
                 Gaps.hGap4,
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(entiy.title,
                       style: ITextStyles.itemTitle,
@@ -84,22 +83,24 @@ class WalletAddressDialog extends StatelessWidget {
                 Gaps.hGap4,
                 Expanded(child: SizedBox()),
                 GestureDetector(child:Image.asset(R.assetsImgIcDel, width: 35.w, height: 35.w,),onTap: (){
+                  Navigator.of(context).pop();
                   onItemClickListener(index, 2);
                 },),
                 Gaps.hGap8,
                 GestureDetector(child: Image.asset(R.assetsImgIcEdit, width: 35.w, height: 35.w,),onTap: (){
+                  Navigator.of(context).pop();
                   onItemClickListener(index, 3);
                 },)
               ],
             ),visible: entiy.type == 0 ? true:false,),
             Gaps.vGap8,
             Visibility(child: LoginButton(text: S.current.wallet_withdraw_dialog_add, endble: true, onPressed: (){
+              Navigator.of(context).pop();
               onItemClickListener(index, 4);
+
             }),visible: entiy.type != 0 ? true:false,)
           ],
         )
-
-
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter_easyrefresh/easy_refresh.dart';
+import 'package:ipfsnets/net/base_entity.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../include.dart';
@@ -10,79 +11,58 @@ abstract class BaseListPageState< W extends StatefulWidget>extends State<W>{
   bool isFailure = false;
   Future _onRefresh() async {
     page = 1;
-    requestListData();
-    await Future.delayed(Duration(milliseconds: 1000));
-    // if failed,use refreshFailed()
-    // _refreshController.resetLoadState();
-    _refreshController.finishRefresh();
+    clearList();
+    await getData();
+    if (_refreshController != null) {
+      _refreshController.resetLoadState();
+      LogUtil.e("停止刷新");
+      _refreshController.finishRefresh();
+    }
+
+    // _refreshController.finishRefresh(success: true);
   }
 
   Future _onLoading() async {
-    requestListData();
-    await Future.delayed(Duration(milliseconds: 1000));
-    // if failed,use refreshFailed()
-    // _refreshController.resetRefreshState();
-    _refreshController.finishLoad();
+    page++;
+    BaseEntity entity = await getData();
+    int max = (page-1) * 10;
+    bool hasNex = true;
+    if ( entity.total!<10 || max > entity.total!) {
+       hasNex = false;
+    }
+    if (_refreshController != null) {
+      _refreshController.finishLoad(success:true,noMore: hasNex);
+    }
   }
+
+  @override
+  void initState() {
+    _onRefresh();
+    super.initState();
+  }
+
 
   int getPage() {
     return page;
   }
 
-  // @override
-  // void listFailure() {
-  //   if (page == 1) {
-  //     isFailure = true;
-  //     _refreshController.refreshCompleted();
-  //   } else {
-  //     _refreshController.loadFailed();
-  //   }
-  //
-  //   setState(() {});
-  // }
-
-  // @override
-  // void listSuccess(ListEntity result) {
-  //   total = result.count;
-  //   if (page == 1) {
-  //     isFailure = false;
-  //     setEnableLoadMore(true);
-  //     list.clear();
-  //     list.addAll(result.getList<T>());
-  //     _refreshController.refreshCompleted();
-  //   } else {
-  //     list.addAll(result.getList<T>());
-  //     _refreshController.loadComplete();
-  //   }
-  //   page++;
-  //
-  //   if (list == null || list.length == 0) {
-  //     //列表为空
-  //     return;
-  //   }
-  //   if (list.length >= total) {
-  //     //没有更多数据了
-  //     _refreshController.loadNoData();
-  //   }
-  // }
-
   //是否开启下拉刷新
   bool _enableRefresh = true;
-
   //是否开启上拉加载
   bool _enableLoadMore = true;
 
   /// 构建一个带刷新的列表视图
   Widget buildRefreshView(BuildContext context) {
-    return
-      EasyRefresh.custom(
-        enableControlFinishRefresh: _enableLoadMore,
+    return EasyRefresh.custom(
+        enableControlFinishRefresh: _enableRefresh,
         enableControlFinishLoad: _enableLoadMore,
         controller: _refreshController,
-        header: _enableLoadMore ? ClassicalHeader() : null,
+        header: _enableRefresh ? ClassicalHeader() : null,
         footer: _enableLoadMore ? ClassicalFooter() : null,
         onRefresh: _onRefresh,
         onLoad: _onLoading,
+          topBouncing: true,
+          bottomBouncing: true,
         slivers: [
           SliverList(delegate: SliverChildBuilderDelegate((context, index) {
             return setListView(index);
@@ -110,8 +90,11 @@ abstract class BaseListPageState< W extends StatefulWidget>extends State<W>{
   //列表行点击事件
   void onItemClick(BuildContext context, int index);
 
-  //请求列表数据
-  void requestListData();
+
+  Future<BaseEntity> getData();
+  void clearList();
+
+
 
   //是否开启加载更多
   void setEnableLoadMore(enable) {
@@ -121,6 +104,14 @@ abstract class BaseListPageState< W extends StatefulWidget>extends State<W>{
   //是否开启下拉刷新
   void setEnableRefresh(enable) {
     _enableRefresh = enable;
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _refreshController.dispose();
+    super.dispose();
+
   }
 
 }

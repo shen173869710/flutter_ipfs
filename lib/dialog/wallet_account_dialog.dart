@@ -1,13 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:ipfsnets/models/acount_entiy.dart';
-import 'package:ipfsnets/models/acount_entiy2.dart';
-import 'package:ipfsnets/ui/widget/login_button.dart';
-import 'package:ipfsnets/ui/widget/nex_button.dart';
 
 import '../include.dart';
 
 class WalletAccountDialog extends StatelessWidget {
-  List<AccountEntiy3> list = List.from(GlobalEntiy.accountList3);
+  List<AccountEntiy> list = [];
 
   final void Function(int index, int option) onItemClickListener;
   WalletAccountDialog({required this.onItemClickListener});
@@ -40,7 +37,6 @@ class WalletAccountDialog extends StatelessWidget {
           )) ,
     );
 
-
   }
 
 
@@ -53,21 +49,16 @@ class WalletAccountDialog extends StatelessWidget {
       ],
     );
   }
-  Container getListItem(AccountEntiy3 entiy, int index) {
+  Container getListItem(AccountEntiy entiy, int index) {
     return Container(
       padding: EdgeInsets.fromLTRB(0, 10.h, 0, 10.h),
       child:  Row(
         children: [
-          Image.asset(entiy.imgUrl, width: 40.w, height: 40.w,),
+          Image.asset(getImage(entiy.type), width: 40.w, height: 40.w,),
           Gaps.hGap4,
           Column(
             children: [
-              Text(entiy.title,
-                style: ITextStyles.itemTitle,
-              ),
-              Text("222222",
-                style: ITextStyles.itemContent12,
-              ),
+              Text(entiy.accountName, style: ITextStyles.itemTitle,),
             ],
           ),
           Expanded(child: SizedBox()),
@@ -81,5 +72,14 @@ class WalletAccountDialog extends StatelessWidget {
         ],
       ),
     );
+  }
+
+
+  String getImage(String type) {
+    if (type == "1") {
+      return R.assetsImgIconAlipay;
+    }else{
+      return R.assetsImgIconBank;
+    }
   }
 }

@@ -114,11 +114,15 @@
   "cny_rechage_record_fail": "充值失败",
   "cny_rechage_record_ing": "等待中",
 
+  "cny_withdrawal_record_suc": "提现成功",
+  "cny_withdrawal_record_fail": "提现失败",
+  "cny_withdrawal_record_ing": "等待中",
+
   "cny_withdrawal_title": "提现",
   "cny_withdrawal_money": "金额",
   "cny_withdrawal_all": "全部",
   "cny_withdrawal_commission": "手续费每笔5%",
-  "cny_withdrawal_desc": "1.仅支持USDT提现账户收款,手续费每笔5%;2.提现审核时间为9:00-18:00,T+1个工作日后到账;3.每次最低提现金额为100元及整数倍才能申请提现;",
+  "cny_withdrawal_desc": " 1.仅支持USDT提现账户收款,手续费每笔5%;\n\n2.提现审核时间为9:00-18:00,T+1个工作日后到账;\n\n3.每次最低提现金额为100元及整数倍才能申请提现;",
   "cny_withdrawal_record": "提现记录",
   "cny_withdrawal_success": "提取成功",
   "cny_withdrawal_result": "到账",
@@ -140,6 +144,10 @@
   "cny_withdrawal_end_bank_address": "请输入卡号银行",
   "cny_withdrawal_end_sure": "确定提现",
   "cny_withdrawal_end_band_desc": "请确认银行卡账号无误再提现",
+
+  "withdraw_address_title": "新增地址",
+  "withdraw_address_hitn": "请输入有效钱包地址",
+  "withdraw_address_name": "名称",
 
   "more_title": "更多应用",
   "more_tab_1": "推荐应用",
@@ -196,6 +204,11 @@
 
   "wallet_withdraw_record_title": "提币记录",
   "wallet_recharge_record_title": "冲币记录",
+
+  "wallet_recharge_title": "冲币",
+  "wallet_recharge_address": "冲币钱包地址",
+  "wallet_recharge_copy": "复制地址",
+  "wallet_recharge_scan": "扫描二维码,获取地址",
 
   "setting_title": "设置",
   "setting_change_phone": "修改账户",

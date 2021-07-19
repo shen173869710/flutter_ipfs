@@ -2,9 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:ipfsnets/data/global_entiy.dart';
 import 'package:ipfsnets/dialog/wallet_account_dialog.dart';
-import 'package:ipfsnets/dialog/withdrawal_account_dialog.dart';
+import 'package:ipfsnets/dialog/wallet_address_dialog.dart';
 import "package:ipfsnets/include.dart";
-import 'package:ipfsnets/models/acount_entiy2.dart';
 import 'package:ipfsnets/models/wallet_entiy.dart';
 import 'package:ipfsnets/res/styles.dart';
 import 'package:ipfsnets/ui/pages/me/baseListpage/base_list_factory.dart';
@@ -33,7 +32,9 @@ class _WalletWithdrawalState extends State<WalletWithdrawalPage> {
         backgroundColor: Colours.app_bar_bg,
         actions: [
           IconButton(icon: Icon(Icons.receipt_outlined,color: Colours.text_white,),onPressed: () {
-            NavigatorUtil.goRecordPage(context, BaseListFactory.WALLET_WITHDRAWAL_RECORD);
+            // NavigatorUtil.goRecordPage(context, BaseListFactory.WALLET_WITHDRAWAL_RECORD);
+            NavigatorUtil.jump(context, Routes.cnyWithdrawalRecord);
+
           },)
         ],
       ),
@@ -90,7 +91,7 @@ class _WalletWithdrawalState extends State<WalletWithdrawalPage> {
     return Container(
       width: double.infinity,
       margin: EdgeInsets.all(20.w),
-      padding: EdgeInsets.fromLTRB(20.w, 30.w, 20.w, 30.w),
+      padding: EdgeInsets.fromLTRB(30.w, 40.w, 30.w, 40.w),
       decoration: ITextStyles.boxDecoration,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -101,13 +102,13 @@ class _WalletWithdrawalState extends State<WalletWithdrawalPage> {
           GestureDetector(
             child: Text.rich(TextSpan(children: [
               TextSpan(
-                  text: "USDT",
+                  text: "USDT ",
                   style: TextStyle(color: Colours.item_title_color, fontSize: 16)),
               WidgetSpan(
                   child: Image.asset(
                     R.assetsImgIcArrow,
-                    height: 30.w,
-                    width: 30.w,
+                    height: 35.w,
+                    width: 35.w,
                   ))
             ])),
             onTap: (){
@@ -316,10 +317,12 @@ class _WalletWithdrawalState extends State<WalletWithdrawalPage> {
 
   // 选择币种
   void showChooseWalletAddress() {
-    showModalBottomSheet(context: context,backgroundColor:Colours.transparent,builder:(BuildContext context) =>WalletAccountDialog(onItemClickListener: (index, option) {
-
-
+    showModalBottomSheet(context: context,backgroundColor:Colours.transparent,builder:(BuildContext context) =>WalletAddressDialog(onItemClickListener: (index, option) {
       LogUtil.e("index = "+index.toString()+ "   option"+option.toString());
+      if (option == 4) {
+        NavigatorUtil.jump(context, Routes.walletWithdrawalAddressPage);
+      }
+
     },));
 
   }

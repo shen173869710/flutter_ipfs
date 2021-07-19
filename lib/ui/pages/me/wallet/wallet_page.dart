@@ -77,7 +77,7 @@ class WalletPage extends StatelessWidget {
                         Gaps.hGap10,
                         bulidItem(context,R.assetsImgMeItem8, S.current.wallet_item_2, Routes.walletWithdrawalPage),
                         Gaps.hGap10,
-                        bulidItem(context,R.assetsImgMeItem8, S.current.wallet_item_3, Routes.walletRechargePage),
+                        bulidItem(context,R.assetsImgMeItem8, S.current.wallet_item_3, Routes.walletRechagePage),
                         Gaps.hGap10,
                         bulidItem(context,R.assetsImgMeItem8, S.current.wallet_item_4, Routes.walletExchangePage),
                       ],

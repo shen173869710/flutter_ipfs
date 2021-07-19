@@ -61,7 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cny_withdrawal_commission":
             MessageLookupByLibrary.simpleMessage("手续费每笔5%"),
         "cny_withdrawal_desc": MessageLookupByLibrary.simpleMessage(
-            "1.仅支持USDT提现账户收款,手续费每笔5%;2.提现审核时间为9:00-18:00,T+1个工作日后到账;3.每次最低提现金额为100元及整数倍才能申请提现;"),
+            "1.仅支持USDT提现账户收款,手续费每笔5%;\n\n2.提现审核时间为9:00-18:00,T+1个工作日后到账;\n\n3.每次最低提现金额为100元及整数倍才能申请提现;"),
         "cny_withdrawal_end_alipay_account":
             MessageLookupByLibrary.simpleMessage("请输入支付宝账户"),
         "cny_withdrawal_end_alipay_desc":
@@ -85,6 +85,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "cny_withdrawal_end_sure": MessageLookupByLibrary.simpleMessage("确定提现"),
         "cny_withdrawal_money": MessageLookupByLibrary.simpleMessage("金额"),
         "cny_withdrawal_record": MessageLookupByLibrary.simpleMessage("提现记录"),
+        "cny_withdrawal_record_fail":
+            MessageLookupByLibrary.simpleMessage("提现失败"),
+        "cny_withdrawal_record_ing":
+            MessageLookupByLibrary.simpleMessage("等待中"),
+        "cny_withdrawal_record_suc":
+            MessageLookupByLibrary.simpleMessage("提现成功"),
         "cny_withdrawal_result": MessageLookupByLibrary.simpleMessage("到账"),
         "cny_withdrawal_success": MessageLookupByLibrary.simpleMessage("提取成功"),
         "cny_withdrawal_title": MessageLookupByLibrary.simpleMessage("提现"),
@@ -211,8 +217,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "wallet_item_2": MessageLookupByLibrary.simpleMessage("提币"),
         "wallet_item_3": MessageLookupByLibrary.simpleMessage("充币"),
         "wallet_item_4": MessageLookupByLibrary.simpleMessage("兑换"),
+        "wallet_recharge_address":
+            MessageLookupByLibrary.simpleMessage("冲币钱包地址"),
+        "wallet_recharge_copy": MessageLookupByLibrary.simpleMessage("复制地址"),
         "wallet_recharge_record_title":
             MessageLookupByLibrary.simpleMessage("冲币记录"),
+        "wallet_recharge_scan":
+            MessageLookupByLibrary.simpleMessage("扫描二维码,获取地址"),
+        "wallet_recharge_title": MessageLookupByLibrary.simpleMessage("冲币"),
         "wallet_title": MessageLookupByLibrary.simpleMessage("我的钱包"),
         "wallet_total": MessageLookupByLibrary.simpleMessage("总账户资产折合"),
         "wallet_withdraw_address": MessageLookupByLibrary.simpleMessage("提币地址"),
@@ -251,6 +263,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("提币记录"),
         "wallet_withdraw_title": MessageLookupByLibrary.simpleMessage("提币"),
         "wallet_withdraw_trc20": MessageLookupByLibrary.simpleMessage("TRC20"),
+        "withdraw_address_hitn":
+            MessageLookupByLibrary.simpleMessage("请输入有效钱包地址"),
+        "withdraw_address_name": MessageLookupByLibrary.simpleMessage("名称"),
+        "withdraw_address_title": MessageLookupByLibrary.simpleMessage("新增地址"),
         "withdrawal_dialog_alipay":
             MessageLookupByLibrary.simpleMessage("提现到支付宝"),
         "withdrawal_dialog_bank":

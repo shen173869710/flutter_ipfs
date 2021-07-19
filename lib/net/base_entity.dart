@@ -7,13 +7,21 @@ class BaseEntity <T> {
   int? code;
   late String msg;
   T?  data;
+  int? total;
 
   BaseEntity(this.code, this.msg, this.data);
   BaseEntity.fromJson(Map<String, dynamic> json) {
     code = json[GlobalEntiy.CODE] as int?;
     msg = json[GlobalEntiy.MSG] as String;
+    if (json.containsKey("total")) {
+      total = json["total"] as int?;
+    }
+
     if (json.containsKey(GlobalEntiy.DATA)) {
-      data = EntityFactory.generateOBJ(json[GlobalEntiy.DATA]);
+      data = EntityFactory.generateOBJ<T>(json[GlobalEntiy.DATA]);
+    }
+    if (json.containsKey("rows")) {
+      data = EntityFactory.generateOBJ<T>(json["rows"]);
     }
   }
 
@@ -23,7 +31,5 @@ class BaseEntity <T> {
     }
     return false;
   }
-
-
 
 }

@@ -1,16 +1,22 @@
 
-import 'package:ipfsnets/models/rechage_record_model.dart';
+import 'package:ipfsnets/http/api_service.dart';
 import 'package:ipfsnets/include.dart';
-import 'package:ipfsnets/ui/pages/me/baseListpage/base_list_item.dart';
+import 'package:ipfsnets/models/cny_recharge_record_entity.dart';
+import 'package:ipfsnets/models/cny_withdrawal_record_entity.dart';
+import 'package:ipfsnets/models/rechage_record_model.dart';
+import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/ui/pages/me/cny/cny_rechage_record_item.dart';
-import 'package:ipfsnets/ui/pages/me/wallet/wallet_recharge_record_item.dart';
+import 'package:ipfsnets/ui/pages/me/cny/cny_withdrawal_record_item.dart';
+import 'package:ipfsnets/ui/pages/me/wallet/wallet_rechage_record_item.dart';
 
 class BaseListFactory{
 
   // 钱包提现记录
   static String WALLET_RECHARGE_RECORD = "walletRechargeRecord";
-  // 钱包充币记录
-  static String WALLET_WITHDRAWAL_RECORD = "walletWithDRAWALRecord";
+  // 钱包提现记录
+  static String WALLET_WITHDRAWAL_RECORD = "walletWithDrawalRecord";
+  // cny 提现记录
+  static String CNY_WITHDRAWAL_RECORD = "cnyWithDrawalRecord";
 
   static List<RechageRecordModel> newsList = [
     RechageRecordModel(
@@ -59,26 +65,40 @@ class BaseListFactory{
 
   // 获取list页面的标题
   static getListTitle(String type) {
-    if(type == WALLET_RECHARGE_RECORD) {
+    LogUtil.e("type ="+type);
+    if(type == WALLET_WITHDRAWAL_RECORD) {
       return S.current.wallet_withdraw_record_title;
     }else if (type == WALLET_RECHARGE_RECORD) {
       return S.current.wallet_recharge_record_title;
+    }else if (type == CNY_WITHDRAWAL_RECORD) {
+      return S.current.cny_withdrawal_record;
     }
+
+    return "111";
   }
 
   /**
    *   获取列表数量的数据源
    */
-  static getListItemData(String type) {
-    return newsList;
-  }
+  static getListItemData(String type) async{
+    if (type == CNY_WITHDRAWAL_RECORD) {
+      BaseEntity baseEntity  = await ApiServer.cnyWithdrawalList(1);
+      List<CnyWithdrawalRecordEntity> entity = baseEntity.data;
+      LogUtil.e("ithdrawalRecordEntity list"+entity.length.toString());
+      return entity;
+    }else {
+      return newsList;
+    }
 
+  }
 
   static Widget getListItem(String type, int intex){
     if(type == WALLET_RECHARGE_RECORD) {
       return WalleRchargeRecordItem(getListItemData(type)[intex]);
+    }else if (type == CNY_WITHDRAWAL_RECORD){
+      return CnyRechageRecordItem(getListItemData(type[intex]));
+    }else {
+      return CnyWithdrawalRecordItem(getListItemData(type)[intex]);
     }
-    return WalleRchargeRecordItem(getListItemData(type)[intex]);
   }
-
 }

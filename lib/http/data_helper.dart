@@ -1,8 +1,8 @@
 import 'dart:collection';
 
 class DataHelper{
-  static SplayTreeMap getBaseMap() {
-    var map = new SplayTreeMap<String, dynamic>();
+  static Map getBaseMap() {
+    var map = new Map<String, dynamic>();
     // map["platform"] = AppConstants.PLATFORM;
     // map["system"] = AppConstants.SYSTEM;
     // map["channel"] = AppConstants.CHANNEL;

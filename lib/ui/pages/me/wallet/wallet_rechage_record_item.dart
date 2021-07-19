@@ -19,7 +19,7 @@ class WalleRchargeRecordItem extends BaseListItem {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Image.asset(data.imgUrl,width: 50.w,height: 50.w,),
+                Image.network(data.imgUrl,width: 50.w,height: 50.w,),
                 Gaps.hGap8,
                 Text(data.title,style: ITextStyles.itemTitle,),
                 Expanded(child:SizedBox()),

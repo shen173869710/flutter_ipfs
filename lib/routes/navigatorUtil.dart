@@ -108,6 +108,10 @@ class NavigatorUtil {
     push(context, '${Routes.passwordPage}?type=${Uri.encodeComponent(type)}');
   }
 
+  static void goWithdrawal(BuildContext context,String type) {
+    //fluro 不支持传中文,需转换
+    push(context, '${Routes.cnyWithdrawal}?type=${Uri.encodeComponent(type)}');
+  }
 
   /// 跳到记录相关页面
   static void goRecordPage(BuildContext context, String type) {
@@ -136,5 +140,27 @@ class NavigatorUtil {
     // FocusScope.of(context).unfocus();
     // https://github.com/flutter/flutter/issues/47128#issuecomment-627551073
     FocusManager.instance.primaryFocus?.unfocus();
+  }
+
+
+  static void pushResult(BuildContext context, String path, Function(Object) function,
+      {bool replace = false, bool clearStack = false, Object? arguments}) {
+    unfocus();
+    Routes.router.navigateTo(context, path,
+      replace: replace,
+      clearStack: clearStack,
+      transition: TransitionType.native,
+      routeSettings: RouteSettings(
+        arguments: arguments,
+      ),
+    ).then((Object? result) {
+      // 页面返回result为null
+      if (result == null) {
+        return;
+      }
+      function(result);
+    }).catchError((dynamic error) {
+      print('$error');
+    });
   }
 }
