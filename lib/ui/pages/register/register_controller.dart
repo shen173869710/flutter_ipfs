@@ -1,6 +1,7 @@
 
 
 import 'package:ipfsnets/http/api_service.dart';
+import 'package:ipfsnets/http/sms_api.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/utils/toast_util.dart';
 
@@ -11,11 +12,11 @@ class RegisterController extends GetxController {
 
   void init() {
     isPhone = true;
-    String account;
-    String code;
-    String password;
-    String paddwordAgain;
-    String shareCode;
+    account = "";
+    code = "";
+    password = "";
+    paddwordAgain = "";
+    shareCode = "";
     agreeMent = false;
     enableRgister = false;
   }
@@ -118,7 +119,14 @@ class RegisterController extends GetxController {
   }
 
   // 获取验证码
-  bool  getCode() {
+  Future<bool>  getCode() async {
+    BaseEntity baseEntity  = await SmsApi.sendSms(0, "18675570791");
+    if (baseEntity.isOk()) {
+      ToastUtil.show(S.current.send_success);
+    }else{
+      ToastUtil.show(S.current.send_faile);
+    }
+
     return true;
   }
 }

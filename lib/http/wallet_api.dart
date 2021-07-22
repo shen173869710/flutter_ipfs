@@ -46,8 +46,8 @@ class WalletApi{
   }
   // wallet 冲币
   static const String wallet_rechage_home= "wallets/app/wallet/coin/in/";
-  static  Future<BaseEntity> getWalletRechageHome() {
-    return HttpManager.getInstance().get<List<WalletRechageEntity>>(wallet_rechage_home);
+  static  Future<BaseEntity> getWalletRechageHome(String type,bool show) {
+    return HttpManager.getInstance().get<List<WalletRechageEntity>>(wallet_rechage_home+type,withLoading: show);
   }
 
   // wallet 提币
@@ -89,7 +89,7 @@ class WalletApi{
   // 删除钱包
   static const String wallet_account_address_del = "wallets/app/wallet/contact/";
   static  Future<BaseEntity> walletAccountAddressDel(num id) {
-    return HttpManager.getInstance().post(wallet_account_address_del+id.toString(),'');
+    return HttpManager.getInstance().del(wallet_account_address_del+id.toString(),'');
   }
 
   // 钱包 申请提币

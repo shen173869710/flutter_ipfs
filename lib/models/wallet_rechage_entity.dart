@@ -7,6 +7,7 @@ class WalletRechageEntity{
 	late String chain;
 	late num coinCode;
 	late String coinName;
+	late String address;
 	late String inDes;
 	late num inStatus;
 	WalletRechageEntity();

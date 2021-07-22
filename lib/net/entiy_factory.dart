@@ -61,6 +61,7 @@ class EntityFactory {
     }else if(<WalletAccountEntity>[] is M){
       return data.map<WalletAccountEntity>((e) => WalletAccountEntity.fromJson(e)).toList() as M;
     }else if(<WalletRechageEntity>[] is M){
+      LogUtil.e("解析数组对象WalletRechageEntity");
       return data.map<WalletRechageEntity>((e) => WalletRechageEntity.fromJson(e)).toList() as M;
     }else if(<WalletWithdrawalEntity>[] is M){
       return data.map<WalletWithdrawalEntity>((e) => WalletWithdrawalEntity.fromJson(e)).toList() as M;
@@ -68,7 +69,7 @@ class EntityFactory {
     else if(<WalletAddressEntity>[] is M){
       return data.map<WalletAddressEntity>((e) => WalletAddressEntity.fromJson(e)).toList() as M;
     }
-    throw Exception("数组子类异常 fond");
+    throw Exception("-----------------数组子类异常 no fond");
   }
 }
 

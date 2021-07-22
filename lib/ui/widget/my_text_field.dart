@@ -41,7 +41,7 @@ class _MyTextFieldState extends State<MyTextField> {
   bool _clickable = true;
 
   /// 倒计时秒数
-  final int _second = 10;
+  final int _second = 60;
 
   /// 当前秒数
   late int _currentSecond;

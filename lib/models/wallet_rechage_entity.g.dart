@@ -11,6 +11,7 @@ WalletRechageEntity _$WalletRechageEntityFromJson(Map<String, dynamic> json) {
     ..chain = json['chain'] as String
     ..coinCode = json['coinCode'] as num
     ..coinName = json['coinName'] as String
+    ..address = json['address'] as String
     ..inDes = json['inDes'] as String
     ..inStatus = json['inStatus'] as num;
 }
@@ -21,6 +22,7 @@ Map<String, dynamic> _$WalletRechageEntityToJson(
       'chain': instance.chain,
       'coinCode': instance.coinCode,
       'coinName': instance.coinName,
+      'address': instance.address,
       'inDes': instance.inDes,
       'inStatus': instance.inStatus,
     };

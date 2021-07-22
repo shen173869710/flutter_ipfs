@@ -74,10 +74,10 @@ class GlobalEntiy{
     S.current.me_item_12,S.current.me_item_13,S.current.me_item_14,
     S.current.me_item_15,S.current.me_item_16,S.current.me_item_17,
     S.current.me_item_18,S.current.me_item_19];
-  static  List<String> SERVER_IMAGE = [R.assetsImgMeItem1, R.assetsImgMeItem2, R.assetsImgMeItem7,
-    R.assetsImgMeItem8,R.assetsImgMeItem5, R.assetsImgMeItem6,
-    R.assetsImgMeItem8,R.assetsImgMeItem5, R.assetsImgMeItem6,
-    R.assetsImgMeItem8,R.assetsImgMeItem5];
+  static  List<String> SERVER_IMAGE = [R.assetsImgMeItem9, R.assetsImgMeItem10, R.assetsImgMeItem11,
+    R.assetsImgMeItem12,R.assetsImgMeItem13, R.assetsImgMeItem14,
+    R.assetsImgMeItem15,R.assetsImgMeItem16, R.assetsImgMeItem17,
+    R.assetsImgMeItem18,R.assetsImgMeItem19];
 
   // 更多应用
 
@@ -90,11 +90,11 @@ class GlobalEntiy{
   //   S.current.more_item_9, S.current.more_item_10, S.current.more_item_11,S.current.more_item_12,
   //   S.current.more_item_13, S.current.more_item_14];
 
-  static  List<String> MORE_IMAGE_1 = [R.assetsImgIcMoreItem, R.assetsImgIcMoreItem, R.assetsImgIcMoreItem, R.assetsImgIcMoreItem,
-    R.assetsImgIcMoreItem, R.assetsImgIcMoreItem ];
-  static  List<String> MORE_IMAGE_2 = [R.assetsImgIcMoreItem, R.assetsImgIcMoreItem, R.assetsImgIcMoreItem, R.assetsImgIcMoreItem,
-    R.assetsImgIcMoreItem];
-  static  List<String> MORE_IMAGE_3 = [R.assetsImgIcMoreItem, R.assetsImgIcMoreItem, R.assetsImgIcMoreItem];
+  static  List<String> MORE_IMAGE_1 = [R.assetsImgMoreItem1, R.assetsImgMoreItem2, R.assetsImgMoreItem3, R.assetsImgMoreItem4,
+    R.assetsImgMoreItem5, R.assetsImgMoreItem6 ];
+  static  List<String> MORE_IMAGE_2 = [R.assetsImgMoreItem1, R.assetsImgMoreItem8, R.assetsImgMoreItem9, R.assetsImgMoreItem10,
+    R.assetsImgMoreItem11];
+  static  List<String> MORE_IMAGE_3 = [R.assetsImgMoreItem12, R.assetsImgMoreItem13, R.assetsImgMoreItem14];
 
   static List<NewsModel> newsList = [
     NewsModel(

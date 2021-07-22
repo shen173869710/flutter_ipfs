@@ -193,7 +193,7 @@ class _WalletWithdrawalState extends State<WalletWithdrawalPage> {
                 hintText: S.current.wallet_withdraw_address_hint
             ),
           )),
-          Expanded(child: SizedBox()),
+
           GestureDetector(child: Image.asset(R.assetsImgIcWithdrawScan, width: 35.w,height: 35.w,),onTap: (){
             _money.canRequestFocus = false;
             _address.canRequestFocus = false;
@@ -242,7 +242,7 @@ class _WalletWithdrawalState extends State<WalletWithdrawalPage> {
             ),
             TextFormField(
               onChanged: (value) {
-                controller.withdrawalAddress(value);
+                controller.withdrawalMark(value);
               },
               controller: _markController,
               focusNode: _mark,
@@ -382,8 +382,6 @@ class _WalletWithdrawalState extends State<WalletWithdrawalPage> {
   }
 
 
-
-
   // 选择币种
   void showChooseWalletType() {
     showModalBottomSheet(context: context,backgroundColor:Colours.transparent,builder:(BuildContext context) =>WalletAccountDialog(list:controller.listEntiy,onItemClickListener: (index, option) {
@@ -400,9 +398,9 @@ class _WalletWithdrawalState extends State<WalletWithdrawalPage> {
   // 选择地址
   void showChooseWalletAddress() {
     showModalBottomSheet(context: context,backgroundColor:Colours.transparent,builder:(BuildContext context) =>WalletAddressDialog(onItemClickListener: (index, option, entiy) {
-
       if (option == GlobalEntiy.ADDRESS_SEL) {
         // 选中
+        _addressController.text = entiy.address;
         controller.withdrawalAddress(entiy.address);
       }else  if (option == GlobalEntiy.ADDRESS_DEL) {
         // 删除

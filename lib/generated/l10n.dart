@@ -420,6 +420,36 @@ class S {
     );
   }
 
+  /// `发送失败`
+  String get send_faile {
+    return Intl.message(
+      '发送失败',
+      name: 'send_faile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `保存失败`
+  String get save_faile {
+    return Intl.message(
+      '保存失败',
+      name: 'save_faile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `操作失败`
+  String get option_faile {
+    return Intl.message(
+      '操作失败',
+      name: 'option_faile',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `保存成功`
   String get save_success {
     return Intl.message(

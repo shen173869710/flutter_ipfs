@@ -9,6 +9,7 @@ import 'package:ipfsnets/http/api_service.dart';
 import 'package:ipfsnets/models/access_token_entity.dart';
 import 'package:ipfsnets/models/user_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
+import 'package:ipfsnets/utils/LoadingUtils.dart';
 import 'package:ipfsnets/utils/toast_util.dart';
 import 'package:ipfsnets/utils/user_util.dart';
 import 'login_repository.dart';
@@ -62,36 +63,42 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   Stream<LoginState> _mapLoginAgressToState(LoginAgressEvent event) async* {
 
-    LogUtil.e("同意协议"+event.repository.isAggress.toString());
+    // LogUtil.e("同意协议"+event.repository.isAggress.toString());
     yield LoginAgressState(copyObject(event.repository));
   }
 
   Stream<LoginState> _mapLoginButtonPressToState(LoginButtonPressEvent event) async* {
-    BaseEntity baseEntity  = await ApiServer.login(event.repository.userName!,event.repository.password!);
 
+
+    LoadingUtils.show();
+    BaseEntity baseEntity  = await ApiServer.login(event.repository.userName!,event.repository.password!);
     if (baseEntity.code != 200) {
       ToastUtil.show(""+baseEntity.msg);
+      LoadingUtils.dismiss();
       return;
     }
 
     if (baseEntity != null && baseEntity.data != null) {
       AccessTokenEntity entity = baseEntity.data;
-      LogUtil.e("==="+entity.expiresIn.toString()+ "");
-      LogUtil.e("64 ==="+entity.accessToken.toString());
+      LogUtil.e("token==="+entity.accessToken.toString());
 
       if (entity.accessToken!.isNotEmpty) {
         SpUtil.putString(GlobalEntiy.accessToken, entity.accessToken!);
         final String? accessToken = SpUtil.getString(GlobalEntiy.accessToken);
         LogUtil.e("保存之后 ==="+accessToken!);
         baseEntity =  await ApiServer.getuserInfo();
+        LoadingUtils.dismiss();
         if (baseEntity.data != null) {
           UserEntity userEntity = baseEntity.data;
           UserUtil.saveUserInfo(userEntity);
           event.repository.state = 200;
           yield LoginButtonPressState(copyObject(event.repository));
         }
+
       }
     }
+
+    LoadingUtils.dismiss();
   }
 
   void isLoginButtonEnable (LoginRepository repository) {
@@ -106,8 +113,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     }else {
       repository.isCanLogin = false;
     }
-    LogUtil.e("用户名"+repository.userName.toString());
-    LogUtil.e("密码"+repository.password.toString());
+    // LogUtil.e("用户名"+repository.userName.toString());
+    // LogUtil.e("密码"+repository.password.toString());
   }
 
   LoginRepository copyObject(LoginRepository repository) {

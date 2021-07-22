@@ -37,11 +37,11 @@ class ApiServer {
     params['username'] = username;
     params['password'] = password;
     String json = jsonEncode(params);
-    return HttpManager.getInstance().post<AccessTokenEntity>(login_url,json);
+    return HttpManager.getInstance().post<AccessTokenEntity>(login_url,json,withLoading: false);
   }
   /***获取用户信息***/
   static  Future<BaseEntity> getuserInfo() {
-    return HttpManager.getInstance().get<UserEntity>(get_user);
+    return HttpManager.getInstance().get<UserEntity>(get_user,withLoading: false);
   }
   // 上传文件
   static Future<BaseEntity> uploadFile (File file) {

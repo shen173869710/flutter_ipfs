@@ -172,6 +172,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "more_tab_4": MessageLookupByLibrary.simpleMessage("生活服务"),
         "more_title": MessageLookupByLibrary.simpleMessage("更多应用"),
         "not_enough": MessageLookupByLibrary.simpleMessage("余额不足"),
+        "option_faile": MessageLookupByLibrary.simpleMessage("操作失败"),
         "option_success": MessageLookupByLibrary.simpleMessage("操作成功"),
         "password_no_equal": MessageLookupByLibrary.simpleMessage("两次输入的密码不相同"),
         "pwd_account_code": MessageLookupByLibrary.simpleMessage("请输入验证码"),
@@ -196,7 +197,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "register_share_hint": MessageLookupByLibrary.simpleMessage("请输邀请码"),
         "register_success": MessageLookupByLibrary.simpleMessage("注册成功"),
         "save": MessageLookupByLibrary.simpleMessage("保存"),
+        "save_faile": MessageLookupByLibrary.simpleMessage("保存失败"),
         "save_success": MessageLookupByLibrary.simpleMessage("保存成功"),
+        "send_faile": MessageLookupByLibrary.simpleMessage("发送失败"),
         "send_success": MessageLookupByLibrary.simpleMessage("发送成功"),
         "setting_change_logig_pwd":
             MessageLookupByLibrary.simpleMessage("修改登录密码"),

@@ -68,6 +68,8 @@ dependencies:
   common_utils: ^2.0.2
   # 扫码 https://github.com/juliuscanute/qr_code_scanner
   qr_code_scanner: 0.5.2
+#  qrscan: ^0.3.2
+  qr_flutter: ^4.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -79,7 +81,7 @@ dev_dependencies:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 dependency_overrides:
-  analyzer: ^0.41.1
+#  analyzer: ^0.41.1
 # The following section is specific to Flutter.
 flutter:
 
@@ -121,9 +123,11 @@ flutter:
   # assets-generator-begin
   # assets/img/*
     - assets/img/me_item_4.png
+    - assets/img/ic_wallet_item_2.png
     - assets/img/ic_score_1.png
     - assets/img/login_phone.png
     - assets/img/ic_down.png
+    - assets/img/ic_wallet_item_3.png
     - assets/img/ic_withdraw_address.png
     - assets/img/icon_bank.png
     - assets/img/me_item_5.png
@@ -132,6 +136,7 @@ flutter:
     - assets/img/ic_online.png
     - assets/img/ic_erweima.png
     - assets/img/ic_score_2.png
+    - assets/img/ic_wallet_item_1.png
     - assets/img/ic_withdrawal_n.png
     - assets/img/ic_more_item.png
     - assets/img/icon_close.png
@@ -140,6 +145,7 @@ flutter:
     - assets/img/me_item_6.png
     - assets/img/icon_display.png
     - assets/img/me_item_2.png
+    - assets/img/ic_wallet_item_4.png
     - assets/img/ic_expired.png
     - assets/img/my_wallet_fil.png
     - assets/img/ic_like.png
@@ -173,50 +179,75 @@ flutter:
     - assets/img/ic_address_edit.png
     - assets/img/ic_unlike.png
     - assets/img/ic_cny_icon.png
+    - assets/img/me_item_19.png
     - assets/img/ic_dark_search.png
     - assets/img/home_item_4.png
     - assets/img/home_item_mining.png
     - assets/img/ic_pay_del1.png
     - assets/img/home_item_5.png
     - assets/img/ic_sub.png
+    - assets/img/me_item_18.png
+    - assets/img/more_item_9.png
     - assets/img/edittext_clear.png
     - assets/img/ic_dot.png
     - assets/img/ic_str.png
+    - assets/img/more_item_8.png
     - assets/img/my_wallet_btc.png
     - assets/img/ic_get.png
     - assets/img/icon_usdt_used.png
     - assets/img/ic_welcome.jpeg
     - assets/img/ic_cny_rechage.png
+    - assets/img/me_item_16.png
     - assets/img/tab_market_p.png
     - assets/img/ic_btc.png
     - assets/img/icon_cny_used.png
+    - assets/img/ic_big_bg.png
+    - assets/img/more_item_13.png
     - assets/img/edittext_hide.png
+    - assets/img/more_item_5.png
     - assets/img/ic_dad.png
     - assets/img/login_pwd.png
     - assets/img/tab_find_n.png
     - assets/img/ic_vip.png
+    - assets/img/more_item_4.png
+    - assets/img/more_item_12.png
+    - assets/img/me_item_17.png
     - assets/img/ic_net_address.png
     - assets/img/ic_edit.png
+    - assets/img/me_item_15.png
+    - assets/img/more_item_10.png
+    - assets/img/more_item_6.png
     - assets/img/ic_choose_image.png
     - assets/img/home_monitor.png
+    - assets/img/more_item_11.png
     - assets/img/ic_exchange.png
+    - assets/img/me_item_14.png
     - assets/img/ic_placeholder.png
+    - assets/img/me_item_10.png
     - assets/img/ic_envelope.png
     - assets/img/ic_search.png
     - assets/img/ic_arrow.png
+    - assets/img/more_item_3.png
     - assets/img/ic_copy.png
     - assets/img/ic_launcher.png
     - assets/img/ic_cny_withdrawal.png
+    - assets/img/more_item_2.png
     - assets/img/ic_sold.png
+    - assets/img/more_item_14.png
+    - assets/img/me_item_11.png
     - assets/img/login_code.png
     - assets/img/ic_def_head.png
     - assets/img/home_item_wallet.png
+    - assets/img/me_item_13.png
     - assets/img/ic_play.png
     - assets/img/icon_usdt.png
     - assets/img/ic_launcher_round.png
+    - assets/img/more_item_1.png
     - assets/img/home_treasure.png
+    - assets/img/me_item_12.png
     - assets/img/ic_up.png
     - assets/img/my_wallet_usdt.png
+    - assets/img/ic_add_photo.png
     - assets/img/market_recomed.png
     - assets/img/my_wallet_eth.png
     - assets/img/ic_del.png
@@ -231,6 +262,7 @@ flutter:
     - assets/img/me_item_8.png
     - assets/img/tab_quotes_n.png
     - assets/img/ic_bnbb.png
+    - assets/img/me_item_9.png
   # assets-generator-end
 flutter_intl:
   enabled: true

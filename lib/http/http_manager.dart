@@ -94,12 +94,14 @@ class HttpManager {
     if (withLoading) {
       LoadingUtils.show();
     }
+    int code = 0;
     Response response;
     try {
       response = await _dio!.post(api, data: json);
       if (withLoading) {
         LoadingUtils.dismiss();
       }
+      code = response.statusCode!;
       final String data = response.data.toString();
       LogUtil.e("请求结束"+data);
       final Map<String, dynamic> _map = parseData(data);
@@ -108,6 +110,33 @@ class HttpManager {
       if (withLoading) {
         LoadingUtils.dismiss();
       }
+      return BaseEntity(code, e.toString(), null);
+    }
+    return BaseEntity(ExceptionHandle.parse_error, '数据解析错误！', null);
+  }
+
+
+  Future<BaseEntity<T>> del<T>(api,  String json,{withLoading = true}) async {
+    if (withLoading) {
+      LoadingUtils.show();
+    }
+    int code = 0;
+    Response response;
+    try {
+      response = await _dio!.request(api, data: json,options:new Options(method: 'delete') );
+      if (withLoading) {
+        LoadingUtils.dismiss();
+      }
+      code = response.statusCode!;
+      final String data = response.data.toString();
+      LogUtil.e("请求结束"+data);
+      final Map<String, dynamic> _map = parseData(data);
+      return BaseEntity<T>.fromJson(_map);
+    } catch (e) {
+      if (withLoading) {
+        LoadingUtils.dismiss();
+      }
+      return BaseEntity(code, e.toString(), null);
     }
     return BaseEntity(ExceptionHandle.parse_error, '数据解析错误！', null);
   }
