@@ -181,4 +181,10 @@ class GlobalEntiy{
     AccountEntiy3(R.assetsImgMyWalletEth,"ETH","500",false,0),
     AccountEntiy3(R.assetsImgMyWalletEos,"EOS","600",false,0),
   ];
+
+  // 货币通讯录  相关操作
+  static final int ADDRESS_SEL = 1;
+  static final int ADDRESS_DEL = 2;
+  static final int ADDRESS_EDIT = 3;
+  static final int ADDRESS_ADD = 4;
 }

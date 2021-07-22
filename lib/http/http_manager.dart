@@ -83,6 +83,7 @@ class HttpManager {
         LoadingUtils.dismiss();
       }
       LogUtil.e("异常"+e.toString());
+      return BaseEntity(code, e.toString(), null);
       // return resultError(e);
     }
     return BaseEntity(code, '数据解析错误！', null);

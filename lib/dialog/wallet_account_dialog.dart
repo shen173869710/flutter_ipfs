@@ -1,13 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:ipfsnets/models/acount_entiy.dart';
+import 'package:ipfsnets/models/wallet_account_entity.dart';
 
 import '../include.dart';
 
 class WalletAccountDialog extends StatelessWidget {
-  List<AccountEntiy> list = [];
+  List<WalletAccountEntity> list = [];
 
   final void Function(int index, int option) onItemClickListener;
-  WalletAccountDialog({required this.onItemClickListener});
+
+  WalletAccountDialog({required this.list,required this.onItemClickListener});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class WalletAccountDialog extends StatelessWidget {
                 shrinkWrap: true,
                 itemCount: list.length,
                 itemBuilder: (context, index)=>InkWell(onTap: () {
-                }, child: Container(child:getListItem(list[index], index) ),
+                }, child: Container(child:getListItem(list[index], index,context)),
                 ),
               ),height: 380,),
 
@@ -39,8 +41,6 @@ class WalletAccountDialog extends StatelessWidget {
 
   }
 
-
-
   Column getTopLayout(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
@@ -49,24 +49,28 @@ class WalletAccountDialog extends StatelessWidget {
       ],
     );
   }
-  Container getListItem(AccountEntiy entiy, int index) {
+  Container getListItem(WalletAccountEntity entiy, int index,BuildContext context) {
     return Container(
       padding: EdgeInsets.fromLTRB(0, 10.h, 0, 10.h),
       child:  Row(
         children: [
-          Image.asset(getImage(entiy.type), width: 40.w, height: 40.w,),
-          Gaps.hGap4,
+          ImageUtil.loadImage(entiy.coinIcon, 40.w, 40.w),
+          Gaps.hGap8,
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(entiy.accountName, style: ITextStyles.itemTitle,),
+              Text(entiy.coinName, style: ITextStyles.itemTitle,),
+              Text(S.current.wallet_withdraw_money_has+" "+entiy.value.toString(), style: ITextStyles.itemContent,),
             ],
           ),
           Expanded(child: SizedBox()),
           Checkbox(
               activeColor: Colours.dark_bg_color,
-              value: entiy.isBlank,
+              value: false,
               onChanged: (value){
+                Navigator.of(context).pop();
                 onItemClickListener(index, 1);
+
               },
               shape: CircleBorder()),
         ],

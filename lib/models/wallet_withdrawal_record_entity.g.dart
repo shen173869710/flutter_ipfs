@@ -13,6 +13,7 @@ WalletWithdrawalRecordEntity _$WalletWithdrawalRecordEntityFromJson(
     ..coinName = json['coinName'] as String
     ..createTime = json['createTime'] as num
     ..fromAddress = json['fromAddress'] as String
+    ..toAddress = json['toAddress'] as String
     ..transactionStatus = json['transactionStatus'] as num
     ..txValue = json['txValue'] as num;
 }
@@ -24,6 +25,7 @@ Map<String, dynamic> _$WalletWithdrawalRecordEntityToJson(
       'coinName': instance.coinName,
       'createTime': instance.createTime,
       'fromAddress': instance.fromAddress,
+      'toAddress': instance.toAddress,
       'transactionStatus': instance.transactionStatus,
       'txValue': instance.txValue,
     };

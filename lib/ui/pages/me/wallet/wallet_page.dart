@@ -1,29 +1,48 @@
 import 'package:flutter_easyrefresh/easy_refresh.dart';
-import 'package:ipfsnets/data/global_entiy.dart';
+import 'package:ipfsnets/http/wallet_api.dart';
 import "package:ipfsnets/include.dart";
-import 'package:ipfsnets/models/wallet_entiy.dart';
+import 'package:ipfsnets/models/wallet_home_entity.dart';
+import 'package:ipfsnets/models/wallet_item_entiy.dart';
+import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/ui/pages/me/wallet/wallet_item.dart';
 
-class WalletPage extends StatelessWidget {
-  List<WalletEntiy> list = List.from(GlobalEntiy.walletList);
+class WalletPage extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _WalletPageState();
+  }
+}
+
+class _WalletPageState extends State<WalletPage> {
+
+  late num cnySum = 0;
+  late List<WalletItemEntiy?> list =[];
+  late num usdtSum = 0;
+
+  @override
+  void initState() {
+    getAccountInfo();
+  }
+
+  getAccountInfo() async {
+    BaseEntity baseEntity  = await WalletApi.getWalletHome();
+    setState(() {
+      if (baseEntity.isOk()) {
+        WalletHomeEntity entity = baseEntity.data;
+        cnySum = entity.cnySum;
+        usdtSum = entity.usdtSum;
+        if (entity.rows != null) {
+          list.addAll(entity.rows);
+        }
+      }
+    });
+  }
+
 
   EasyRefreshController _refreshController = EasyRefreshController();
   int page = 1;
   bool isFailure = false;
-  Future _onRefresh() async {
-    page = 1;
-    await Future.delayed(Duration(milliseconds: 1000));
-    // if failed,use refreshFailed()
-    // _refreshController.resetLoadState();
-    _refreshController.finishRefresh();
-  }
-
-  Future _onLoading() async {
-    await Future.delayed(Duration(milliseconds: 1000));
-    // if failed,use refreshFailed()
-    // _refreshController.resetRefreshState();
-    _refreshController.finishLoad();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +69,7 @@ class WalletPage extends StatelessWidget {
                 Container(
                   width: double.infinity,
                   margin: ITextStyles.containerMargin,
-                  padding: EdgeInsets.all(20.w),
+                  padding: EdgeInsets.all(30.w),
                   decoration: ITextStyles.boxDecoration,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -60,13 +79,13 @@ class WalletPage extends StatelessWidget {
                       Gaps.vGap8,
                       bulidTopMoney(),
                       Gaps.vGap4,
-                      Text("= 1111111 USDT", style: ITextStyles.itemTitle),
+                      bulidTopUsdt(),
                     ],
                   ),
                 ),
                 Container(
                     width: double.infinity,
-                    margin: ITextStyles.containerMargin,
+                    margin: EdgeInsets.fromLTRB(20.w, 0.w, 20.w, 20.w),
                     padding: EdgeInsets.fromLTRB(0, 20.w, 0, 20.w),
                     decoration: ITextStyles.boxDecoration,
                     child: Row(
@@ -91,11 +110,24 @@ class WalletPage extends StatelessWidget {
     );
   }
   // 创建顶部资产
+  Text bulidTopUsdt() {
+    return Text.rich(TextSpan(
+      children: [
+        TextSpan(
+            text: "≈ ",
+            style: ITextStyles.itemTitle),
+        TextSpan(text: usdtSum.toString(), style: ITextStyles.itemContent),
+        TextSpan(text: "  USDT", style: ITextStyles.itemTitle),
+      ],
+    ));
+  }
+
+  // 创建顶部资产
   Text bulidTopMoney() {
     return Text.rich(TextSpan(
       children: [
         TextSpan(
-            text: "12345",
+            text: cnySum.toString(),
             style: TextStyle(color: Colours.item_red, fontSize: 32)),
         TextSpan(text: " ", style: ITextStyles.itemContent),
         TextSpan(text: "CNY", style: ITextStyles.itemTitle),
@@ -130,15 +162,17 @@ class WalletPage extends StatelessWidget {
               enableControlFinishLoad: false,
               controller: _refreshController,
               header:  null,
-              footer: ClassicalFooter(),
+              footer: null,
               onRefresh: null,
               onLoad: null,
               slivers: [
                 SliverList(delegate: SliverChildBuilderDelegate((context, index) {
-                  return WalletItem(list[index]);
+                  return WalletItem(list[index]!);
                 },childCount: list.length
                 ))
               ])),
     );
   }
+
+
 }

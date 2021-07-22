@@ -390,6 +390,16 @@ class S {
     );
   }
 
+  /// `余额不足`
+  String get not_enough {
+    return Intl.message(
+      '余额不足',
+      name: 'not_enough',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `两次输入的密码不相同`
   String get password_no_equal {
     return Intl.message(
@@ -1630,6 +1640,16 @@ class S {
     );
   }
 
+  /// `余额`
+  String get wallet_withdraw_money_has {
+    return Intl.message(
+      '余额',
+      name: 'wallet_withdraw_money_has',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `主链名称`
   String get wallet_withdraw_money_name {
     return Intl.message(
@@ -1700,10 +1720,10 @@ class S {
     );
   }
 
-  /// `最小提币数量是 10`
+  /// `最小提币数量是 `
   String get wallet_withdraw_min {
     return Intl.message(
-      '最小提币数量是 10',
+      '最小提币数量是 ',
       name: 'wallet_withdraw_min',
       desc: '',
       args: [],
@@ -1720,10 +1740,10 @@ class S {
     );
   }
 
-  /// `手续费率每笔0.01%`
+  /// `手续费率每笔`
   String get wallet_withdraw_out_money {
     return Intl.message(
-      '手续费率每笔0.01%',
+      '手续费率每笔',
       name: 'wallet_withdraw_out_money',
       desc: '',
       args: [],
@@ -1790,6 +1810,16 @@ class S {
     );
   }
 
+  /// `修改地址`
+  String get wallet_withdraw_address_edit_title {
+    return Intl.message(
+      '修改地址',
+      name: 'wallet_withdraw_address_edit_title',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `名称`
   String get wallet_withdraw_address_name {
     return Intl.message(
@@ -1840,11 +1870,111 @@ class S {
     );
   }
 
+  /// `提币地址`
+  String get wallet_withdraw_item_address {
+    return Intl.message(
+      '提币地址',
+      name: 'wallet_withdraw_item_address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `提币成功`
+  String get wallet_withdraw_item_suc {
+    return Intl.message(
+      '提币成功',
+      name: 'wallet_withdraw_item_suc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `提币失败`
+  String get wallet_withdraw_item_fail {
+    return Intl.message(
+      '提币失败',
+      name: 'wallet_withdraw_item_fail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `等待中`
+  String get wallet_withdraw_item_ing {
+    return Intl.message(
+      '等待中',
+      name: 'wallet_withdraw_item_ing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `区块确认中`
+  String get wallet_withdraw_item_sure {
+    return Intl.message(
+      '区块确认中',
+      name: 'wallet_withdraw_item_sure',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `冲币记录`
   String get wallet_recharge_record_title {
     return Intl.message(
       '冲币记录',
       name: 'wallet_recharge_record_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `冲币地址`
+  String get wallet_recharge_item_address {
+    return Intl.message(
+      '冲币地址',
+      name: 'wallet_recharge_item_address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `冲币成功`
+  String get wallet_recharge_item_suc {
+    return Intl.message(
+      '冲币成功',
+      name: 'wallet_recharge_item_suc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `冲币失败`
+  String get wallet_recharge_item_fail {
+    return Intl.message(
+      '冲币失败',
+      name: 'wallet_recharge_item_fail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `等待中`
+  String get wallet_recharge_item_ing {
+    return Intl.message(
+      '等待中',
+      name: 'wallet_recharge_item_ing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `区块确认中`
+  String get wallet_recharge_item_sure {
+    return Intl.message(
+      '区块确认中',
+      name: 'wallet_recharge_item_sure',
       desc: '',
       args: [],
     );
@@ -1860,10 +1990,10 @@ class S {
     );
   }
 
-  /// `冲币钱包地址`
+  /// `冲币地址`
   String get wallet_recharge_address {
     return Intl.message(
-      '冲币钱包地址',
+      '冲币地址',
       name: 'wallet_recharge_address',
       desc: '',
       args: [],

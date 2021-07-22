@@ -37,6 +37,7 @@
   "sure": "确定",
   "save": "保存",
   "cancle": "取消",
+  "not_enough": "余额不足",
   "send_success": "发送成功",
   "save_success": "保存成功",
   "option_success": "操作成功",
@@ -142,9 +143,33 @@
   "cny_withdrawal_end_sure": "确定提现",
   "cny_withdrawal_end_band_desc": "请确认银行卡账号无误再提现",
 
-  "withdraw_address_title": "新增地址",
-  "withdraw_address_hitn": "请输入有效钱包地址",
-  "withdraw_address_name": "名称",
+  "wallet_withdraw_address_title": "新增地址",
+  "wallet_withdraw_address_hint": "请输入有效地址",
+  "wallet_withdraw_address_name": "名称",
+  "wallet_withdraw_address_desc": "描述 (选填)",
+  "wallet_withdraw_dialog_title": "选择提币地址",
+  "wallet_withdraw_dialog_add": "新增地址",
+
+  "wallet_withdraw_record_title": "提币记录",
+  "wallet_withdraw_item_address": "提币地址",
+  "wallet_withdraw_item_suc": "提币成功",
+  "wallet_withdraw_item_fail": "提币失败",
+  "wallet_withdraw_item_ing": "等待中",
+  "wallet_withdraw_item_sure": "区块确认中",
+
+  "wallet_recharge_record_title": "冲币记录",
+  "wallet_recharge_item_address": "冲币地址",
+  "wallet_recharge_item_suc": "冲币成功",
+  "wallet_recharge_item_fail": "冲币失败",
+  "wallet_recharge_item_ing": "等待中",
+  "wallet_recharge_item_sure": "区块确认中",
+
+  "wallet_recharge_title": "冲币",
+  "wallet_recharge_address": "冲币钱包地址",
+  "wallet_recharge_copy": "复制地址",
+  "wallet_recharge_scan": "扫描二维码,获取地址",
+
+
 
   "more_title": "更多应用",
   "more_tab_1": "推荐应用",
@@ -176,6 +201,7 @@
 
   "wallet_withdraw_title": "提币",
   "wallet_withdraw_money_choose": "选择币种",
+  "wallet_withdraw_money_has": "余额",
   "wallet_withdraw_money_name": "主链名称",
   "wallet_withdraw_erc20": "ERC20",
   "wallet_withdraw_trc20": "TRC20",
@@ -183,9 +209,9 @@
   "wallet_withdraw_omni": "OMNI",
   "wallet_withdraw_num": "数量",
   "wallet_withdraw_out_hint": "可以转出",
-  "wallet_withdraw_min": "最小提币数量是 10",
+  "wallet_withdraw_min": "最小提币数量是 ",
   "wallet_withdraw_all": "全部",
-  "wallet_withdraw_out_money": "手续费率每笔0.01%",
+  "wallet_withdraw_out_money": "手续费率每笔 ",
   "wallet_withdraw_address": "提币地址",
   "wallet_withdraw_address_hint": "请输入有效的提币地址",
   "wallet_withdraw_mark": "备注",
@@ -193,6 +219,7 @@
   "wallet_withdraw_desc": "1.请勿向上述地址充值任何非FIL资产,否则资产将不可找回;\n\n2.您充值至上述地址后,需要整个网络节点的确认,60次网络确认后到账,910次网络确认后可提现;\n\n3.最小充值金额: 0.1FIL,小于最小金额的充值将不会在上账,且无法退回;\n\n4.您的充值地址不会经常改变,可以重复充值;如果有更改,我们会尽量通过网站或邮件通知您;\n\n5.请务必确认电脑以及浏览器安全,防止信息被篡改或者泄露;\n\n",
 
   "wallet_withdraw_address_title": "新增地址",
+  "wallet_withdraw_address_edit_title": "修改地址",
   "wallet_withdraw_address_hint": "请输入有效地址",
   "wallet_withdraw_address_name": "名称",
   "wallet_withdraw_address_desc": "描述 (选填)",

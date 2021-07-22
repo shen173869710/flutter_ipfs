@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
+import 'package:ipfsnets/http/wallet_api.dart';
 import "package:ipfsnets/include.dart";
+import 'package:ipfsnets/models/wallet_address_entity.dart';
+import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/styles.dart';
+import 'package:ipfsnets/ui/pages/me/wallet/wallet_withdrawal_address_controller.dart';
 import 'package:ipfsnets/ui/widget/login_button.dart';
 
 class WalletWithdrawalAddressPage extends StatefulWidget{
@@ -17,30 +21,48 @@ class _WalletWithdrawalAddressState extends State<WalletWithdrawalAddressPage> {
   final  _nameController = TextEditingController();
   FocusNode _address = FocusNode();
   FocusNode _name = FocusNode();
+  late WalletAddressEntity entity;
+  WalletWithdrawalAddressController controller = Get.put(WalletWithdrawalAddressController());
+
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(
-      backgroundColor: Colours.bg_color,
-      appBar: AppBar(
-        title: new Text(S.current.withdraw_address_title),
-        centerTitle: true,
-        backgroundColor: Colours.app_bar_bg,
-      ),
-      body: Container(
-        child:  Column(
-          children: [
-            buildCoinTextField(context),
-            Gaps.vGap12,
-            buildAddressTextField(context),
-            Gaps.line,
-            buildNameTextField(context),
-            Gaps.line,
-            Gaps.vGap32,
-            buildLogin(context)
-          ],
-        ),
-      ));
+    entity = ModalRoute.of(context)!.settings.arguments as WalletAddressEntity;
+    controller.intit(entity);
+    if (entity.id != 0) {
+      _addressController.text = entity.address;
+      _nameController.text = entity.aliasName;
+      controller.enable = true;
+    }else{
+      controller.enable = false;
+    }
+
+    return GetBuilder<WalletWithdrawalAddressController>(builder:(controller){
+      return Scaffold(
+          backgroundColor: Colours.bg_color,
+          appBar: AppBar(
+            title: new Text(getTitle()),
+            centerTitle: true,
+            backgroundColor: Colours.app_bar_bg,
+          ),
+          body: Container(
+            child:  Column(
+              children: [
+                buildCoinTextField(context),
+                Gaps.vGap12,
+                buildAddressTextField(context),
+                Gaps.line,
+                buildNameTextField(context),
+                Gaps.line,
+                Gaps.vGap32,
+                buildLogin(context)
+              ],
+            ),
+          ));
+    });
+
+
   }
 
   /**币种**/
@@ -50,9 +72,9 @@ class _WalletWithdrawalAddressState extends State<WalletWithdrawalAddressPage> {
       color: Colours.white,
       child:Row(
         children: [
-          Text("USDT", style: ITextStyles.itemTitle),
+          Text(entity.coinName, style: ITextStyles.itemTitle),
           Expanded(child: SizedBox()),
-          Image.asset(R.assetsImgIcFil,width: 35.w,height: 35.w,),
+          ImageUtil.loadImage(entity.coinIcon, 40.w, 40.w),
         ],
       ),
     );
@@ -64,7 +86,7 @@ class _WalletWithdrawalAddressState extends State<WalletWithdrawalAddressPage> {
       color: Colours.white,
       padding: EdgeInsets.fromLTRB(20.w, 10.w, 0, 5.w),
       child: new TextFormField(onChanged: (value){
-
+        controller.onAddressInpiut(value);
       },
         controller: _addressController,
         style: TextStyle(fontSize: 14),
@@ -101,7 +123,7 @@ class _WalletWithdrawalAddressState extends State<WalletWithdrawalAddressPage> {
       padding: EdgeInsets.fromLTRB(20.w, 10.w, 20.w, 5.w),
       color: Colours.white,
       child: new TextFormField(onChanged: (value){
-
+        controller.onNameInpiut(value);
       },
         focusNode: _name,
         controller: _nameController,
@@ -119,10 +141,29 @@ class _WalletWithdrawalAddressState extends State<WalletWithdrawalAddressPage> {
   Padding buildLogin(BuildContext context) {
     return  Padding(padding: EdgeInsets.fromLTRB(50.w, 30.h, 50.w, 0),
       child: LoginButton(text: S.current.save,
-          endble :false,
+          endble :controller.enable,
           onPressed: () {
-            
+                putData();
           }),
     );
   }
+
+  // 顶部标题
+  String getTitle() {
+    if (entity.id == 0) {
+      return S.current.withdraw_address_title;
+    }else {
+      return S.current.wallet_withdraw_address_edit_title;
+    }
+  }
+
+  Future<void> putData() async {
+    BaseEntity entity = await WalletApi.getWalletAccountAddressAdd(controller.entity.address, controller.entity.aliasName, controller.entity.coinName,controller.entity.coinCode, controller.entity.id);
+    if (entity.isOk()) {
+      ToastUtil.show(S.current.option_success);
+    }
+
+  }
+
+
 }

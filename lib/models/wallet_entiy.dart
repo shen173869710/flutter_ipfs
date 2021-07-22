@@ -4,4 +4,6 @@ class WalletEntiy {
    final String from;
    final String to;
    const WalletEntiy(this.imgUrl, this.name, this.from, this.to);
+
+
 }

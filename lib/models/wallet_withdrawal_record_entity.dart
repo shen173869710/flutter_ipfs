@@ -9,6 +9,7 @@ class WalletWithdrawalRecordEntity{
 	late String coinName;
 	late num createTime;
 	late String fromAddress;
+	late String toAddress;
 	late num transactionStatus;
 	late num txValue;
 

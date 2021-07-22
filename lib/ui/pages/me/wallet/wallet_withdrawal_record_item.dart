@@ -1,5 +1,6 @@
 import "package:ipfsnets/include.dart";
 import 'package:ipfsnets/models/wallet_withdrawal_record_entity.dart';
+import 'package:ipfsnets/utils/string_util.dart';
 /**
  *  wall 提现记录
  */
@@ -10,8 +11,11 @@ class WalletWithdrawalRecordItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+
     return Container(
-        padding: EdgeInsets.fromLTRB(20.w, 20.w, 20.w, 20.w),
+        margin: EdgeInsets.fromLTRB(20.w, 10.w, 20.w, 10.w),
+        padding: ITextStyles.containerMargin,
+        decoration: ITextStyles.boxDecoration,
         child: Column(
           children: [
             Row(
@@ -30,32 +34,55 @@ class WalletWithdrawalRecordItem extends StatelessWidget {
               children: <Widget>[
                 Text(DateUtil.getTime(data.createTime),style: ITextStyles.itemContent),
                 Expanded(child:SizedBox()),
-                Text(getStatus(data.transactionStatus),style: ITextStyles.itemContent),
+                Text(getStatus(data.transactionStatus,data.fromAddress),style: ITextStyles.itemContent),
               ],
             ),
             Gaps.vGap8,
-            Text(data.fromAddress,maxLines:2,style:ITextStyles.itemContent),
+            Text(getFromAddress(),maxLines:2,style:ITextStyles.itemContent),
           ],
         )
     );
   }
 
-  String getStatus(num status) {
-    if (status == 1) {
-      return S.current.cny_withdrawal_record_suc;
-    }else if (status == 2) {
-      return S.current.cny_withdrawal_record_fail;
+  String getStatus(num status, String from) {
+    if (StringUtil.isNotEmpty(from)) {
+      if (status == 0) {
+        return S.current.wallet_recharge_item_suc;
+      }else if (status == 1) {
+        return S.current.wallet_recharge_item_fail;
+      }else if (status == 2) {
+        return S.current.wallet_recharge_item_ing;
+      }
+      return S.current.wallet_recharge_item_sure;
+    }else{
+      if (status == 0) {
+        return S.current.wallet_withdraw_item_suc;
+      }else if (status == 1) {
+        return S.current.wallet_withdraw_item_fail;
+      }else if (status == 2) {
+        return S.current.wallet_withdraw_item_ing;
+      }
+      return S.current.wallet_withdraw_item_sure;
     }
-    return S.current.cny_withdrawal_record_ing;
   }
 
   Color getStatusColor(String status) {
-    if (status == 1) {
+    if (status == 0) {
       return Colours.item_green;
-    }else if (status == 2) {
+    }else if (status == 1) {
       return Colours.item_red;
     }
     return Colours.item_content_color;
+  }
+
+  String getFromAddress() {
+    if (StringUtil.isEmpty(data.fromAddress) && StringUtil.isEmpty(data.toAddress)) {
+      return "";
+    }
+    if (StringUtil.isEmpty(data.fromAddress)) {
+      return S.current.wallet_withdraw_address+data.toAddress;
+    }
+    return S.current.wallet_recharge_address+data.fromAddress;
   }
 
 }

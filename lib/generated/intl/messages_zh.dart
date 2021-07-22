@@ -172,6 +172,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "more_tab_3": MessageLookupByLibrary.simpleMessage("游戏中心"),
         "more_tab_4": MessageLookupByLibrary.simpleMessage("生活服务"),
         "more_title": MessageLookupByLibrary.simpleMessage("更多应用"),
+        "not_enough": MessageLookupByLibrary.simpleMessage("余额不足"),
         "option_success": MessageLookupByLibrary.simpleMessage("操作成功"),
         "password_no_equal": MessageLookupByLibrary.simpleMessage("两次输入的密码不相同"),
         "pwd_account_code": MessageLookupByLibrary.simpleMessage("请输入验证码"),
@@ -221,6 +222,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "wallet_recharge_address":
             MessageLookupByLibrary.simpleMessage("冲币钱包地址"),
         "wallet_recharge_copy": MessageLookupByLibrary.simpleMessage("复制地址"),
+        "wallet_recharge_item_address":
+            MessageLookupByLibrary.simpleMessage("冲币地址"),
+        "wallet_recharge_item_fail":
+            MessageLookupByLibrary.simpleMessage("冲币失败"),
+        "wallet_recharge_item_ing": MessageLookupByLibrary.simpleMessage("等待中"),
+        "wallet_recharge_item_suc":
+            MessageLookupByLibrary.simpleMessage("冲币成功"),
+        "wallet_recharge_item_sure":
+            MessageLookupByLibrary.simpleMessage("区块确认中"),
         "wallet_recharge_record_title":
             MessageLookupByLibrary.simpleMessage("冲币记录"),
         "wallet_recharge_scan":
@@ -231,6 +241,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "wallet_withdraw_address": MessageLookupByLibrary.simpleMessage("提币地址"),
         "wallet_withdraw_address_desc":
             MessageLookupByLibrary.simpleMessage("描述 (选填)"),
+        "wallet_withdraw_address_edit_title":
+            MessageLookupByLibrary.simpleMessage("修改地址"),
         "wallet_withdraw_address_hint":
             MessageLookupByLibrary.simpleMessage("请输入有效地址"),
         "wallet_withdraw_address_name":
@@ -246,12 +258,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("选择提币地址"),
         "wallet_withdraw_erc20": MessageLookupByLibrary.simpleMessage("ERC20"),
         "wallet_withdraw_heco": MessageLookupByLibrary.simpleMessage("HECO"),
+        "wallet_withdraw_item_address":
+            MessageLookupByLibrary.simpleMessage("提币地址"),
+        "wallet_withdraw_item_fail":
+            MessageLookupByLibrary.simpleMessage("提币失败"),
+        "wallet_withdraw_item_ing": MessageLookupByLibrary.simpleMessage("等待中"),
+        "wallet_withdraw_item_suc":
+            MessageLookupByLibrary.simpleMessage("提币成功"),
+        "wallet_withdraw_item_sure":
+            MessageLookupByLibrary.simpleMessage("区块确认中"),
         "wallet_withdraw_mark": MessageLookupByLibrary.simpleMessage("备注"),
         "wallet_withdraw_mark_hint": MessageLookupByLibrary.simpleMessage("选填"),
-        "wallet_withdraw_min":
-            MessageLookupByLibrary.simpleMessage("最小提币数量是 10"),
+        "wallet_withdraw_min": MessageLookupByLibrary.simpleMessage("最小提币数量是"),
         "wallet_withdraw_money_choose":
             MessageLookupByLibrary.simpleMessage("选择币种"),
+        "wallet_withdraw_money_has": MessageLookupByLibrary.simpleMessage("余额"),
         "wallet_withdraw_money_name":
             MessageLookupByLibrary.simpleMessage("主链名称"),
         "wallet_withdraw_num": MessageLookupByLibrary.simpleMessage("数量"),
@@ -259,7 +280,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "wallet_withdraw_out_hint":
             MessageLookupByLibrary.simpleMessage("可以转出"),
         "wallet_withdraw_out_money":
-            MessageLookupByLibrary.simpleMessage("手续费率每笔0.01%"),
+            MessageLookupByLibrary.simpleMessage("手续费率每笔 "),
         "wallet_withdraw_record_title":
             MessageLookupByLibrary.simpleMessage("提币记录"),
         "wallet_withdraw_title": MessageLookupByLibrary.simpleMessage("提币"),

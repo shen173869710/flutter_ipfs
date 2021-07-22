@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ipfsnets/http/api_service.dart';
+import 'package:ipfsnets/http/wallet_api.dart';
 import 'package:ipfsnets/include.dart';
 import 'package:ipfsnets/models/wallet_withdrawal_record_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
@@ -49,7 +50,7 @@ class _WalleRechageRecordPageState extends BaseListPageState<WalleRechageRecordP
 
   @override
   Future<BaseEntity> getData() async {
-    BaseEntity baseEntity  = await ApiServer.cnyWithdrawalList(1);
+    BaseEntity baseEntity  = await WalletApi.getRechageRecordList(page);
     List<WalletWithdrawalRecordEntity> entity = baseEntity.data;
     if (entity != null) {
       setState(() {

@@ -1,11 +1,7 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:ipfsnets/data/global_entiy.dart';
 import "package:ipfsnets/include.dart";
-import 'package:ipfsnets/models/cny_record_entiy.dart';
 import 'package:ipfsnets/models/wallet_entiy.dart';
-import 'package:ipfsnets/ui/pages/me/cny/cny_record_item.dart';
-import 'package:ipfsnets/ui/pages/me/wallet/wallet_item.dart';
 
 class WalletExchangePage extends StatelessWidget {
   List<WalletEntiy> list = List.from(GlobalEntiy.walletList);
@@ -151,7 +147,7 @@ class WalletExchangePage extends StatelessWidget {
               onLoad: null,
               slivers: [
                 SliverList(delegate: SliverChildBuilderDelegate((context, index) {
-                  return WalletItem(list[index]);
+                  return Text("  ");
                 },childCount: list.length
                 ))
               ])),

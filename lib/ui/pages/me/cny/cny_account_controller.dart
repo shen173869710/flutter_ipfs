@@ -22,7 +22,7 @@ class CnyAccountController extends GetxController{
 
    getList(int pageNum) async{
      BaseEntity baseEntity  = await ApiServer.getCnyList(pageNum);
-     total = baseEntity.total!;
+     total = baseEntity.total;
      list.addAll(baseEntity.data);
      update();
   }
@@ -38,7 +38,7 @@ class CnyAccountController extends GetxController{
 
   getListMore(int pageNum) async{
     BaseEntity baseEntity  = await ApiServer.getCnyList(pageNum);
-    total = baseEntity.total!;
+    total = baseEntity.total;
     list.addAll(baseEntity.data);
     update();
     int max = (pageNum-1) * 10;

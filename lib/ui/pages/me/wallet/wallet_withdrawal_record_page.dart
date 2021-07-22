@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ipfsnets/http/api_service.dart';
+import 'package:ipfsnets/http/wallet_api.dart';
 import 'package:ipfsnets/include.dart';
-import 'package:ipfsnets/models/cny_withdrawal_record_entity.dart';
 import 'package:ipfsnets/models/wallet_withdrawal_record_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
-import 'package:ipfsnets/ui/pages/me/cny/cny_withdrawal_record_item.dart';
 import 'package:ipfsnets/ui/pages/me/wallet/wallet_withdrawal_record_item.dart';
 import 'package:ipfsnets/ui/widget/base_list_page.dart';
 
@@ -51,7 +49,7 @@ class _WalletWithdrawalRecordState extends BaseListPageState<WalletWithDrawalRec
 
   @override
   Future<BaseEntity> getData() async {
-    BaseEntity baseEntity  = await ApiServer.cnyWithdrawalList(1);
+    BaseEntity baseEntity  = await WalletApi.getWithdrawalRecordList(page);
     List<WalletWithdrawalRecordEntity> entity = baseEntity.data;
     if (entity != null) {
         setState(() {

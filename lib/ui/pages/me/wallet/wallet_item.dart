@@ -1,11 +1,13 @@
 import "package:ipfsnets/include.dart";
 import 'package:ipfsnets/models/cny_record_entiy.dart';
 import 'package:ipfsnets/models/wallet_entiy.dart';
+import 'package:ipfsnets/models/wallet_home_entity.dart';
+import 'package:ipfsnets/models/wallet_item_entiy.dart';
 /**
  *  CNY 充值提现记录
  */
 class WalletItem extends StatelessWidget {
-  final WalletEntiy data;
+  final WalletItemEntiy data;
   WalletItem(this.data);
   @override
   Widget build(BuildContext context) {
@@ -16,17 +18,18 @@ class WalletItem extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Image.asset(data.imgUrl,width: 50.w,height: 50.w,),
+              ImageUtil.loadImage(data.coinIcon, 50.w, 50.w),
               Gaps.hGap8,
-              Text(data.name,style: ITextStyles.itemTitle,),
+              Text(data.coinName,style: ITextStyles.itemTitle,),
               Expanded(child:SizedBox()),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(data.from,style: TextStyle(
+                  Text(data.value.toString(),style: TextStyle(
                       fontSize: 12,
                       color: Colours.item_title_color
                   ),),
-                  Text(data.to,style: TextStyle(
+                  Text("≈"+data.cny.toString(),style: TextStyle(
                       fontSize: 12,
                       color: Colours.item_content_color
                   ),),

@@ -12,13 +12,18 @@ abstract class BaseListPageState< W extends StatefulWidget>extends State<W>{
   Future _onRefresh() async {
     page = 1;
     clearList();
-    await getData();
-    if (_refreshController != null) {
-      _refreshController.resetLoadState();
-      LogUtil.e("停止刷新");
-      _refreshController.finishRefresh();
+    BaseEntity entity = await getData();
+
+    bool hasNex = false;
+    if (entity.total <= 10) {
+      hasNex = true;
     }
 
+    if (_refreshController != null) {
+      LogUtil.e("停止刷新");
+      _refreshController.finishRefresh(success: true);
+      _refreshController.finishLoad(success:true,noMore: hasNex);
+    }
     // _refreshController.finishRefresh(success: true);
   }
 
@@ -26,10 +31,11 @@ abstract class BaseListPageState< W extends StatefulWidget>extends State<W>{
     page++;
     BaseEntity entity = await getData();
     int max = (page-1) * 10;
-    bool hasNex = true;
-    if ( entity.total!<10 || max > entity.total!) {
-       hasNex = false;
+    bool hasNex = false;
+    if ( max > entity.total || entity.total < 10) {
+       hasNex = true;
     }
+    LogUtil.e("停止加载更多"+hasNex.toString());
     if (_refreshController != null) {
       _refreshController.finishLoad(success:true,noMore: hasNex);
     }

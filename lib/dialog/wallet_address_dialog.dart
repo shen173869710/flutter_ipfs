@@ -1,14 +1,53 @@
 import 'package:flutter/cupertino.dart';
-import 'package:ipfsnets/models/acount_entiy2.dart';
+import 'package:ipfsnets/http/wallet_api.dart';
+import 'package:ipfsnets/models/wallet_address_entity.dart';
+import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/ui/widget/login_button.dart';
 
 import '../include.dart';
 
-class WalletAddressDialog extends StatelessWidget {
-  List<AccountEntiy2> list = List.from(GlobalEntiy.accountList2);
+class WalletAddressDialog extends StatefulWidget {
+  final void Function(int index, int option,WalletAddressEntity entity) onItemClickListener;
+  late num id;
+  WalletAddressDialog({required this.onItemClickListener,required this.id});
 
-  final void Function(int index, int option) onItemClickListener;
-  WalletAddressDialog({required this.onItemClickListener});
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _WalletAddressState(onItemClickListener: onItemClickListener,id: id, );
+  }
+
+}
+
+class _WalletAddressState extends State<WalletAddressDialog> {
+  List<WalletAddressEntity> list = [];
+  late num id;
+  final void Function(int index, int option,WalletAddressEntity entity) onItemClickListener;
+  _WalletAddressState({required this.onItemClickListener,required this.id});
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getAccount();
+  }
+
+
+  /**获取账户信息**/
+  getAccount() async{
+    BaseEntity baseEntity  = await WalletApi.getWalletAccountAddress(1,id);
+    List<WalletAddressEntity> entity = baseEntity.data;
+    list.clear();
+    setState(() {
+      WalletAddressEntity end = new WalletAddressEntity();
+      end.type = 1;
+      list.addAll(entity);
+      list.add(end);
+      LogUtil.e("list"+entity.length.toString());
+    });
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +91,7 @@ class WalletAddressDialog extends StatelessWidget {
     );
   }
 
-  Container getListItem(BuildContext context,AccountEntiy2 entiy, int index) {
+  Container getListItem(BuildContext context,WalletAddressEntity entiy, int index) {
     return Container(
         padding: EdgeInsets.fromLTRB(0, 5.h, 0, 0),
         child:Column(
@@ -64,18 +103,18 @@ class WalletAddressDialog extends StatelessWidget {
                     value: entiy.isBlank,
                     onChanged: (value){
                       Navigator.of(context).pop();
-                      onItemClickListener(index, 1);
+                      onItemClickListener(index, GlobalEntiy.ADDRESS_SEL, list[index]);
                     },
                     shape: CircleBorder()),
-                Image.asset(entiy.imgUrl, width: 40.w, height: 40.w,),
+                ImageUtil.loadImage(entiy.coinIcon, 40.w, 40.w),
                 Gaps.hGap4,
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(entiy.title,
+                    Text(entiy.coinName,
                       style: ITextStyles.itemTitle,
                     ),
-                    Text("222222",
+                    Text(entiy.aliasName,
                       style: ITextStyles.itemContent12,
                     ),
                   ],
@@ -84,19 +123,19 @@ class WalletAddressDialog extends StatelessWidget {
                 Expanded(child: SizedBox()),
                 GestureDetector(child:Image.asset(R.assetsImgIcDel, width: 35.w, height: 35.w,),onTap: (){
                   Navigator.of(context).pop();
-                  onItemClickListener(index, 2);
+                  onItemClickListener(index, GlobalEntiy.ADDRESS_DEL, list[index]);
                 },),
                 Gaps.hGap8,
                 GestureDetector(child: Image.asset(R.assetsImgIcEdit, width: 35.w, height: 35.w,),onTap: (){
                   Navigator.of(context).pop();
-                  onItemClickListener(index, 3);
+                  onItemClickListener(index, GlobalEntiy.ADDRESS_EDIT, list[index]);
                 },)
               ],
             ),visible: entiy.type == 0 ? true:false,),
             Gaps.vGap8,
             Visibility(child: LoginButton(text: S.current.wallet_withdraw_dialog_add, endble: true, onPressed: (){
               Navigator.of(context).pop();
-              onItemClickListener(index, 4);
+              onItemClickListener(index, GlobalEntiy.ADDRESS_ADD,list[index]);
 
             }),visible: entiy.type != 0 ? true:false,)
           ],

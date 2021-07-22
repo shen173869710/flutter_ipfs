@@ -102,7 +102,7 @@ class _WithDrawalAccountState extends State<WithDrawalAccountDialog> {
                     children: [
                       GestureDetector(child:  Image.asset(R.assetsImgIconBank, width: 80.w,height: 80.w,),onTap: (){
                         Navigator.of(context).pop();
-                        NavigatorUtil.push(context,  '${Routes.cnyWithdrawalEnd}?type=${Uri.encodeComponent("2")}&money=${Uri.encodeComponent(money)}');
+                        NavigatorUtil.push(context,'${Routes.cnyWithdrawalEnd}?type=${Uri.encodeComponent("2")}&money=${Uri.encodeComponent(money)}');
 
                       },),
                       Gaps.vGap8,
