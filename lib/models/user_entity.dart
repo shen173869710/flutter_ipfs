@@ -6,20 +6,13 @@ part 'user_entity.g.dart';
 class UserEntity {
 	int? userId;
 	String? avatar;
-	String? code;
-	String? createBy;
-	String? createTime;
-	String? delFlag;
 	int? level;
 	String? nickname;
 	String? password;
-	String? ref;
 	String? remark;
 	String? searchValue;
 	String? sex;
 	String? status;
-	String? updateBy;
-	String? updateTime;
 	String? username;
 
 	UserEntity();

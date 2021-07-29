@@ -44,7 +44,7 @@ class MePage extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    userController.user.username!,
+                    userController.user.nickname!,
                     maxLines: 1,
                     style: TextStyle(fontSize: Dimens.font_sp20, color: Colours.text_white),
                   ),
@@ -58,7 +58,7 @@ class MePage extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                       ),
                       Text(
-                        userController.user.nickname!,
+                        userController.user.username!,
                         maxLines: 1,
                         textAlign: TextAlign.left,
                         style: TextStyle(color: Colors.white),
@@ -260,11 +260,14 @@ class MePage extends StatelessWidget {
         break;
       case 5:
       //付款
+        NavigatorUtil.jump(context, Routes.walletWithdrawalPage);
         break;
       case 6:
+        NavigatorUtil.jump(context, Routes.walletRechagePage);
       //收款
         break;
       case 7:
+        NavigatorUtil.jump(context, Routes.qrcodeScannerPage);
       //扫一扫
         break;
       case 8:
@@ -278,6 +281,7 @@ class MePage extends StatelessWidget {
       NavigatorUtil.jump(context, Routes.cnyAccount);
         break;
       case 11:
+        NavigatorUtil.jump(context, Routes.transferPage);
       //内网转账
         break;
       case 12:

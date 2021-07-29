@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:ipfsnets/data/global_entiy.dart';
 import 'package:ipfsnets/dialog/wallet_account_dialog.dart';
 import 'package:ipfsnets/dialog/wallet_address_dialog.dart';
 import 'package:ipfsnets/http/wallet_api.dart';
 import "package:ipfsnets/include.dart";
 import 'package:ipfsnets/models/wallet_account_entity.dart';
-import 'package:ipfsnets/models/wallet_rechage_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/styles.dart';
 import 'package:ipfsnets/ui/pages/me/wallet/wallet_rechage_controller.dart';
@@ -13,6 +13,10 @@ import 'package:ipfsnets/utils/LoadingUtils.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class WalletRechagePage extends StatefulWidget{
+
+  String coinCode = "";
+  WalletRechagePage({required this.coinCode,});
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -23,8 +27,6 @@ class WalletRechagePage extends StatefulWidget{
 class _WalletRechageState extends State<WalletRechagePage> {
 
   WalletRechageController controller = Get.put(WalletRechageController());
-
-
   @override
   void initState() {
     controller.init();
@@ -36,8 +38,20 @@ class _WalletRechageState extends State<WalletRechagePage> {
     BaseEntity entity = await WalletApi.getWalletWithdrawalList(1);
     List<WalletAccountEntity> list = entity.data;
     if (list != null && list.length > 0) {
-      BaseEntity baseEntity = await WalletApi.getWalletRechageHome(list[0].coinCode.toString(),false);
-      controller.initData(list, baseEntity.data,0);
+      LogUtil.e("传递过来的ID ======"+widget.coinCode);
+      int index = 0;
+      if (StringUtil.isNotEmpty(widget.coinCode)) {
+        num id = num.parse(widget.coinCode);
+        int size = list.length;
+        for(int i = 0; i < size; i++) {
+          if (id == list[i].coinCode) {
+            index  = i;
+          }
+        }
+      }
+
+      BaseEntity baseEntity = await WalletApi.getWalletRechageHome(list[index].coinCode.toString(),false);
+      controller.initData(list, baseEntity.data,index);
     }
     LoadingUtils.dismiss();
 
@@ -77,7 +91,7 @@ class _WalletRechageState extends State<WalletRechagePage> {
                       bulidTop(),
                       Gaps.vGap12,
                       // 主链名称
-                      Row(
+                      Visibility(child: Row(
                         children: [
                           SizedBox(width: 20.w),
                           Text.rich(TextSpan(children: [
@@ -94,7 +108,7 @@ class _WalletRechageState extends State<WalletRechagePage> {
 
                           ])),
                         ],
-                      ),
+                      ),visible: controller.showMainAddress,),
                       bulidInfo(context),
                       bulidBottom(context),
                     ],
@@ -124,7 +138,8 @@ class _WalletRechageState extends State<WalletRechagePage> {
           Text(S.current.wallet_withdraw_money_choose, style: ITextStyles.itemTitle),
           Expanded(child: SizedBox()),
           GestureDetector(
-            child: Text.rich(TextSpan(children: [
+            child:
+            Text.rich(TextSpan(children: [
               TextSpan(
                   text: controller.type,
                   style: TextStyle(color: Colours.button_sel, fontSize: 16)),
@@ -162,7 +177,10 @@ class _WalletRechageState extends State<WalletRechagePage> {
             Text(controller.address,style: TextStyle(fontSize: 14,color: Colours.button_sel),),
             Gaps.vGap8,
             Center(
-              child:TextButton(onPressed:(){},
+              child:TextButton(onPressed:(){
+                Clipboard.setData(ClipboardData(text: controller.address)).then((value) => ToastUtil.show(S.current.copy_success));
+
+              },
                   child: Text(S.current.wallet_recharge_copy,style: TextStyle(fontSize: 14,color:Colours.button_sel),),
                   style:ButtonStyle(
                     backgroundColor: MaterialStateProperty.resolveWith(
@@ -299,6 +317,7 @@ class _WalletRechageState extends State<WalletRechagePage> {
 
     },id: controller.coinCode,));
   }
+
 
 
 

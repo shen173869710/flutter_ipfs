@@ -7,10 +7,14 @@ import 'package:ipfsnets/models/cny_recharge_entity.dart';
 import 'package:ipfsnets/models/cny_recharge_record_entity.dart';
 import 'package:ipfsnets/models/cny_withdrawal_record_entity.dart';
 import 'package:ipfsnets/models/image_entity.dart';
+import 'package:ipfsnets/models/transfer_entity.dart';
+import 'package:ipfsnets/models/transfer_record_entity.dart';
 import 'package:ipfsnets/models/user_entity.dart';
 import 'package:ipfsnets/models/wallet_account_entity.dart';
 import 'package:ipfsnets/models/wallet_address_entity.dart';
 import 'package:ipfsnets/models/wallet_home_entity.dart';
+import 'package:ipfsnets/models/wallet_info_entity.dart';
+import 'package:ipfsnets/models/wallet_info_list_entity.dart';
 import 'package:ipfsnets/models/wallet_rechage_entity.dart';
 import 'package:ipfsnets/models/wallet_withdrawal_entity.dart';
 import 'package:ipfsnets/models/wallet_withdrawal_record_entity.dart';
@@ -38,6 +42,8 @@ class EntityFactory {
       return AccountEntiy.fromJson(json)as T;
     }else if (name == "WalletHomeEntity"){
       return WalletHomeEntity.fromJson(json)as T;
+    }else if (name == "WalletInfoEntity"){
+      return WalletInfoEntity.fromJson(json)as T;
     }else {
       return json as T;
     }
@@ -65,10 +71,19 @@ class EntityFactory {
       return data.map<WalletRechageEntity>((e) => WalletRechageEntity.fromJson(e)).toList() as M;
     }else if(<WalletWithdrawalEntity>[] is M){
       return data.map<WalletWithdrawalEntity>((e) => WalletWithdrawalEntity.fromJson(e)).toList() as M;
-    }
-    else if(<WalletAddressEntity>[] is M){
+    } else if(<WalletAddressEntity>[] is M){
       return data.map<WalletAddressEntity>((e) => WalletAddressEntity.fromJson(e)).toList() as M;
+    } else if(<TransferRecordEntity>[] is M){
+      return data.map<TransferRecordEntity>((e) => TransferRecordEntity.fromJson(e)).toList() as M;
+    } else if(<WalletInfoListEntity>[] is M){
+      return data.map<WalletInfoListEntity>((e) => WalletInfoListEntity.fromJson(e)).toList() as M;
+    } else if(<TransferEntity>[] is M){
+      LogUtil.e("解析数组对象 TransferEntity");
+      return data.map<TransferEntity>((e) => TransferEntity.fromJson(e)).toList() as M;
     }
+
+
+
     throw Exception("-----------------数组子类异常 no fond");
   }
 }

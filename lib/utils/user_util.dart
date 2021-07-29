@@ -19,7 +19,6 @@ class UserUtil {
     if (entity != null) {
       SpUtil.putInt(SP_USER_ID, entity.userId!);
       SpUtil.putString(SP_AVATAR, entity.avatar!);
-      SpUtil.putString(SP_CODE, entity.code!);
       SpUtil.putString(SP_NICKNAME, entity.nickname!);
       SpUtil.putString(SP_PASSWORD, entity.password!);
       SpUtil.putString(SP_SEX, entity.sex!);
@@ -35,7 +34,6 @@ class UserUtil {
     UserEntity user = UserEntity();
     user.userId = SpUtil.getInt(SP_USER_ID);
     user.avatar = SpUtil.getString(SP_AVATAR);
-    user.code = SpUtil.getString(SP_CODE);
     user.nickname = SpUtil.getString(SP_NICKNAME);
     user.password = SpUtil.getString(SP_PASSWORD);
     user.sex = SpUtil.getString(SP_SEX);

@@ -35,6 +35,11 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
         ? 250.0
         : 300.0;
     return Scaffold(
+      appBar: AppBar(
+        title: Text(S.current.me_item_8),
+        centerTitle: true,
+        backgroundColor: Colours.app_bar_bg,
+      ),
       body: Stack(
         children: <Widget>[
           Positioned.fill(
@@ -63,15 +68,16 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
               ),
             ),
           ),
-          const Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            child: MyAppBar(
-              backgroundColor: Colors.transparent,
-              backImgColor: Colors.white,
-            ),
-          ),
+          // const Positioned(
+          //   top: 0,
+          //   left: 0,
+          //   right: 0,
+          //   child: MyAppBar(
+          //     title: S.current.me_item_8,
+          //     backgroundColor: Colors.transparent,
+          //     backImgColor: Colors.white,
+          //   ),
+          // ),
         ],
       ),
     );
@@ -83,6 +89,7 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
       /// 避免扫描结果多次回调
        controller.dispose();
        Future.delayed(Duration(milliseconds: 200),(){
+         ToastUtil.show(scanData.code.toString());
          NavigatorUtil.goBackWithParams(context, scanData.code);
        });
 

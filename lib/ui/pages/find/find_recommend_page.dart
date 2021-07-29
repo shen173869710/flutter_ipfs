@@ -6,7 +6,6 @@ import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/pages/find/new_item.dart';
 import 'package:ipfsnets/ui/widget/base_list_page.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 
 const List<NewsModel> newsList = [
@@ -93,7 +92,8 @@ class _FindRecommendState extends BaseListPageState<FindRecommend> {
   Future<BaseEntity> getData() async{
     // TODO: implement getData
     BaseEntity entity = new BaseEntity(1, "2", newsList);
-    return BaseEntity(1, "2", newsList);
+    list.addAll(entity.data);
+    return entity;
   }
 
   @override

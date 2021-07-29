@@ -2,7 +2,9 @@
 
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:ipfsnets/data/global_entiy.dart';
+import 'package:ipfsnets/http/api_service.dart';
 import 'package:ipfsnets/include.dart';
+import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/utils/string_util.dart';
 
 class PasswordController extends GetxController {
@@ -71,6 +73,16 @@ class PasswordController extends GetxController {
       LogUtil.e(value1+" "+code);
     }else if (type == GlobalEntiy.PASSWORD_CHANGE) {
       LogUtil.e(value1+" "+value2 + " " + value3);
+      if (value2 != value3) {
+        ToastUtil.show(S.current.password_no_equal);
+        return false;
+      }
+
+      BaseEntity baseEntity  = await ApiServer.changePassword(value1, value2);
+      if (baseEntity.isOk()) {
+        ToastUtil.show(S.current.option_success);
+      }
+
     }else if (type == GlobalEntiy.PASSWORD_APLAY) {
       LogUtil.e(value1+" "+value2+ "  " +code);
     }

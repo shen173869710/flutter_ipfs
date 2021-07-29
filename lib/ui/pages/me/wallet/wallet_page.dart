@@ -92,7 +92,7 @@ class _WalletPageState extends State<WalletPage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        bulidItem(context,R.assetsImgIcWalletItem1, S.current.wallet_item_1, Routes.walletScanPage),
+                        bulidItem(context,R.assetsImgIcWalletItem1, S.current.wallet_item_1, Routes.qrcodeScannerPage),
                         Gaps.hGap10,
                         bulidItem(context,R.assetsImgIcWalletItem2, S.current.wallet_item_2, Routes.walletWithdrawalPage),
                         Gaps.hGap10,
@@ -167,12 +167,23 @@ class _WalletPageState extends State<WalletPage> {
               onLoad: null,
               slivers: [
                 SliverList(delegate: SliverChildBuilderDelegate((context, index) {
-                  return WalletItem(list[index]!);
+                  return GestureDetector(
+                    onTap: (){
+                      onItemClick(index);
+                    },
+                    child:WalletItem(list[index]!),
+                  );
+
+
                 },childCount: list.length
                 ))
               ])),
     );
   }
 
+  onItemClick(int index) {
+    LogUtil.e(index.toString());
+    NavigatorUtil.push(context,'${Routes.walletInfoPage}',arguments: list[index]);
+  }
 
 }

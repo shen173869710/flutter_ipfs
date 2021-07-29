@@ -131,13 +131,13 @@ class _WalletAddressState extends State<WalletAddressDialog> {
                   onItemClickListener(index, GlobalEntiy.ADDRESS_EDIT, list[index]);
                 },)
               ],
-            ),visible: entiy.type == 0 ? true:false,),
+            ),visible: entiy.type != 1 ? true:false,),
             Gaps.vGap8,
             Visibility(child: LoginButton(text: S.current.wallet_withdraw_dialog_add, endble: true, onPressed: (){
               Navigator.of(context).pop();
               onItemClickListener(index, GlobalEntiy.ADDRESS_ADD,list[index]);
 
-            }),visible: entiy.type != 0 ? true:false,)
+            }),visible: entiy.type == 1 ? true:false,)
           ],
         )
     );

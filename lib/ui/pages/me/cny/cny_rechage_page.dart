@@ -78,7 +78,7 @@ class _CnyRechageStatus extends State<CnyRechagePage> {
                               Gaps.vGap16,
 
                               GestureDetector(
-                                child: StringUtil.isEmpty(_headUrl!)?Image.asset(R.assetsImgIcAdd,width: 160.h,height: 160.h,fit: BoxFit.cover,):ImageUtil.loadImage(_headUrl!, 160.h, 160.h),
+                                child: StringUtil.isEmpty(_headUrl!)?Image.asset(R.assetsImgIcAddFile,width: 160.h,height: 160.h,fit: BoxFit.cover,):ImageUtil.loadImage(_headUrl!, 160.h, 160.h),
                                 onTap: (){
                                   choosePhoto();
                                 },

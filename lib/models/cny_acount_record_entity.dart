@@ -1,4 +1,3 @@
-import 'package:ipfsnets/utils/date_util.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'cny_acount_record_entity.g.dart';

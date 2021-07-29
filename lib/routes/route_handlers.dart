@@ -11,10 +11,14 @@ import 'package:ipfsnets/ui/pages/me/more/more_page.dart';
 import 'package:ipfsnets/ui/pages/me/qrcode/qtcode_scanner_page.dart';
 import 'package:ipfsnets/ui/pages/me/setting/language_page.dart';
 import 'package:ipfsnets/ui/pages/me/setting/setting_page.dart';
+import 'package:ipfsnets/ui/pages/me/transfer/transfer_page.dart';
+import 'package:ipfsnets/ui/pages/me/transfer/transfer_record_page.dart';
 import 'package:ipfsnets/ui/pages/me/user/user_edit_page.dart';
 import 'package:ipfsnets/ui/pages/me/user/user_manager_page.dart';
 import 'package:ipfsnets/ui/pages/me/wallet/walle_scan_page.dart';
 import 'package:ipfsnets/ui/pages/me/wallet/wallet_exchange_page.dart';
+import 'package:ipfsnets/ui/pages/me/wallet/wallet_exchange_record_page.dart';
+import 'package:ipfsnets/ui/pages/me/wallet/wallet_info_page.dart';
 import 'package:ipfsnets/ui/pages/me/wallet/wallet_page.dart';
 import 'package:ipfsnets/ui/pages/me/wallet/wallet_rechage_record_page.dart';
 import 'package:ipfsnets/ui/pages/me/wallet/wallet_rechage_page.dart';
@@ -100,21 +104,32 @@ var walletHandler = Handler(handlerFunc: (BuildContext? context, Map<String, Lis
   return WalletPage();
 });
 
+var walletInfoHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return WalletInfoPage();
+});
+
 // 钱包扫一扫
 var walletScanHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   return WalletScanPage();
 });
 // 我的钱包 充币
 var walletRechageHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-  return WalletRechagePage();
+  final String coinCode = params['coinCode']?.first ?? '';
+  return WalletRechagePage(coinCode: coinCode,);
 });
 // 我的钱包 提币
 var walletWithdrawalHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-  return WalletWithdrawalPage();
+  final String coinCode = params['coinCode']?.first ?? '';
+  return WalletWithdrawalPage(coinCode: coinCode,);
 });
 // 我的钱包 兑换
 var walletExchangeHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   return WalletExchangePage();
+});
+
+// 我的钱包 兑换记录
+var walletExchangeRecordHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return WalletExchangeRecordPage();
 });
 
 // 提币记录
@@ -130,6 +145,15 @@ var walletWithdrawalAddressHandler = Handler(handlerFunc: (BuildContext? context
   return WalletWithdrawalAddressPage();
 });
 
+
+// 内网转账
+var transferHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  final String coinCode = params['coinCode']?.first ?? '';
+  return TransferPage(coinCode: coinCode,);
+});
+var transferRecordHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return TransferRecordPage();
+});
 
 // 设置页面
 var qtcodeScannerHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {

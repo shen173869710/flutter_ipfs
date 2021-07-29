@@ -15,10 +15,10 @@ class UserController extends GetxController {
   bool showAccount = false;
 
   void changeAccount(bool show){
-    print('UserController--onInit'+showAccount.toString());
-    showAccount = show;
-    user.username = "111111111111";
-    update();
+    // print('UserController--onInit'+showAccount.toString());
+    // showAccount = show;
+    // user.username = "111111111111";
+    // update();
   }
 
 

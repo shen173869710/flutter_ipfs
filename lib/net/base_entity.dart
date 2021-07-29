@@ -7,7 +7,7 @@ class BaseEntity <T> {
   late int code;
   late String msg;
   T?  data;
-  late int total;
+  late int total = 0;
 
   BaseEntity(this.code, this.msg, this.data);
   BaseEntity.fromJson(Map<String, dynamic> json) {

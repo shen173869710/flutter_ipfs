@@ -2,9 +2,12 @@
 
 import 'dart:convert';
 
+import 'package:ipfsnets/models/transfer_record_entity.dart';
 import 'package:ipfsnets/models/wallet_account_entity.dart';
 import 'package:ipfsnets/models/wallet_address_entity.dart';
 import 'package:ipfsnets/models/wallet_home_entity.dart';
+import 'package:ipfsnets/models/wallet_info_entity.dart';
+import 'package:ipfsnets/models/wallet_info_list_entity.dart';
 import 'package:ipfsnets/models/wallet_rechage_entity.dart';
 import 'package:ipfsnets/models/wallet_withdrawal_entity.dart';
 import 'package:ipfsnets/models/wallet_withdrawal_record_entity.dart';
@@ -105,4 +108,44 @@ class WalletApi{
     return HttpManager.getInstance().post(wallet_withdrawal_submit,jsonEncode(param));
   }
 
+
+  // 内网转账记录
+  static const String transfer_record = "wallets/app/wallet/transfer/out_page";
+  static  Future<BaseEntity> transferRecordList(int pageNum, num coinCode) {
+    Map<String, dynamic> param = new Map();
+    param['pageNum'] = pageNum;
+    param['pageSize'] = 10;
+    param['coinCode'] = coinCode;
+    return HttpManager.getInstance().get<List<TransferRecordEntity>>(transfer_record,params: param,withLoading: true);
+  }
+
+  // 币种详情
+  static const String waller_info = "wallets/app/wallet/flow/info/";
+  static  Future<BaseEntity> getWalletInfo(num coinCode) {
+    return HttpManager.getInstance().get<WalletInfoEntity>(waller_info+coinCode.toString(),withLoading: true);
+  }
+  // 冻结流水
+  static const String waller_info_freeze = "wallets/app/wallet/flow/freeze";
+  static  Future<BaseEntity> wallerInfForeeze(int pageNum) {
+    Map<String, dynamic> param = new Map();
+    param['pageNum'] = pageNum;
+    param['pageSize'] = 10;
+    return HttpManager.getInstance().get<List<WalletInfoListEntity>>(waller_info_freeze,params: param,withLoading: false);
+  }
+  // 可用流水
+  static const String waller_info_normal = "wallets/app/wallet/flow/normal";
+  static  Future<BaseEntity> wallerInfNormal(int pageNum) {
+    Map<String, dynamic> param = new Map();
+    param['pageNum'] = pageNum;
+    param['pageSize'] = 10;
+    return HttpManager.getInstance().get<List<WalletInfoListEntity>>(waller_info_normal,params: param,withLoading: false);
+  }
+  // 质押流水
+  static const String waller_info_pledge = "wallets/app/wallet/flow/pledge";
+  static  Future<BaseEntity> wallerInfPledge(int pageNum) {
+    Map<String, dynamic> param = new Map();
+    param['pageNum'] = pageNum;
+    param['pageSize'] = 10;
+    return HttpManager.getInstance().get<List<WalletInfoListEntity>>(waller_info_pledge,params: param,withLoading: false);
+  }
 }

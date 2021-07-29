@@ -85,7 +85,7 @@ class WalletRechageController extends GetxController{
     typeIndex = index;
     addressIndex = 0;
     type = listEntiy[typeIndex].coinName;
-    LogUtil.e("tyoe =="+type);
+    LogUtil.e("tyoe =="+type+walletListEntiy.length.toString());
     if (walletListEntiy.length == 1) {
       showMainAddress = false;
     }else {
@@ -194,7 +194,6 @@ class WalletRechageController extends GetxController{
   }
   // 删除通讯录
   Future<bool> delAddress(num id) async {
-
     BaseEntity baseEntity  = await WalletApi.walletAccountAddressDel(id);
     if (baseEntity.isOk()) {
       ToastUtil.show(S.current.option_success);

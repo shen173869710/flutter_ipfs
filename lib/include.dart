@@ -14,3 +14,4 @@ export '../../../r.dart';
 export 'package:ipfsnets/utils/image_util.dart';
 export 'package:ipfsnets/utils/toast_util.dart';
 export 'package:ipfsnets/utils/date_util.dart';
+export 'package:ipfsnets/utils/string_util.dart';

@@ -23,7 +23,7 @@ class WalletItem extends StatelessWidget {
               Text(data.coinName,style: ITextStyles.itemTitle,),
               Expanded(child:SizedBox()),
               Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(data.value.toString(),style: TextStyle(
                       fontSize: 12,

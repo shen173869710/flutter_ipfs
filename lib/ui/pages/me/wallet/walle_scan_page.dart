@@ -143,7 +143,7 @@ class WalletScanPage extends StatelessWidget {
               enableControlFinishLoad: false,
               controller: _refreshController,
               header:  null,
-              footer: ClassicalFooter(),
+              footer: Refresh.loadMore,
               onRefresh: null,
               onLoad: null,
               slivers: [

@@ -24,7 +24,9 @@ class ApiServer {
   // 获取用户信息
   static const String get_user = "wallet/app/user/info";
   // 找回密码
-  static const String change_password = "wallet/app/user/findPwd";
+  static const String find_password = "wallet/app/user/findPwd";
+  // 修改密码密码
+  static const String change_password = "wallet/app/user/resetPwd";
   // 上传图片
   static const String upload = "file/upload";
   // 编辑用户信息
@@ -83,9 +85,16 @@ class ApiServer {
     params['password'] = password;
     params['verifyCode'] = verifyCode;
     String json = jsonEncode(params);
-    return HttpManager.getInstance().post(change_password, json);
+    return HttpManager.getInstance().post(find_password, json);
   }
 
+  static Future<BaseEntity> changePassword(String newPassword, String oldPassword) {
+    var params = DataHelper.getBaseMap();
+    params['newPassword'] = newPassword;
+    params['oldPassword'] = oldPassword;
+    String json = jsonEncode(params);
+    return HttpManager.getInstance().post(change_password, json);
+  }
 
   // cny 首页
   static const String cny_account = "cny/app/account/home";

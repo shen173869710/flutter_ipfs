@@ -80,6 +80,186 @@ class S {
     );
   }
 
+  /// `刷新`
+  String get refresh {
+    return Intl.message(
+      '刷新',
+      name: 'refresh',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `加载`
+  String get loadMore {
+    return Intl.message(
+      '加载',
+      name: 'loadMore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `拉动刷新`
+  String get pullToRefresh {
+    return Intl.message(
+      '拉动刷新',
+      name: 'pullToRefresh',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `释放刷新`
+  String get releaseToRefresh {
+    return Intl.message(
+      '释放刷新',
+      name: 'releaseToRefresh',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `正在刷新...`
+  String get refreshing {
+    return Intl.message(
+      '正在刷新...',
+      name: 'refreshing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `刷新完成`
+  String get refreshFinish {
+    return Intl.message(
+      '刷新完成',
+      name: 'refreshFinish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `刷新失败`
+  String get refreshFailed {
+    return Intl.message(
+      '刷新失败',
+      name: 'refreshFailed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `刷新完成`
+  String get refreshed {
+    return Intl.message(
+      '刷新完成',
+      name: 'refreshed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `拉动加载`
+  String get pushToLoad {
+    return Intl.message(
+      '拉动加载',
+      name: 'pushToLoad',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `释放加载`
+  String get releaseToLoad {
+    return Intl.message(
+      '释放加载',
+      name: 'releaseToLoad',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `正在加载...`
+  String get loading {
+    return Intl.message(
+      '正在加载...',
+      name: 'loading',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `加载完成`
+  String get loadFinish {
+    return Intl.message(
+      '加载完成',
+      name: 'loadFinish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `加载失败`
+  String get loadFailed {
+    return Intl.message(
+      '加载失败',
+      name: 'loadFailed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `加载完成`
+  String get loaded {
+    return Intl.message(
+      '加载完成',
+      name: 'loaded',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `没有更多数据`
+  String get noMore {
+    return Intl.message(
+      '没有更多数据',
+      name: 'noMore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `完成刷新`
+  String get completeRefresh {
+    return Intl.message(
+      '完成刷新',
+      name: 'completeRefresh',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `完成加载`
+  String get completeLoad {
+    return Intl.message(
+      '完成加载',
+      name: 'completeLoad',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `更新于 %T`
+  String get updateAt {
+    return Intl.message(
+      '更新于 %T',
+      name: 'updateAt',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `设置`
   String get action_settings {
     return Intl.message(
@@ -410,6 +590,26 @@ class S {
     );
   }
 
+  /// `转账成功`
+  String get transfer_success {
+    return Intl.message(
+      '转账成功',
+      name: 'transfer_success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `转账失败`
+  String get transfer_fail {
+    return Intl.message(
+      '转账失败',
+      name: 'transfer_fail',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `发送成功`
   String get send_success {
     return Intl.message(
@@ -465,6 +665,16 @@ class S {
     return Intl.message(
       '操作成功',
       name: 'option_success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `复制成功`
+  String get copy_success {
+    return Intl.message(
+      '复制成功',
+      name: 'copy_success',
       desc: '',
       args: [],
     );
@@ -2045,6 +2255,386 @@ class S {
     return Intl.message(
       '扫描二维码,获取地址',
       name: 'wallet_recharge_scan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `兑换`
+  String get wallet_exchange_title {
+    return Intl.message(
+      '兑换',
+      name: 'wallet_exchange_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `输入兑出数量`
+  String get wallet_exchange_hint {
+    return Intl.message(
+      '输入兑出数量',
+      name: 'wallet_exchange_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `可用`
+  String get wallet_exchange_has {
+    return Intl.message(
+      '可用',
+      name: 'wallet_exchange_has',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `可兑换`
+  String get wallet_exchange_max {
+    return Intl.message(
+      '可兑换',
+      name: 'wallet_exchange_max',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `兑换记录`
+  String get wallet_exchange_record_title {
+    return Intl.message(
+      '兑换记录',
+      name: 'wallet_exchange_record_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `兑出数量`
+  String get wallet_exchange_record_item_1 {
+    return Intl.message(
+      '兑出数量',
+      name: 'wallet_exchange_record_item_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `获取CNY`
+  String get wallet_exchange_record_item_2 {
+    return Intl.message(
+      '获取CNY',
+      name: 'wallet_exchange_record_item_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `时间`
+  String get wallet_exchange_record_item_3 {
+    return Intl.message(
+      '时间',
+      name: 'wallet_exchange_record_item_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `可用`
+  String get wallet_info_item_1 {
+    return Intl.message(
+      '可用',
+      name: 'wallet_info_item_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `冻结`
+  String get wallet_info_item_2 {
+    return Intl.message(
+      '冻结',
+      name: 'wallet_info_item_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `质押`
+  String get wallet_info_item_3 {
+    return Intl.message(
+      '质押',
+      name: 'wallet_info_item_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `今日收益`
+  String get wallet_info_item_4 {
+    return Intl.message(
+      '今日收益',
+      name: 'wallet_info_item_4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `可用流水`
+  String get wallet_info_water_1 {
+    return Intl.message(
+      '可用流水',
+      name: 'wallet_info_water_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `冻结流水`
+  String get wallet_info_water_2 {
+    return Intl.message(
+      '冻结流水',
+      name: 'wallet_info_water_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `质押流水`
+  String get wallet_info_water_3 {
+    return Intl.message(
+      '质押流水',
+      name: 'wallet_info_water_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `充币`
+  String get wallet_info_btn_1 {
+    return Intl.message(
+      '充币',
+      name: 'wallet_info_btn_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `提币`
+  String get wallet_info_btn_2 {
+    return Intl.message(
+      '提币',
+      name: 'wallet_info_btn_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `转账`
+  String get wallet_info_btn_3 {
+    return Intl.message(
+      '转账',
+      name: 'wallet_info_btn_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `转账`
+  String get transfer_title {
+    return Intl.message(
+      '转账',
+      name: 'transfer_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `内网转出`
+  String get transfer_item_1 {
+    return Intl.message(
+      '内网转出',
+      name: 'transfer_item_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `内网收账`
+  String get transfer_item_2 {
+    return Intl.message(
+      '内网收账',
+      name: 'transfer_item_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `对方账号`
+  String get transfer_out_item_1 {
+    return Intl.message(
+      '对方账号',
+      name: 'transfer_out_item_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `对方昵称`
+  String get transfer_out_item_2 {
+    return Intl.message(
+      '对方昵称',
+      name: 'transfer_out_item_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `转账数量`
+  String get transfer_out_item_3 {
+    return Intl.message(
+      '转账数量',
+      name: 'transfer_out_item_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `手续费`
+  String get transfer_out_item_4 {
+    return Intl.message(
+      '手续费',
+      name: 'transfer_out_item_4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `手机验证`
+  String get transfer_out_item_5 {
+    return Intl.message(
+      '手机验证',
+      name: 'transfer_out_item_5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `备注`
+  String get transfer_out_item_6 {
+    return Intl.message(
+      '备注',
+      name: 'transfer_out_item_6',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `请输入`
+  String get transfer_out_item_1_hint {
+    return Intl.message(
+      '请输入',
+      name: 'transfer_out_item_1_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `内网转出对方昵称`
+  String get transfer_out_item_2_hint {
+    return Intl.message(
+      '内网转出对方昵称',
+      name: 'transfer_out_item_2_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `请输入转账数量`
+  String get transfer_out_item_3_hint {
+    return Intl.message(
+      '请输入转账数量',
+      name: 'transfer_out_item_3_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `手续费`
+  String get transfer_out_item_4_hint {
+    return Intl.message(
+      '手续费',
+      name: 'transfer_out_item_4_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `请输入验证码`
+  String get transfer_out_item_5_hint {
+    return Intl.message(
+      '请输入验证码',
+      name: 'transfer_out_item_5_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `可选填`
+  String get transfer_out_item_6_hint {
+    return Intl.message(
+      '可选填',
+      name: 'transfer_out_item_6_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `收款账户`
+  String get transfer_out_item_in_account {
+    return Intl.message(
+      '收款账户',
+      name: 'transfer_out_item_in_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `收款账户二维码`
+  String get transfer_out_item_in_qrcode {
+    return Intl.message(
+      '收款账户二维码',
+      name: 'transfer_out_item_in_qrcode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `转账记录`
+  String get transfer_record_title {
+    return Intl.message(
+      '转账记录',
+      name: 'transfer_record_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `转账人`
+  String get transfer_record_out {
+    return Intl.message(
+      '转账人',
+      name: 'transfer_record_out',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `收款人`
+  String get transfer_record_in {
+    return Intl.message(
+      '收款人',
+      name: 'transfer_record_in',
       desc: '',
       args: [],
     );

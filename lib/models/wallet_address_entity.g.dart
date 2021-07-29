@@ -12,7 +12,9 @@ WalletAddressEntity _$WalletAddressEntityFromJson(Map<String, dynamic> json) {
     ..aliasName = json['aliasName'] as String
     ..coinIcon = json['coinIcon'] as String
     ..coinName = json['coinName'] as String
-    ..id = json['id'] as num;
+    ..id = json['id'] as num
+    ..type = json['type'] as num
+    ..coinCode = json['coinCode'] as num;
 }
 
 Map<String, dynamic> _$WalletAddressEntityToJson(
@@ -23,4 +25,6 @@ Map<String, dynamic> _$WalletAddressEntityToJson(
       'coinIcon': instance.coinIcon,
       'coinName': instance.coinName,
       'id': instance.id,
+      'type': instance.type,
+      'coinCode': instance.coinCode,
     };

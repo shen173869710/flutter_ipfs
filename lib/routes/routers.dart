@@ -30,17 +30,24 @@ class Routes {
   static String morePage = "/me/more/morepage";
   // 我的钱包
   static String walletPage = "/me/wallet/walletpage";
+  static String walletInfoPage = "/me/wallet/walletinfopage";
   // 钱包
-  static String walletScanPage = "/me/user/walletscanpage";
-  static String walletWithdrawalPage = "/me/user/walletwithdrawalpage";
-  static String walletRechagePage = "/me/user/walletrechagepage";
-  static String walletExchangePage = "/me/user/walletexchangepage";
+  static String walletScanPage = "/me/wallet/walletscanpage";
+  static String walletWithdrawalPage = "/wallet/user/walletwithdrawalpage";
+  static String walletRechagePage = "/me/wallet/walletrechagepage";
+  static String walletExchangePage = "/me/wallet/walletexchangepage";
 
   static String walletRechageRecordPage = "/me/wallet/walletrechagerecordpage";
   static String walletWithdrawalRecordPage = "/me/wallet/walletwithdrawalrecordpage";
   static String walletWithdrawalAddressPage = "/me/wallet/walletwithdrawaladdresspage";
 
   static String qrcodeScannerPage = "/me/wallet/qrcodescannerpage";
+
+  static String walletExchangeRecordPage = "/me/wallet/walletexchangerecordpage";
+  // 内网转账
+  static String transferPage = "/me/transfer/transferpage";
+  static String transferRecordPage = "/me/transfer/transferrecordpage";
+
   // 设置页面
   static String settingPage = "/me/setting/settingpage";
   static String passwordPage = "/me/setting/passwordpage";
@@ -78,6 +85,7 @@ class Routes {
     router.define(morePage, handler: moreHandler);
 
     router.define(walletPage, handler: walletHandler);
+    router.define(walletInfoPage, handler: walletInfoHandler);
     router.define(walletScanPage, handler: walletScanHandler);
     router.define(walletWithdrawalPage, handler: walletWithdrawalHandler);
     router.define(walletRechagePage, handler: walletRechageHandler);
@@ -85,7 +93,12 @@ class Routes {
     router.define(walletRechageRecordPage, handler: walletRechageRecordHandler);
     router.define(walletWithdrawalRecordPage, handler: walletWithdrawalRecordHandler);
     router.define(walletWithdrawalAddressPage, handler: walletWithdrawalAddressHandler);
+    router.define(walletExchangeRecordPage, handler: walletExchangeRecordHandler);
+    router.define(languagePage, handler: languageHandler);
+
     router.define(qrcodeScannerPage, handler: qtcodeScannerHandler);
+    router.define(transferPage, handler: transferHandler);
+    router.define(transferRecordPage, handler: transferRecordHandler);
 
     router.define(userManager, handler: userManagerHandler);
     router.define(userEdit, handler: userEditHandler);

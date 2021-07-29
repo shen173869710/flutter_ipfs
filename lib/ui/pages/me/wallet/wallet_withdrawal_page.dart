@@ -11,9 +11,12 @@ import 'package:ipfsnets/res/styles.dart';
 import 'package:ipfsnets/ui/pages/me/wallet/wallet_withdrawal_controller.dart';
 import 'package:ipfsnets/ui/widget/login_button.dart';
 import 'package:ipfsnets/utils/LoadingUtils.dart';
-import 'package:ipfsnets/utils/limit_formatter.dart';
 
 class WalletWithdrawalPage extends StatefulWidget{
+
+  String coinCode = "";
+  WalletWithdrawalPage({required this.coinCode,});
+
   @override
   State<StatefulWidget> createState() {
     return _WalletWithdrawalState();
@@ -31,6 +34,8 @@ class _WalletWithdrawalState extends State<WalletWithdrawalPage> {
   FocusNode _money = FocusNode();
   FocusNode _mark = FocusNode();
 
+
+
   @override
   void initState() {
     controller.init();
@@ -42,8 +47,20 @@ class _WalletWithdrawalState extends State<WalletWithdrawalPage> {
     BaseEntity entity = await WalletApi.getWalletWithdrawalList(2);
     List<WalletAccountEntity> list = entity.data;
     if (list != null && list.length > 0) {
-      BaseEntity baseEntity = await WalletApi.getWalletWithdrawalHome(list[0].coinCode.toString(),false);
-      controller.initData(list, baseEntity.data,0);
+      LogUtil.e("传递过来的ID ======"+widget.coinCode);
+      int index = 0;
+      if (StringUtil.isNotEmpty(widget.coinCode)) {
+        num id = num.parse(widget.coinCode);
+        int size = list.length;
+        for(int i = 0; i < size; i++) {
+          if (id == list[i].coinCode) {
+            index  = i;
+          }
+        }
+      }
+
+      BaseEntity baseEntity = await WalletApi.getWalletWithdrawalHome(list[index].coinCode.toString(),false);
+      controller.initData(list, baseEntity.data,index);
     }
     LoadingUtils.dismiss();
 
@@ -290,11 +307,7 @@ class _WalletWithdrawalState extends State<WalletWithdrawalPage> {
               controller.withdrawalMoney(value);
             },
             controller: _inputMoneyController,
-            inputFormatters: [
-              LengthLimitingTextInputFormatter(GlobalEntiy.MONEY_MAX_INPUT),
-              FilteringTextInputFormatter.allow(RegExp(r'^\d+(\.)?[0-9]{0,2}')),//数字包括小数
-              LimitFormatter(2),
-            ],
+            inputFormatters: IInpitFormatters.inputMoney,
             maxLines: 1,
             focusNode: _money,
             style: TextStyle(fontSize: 14),

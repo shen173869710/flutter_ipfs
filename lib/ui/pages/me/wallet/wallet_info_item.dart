@@ -1,22 +1,19 @@
 import "package:ipfsnets/include.dart";
-import 'package:ipfsnets/models/wallet_withdrawal_record_entity.dart';
+import 'package:ipfsnets/models/wallet_info_list_entity.dart';
 import 'package:ipfsnets/utils/string_util.dart';
 /**
  *  wall 提现记录
  */
-class WalletWithdrawalRecordItem extends StatelessWidget {
-  final WalletWithdrawalRecordEntity data;
-  WalletWithdrawalRecordItem(this.data);
+class WalletInfoItem extends StatelessWidget {
+  final WalletInfoListEntity data;
+  WalletInfoItem(this.data);
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-
-    return
-
-      Container(
-        margin: EdgeInsets.fromLTRB(20.w, 10.w, 20.w, 10.w),
-        padding: ITextStyles.containerMargin,
+    return Container(
+        margin: EdgeInsets.fromLTRB(20.w, 0.w, 20.w, 0.w),
+        padding: EdgeInsets.fromLTRB(20.w, 10.w, 20.w, 10.w),
         decoration: ITextStyles.boxDecoration,
         child: Column(
           children: [
@@ -25,22 +22,20 @@ class WalletWithdrawalRecordItem extends StatelessWidget {
               children: <Widget>[
                 Image.asset(R.assetsImgMyWalletFil,width: 30.w,height: 30.w,),
                 Gaps.hGap8,
-                Text(data.coinName,style: ITextStyles.itemTitle),
+                Text(data.flowType.toString(),style: ITextStyles.itemTitle),
                 Expanded(child:SizedBox()),
-                Text(data.txValue.toString(),style: ITextStyles.itemTitle),
+                Text(data.value.toString(),style: ITextStyles.itemTitle),
               ],
             ),
             Gaps.vGap8,
             Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
+              children: [
+                Gaps.hGap20,
                 Text(DateUtil.getTime(data.createTime),style: ITextStyles.itemContent),
-                Expanded(child:SizedBox()),
-                Text(getStatus(data.transactionStatus,data.fromAddress),style: ITextStyles.itemContent),
               ],
             ),
-            Gaps.vGap8,
-            Text(getFromAddress(),maxLines:2,style:ITextStyles.itemContent),
+            Gaps.vGap4,
+            Gaps.line
           ],
         )
     );
@@ -77,15 +72,6 @@ class WalletWithdrawalRecordItem extends StatelessWidget {
     return Colours.item_content_color;
   }
 
-  String getFromAddress() {
-    if (StringUtil.isEmpty(data.fromAddress) && StringUtil.isEmpty(data.toAddress)) {
-      return "";
-    }
-    if (StringUtil.isEmpty(data.fromAddress)) {
-      return S.current.wallet_withdraw_address+data.toAddress;
-    }
-    return S.current.wallet_recharge_address+data.fromAddress;
-  }
 
 }
 

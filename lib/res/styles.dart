@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:ipfsnets/include.dart';
+import 'package:ipfsnets/utils/limit_formatter.dart';
 import 'colors.dart';
 import 'dimens.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -214,6 +217,38 @@ class IImages {
   static Widget arrowRight = Image.asset(R.assetsImgIcArrowRight, height: 30.w, width: 30.w);
 }
 
+class IInpitFormatters{
+  static List<TextInputFormatter> inputMoney = [
+    LengthLimitingTextInputFormatter(GlobalEntiy.MONEY_MAX_INPUT),
+    FilteringTextInputFormatter.allow(RegExp(r'^\d+(\.)?[0-9]{0,2}')),//数字包括小数
+    LimitFormatter(2),
+  ];
+
+}
+
+
+class Refresh{
+  static ClassicalHeader head = ClassicalHeader(
+    refreshText: S.current.pullToRefresh,
+    refreshReadyText: S.current.releaseToRefresh,
+    refreshingText: S.current.refreshing,
+    refreshedText: S.current.refreshed,
+    refreshFailedText: S.current.refreshFailed,
+    noMoreText: S.current.noMore,
+    infoText: S.current.updateAt,
+  );
+
+  static ClassicalFooter loadMore = ClassicalFooter(
+    loadText: S.current.pushToLoad,
+    loadReadyText: S.current.releaseToLoad,
+    loadingText: S.current.loading,
+    loadedText: S.current.loaded,
+    loadFailedText: S.current.loadFailed,
+    noMoreText: S.current.noMore,
+    infoText: S.current.updateAt,
+  );
+
+}
 
 
 

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:ipfsnets/models/main_tab_entiy.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/res/styles.dart';
+import 'package:ipfsnets/include.dart';
 
 class MainTabs extends StatelessWidget {
 
@@ -22,22 +23,24 @@ class MainTabs extends StatelessWidget {
       centerTitle: true,
       backgroundColor: Colours.app_bar_bg,
       title: Text(title,style: ITextStyles.whiteTitle,),
-      bottom: TabBar(
-        controller: tabController,
-        isScrollable: tabScrollable,
-        indicatorColor: Colours.text_white,
+      bottom: PreferredSize(
+        preferredSize: Size(double.infinity,50.w),
+        child:Material(
+          color: Colours.layout_bg,
+          child:TabBar(
+            controller: tabController,
+            isScrollable: tabScrollable,
+            indicatorColor: Colours.text_white,
+            tabs: tabs.map((e) => Tab(text: e.title,
+            )).toList(),
 
-        tabs: tabs.map((e) => Tab(
-          text: e.title,
-        )).toList(),
-
-      ),
+          ),
+        )
+      )
     ),
       body: TabBarView(
         controller: this.tabController,
-
         children: this.tabs.map((item) => item.widget).toList(),
-
       ),
     );
   }

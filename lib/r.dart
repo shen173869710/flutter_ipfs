@@ -143,6 +143,8 @@ class R {
   static final String assetsImgMyWalletBtc = 'assets/img/my_wallet_btc.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_get.png)
   static final String assetsImgIcGet = 'assets/img/ic_get.png';
+  /// ![](http://127.0.0.1:11111/assets/img/ic_add_file.png)
+  static final String assetsImgIcAddFile = 'assets/img/ic_add_file.png';
   /// ![](http://127.0.0.1:11111/assets/img/icon_usdt_used.png)
   static final String assetsImgIconUsdtUsed = 'assets/img/icon_usdt_used.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_welcome.jpeg)

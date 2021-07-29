@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:ipfsnets/models/news_model.dart';
-import 'package:ipfsnets/res/colors.dart';
-import 'package:ipfsnets/res/styles.dart';
-import 'package:ipfsnets/utils/encrypt_util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ipfsnets/models/news_model.dart';
+import 'package:ipfsnets/res/styles.dart';
 
 import '../../../r.dart';
 

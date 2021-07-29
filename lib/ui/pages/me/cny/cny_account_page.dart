@@ -221,7 +221,7 @@ class CnyAccountPage extends StatelessWidget {
               enableControlFinishLoad: true,
               controller: _refreshController,
               header:  null,
-              footer: ClassicalFooter(),
+              footer: Refresh.loadMore,
               onRefresh: null,
               onLoad: _onLoading,
               slivers: [

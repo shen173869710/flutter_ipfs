@@ -1,28 +1,12 @@
-import 'package:flutter_easyrefresh/easy_refresh.dart';
-import 'package:ipfsnets/data/global_entiy.dart';
+import 'package:flutter/services.dart';
 import "package:ipfsnets/include.dart";
-import 'package:ipfsnets/models/wallet_entiy.dart';
+import 'package:ipfsnets/ui/widget/login_button.dart';
+import 'package:ipfsnets/utils/limit_formatter.dart';
 
 class WalletExchangePage extends StatelessWidget {
-  List<WalletEntiy> list = List.from(GlobalEntiy.walletList);
 
-  EasyRefreshController _refreshController = EasyRefreshController();
-  int page = 1;
-  bool isFailure = false;
-  Future _onRefresh() async {
-    page = 1;
-    await Future.delayed(Duration(milliseconds: 1000));
-    // if failed,use refreshFailed()
-    // _refreshController.resetLoadState();
-    _refreshController.finishRefresh();
-  }
-
-  Future _onLoading() async {
-    await Future.delayed(Duration(milliseconds: 1000));
-    // if failed,use refreshFailed()
-    // _refreshController.resetRefreshState();
-    _refreshController.finishLoad();
-  }
+  final  _inputFromController = TextEditingController();
+  final  _inputToController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,127 +14,150 @@ class WalletExchangePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colours.bg_color,
       appBar: AppBar(
-        title: new Text(S.current.wallet_title),
+        title: new Text(S.current.wallet_exchange_title),
         centerTitle: true,
         backgroundColor: Colours.app_bar_bg,
+        actions: [
+          IconButton(icon: Icon(Icons.receipt_outlined,color: Colours.text_white,),onPressed: () {
+            // NavigatorUtil.goRecordPage(context, BaseListFactory.WALLET_WITHDRAWAL_RECORD);
+            NavigatorUtil.jump(context, Routes.walletExchangeRecordPage);
+
+          },)
+        ],
       ),
       body: ConstrainedBox(
         constraints: BoxConstraints.expand(),
-        child: Stack(
-          children: [
-            SizedBox(
+        child:
+        Stack(
+        children: [
+          SizedBox(
+              width: double.infinity,
+              height: 70.h,
+              child: Container(
+                color: Colours.app_bar_bg,
+              )),
+          Column(
+            children: [
+              Container(
                 width: double.infinity,
-                height: 70.h,
-                child: Container(
-                  color: Colours.app_bar_bg,
-                )),
-            Column(
-              children: [
-                Container(
-                  width: double.infinity,
-                  margin: ITextStyles.containerMargin,
-                  padding: EdgeInsets.all(20.w),
-                  decoration: ITextStyles.boxDecoration,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(S.current.wallet_total, style: ITextStyles.itemContent),
-                      Gaps.vGap8,
-                      bulidTopMoney(),
-                      Gaps.vGap4,
-                      Text("= 1111111 USDT", style: ITextStyles.itemTitle),
-                    ],
-                  ),
+                margin: ITextStyles.containerMargin,
+                padding: EdgeInsets.all(30.w),
+                decoration: ITextStyles.boxDecoration,
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    buildLeft(),
+                    buildMiddle(),
+                    buildRight(),
+
+                  ],
                 ),
-                Container(
-                    width: double.infinity,
-                    margin: ITextStyles.containerMargin,
-                    padding: EdgeInsets.fromLTRB(0, 20.w, 0, 20.w),
-                    decoration: ITextStyles.boxDecoration,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        bulidItem(R.assetsImgMeItem8, S.current.wallet_item_1, 0),
-                        Gaps.hGap10,
-                        bulidItem(R.assetsImgMeItem8, S.current.wallet_item_2, 1),
-                        Gaps.hGap10,
-                        bulidItem(R.assetsImgMeItem8, S.current.wallet_item_3, 2),
-                        Gaps.hGap10,
-                        bulidItem(R.assetsImgMeItem8, S.current.wallet_item_4, 3),
-                      ],
-                    )),
-                bulidRecordList(),
-              ],
-            )
-          ],
-        ),
+              ),
+              bulidBottom(context)
+            ],
+          )
+        ],
+      ),
       ),
     );
   }
-  // 创建顶部资产
-  Text bulidTopMoney() {
-    return Text.rich(TextSpan(
-      children: [
-        TextSpan(
-            text: "12345",
-            style: TextStyle(color: Colours.item_red, fontSize: 32)),
-        TextSpan(text: " ", style: ITextStyles.itemContent),
-        TextSpan(text: "CNY", style: ITextStyles.itemTitle),
-      ],
-    ));
-  }
 
-  // 创建 item
-  Column bulidItem(String image, String title, int index) {
-    return Column(
+  Column buildLeft() {
+    return  Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        GestureDetector(
-          child:  Image.asset(image,width: 60.w,height: 60.w,),
-          onTap: (){
-            onItemClick(index);
-          },
-        ),
+        Text.rich(TextSpan(children: [
+          WidgetSpan(
+              child: Image.asset(
+                R.assetsImgIcFil,
+                height: 40.w,
+                width: 40.w,
+              )),
+          TextSpan(text: "  "),
+          TextSpan(
+              text: "11111",
+              style: TextStyle(color: Colours.item_title_color, fontSize: 16)),
+
+        ])),
         Gaps.vGap4,
-        Text(title,style: ITextStyles.itemTitle,),
+        SizedBox(child:TextFormField(
+          onChanged: (value) {
+          },
+          controller: _inputFromController,
+          inputFormatters: [
+            LengthLimitingTextInputFormatter(GlobalEntiy.MONEY_MAX_INPUT),
+            LimitFormatter(2),
+          ],
+          maxLines: 1,
+          style: TextStyle(fontSize: 14),
+          decoration: InputDecoration(
+              focusedBorder: InputBorder.none,
+              enabledBorder: InputBorder.none,
+              hintText: S.current.wallet_exchange_hint
+          ),
+        ),width: 250.w,),
+        Gaps.vGap4,
+        Text("1111",style: ITextStyles.itemContent,),
       ],
     );
   }
 
-  void onItemClick(int index) {
-    if (index == 0) {
-
-    }else if (index == 1) {
-
-    }else if (index == 2) {
-
-    }else if (index == 3) {
-
-    }
+  Column buildRight() {
+    return  Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        Text.rich(TextSpan(children: [
+          WidgetSpan(
+              child: Image.asset(
+                R.assetsImgIcFil,
+                height: 40.w,
+                width: 40.w,
+              )),
+          TextSpan(text: "  "),
+          TextSpan(
+              text: "11111",
+              style: TextStyle(color: Colours.item_title_color, fontSize: 16)),
+          TextSpan(text: "     "),
+        ])),
+        Gaps.vGap4,
+        SizedBox(child:TextFormField(
+          onChanged: (value) {
+          },
+          controller: _inputFromController,
+          inputFormatters: [
+            LengthLimitingTextInputFormatter(GlobalEntiy.MONEY_MAX_INPUT),
+            LimitFormatter(2),
+          ],
+          textAlign: TextAlign.right,
+          maxLines: 1,
+          style: TextStyle(fontSize: 14),
+          decoration: InputDecoration(
+              focusedBorder: InputBorder.none,
+              enabledBorder: InputBorder.none,
+              hintText: "111111111"
+          ),
+        ),width: 250.w,),
+        Gaps.vGap4,
+        Text("1111",style: ITextStyles.itemContent,textAlign: TextAlign.right,),
+      ],
+    );
   }
 
-  // 创建充值和提现记录
-  Expanded bulidRecordList() {
-    return    Expanded(
-      child: Container(
-          width: double.infinity,
-          margin: EdgeInsets.fromLTRB(20.w, 0.w, 20.w, 30.w),
-          decoration:ITextStyles.boxDecoration,
-          child:EasyRefresh.custom(
-              enableControlFinishRefresh: false,
-              enableControlFinishLoad: false,
-              controller: _refreshController,
-              header:  null,
-              footer: ClassicalFooter(),
-              onRefresh: null,
-              onLoad: null,
-              slivers: [
-                SliverList(delegate: SliverChildBuilderDelegate((context, index) {
-                  return Text("  ");
-                },childCount: list.length
-                ))
-              ])),
-    );
+  Padding buildMiddle() {
+
+    return Padding(padding: EdgeInsets.fromLTRB(0.w, 20.h, 0.w, 0),
+      child: Image.asset(R.assetsImgIcExchange, width: 70.w,height: 70.w,)
+
+      ,);
+  }
+
+  Container bulidBottom(BuildContext context) {
+    return  Container(
+        width: double.infinity,
+        margin: ITextStyles.containerMargin,
+        child: LoginButton(text: S.current.sure, endble: false, onPressed: (){
+        }),);
   }
 }
