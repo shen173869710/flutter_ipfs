@@ -21,7 +21,7 @@ class SplashPage extends StatefulWidget {
 //启动页面
 class _SplashPageState extends State<SplashPage> {
   void onDelayed() async{
-    await Future.delayed(const Duration(milliseconds: 2000), () {
+    await Future.delayed(const Duration(milliseconds: 20), () {
       UserUtil.initUserInfo(new UserEntity());
       Navigator.pushReplacement(context,
         MaterialPageRoute(builder: (context) => LoginPage()),
@@ -41,10 +41,9 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-
      return Scaffold(
         body: new Center(
-          child: new Image.asset(R.assetsImgIcWelcome,fit: BoxFit.fill,width: double.infinity,height: double.infinity,),
+          // child: new Image.asset(R.assetsImgIcWelcome,fit: BoxFit.fill,width: double.infinity,height: double.infinity,),
         ),
 
      );

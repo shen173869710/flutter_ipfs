@@ -109,6 +109,10 @@ class R {
   static final String assetsImgTitleBarHead = 'assets/img/title_bar_head.jpg';
   /// ![](http://127.0.0.1:11111/assets/img/ic_address_edit.png)
   static final String assetsImgIcAddressEdit = 'assets/img/ic_address_edit.png';
+  /// ![](http://127.0.0.1:11111/assets/img/ic_quote-down.png)
+  static final String assetsImgIcQuote_down = 'assets/img/ic_quote-down.png';
+  /// ![](http://127.0.0.1:11111/assets/img/ic_quote_up.png)
+  static final String assetsImgIcQuoteUp = 'assets/img/ic_quote_up.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_unlike.png)
   static final String assetsImgIcUnlike = 'assets/img/ic_unlike.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_cny_icon.png)
@@ -135,6 +139,8 @@ class R {
   static final String assetsImgEdittextClear = 'assets/img/edittext_clear.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_dot.png)
   static final String assetsImgIcDot = 'assets/img/ic_dot.png';
+  /// ![](http://127.0.0.1:11111/assets/img/ic_worring.png)
+  static final String assetsImgIcWorring = 'assets/img/ic_worring.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_str.png)
   static final String assetsImgIcStr = 'assets/img/ic_str.png';
   /// ![](http://127.0.0.1:11111/assets/img/more_item_8.png)
@@ -203,6 +209,8 @@ class R {
   static final String assetsImgMeItem14 = 'assets/img/me_item_14.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_placeholder.png)
   static final String assetsImgIcPlaceholder = 'assets/img/ic_placeholder.png';
+  /// ![](http://127.0.0.1:11111/assets/img/del.png)
+  static final String assetsImgDel = 'assets/img/del.png';
   /// ![](http://127.0.0.1:11111/assets/img/me_item_10.png)
   static final String assetsImgMeItem10 = 'assets/img/me_item_10.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_envelope.png)

@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:dio/dio.dart';
+import 'package:ipfsnets/data/global_entiy.dart';
 import 'package:ipfsnets/http/result_data.dart';
 import 'package:ipfsnets/http/url_config.dart';
 import 'package:ipfsnets/net/base_entity.dart';
@@ -83,6 +84,7 @@ class HttpManager {
         LoadingUtils.dismiss();
       }
       LogUtil.e("异常"+e.toString());
+      code = -1;
       return BaseEntity(code, e.toString(), null);
       // return resultError(e);
     }
@@ -105,11 +107,14 @@ class HttpManager {
       final String data = response.data.toString();
       LogUtil.e("请求结束"+data);
       final Map<String, dynamic> _map = parseData(data);
+
       return BaseEntity<T>.fromJson(_map);
     } catch (e) {
       if (withLoading) {
         LoadingUtils.dismiss();
       }
+      LogUtil.e("解析异常"+e.toString());
+      code = -1;
       return BaseEntity(code, e.toString(), null);
     }
     return BaseEntity(ExceptionHandle.parse_error, '数据解析错误！', null);
@@ -136,9 +141,10 @@ class HttpManager {
       if (withLoading) {
         LoadingUtils.dismiss();
       }
+      code = -1;
       return BaseEntity(code, e.toString(), null);
     }
-    return BaseEntity(ExceptionHandle.parse_error, '数据解析错误！', null);
+
   }
 
   Future<BaseEntity<T>> upload<T>(api, File file, {withLoading = true}) async {

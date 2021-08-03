@@ -71,7 +71,9 @@ abstract class BaseListPageState< W extends StatefulWidget>extends State<W>{
           bottomBouncing: true,
         slivers: [
           SliverList(delegate: SliverChildBuilderDelegate((context, index) {
-            return setListView(index);
+            return GestureDetector(child: setListView(index),onTap: (){
+                onItemClick(context, index);
+            },);
           },childCount: getListLength()
           ))
         ]);

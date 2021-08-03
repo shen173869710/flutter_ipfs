@@ -20,7 +20,7 @@ class UserUtil {
       SpUtil.putInt(SP_USER_ID, entity.userId!);
       SpUtil.putString(SP_AVATAR, entity.avatar!);
       SpUtil.putString(SP_NICKNAME, entity.nickname!);
-      SpUtil.putString(SP_PASSWORD, entity.password!);
+      // SpUtil.putString(SP_PASSWORD, entity.password!);
       SpUtil.putString(SP_SEX, entity.sex!);
       SpUtil.putString(SP_USER_NAME, entity.username!);
       SpUtil.putBool(SP_IS_ALLOGIN, true);
@@ -35,7 +35,7 @@ class UserUtil {
     user.userId = SpUtil.getInt(SP_USER_ID);
     user.avatar = SpUtil.getString(SP_AVATAR);
     user.nickname = SpUtil.getString(SP_NICKNAME);
-    user.password = SpUtil.getString(SP_PASSWORD);
+    // user.password = SpUtil.getString(SP_PASSWORD);
     user.sex = SpUtil.getString(SP_SEX);
     user.username = SpUtil.getString(SP_USER_NAME);
     return user;

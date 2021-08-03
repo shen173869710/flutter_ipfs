@@ -177,6 +177,8 @@ flutter:
     - assets/img/ic_white_back.png
     - assets/img/title_bar_head.jpg
     - assets/img/ic_address_edit.png
+    - assets/img/ic_quote-down.png
+    - assets/img/ic_quote_up.png
     - assets/img/ic_unlike.png
     - assets/img/ic_cny_icon.png
     - assets/img/me_item_19.png
@@ -190,6 +192,7 @@ flutter:
     - assets/img/more_item_9.png
     - assets/img/edittext_clear.png
     - assets/img/ic_dot.png
+    - assets/img/ic_worring.png
     - assets/img/ic_str.png
     - assets/img/more_item_8.png
     - assets/img/my_wallet_btc.png
@@ -224,6 +227,7 @@ flutter:
     - assets/img/ic_exchange.png
     - assets/img/me_item_14.png
     - assets/img/ic_placeholder.png
+    - assets/img/del.png
     - assets/img/me_item_10.png
     - assets/img/ic_envelope.png
     - assets/img/ic_search.png

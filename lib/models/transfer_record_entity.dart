@@ -16,10 +16,7 @@ class TransferRecordEntity{
 	late String username;
 	late num outStatus;
 
-factory TransferRecordEntity.fromJson(Map<String, dynamic> json) => _$TransferRecordEntityFromJson(json);
-
-Map<String, dynamic> toJson() => _$TransferRecordEntityToJson(this);
-
-
+	factory TransferRecordEntity.fromJson(Map<String, dynamic> json) => _$TransferRecordEntityFromJson(json);
+	Map<String, dynamic> toJson() => _$TransferRecordEntityToJson(this);
 
 }

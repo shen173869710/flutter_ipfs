@@ -152,6 +152,8 @@ class TeansferController extends GetxController{
     }
 
     BaseEntity entity = await TransferApi.transferOut(code, coinCode, poundageGas, account, mark,num.parse(money));
+
+    LogUtil.e("zhuant1 == "+entity.code.toString());
     if(entity.isOk()) {
       return true;
     }else{

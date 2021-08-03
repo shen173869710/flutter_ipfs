@@ -11,6 +11,10 @@ import 'package:ipfsnets/ui/widget/base_list_page.dart';
 
 
 class TransferRecordPage extends StatefulWidget {
+
+  String coinCode = "";
+  TransferRecordPage({required this.coinCode,});
+
   @override
   _TransferRecordState createState() => _TransferRecordState();
 }
@@ -49,7 +53,11 @@ class _TransferRecordState extends BaseListPageState<TransferRecordPage> {
 
   @override
   Future<BaseEntity> getData() async {
-    BaseEntity baseEntity  = await WalletApi.transferRecordList(page,2);
+    num id = 0;
+    if (StringUtil.isNotEmpty(widget.coinCode)) {
+      id = num.parse(widget.coinCode);
+    }
+    BaseEntity baseEntity  = await WalletApi.transferRecordList(page,id);
     List<TransferRecordEntity> entity = baseEntity.data;
     if (entity != null) {
         setState(() {

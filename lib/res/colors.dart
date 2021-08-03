@@ -75,6 +75,14 @@ class Colours {
 
   static const Color chain_bg = Color(0xFFE6EAFF);
 
+  static const Color lable_red = Color(0xFFFDEBEA);
+  static const Color lable_red_txt = Color(0xFFEF4033);
+
+  static const Color lable_yellow = Color(0xFFFEF7E6);
+  static const Color lable_yellow_txt = Color(0xFFFAB606);
+
+  static const Color start = Color(0xFF74D1FF);
+  static const Color end = Color(0xFF516DFF);
 }
 
 Map<String, Color> circleAvatarMap = {

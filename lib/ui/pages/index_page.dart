@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:ipfsnets/generated/l10n.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/res/dimens.dart';
+import 'package:ipfsnets/ui/pages/market/market_page.dart';
 import 'package:ipfsnets/ui/pages/me/me_page.dart';
+import 'package:ipfsnets/ui/pages/quote/quote_page.dart';
 
 import '../../r.dart';
 import 'find/find_page.dart';
@@ -49,9 +51,9 @@ final List<BottomNavigationBarItem> bottomBar = <BottomNavigationBarItem>[
 
 final List<Widget> pages = <Widget>[
   new MainPage(),
-  new MainPage(),
+  new MarketPage(),
   new FindPage(),
-  new MainPage(),
+  new QuotePage(),
   new MePage()
 ];
 
@@ -74,7 +76,10 @@ class _IndexPageState extends State<IndexPage> {
           _changePage(index);
         },
       ),
-      body: pages[currentIndex],
+      body: IndexedStack(
+        index: currentIndex,
+        children: pages,
+      )
     );
   }
 

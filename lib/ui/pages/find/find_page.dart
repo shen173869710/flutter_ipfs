@@ -4,11 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ipfsnets/generated/l10n.dart';
 import 'package:ipfsnets/models/main_tab_entiy.dart';
-import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/pages/find/find_controller.dart';
 import 'package:ipfsnets/ui/pages/find/find_recommend_page.dart';
 import 'package:ipfsnets/ui/pages/find/find_status_page.dart';
-import 'package:ipfsnets/ui/pages/main_page.dart';
 import 'package:ipfsnets/ui/widget/main_tabs.dart';
 
 class FindPage extends StatefulWidget{

@@ -37,14 +37,18 @@ class TransferRecordItem extends StatelessWidget {
               ],
             ),
             Gaps.vGap8,
-            Text(getFromAddress(data),maxLines:2,style:ITextStyles.itemContent),
+            Row(
+              children: [
+                Text(getFromAddress(data),maxLines:2,style:ITextStyles.itemContent),
+              ],
+            )
           ],
         )
     );;
   }
 
   String getStatus(num status) {
-    if (status == 1) {
+    if (status == 0) {
       return S.current.transfer_success;
     }
     return S.current.transfer_fail;
@@ -53,7 +57,7 @@ class TransferRecordItem extends StatelessWidget {
   }
 
   Color getStatusColor(num status) {
-    if (status == 1) {
+    if (status == 0) {
       return Colours.item_green;
     }
     return Colours.item_red;

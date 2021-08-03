@@ -260,6 +260,16 @@ class S {
     );
   }
 
+  /// `天`
+  String get day {
+    return Intl.message(
+      '天',
+      name: 'day',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `设置`
   String get action_settings {
     return Intl.message(
@@ -2635,6 +2645,356 @@ class S {
     return Intl.message(
       '收款人',
       name: 'transfer_record_in',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `推荐`
+  String get market_item_recommend {
+    return Intl.message(
+      '推荐',
+      name: 'market_item_recommend',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `单价`
+  String get market_item_1 {
+    return Intl.message(
+      '单价',
+      name: 'market_item_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `区域节点`
+  String get market_item_2 {
+    return Intl.message(
+      '区域节点',
+      name: 'market_item_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `合同周期`
+  String get market_item_3 {
+    return Intl.message(
+      '合同周期',
+      name: 'market_item_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `标配容量`
+  String get market_item_4 {
+    return Intl.message(
+      '标配容量',
+      name: 'market_item_4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `已售`
+  String get market_item_5 {
+    return Intl.message(
+      '已售',
+      name: 'market_item_5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `份`
+  String get market_item_6 {
+    return Intl.message(
+      '份',
+      name: 'market_item_6',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `立即购买`
+  String get market_item_buy {
+    return Intl.message(
+      '立即购买',
+      name: 'market_item_buy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `服务器详情`
+  String get market_info_title {
+    return Intl.message(
+      '服务器详情',
+      name: 'market_info_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `购买须知`
+  String get market_info_know {
+    return Intl.message(
+      '购买须知',
+      name: 'market_info_know',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `风险提醒`
+  String get market_info_warring {
+    return Intl.message(
+      '风险提醒',
+      name: 'market_info_warring',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `1.市场价格波动或挖矿难度调整都可能导致合约的产出变动,无论从数字资产还是法币角度,本产品不对合约产出作出任何承诺,因挖矿难度、市场价值波动等因素,导致产出的数字资产价值变动,有用户自行承担.合约发行方对本条款保留所以解释权;\n2.本合同不涉及数字资产交易,若用户自行参加第三方的数字资产交易,应当自行承担责任和风险;\n3.用户理解并同意，如发生合同订立时不能预见、不能避免且不能克服的客观情况而导致合同无法继续履行,本合同自动终止,合同各方互不承担责任,由此造成的损失须各方自行承担,用户已支付的费用不予退还.`
+  String get market_info_notice {
+    return Intl.message(
+      '1.市场价格波动或挖矿难度调整都可能导致合约的产出变动,无论从数字资产还是法币角度,本产品不对合约产出作出任何承诺,因挖矿难度、市场价值波动等因素,导致产出的数字资产价值变动,有用户自行承担.合约发行方对本条款保留所以解释权;\n2.本合同不涉及数字资产交易,若用户自行参加第三方的数字资产交易,应当自行承担责任和风险;\n3.用户理解并同意，如发生合同订立时不能预见、不能避免且不能克服的客观情况而导致合同无法继续履行,本合同自动终止,合同各方互不承担责任,由此造成的损失须各方自行承担,用户已支付的费用不予退还.',
+      name: 'market_info_notice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `购买服务器`
+  String get market_buy_title {
+    return Intl.message(
+      '购买服务器',
+      name: 'market_buy_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `购买数量`
+  String get market_buy_num {
+    return Intl.message(
+      '购买数量',
+      name: 'market_buy_num',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `优惠券`
+  String get market_buy_coupons {
+    return Intl.message(
+      '优惠券',
+      name: 'market_buy_coupons',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `选择优惠券`
+  String get market_buy_coupons_hint {
+    return Intl.message(
+      '选择优惠券',
+      name: 'market_buy_coupons_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `合计 :`
+  String get market_buy_total {
+    return Intl.message(
+      '合计 :',
+      name: 'market_buy_total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `《服务器购买协议》`
+  String get market_buy_desc_more {
+    return Intl.message(
+      '《服务器购买协议》',
+      name: 'market_buy_desc_more',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `输入数字支付密码`
+  String get password_dialog_title {
+    return Intl.message(
+      '输入数字支付密码',
+      name: 'password_dialog_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `忘记密码`
+  String get paddword_dailog_forget {
+    return Intl.message(
+      '忘记密码',
+      name: 'paddword_dailog_forget',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `优惠券`
+  String get market_coupons_title {
+    return Intl.message(
+      '优惠券',
+      name: 'market_coupons_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `未使用`
+  String get market_coupons_item_1 {
+    return Intl.message(
+      '未使用',
+      name: 'market_coupons_item_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `已使用`
+  String get market_coupons_item_2 {
+    return Intl.message(
+      '已使用',
+      name: 'market_coupons_item_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `已过期`
+  String get market_coupons_item_3 {
+    return Intl.message(
+      '已过期',
+      name: 'market_coupons_item_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `使用条件`
+  String get market_coupons_about {
+    return Intl.message(
+      '使用条件',
+      name: 'market_coupons_about',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `有效期至`
+  String get market_coupons_time {
+    return Intl.message(
+      '有效期至',
+      name: 'market_coupons_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `自选`
+  String get quote_item_1 {
+    return Intl.message(
+      '自选',
+      name: 'quote_item_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `市值`
+  String get quote_item_2 {
+    return Intl.message(
+      '市值',
+      name: 'quote_item_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `热度`
+  String get quote_item_3 {
+    return Intl.message(
+      '热度',
+      name: 'quote_item_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `排行榜`
+  String get quote_item_4 {
+    return Intl.message(
+      '排行榜',
+      name: 'quote_item_4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `币种`
+  String get quote_type {
+    return Intl.message(
+      '币种',
+      name: 'quote_type',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `价格`
+  String get quote_price {
+    return Intl.message(
+      '价格',
+      name: 'quote_price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `涨幅`
+  String get quote_gains {
+    return Intl.message(
+      '涨幅',
+      name: 'quote_gains',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `价格/CNY`
+  String get quote_price_cny {
+    return Intl.message(
+      '价格/CNY',
+      name: 'quote_price_cny',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `今日涨幅`
+  String get quote_gains_today {
+    return Intl.message(
+      '今日涨幅',
+      name: 'quote_gains_today',
       desc: '',
       args: [],
     );

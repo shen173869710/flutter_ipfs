@@ -7,28 +7,27 @@ import 'package:ipfsnets/models/market_bar_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/pages/market/market_list_page.dart';
+import 'package:ipfsnets/ui/pages/quote/quote_optional_page.dart';
 
 import '../../../include.dart';
 
-class MarketPage extends StatefulWidget{
+class QuotePage extends StatefulWidget{
 
   @override
   State<StatefulWidget> createState() {
-    return _MarketStatus();
+    return _QuoteStatus();
   }
 }
 
-class _MarketStatus extends State<MarketPage> with AutomaticKeepAliveClientMixin,TickerProviderStateMixin{
-  List<MainTabEntiy> entiys = [];
-  late TabController tabController;
+class _QuoteStatus extends State<QuotePage> with AutomaticKeepAliveClientMixin,TickerProviderStateMixin{
+  List<MainTabEntiy> entiys = [
+    MainTabEntiy(S.current.quote_item_1, QuoteOptionalPage(1)),
+    MainTabEntiy(S.current.quote_item_2, QuoteOptionalPage(1)),
+    MainTabEntiy(S.current.quote_item_3, QuoteOptionalPage(1)),
+    MainTabEntiy(S.current.quote_item_4, QuoteOptionalPage(1)),
+  ];
+  late TabController tabController = TabController(length: entiys.length, vsync: this);
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    getData();
-    tabController  = TabController(length: entiys.length, vsync: this);
-    super.initState();
-  }
   @override
   bool get wantKeepAlive => true;
 

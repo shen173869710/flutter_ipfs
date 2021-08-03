@@ -7,6 +7,10 @@ import 'package:ipfsnets/models/cny_recharge_entity.dart';
 import 'package:ipfsnets/models/cny_recharge_record_entity.dart';
 import 'package:ipfsnets/models/cny_withdrawal_record_entity.dart';
 import 'package:ipfsnets/models/image_entity.dart';
+import 'package:ipfsnets/models/market_bar_entity.dart';
+import 'package:ipfsnets/models/market_coupon_entity.dart';
+import 'package:ipfsnets/models/market_entity.dart';
+import 'package:ipfsnets/models/quote_optional_entity.dart';
 import 'package:ipfsnets/models/transfer_entity.dart';
 import 'package:ipfsnets/models/transfer_record_entity.dart';
 import 'package:ipfsnets/models/user_entity.dart';
@@ -44,6 +48,8 @@ class EntityFactory {
       return WalletHomeEntity.fromJson(json)as T;
     }else if (name == "WalletInfoEntity"){
       return WalletInfoEntity.fromJson(json)as T;
+    }else if (name == "MarketEntity"){
+      return MarketEntity.fromJson(json)as T;
     }else {
       return json as T;
     }
@@ -80,10 +86,19 @@ class EntityFactory {
     } else if(<TransferEntity>[] is M){
       LogUtil.e("解析数组对象 TransferEntity");
       return data.map<TransferEntity>((e) => TransferEntity.fromJson(e)).toList() as M;
+    }else if(<MarketBarEntity>[] is M){
+      LogUtil.e("解析数组对象 MarketBarEntity");
+      return data.map<MarketBarEntity>((e) => MarketBarEntity.fromJson(e)).toList() as M;
+    }else if(<MarketEntity>[] is M){
+      LogUtil.e("解析数组对象 MarketEntity");
+      return data.map<MarketEntity>((e) => MarketEntity.fromJson(e)).toList() as M;
+    } else if(<MarketCouponEntity>[] is M){
+      LogUtil.e("解析数组对象 MarketEntity");
+      return data.map<MarketCouponEntity>((e) => MarketCouponEntity.fromJson(e)).toList() as M;
+    }else if(<QuoteOptionalEntity>[] is M){
+      LogUtil.e("解析数组对象 MarketEntity");
+      return data.map<QuoteOptionalEntity>((e) => QuoteOptionalEntity.fromJson(e)).toList() as M;
     }
-
-
-
     throw Exception("-----------------数组子类异常 no fond");
   }
 }

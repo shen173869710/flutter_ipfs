@@ -91,6 +91,7 @@ class _TransferState extends State<TransferPage>  with TickerProviderStateMixin{
     // TODO: implement build
     return GetBuilder<TeansferController>(builder:(controller){
       return Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colours.bg_color,
         appBar: AppBar(
           title: new Text(S.current.transfer_title),
@@ -98,7 +99,9 @@ class _TransferState extends State<TransferPage>  with TickerProviderStateMixin{
           backgroundColor: Colours.app_bar_bg,
           actions: [
             IconButton(icon: Icon(Icons.receipt_outlined,color: Colours.text_white,),onPressed: () {
-              NavigatorUtil.jump(context, Routes.transferRecordPage);
+              // NavigatorUtil.jump(context, Routes.transferRecordPage);
+
+              NavigatorUtil.push(context, '${Routes.transferRecordPage}?coinCode=${Uri.encodeComponent(controller.coinCode.toString())}');
             },)
           ],
         ),

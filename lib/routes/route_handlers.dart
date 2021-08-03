@@ -1,5 +1,8 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:ipfsnets/ui/pages/market/market_buy_page.dart';
+import 'package:ipfsnets/ui/pages/market/market_coupons_page.dart';
+import 'package:ipfsnets/ui/pages/market/market_info_page.dart';
 import 'package:ipfsnets/ui/pages/me/baseListpage/base_list_page.dart';
 import 'package:ipfsnets/ui/pages/me/cny/cny_rechage_record_page.dart';
 import 'package:ipfsnets/ui/pages/index_page.dart';
@@ -152,12 +155,25 @@ var transferHandler = Handler(handlerFunc: (BuildContext? context, Map<String, L
   return TransferPage(coinCode: coinCode,);
 });
 var transferRecordHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-  return TransferRecordPage();
+  final String coinCode = params['coinCode']?.first ?? '';
+  return TransferRecordPage(coinCode: coinCode,);
+});
+//####################################  服务器相关  ###################################//
+var qtcodeScannerHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return ;
+});
+var marketInfoHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  final String id = params['id']?.first ?? '';
+  return MarketInfoPage(id);
 });
 
 // 设置页面
-var qtcodeScannerHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-  return QrCodeScannerPage();
+var marketBuyHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return MarketBuyPage();
+});
+
+var marketCouponsHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return MarketCouponsPage();
 });
 //########################  设置相关  ##########################//
 // 设置页面
