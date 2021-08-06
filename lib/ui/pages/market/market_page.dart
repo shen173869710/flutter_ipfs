@@ -63,14 +63,24 @@ class _MarketStatus extends State<MarketPage> with AutomaticKeepAliveClientMixin
           title: Text("IPFSNETS", style: ITextStyles.whiteTitle,
           ),
           bottom: PreferredSize(
-              preferredSize: Size(double.infinity, 50.w),
-              child: TabBar(
+              preferredSize: Size(double.infinity, 55.w),
+
+              child: Container(
+                  decoration: BoxDecoration(
+                      color: Colours.layout_bg,
+                      borderRadius: BorderRadius.only(topLeft: Radius.circular(30.w), topRight: Radius.circular(30.w))
+                  ),
+              child:TabBar(
                 controller: tabController,
-                isScrollable: true,
-                indicatorColor: Colours.white,
+                isScrollable: false,
+                indicatorColor: Colours.button_sel,
+                labelColor: Colours.item_title_color,
+                unselectedLabelColor: Colours.item_content_color,
                 indicatorSize: TabBarIndicatorSize.label,
+                indicatorPadding: EdgeInsets.only(bottom: 15.w),
                 tabs: entiys.map((e) => Tab(text: e.title,)).toList(),
-              ))),
+              ))
+          )),
       body: TabBarView(
         controller: tabController,
         children: entiys.isEmpty?[]:entiys.map((item) => item.widget).toList(),

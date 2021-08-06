@@ -60,7 +60,7 @@ class ITextStyles {
 
   // 顶部的标题
   static TextStyle whiteTitle = TextStyle(
-    fontSize: Dimens.font_sp16,
+    fontSize: Dimens.font_sp20,
     fontWeight: FontWeight.normal,
     color: Colours.text_white
   );
@@ -175,6 +175,7 @@ class Decorations {
 /// 间隔
 class Gaps {
   /// 水平间隔
+  static const Widget hGap2 = SizedBox(width: Dimens.gap_dp2);
   static const Widget hGap4 = SizedBox(width: Dimens.gap_dp4);
   static const Widget hGap5 = SizedBox(width: Dimens.gap_dp5);
   static const Widget hGap8 = SizedBox(width: Dimens.gap_dp8);
@@ -183,8 +184,11 @@ class Gaps {
   static const Widget hGap15 = SizedBox(width: Dimens.gap_dp15);
   static const Widget hGap16 = SizedBox(width: Dimens.gap_dp16);
   static const Widget hGap20 = SizedBox(width: Dimens.gap_dp20);
+  static const Widget hGap24 = SizedBox(width: Dimens.gap_dp24);
+  static const Widget hGap26 = SizedBox(width: Dimens.gap_dp26);
   static const Widget hGap32 = SizedBox(width: Dimens.gap_dp32);
   /// 垂直间隔
+  static const Widget vGap2 = SizedBox(height: Dimens.gap_dp2);
   static const Widget vGap4 = SizedBox(height: Dimens.gap_dp4);
   static const Widget vGap5 = SizedBox(height: Dimens.gap_dp5);
   static const Widget vGap8 = SizedBox(height: Dimens.gap_dp8);

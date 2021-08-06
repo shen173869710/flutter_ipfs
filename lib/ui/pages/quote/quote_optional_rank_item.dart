@@ -5,10 +5,10 @@ import 'package:ipfsnets/res/styles.dart';
 
 import '../../../include.dart';
 
-class QuoteOptionalItem extends StatelessWidget {
+class QuoteOptionalRankItem extends StatelessWidget {
   final QuoteOptionalEntity data;
   final int index;
-  QuoteOptionalItem(this.data,this.index);
+  QuoteOptionalRankItem(this.data,this.index);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -37,40 +37,27 @@ class QuoteOptionalItem extends StatelessWidget {
 
   buildItem1() {
     return Expanded(
-      child:
-      Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         children: [
           Gaps.hGap16,
-          Image.asset(R.assetsImgIcLike,width: 25.w,height: 25.w,),
-          Gaps.hGap12,
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Container(child:ImageUtil.loadImage(data.logo, 25.w, 25.w),height: 25.w,width: 35.w,alignment: Alignment.center,),
-                  Gaps.hGap5,
-                  Text(data.name,style:ITextStyles.itemTitle),
-                ],
-              ),
-              Gaps.vGap4,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Container(child:Text((index+1).toString(),style: ITextStyles.itemTitle),height: 25.w,width: 35.w,color: Colours.bg_color,alignment: Alignment.center,),
-                  Gaps.hGap5,
-                  Text(StringUtil.addCoin(StringUtil.chageNum(data.marketCap)),style: ITextStyles.itemContent),
-                ],
-              ),
-
-            ],
+          Image.asset(
+            R.assetsImgIcUnlike,
+            width: 25.w,
+            height: 25.w,
           ),
+          Gaps.hGap8,
+          Container(child:Text((index+1).toString(),style: TextStyle(fontSize: 10, color: Colours.item_content_color)),height: 25.w,width: 35.w,color: Colours.bg_color,alignment: Alignment.center,),
+          Gaps.hGap8,
+          Container(
+            child: ImageUtil.loadImage(data.logo, 25.w, 25.w),
+            height: 25.w,
+            width: 35.w,
+            alignment: Alignment.center,
+          ),
+          Gaps.hGap5,
+          Text(data.name, style: ITextStyles.itemTitle),
         ],
       ),
       flex: 5,
@@ -79,13 +66,10 @@ class QuoteOptionalItem extends StatelessWidget {
 
   buildItem2() {
     return Expanded(
-
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(data.priceCny.toString(),style: ITextStyles.itemTitle,),
-          Gaps.vGap4,
-          Text(StringUtil.addCoin(data.priceUsd.toString()),style: ITextStyles.itemContent,),
+          Text(StringUtil.addCoin(data.priceCny.toString()),style: ITextStyles.itemTitle,),
         ],
       ),
       flex: 4,

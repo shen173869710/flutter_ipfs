@@ -28,6 +28,7 @@ import 'package:ipfsnets/ui/pages/me/wallet/wallet_rechage_page.dart';
 import 'package:ipfsnets/ui/pages/me/wallet/wallet_withdrawal_address_page.dart';
 import 'package:ipfsnets/ui/pages/me/wallet/wallet_withdrawal_page.dart';
 import 'package:ipfsnets/ui/pages/me/wallet/wallet_withdrawal_record_page.dart';
+import 'package:ipfsnets/ui/pages/quote/quote_search_page.dart';
 import 'package:ipfsnets/ui/pages/register/forget_page.dart';
 import 'package:ipfsnets/ui/pages/register/register_page.dart';
 import 'package:ipfsnets/ui/pages/me/cny/cny_account_page.dart';
@@ -167,6 +168,9 @@ var marketInfoHandler = Handler(handlerFunc: (BuildContext? context, Map<String,
   return MarketInfoPage(id);
 });
 
+var quoteSearchHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return QuoteSearchPage();
+});
 // 设置页面
 var marketBuyHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   return MarketBuyPage();

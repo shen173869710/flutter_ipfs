@@ -1,5 +1,10 @@
 
 
+import 'dart:convert';
+
+import 'package:flustars/flustars.dart';
+import 'package:ipfsnets/include.dart';
+
 class StringUtil{
 
 
@@ -47,4 +52,56 @@ class StringUtil{
     }
     return false;
   }
+
+  static String chageNum(num value) {
+    num price = 0;
+    if (value > 999999999999){
+      price = value / 1000000000000;
+      return price.toStringAsFixed(1)+"万亿";
+    }else if(value > 99999999){
+      price = value / 100000000;
+      return price.toStringAsFixed(1)+"亿";
+    }else if(value > 9999){
+      price = value / 10000;
+      return price.toStringAsFixed(1)+"万";
+    }else{
+      return value.toStringAsFixed(1);
+    }
+  }
+
+  //
+  static String addCoin(String str) {
+    return "¥"+str;
+  }
+
+
+  /**
+   *   list 对象转string
+   */
+
+  static String listToString(List<String>str) {
+    return JsonEncoder().convert(str);
+  }
+
+  static List<String> stringToList(String str) {
+    List<String> list = <String>[];
+    for (var value in JsonDecoder().convert(str)) {
+      list.add(value);
+    };
+    return list;
+  }
+
+  // 保存list
+  static saveList(List<String>str) {
+    SpUtil.putString("list", listToString(str));
+  }
+  // 获取list
+  static List<String> getList() {
+    String str = SpUtil.getString("list",defValue: "").toString();
+    if (isEmpty(str)) {
+      return [];
+    }
+    return stringToList(str);
+  }
+
 }

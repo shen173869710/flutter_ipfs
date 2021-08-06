@@ -25,7 +25,7 @@
 
   "day": "天",
   "action_settings": "设置",
-  "tab_home": "设置",
+  "tab_home": "主页",
   "tab_market": "市场",
   "tab_find": "发现",
   "tab_quotes": "行情",
@@ -107,6 +107,34 @@
   "me_item_17": "我的客服",
   "me_item_18": "设置",
   "me_item_19": "更多应用",
+
+
+  "home_wallet": "我的钱包",
+  "home_monitoring": "数据监控",
+  "home_treasure": "开心夺宝",
+  "home_mining": "质押挖矿",
+  "home_info": "明细 >",
+  "home_item_3": "24H封装成本",
+  "home_item_3_1": "每32G扇区",
+  "home_item_3_1_desc": "封装扇区总成本",
+  "home_item_3_2": "每1TB扇区",
+  "home_item_3_2_desc": "封装扇区质押费",
+  "home_item_3_3": "每1PB扇区",
+  "home_item_3_3_desc": "封装扇区Gas费",
+
+  "home_item_4": "矿池区块收益",
+  "home_item_4_1": "累计解锁",
+  "home_item_4_2": "可提现余额",
+  "home_item_4_3": "当前冻结",
+  "home_item_4_4": "已提现",
+
+  "home_item_5": "矿池销售概览",
+  "home_item_5_1": "总收入",
+  "home_item_5_2": "可提现余额",
+  "home_item_5_3": "今日收入",
+  "home_item_5_4": "我的有效算力",
+  "home_item_5_5": "团队有效算力",
+
 
   "find_tab_1": "热门推荐",
   "find_tab_2": "企业公告",
@@ -332,13 +360,17 @@
 
   "quote_item_1": "自选",
   "quote_item_2": "市值",
-  "quote_item_3": "热度",
+  "quote_item_3": "热搜",
   "quote_item_4": "排行榜",
   "quote_type": "币种",
   "quote_price": "价格",
   "quote_gains": "涨幅",
   "quote_price_cny": "价格/CNY",
   "quote_gains_today": "今日涨幅",
+  "quote_search_hint": "请输入搜索内容",
+  "quote_search_recomend": "热门搜索",
+  "quote_search_history": "搜索历史",
+  "quote_search_clean": "清空历史",
 
   "setting_title": "设置",
   "setting_change_phone": "修改账户",

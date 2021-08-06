@@ -187,4 +187,26 @@ class GlobalEntiy{
   static final int ADDRESS_DEL = 2;
   static final int ADDRESS_EDIT = 3;
   static final int ADDRESS_ADD = 4;
+
+
+  static List<String> recomend = [
+    "NETS",
+    "FIL",
+    "BTC",
+    "ETH",
+    "EOS",
+    "VET",
+    "ADA",
+    "BCD",
+    "LINK",
+    "DOGE",
+    "AOFEX",
+    "TEP",
+    "DOT",
+    "BRC",
+    "BTM",
+    "ATOM",
+  ];
+
+  static List<String> history = [];
 }

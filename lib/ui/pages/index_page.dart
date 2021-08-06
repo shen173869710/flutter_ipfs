@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ipfsnets/generated/l10n.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/res/dimens.dart';
+import 'package:ipfsnets/ui/pages/home/home_page.dart';
 import 'package:ipfsnets/ui/pages/market/market_page.dart';
 import 'package:ipfsnets/ui/pages/me/me_page.dart';
 import 'package:ipfsnets/ui/pages/quote/quote_page.dart';
@@ -23,7 +24,6 @@ class IndexPage extends StatefulWidget {
 
 final List<BottomNavigationBarItem> bottomBar = <BottomNavigationBarItem>[
   BottomNavigationBarItem(backgroundColor:Colors.white,
-
       icon: Image.asset(R.assetsImgTabHomeN,width: Dimens.font_sp20,height: Dimens.font_sp20),
       activeIcon: Image.asset(R.assetsImgTabHomeP,width: Dimens.font_sp20,height: Dimens.font_sp20),
       label: S.current.tab_home,
@@ -50,7 +50,7 @@ final List<BottomNavigationBarItem> bottomBar = <BottomNavigationBarItem>[
 
 
 final List<Widget> pages = <Widget>[
-  new MainPage(),
+  new HomePage(),
   new MarketPage(),
   new FindPage(),
   new QuotePage(),

@@ -48,7 +48,8 @@ class MarketBuyPage extends StatelessWidget{
   }
 
   Container buildTitle() {
-    return Container(
+    return
+      Container(
         color: Colours.app_bar_bg,
         child: Container(
           padding: EdgeInsets.fromLTRB(20.w, 20.w, 20.w, 20.w),

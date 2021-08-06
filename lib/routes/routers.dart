@@ -49,9 +49,11 @@ class Routes {
   static String transferRecordPage = "/me/transfer/transferrecordpage";
 
   // 服务器市场
-  static String marketInfoPage = "/me/market/marketinfopage";
-  static String marketBuyPage = "/me/market/marketbuypage";
+  static String marketInfoPage = "/market/marketinfopage";
+  static String marketBuyPage = "/market/marketbuypage";
   static String marketCouponsPage = "/me/market/marketCouponspage";
+  //市场行情
+  static String quoteSearchPage = "/quote/quoteSearchPage";
   // 设置页面
   static String settingPage = "/me/setting/settingpage";
   static String passwordPage = "/me/setting/passwordpage";
@@ -117,6 +119,8 @@ class Routes {
     router.define(marketInfoPage, handler:marketInfoHandler);
     router.define(marketBuyPage, handler:marketBuyHandler);
     router.define(marketCouponsPage, handler:marketCouponsHandler);
+    router.define(quoteSearchPage, handler:quoteSearchHandler);
+
   }
 }
 

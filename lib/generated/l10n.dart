@@ -280,10 +280,10 @@ class S {
     );
   }
 
-  /// `setting`
+  /// `home`
   String get tab_home {
     return Intl.message(
-      'setting',
+      'home',
       name: 'tab_home',
       desc: '',
       args: [],
@@ -1055,6 +1055,236 @@ class S {
     return Intl.message(
       '更多应用',
       name: 'me_item_19',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `我的钱包`
+  String get home_wallet {
+    return Intl.message(
+      '我的钱包',
+      name: 'home_wallet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `数据监控`
+  String get home_monitoring {
+    return Intl.message(
+      '数据监控',
+      name: 'home_monitoring',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `开心夺宝`
+  String get home_treasure {
+    return Intl.message(
+      '开心夺宝',
+      name: 'home_treasure',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `质押挖矿`
+  String get home_mining {
+    return Intl.message(
+      '质押挖矿',
+      name: 'home_mining',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `明细 >`
+  String get home_info {
+    return Intl.message(
+      '明细 >',
+      name: 'home_info',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `24H封装成本`
+  String get home_item_3 {
+    return Intl.message(
+      '24H封装成本',
+      name: 'home_item_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `每32G扇区`
+  String get home_item_3_1 {
+    return Intl.message(
+      '每32G扇区',
+      name: 'home_item_3_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `封装扇区总成本`
+  String get home_item_3_1_desc {
+    return Intl.message(
+      '封装扇区总成本',
+      name: 'home_item_3_1_desc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `每1TB扇区`
+  String get home_item_3_2 {
+    return Intl.message(
+      '每1TB扇区',
+      name: 'home_item_3_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `封装扇区质押费`
+  String get home_item_3_2_desc {
+    return Intl.message(
+      '封装扇区质押费',
+      name: 'home_item_3_2_desc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `每1PB扇区`
+  String get home_item_3_3 {
+    return Intl.message(
+      '每1PB扇区',
+      name: 'home_item_3_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `封装扇区Gas费`
+  String get home_item_3_3_desc {
+    return Intl.message(
+      '封装扇区Gas费',
+      name: 'home_item_3_3_desc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `矿池区块收益`
+  String get home_item_4 {
+    return Intl.message(
+      '矿池区块收益',
+      name: 'home_item_4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `累计解锁`
+  String get home_item_4_1 {
+    return Intl.message(
+      '累计解锁',
+      name: 'home_item_4_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `可提现余额`
+  String get home_item_4_2 {
+    return Intl.message(
+      '可提现余额',
+      name: 'home_item_4_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `当前冻结`
+  String get home_item_4_3 {
+    return Intl.message(
+      '当前冻结',
+      name: 'home_item_4_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `已提现`
+  String get home_item_4_4 {
+    return Intl.message(
+      '已提现',
+      name: 'home_item_4_4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `矿池销售概览`
+  String get home_item_5 {
+    return Intl.message(
+      '矿池销售概览',
+      name: 'home_item_5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `总收入`
+  String get home_item_5_1 {
+    return Intl.message(
+      '总收入',
+      name: 'home_item_5_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `可提现余额`
+  String get home_item_5_2 {
+    return Intl.message(
+      '可提现余额',
+      name: 'home_item_5_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `今日收入`
+  String get home_item_5_3 {
+    return Intl.message(
+      '今日收入',
+      name: 'home_item_5_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `我的有效算力`
+  String get home_item_5_4 {
+    return Intl.message(
+      '我的有效算力',
+      name: 'home_item_5_4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `团队有效算力`
+  String get home_item_5_5 {
+    return Intl.message(
+      '团队有效算力',
+      name: 'home_item_5_5',
       desc: '',
       args: [],
     );
@@ -2930,10 +3160,10 @@ class S {
     );
   }
 
-  /// `热度`
+  /// `热搜`
   String get quote_item_3 {
     return Intl.message(
-      '热度',
+      '热搜',
       name: 'quote_item_3',
       desc: '',
       args: [],
@@ -2995,6 +3225,46 @@ class S {
     return Intl.message(
       '今日涨幅',
       name: 'quote_gains_today',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `请输入搜索内容`
+  String get quote_search_hint {
+    return Intl.message(
+      '请输入搜索内容',
+      name: 'quote_search_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `热门搜索`
+  String get quote_search_recomend {
+    return Intl.message(
+      '热门搜索',
+      name: 'quote_search_recomend',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `搜索历史`
+  String get quote_search_history {
+    return Intl.message(
+      '搜索历史',
+      name: 'quote_search_history',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `清空历史`
+  String get quote_search_clean {
+    return Intl.message(
+      '清空历史',
+      name: 'quote_search_clean',
       desc: '',
       args: [],
     );

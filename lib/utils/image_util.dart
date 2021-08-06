@@ -45,7 +45,6 @@ class ImageUtil{
 
   static String getDefault(String def) {
     if (StringUtil.isEmpty(def)) {
-      LogUtil.e("使用默认图片");
       return R.assetsImgIcDefHead;
     }else{
       return def;
