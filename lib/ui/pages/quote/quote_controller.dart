@@ -15,6 +15,7 @@ import 'package:ipfsnets/utils/num_util.dart';
 class QuoteController extends GetxController{
 
   List<QuoteOptionalEntity> list = [];
+
   String result = "";
 
   setResule(String str){

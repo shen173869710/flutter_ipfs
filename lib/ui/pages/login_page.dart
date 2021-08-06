@@ -34,7 +34,6 @@ class _LoginPageState extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<LoginBloc, LoginState>(
         listener: (context, state) {
-          LogUtil.e("37==="+state.repository.state.toString());
           if (state.repository.state == 200) {
             NavigatorUtil.jumpRemove(context);
           }
@@ -122,8 +121,6 @@ class _LoginPageState extends StatelessWidget {
   TextFormField buildPhoneTextField(BuildContext context,LoginState state) {
     return new TextFormField(onChanged: (value){
         state.repository.userName = value.trim();
-
-        LogUtil.e("-----用户名输入"+state.repository.userName.toString());
         BlocProvider.of<LoginBloc>(context).add(PhoneChangeEvent(state.repository));
     },
       controller: _usernameController,
@@ -175,11 +172,8 @@ class _LoginPageState extends StatelessWidget {
   }
   /**构建密码**/
   TextFormField buildPasswordTextField(BuildContext context,LoginState state) {
-    LogUtil.e("-----126"+state.repository.isObscure.toString());
     return new TextFormField(onChanged: (value){
         state.repository.password = value.trim();
-
-        LogUtil.e("-----密码输入---"+value.trim());
         BlocProvider.of<LoginBloc>(context).add(PasswordChangeEvent(state.repository));
     },
       controller: _passwordController,

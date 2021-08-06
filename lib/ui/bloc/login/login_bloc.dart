@@ -82,7 +82,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
     if (baseEntity != null && baseEntity.data != null) {
       AccessTokenEntity entity = baseEntity.data;
-      LogUtil.e("token==="+entity.accessToken.toString());
 
       if (entity.accessToken!.isNotEmpty) {
         SpUtil.putString(GlobalEntiy.accessToken, entity.accessToken!);
@@ -115,8 +114,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     }else {
       repository.isCanLogin = false;
     }
-    // LogUtil.e("用户名"+repository.userName.toString());
-    // LogUtil.e("密码"+repository.password.toString());
   }
 
   LoginRepository copyObject(LoginRepository repository) {

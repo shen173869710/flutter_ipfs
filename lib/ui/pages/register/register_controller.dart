@@ -93,13 +93,11 @@ class RegisterController extends GetxController {
         code != null && code.length >5 &&
         password != null && password.length > 5 &&
         paddwordAgain != null && paddwordAgain.length > 5 &&
-        agreeMent){
+        agreeMent && StringUtil.isNotEmpty(shareCode)){
 
-      LogUtil.e("enableRegister"+enableRgister.toString());
       enableRgister = true;
     }else{
       enableRgister = false;
-      LogUtil.e("enableRegister"+enableRgister.toString());
     }
 
   }

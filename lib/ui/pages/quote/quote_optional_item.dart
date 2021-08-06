@@ -63,7 +63,7 @@ class QuoteOptionalItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Container(child:Text((index+1).toString(),style: ITextStyles.itemTitle),height: 25.w,width: 35.w,color: Colours.bg_color,alignment: Alignment.center,),
+                  Container(child:Text((index+1).toString(),style: TextStyle(fontSize: 10,color: Colours.item_content_color)),height: 25.w,width: 35.w,color: Colours.bg_color,alignment: Alignment.center,),
                   Gaps.hGap5,
                   Text(StringUtil.addCoin(StringUtil.chageNum(data.marketCap)),style: ITextStyles.itemContent),
                 ],

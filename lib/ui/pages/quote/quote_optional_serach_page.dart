@@ -15,6 +15,7 @@ import 'package:ipfsnets/ui/widget/base_list_page.dart';
 class QuoteOptionalPage extends StatefulWidget {
   late num id;
 
+
   QuoteOptionalPage(this.id);
   @override
   _QuoteOptionalState createState() => _QuoteOptionalState(id);
@@ -26,20 +27,22 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage> with Auto
 
   late num id;
   _QuoteOptionalState(this.id);
-  List<QuoteOptionalEntity> list = [];
+
   @override
   Widget build(BuildContext context) {
-    LogUtil.e(" num = "+ id.toString());
+
     setEnableLoadMore(false);
-    return Scaffold(
-      backgroundColor: Colours.bg_color,
-      body: Column(
-        children: [
-          Visibility(child:buildItem(),visible: id == 3?false:true,),
-          Expanded(child: buildRefreshView(context)),
-        ],
-      )
-    );
+    return GetBuilder<QuoteController>(builder:(controller){
+      return Scaffold(
+          backgroundColor: Colours.bg_color,
+          body: Column(
+            children: [
+              Visibility(child:buildItem(),visible: id == 3?false:true,),
+              Expanded(child: buildRefreshView(context)),
+            ],
+          )
+      );
+    });
   }
 
   Container buildItem() {
@@ -109,12 +112,7 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage> with Auto
 
   @override
   Widget setListView(int index) {
-    if (id == 3) {
-      return QuoteOptionalHotItem(list[index],index);
-    } else {
-      return QuoteOptionalItem(list[index],index);
-    }
-
+    return QuoteOptionalRankItem(controller.list[index],index);
   }
 
   @override
@@ -125,23 +123,21 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage> with Auto
   @override
   int getListLength() {
     // TODO: implement getListSize
-    return list.length;
+    return controller.list.length;
   }
 
   @override
   Future<BaseEntity> getData() async{
     BaseEntity entity = await QuoteApi.getQuoteHome(widget.id);
     if (entity.isOk()) {
-      list.addAll(entity.data);
-      setState(() {
-      });
+      controller.addList(entity.data);
     }
     return entity;
   }
 
   @override
   void clearList() {
-    list.clear();
+    controller.list.clear();
   }
 
 
