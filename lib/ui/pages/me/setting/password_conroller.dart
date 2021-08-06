@@ -69,21 +69,36 @@ class PasswordController extends GetxController {
 
   // 提交修改
   Future<bool> doSubmit() async{
+
     if (type == GlobalEntiy.PASSWORD_ACCOUNT) {
+      // 修改账户
       LogUtil.e(value1+" "+code);
+
+      BaseEntity baseEntity  = await ApiServer.changeUsername(value1, value2);
+      if (baseEntity.isOk()) {
+        ToastUtil.show(S.current.option_success);
+        return true;
+      }else{
+        ToastUtil.show(baseEntity.msg);
+      }
+
     }else if (type == GlobalEntiy.PASSWORD_CHANGE) {
+      // 修改密码
       LogUtil.e(value1+" "+value2 + " " + value3);
       if (value2 != value3) {
         ToastUtil.show(S.current.password_no_equal);
         return false;
       }
-
       BaseEntity baseEntity  = await ApiServer.changePassword(value1, value2);
       if (baseEntity.isOk()) {
         ToastUtil.show(S.current.option_success);
+        return true;
+      }else{
+        ToastUtil.show(baseEntity.msg);
       }
 
     }else if (type == GlobalEntiy.PASSWORD_APLAY) {
+      // 修改支付
       LogUtil.e(value1+" "+value2+ "  " +code);
     }
 
@@ -98,6 +113,8 @@ class PasswordController extends GetxController {
 
   // 获取验证码
   bool  getCode() {
+
+
     return true;
   }
 

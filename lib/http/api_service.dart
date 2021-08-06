@@ -27,12 +27,15 @@ class ApiServer {
   static const String find_password = "wallet/app/user/findPwd";
   // 修改密码密码
   static const String change_password = "wallet/app/user/resetPwd";
+  // 修改账户
+  static const String change_username = "wallet/app/user/modifyUsername";
   // 上传图片
   static const String upload = "file/upload";
   // 编辑用户信息
   static const String update_user = "wallet/app/user/updateInfo";
   // 注册
   static const String register_user = "wallet/app/user/register";
+
   ///获取用户token
   static  Future<BaseEntity> login(String username, String password) {
     var params = DataHelper.getBaseMap();
@@ -87,13 +90,32 @@ class ApiServer {
     String json = jsonEncode(params);
     return HttpManager.getInstance().post(find_password, json);
   }
-
-  static Future<BaseEntity> changePassword(String newPassword, String oldPassword) {
+  // 修改密码
+  static Future<BaseEntity> changePassword(String oldPassword,String newPassword) {
     var params = DataHelper.getBaseMap();
     params['newPassword'] = newPassword;
     params['oldPassword'] = oldPassword;
     String json = jsonEncode(params);
     return HttpManager.getInstance().post(change_password, json);
+  }
+
+
+  // 获取验证码
+  static Future<BaseEntity> getVerifyCode(String oldPassword,String newPassword) {
+    var params = DataHelper.getBaseMap();
+    params['newPassword'] = newPassword;
+    params['oldPassword'] = oldPassword;
+    String json = jsonEncode(params);
+    return HttpManager.getInstance().post(change_password, json);
+  }
+
+  // 修改用户名
+  static Future<BaseEntity> changeUsername(String username,String verifyCode) {
+    var params = DataHelper.getBaseMap();
+    params['username'] = username;
+    params['verifyCode'] = verifyCode;
+    String json = jsonEncode(params);
+    return HttpManager.getInstance().post(change_username, json);
   }
 
   // cny 首页

@@ -60,6 +60,7 @@
   "transfer_success": "转账成功",
   "transfer_fail": "转账失败",
   "not_enough": "余额不足",
+  "not_account": "账户不能为空",
   "send_success": "发送成功",
   "save_success": "保存成功",
   "option_success": "操作成功",

@@ -263,7 +263,7 @@ class RegisterPage extends StatelessWidget {
                   decorationStyle: TextDecorationStyle.solid),
               recognizer:_registProtocolRecognizer..onTap=(){
                 LogUtil.e("打开网页");
-                NavigatorUtil.goWebViewPage(context, S.current.register_desc_more, 'https://www.baidu.com');
+                NavigatorUtil.goWebViewPage(context, S.current.register_desc_more, GlobalEntiy.web_reigster);
               }
             ),
 

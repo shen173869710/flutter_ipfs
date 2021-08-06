@@ -53,16 +53,16 @@ class _HomeStatus extends State<HomePage> {
                             centerTitle: true,
                             title: Visibility(
                               child: Text("IPFSNETS",
-                                  style: TextStyle(color: Colours.white, fontSize: 20)),
-                              visible: top > 164 ? false : true,
+                                  style: TextStyle(color: Colours.white, fontSize: 20)), visible: top > 164 ? false : true,
                             ),
                             background: buildBackground());
                       }),
                 ),
               ];
             },
-            body: ListView.separated(itemBuilder: (context, index){
-              return  Column(
+
+            body:SingleChildScrollView(
+              child: Column(
                 children: [
                   buildNotice(),
                   buildItem1(),
@@ -74,11 +74,23 @@ class _HomeStatus extends State<HomePage> {
                   buildTilte(R.assetsImgHomeItem5,S.current.home_item_5,false),
                   buildItem5(context)
                 ],
-              );
-            }, itemCount: 1, separatorBuilder: (BuildContext context, int index) { return Text(""); },),
-
-
-
+              ),
+            )
+            // body: ListView.separated(itemBuilder: (context, index){
+            //   return  Column(
+            //     children: [
+            //       buildNotice(),
+            //       buildItem1(),
+            //       buildItem2(),
+            //       buildTilte(R.assetsImgHomeItem3,S.current.home_item_3,false),
+            //       buildItem3(context),
+            //       buildTilte(R.assetsImgHomeItem4,S.current.home_item_4,true),
+            //       buildItem4(context),
+            //       buildTilte(R.assetsImgHomeItem5,S.current.home_item_5,false),
+            //       buildItem5(context)
+            //     ],
+            //   );
+            // }, itemCount: 1, separatorBuilder: (BuildContext context, int index) { return Text(""); },),
           ));
     });
   }
@@ -260,7 +272,6 @@ class _HomeStatus extends State<HomePage> {
       ),
     );
   }
-
   buildItem3Desc(String title, String dec) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -271,7 +282,6 @@ class _HomeStatus extends State<HomePage> {
       ],
     );
   }
-
   // 矿池销售
   buildItem5(BuildContext context){
     return Container(

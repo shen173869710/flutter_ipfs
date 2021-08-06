@@ -95,6 +95,15 @@ class NavigatorUtil {
 
   }
 
+  // 跳转到登陆页并删除当前路由
+  static void goToLogin(BuildContext context) {
+    Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(
+          builder: (context) => LoginPage(),
+        ), (route) => route == null);
+
+  }
+
   /// 跳到WebView页
   static void goWebViewPage(BuildContext context, String title, String url) {
     //fluro 不支持传中文,需转换

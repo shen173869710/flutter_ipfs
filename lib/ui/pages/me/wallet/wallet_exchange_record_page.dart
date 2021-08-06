@@ -21,44 +21,14 @@ class _WalletExchangeRecordState extends BaseListPageState<WalletExchangeRecordP
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
         backgroundColor: Colours.bg_color,
         appBar: AppBar(
-          title: new Text(S.current.wallet_withdraw_record_title),
+          title: new Text(S.current.wallet_exchange_record_title),
           centerTitle: true,
           backgroundColor: Colours.app_bar_bg,
         ),
-        body: Stack(
-          children: [
-            SizedBox(
-                width: double.infinity,
-                height: 70.h,
-                child: Container(
-                  color: Colours.app_bar_bg,
-                )),
-
-            Container(
-                width: double.infinity,
-                margin: ITextStyles.containerMargin,
-                padding: EdgeInsets.all(20.w),
-                decoration: ITextStyles.boxDecoration,
-                child:Column(
-                  children: [
-                    Row(
-                      children: [
-                        Text(S.current.wallet_exchange_record_item_1, style: ITextStyles.itemContent,),
-                        Text(S.current.wallet_exchange_record_item_1, style: ITextStyles.itemContent,),
-                        Text(S.current.wallet_exchange_record_item_1, style: ITextStyles.itemContent,),
-                      ],
-                    ),
-                    buildRefreshView(context),
-                  ],
-                )
-               
-            ),
-    
-          ],
-        ),
+        body: buildRefreshView(context)
     );
   }
 

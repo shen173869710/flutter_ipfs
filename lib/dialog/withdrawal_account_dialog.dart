@@ -141,7 +141,8 @@ class _WithDrawalAccountState extends State<WithDrawalAccountDialog> {
               activeColor: Colours.dark_bg_color,
               value: false,
               onChanged: (value) {
-
+                Navigator.of(context).pop();
+                NavigatorUtil.push(context,'${Routes.cnyWithdrawalEnd}?type=${Uri.encodeComponent(entiy.type)}&money=${Uri.encodeComponent(money)}',arguments: entiy);
               },
               shape: CircleBorder()) //这里就是实现圆形的设置
         ],

@@ -590,6 +590,16 @@ class S {
     );
   }
 
+  /// `账户不能为空`
+  String get not_account {
+    return Intl.message(
+      '账户不能为空',
+      name: 'not_account',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `两次输入的密码不相同`
   String get password_no_equal {
     return Intl.message(

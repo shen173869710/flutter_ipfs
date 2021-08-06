@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ipfsnets/getx/user_controller.dart';
 import 'package:ipfsnets/include.dart';
 import 'package:ipfsnets/utils/image_util.dart';
@@ -22,7 +21,6 @@ class MePage extends StatelessWidget {
           ],
         )
       )
-
 
       );
     });

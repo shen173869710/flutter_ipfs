@@ -18,6 +18,10 @@ import '../include.dart';
 import '../r.dart';
 
 class GlobalEntiy{
+  // 注册协议
+  static String web_reigster = "https://www.baidu.com";
+  // 服务器购买协议
+  static String web_market_buy = "https://www.baidu.com";
 
   static Future init(VoidCallback callback) async {
     // await SpUtil.getInstance();

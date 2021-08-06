@@ -83,6 +83,10 @@ class PasswordPage extends StatelessWidget {
           endble: controller.enableSure,
           onPressed: () async {
             bool isSuc = await controller.doSubmit();
+            if (isSuc) {
+              NavigatorUtil.goToLogin(context);
+            }
+
           }),
     );
   }

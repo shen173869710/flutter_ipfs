@@ -118,11 +118,17 @@ class RegisterController extends GetxController {
 
   // 获取验证码
   Future<bool>  getCode() async {
-    BaseEntity baseEntity  = await SmsApi.sendSms(0, "18675570791");
+    if(StringUtil.isEmpty(account)) {
+      ToastUtil.show(S.current.not_account);
+      return false;
+    }
+
+    BaseEntity baseEntity  = await SmsApi.sendRegisterCode(account);
     if (baseEntity.isOk()) {
       ToastUtil.show(S.current.send_success);
     }else{
-      ToastUtil.show(S.current.send_faile);
+      ToastUtil.show(baseEntity.msg);
+      return false;
     }
 
     return true;
