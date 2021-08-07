@@ -1,6 +1,7 @@
 
 
 
+import 'package:ipfsnets/models/market_coupon_entity.dart';
 import 'package:ipfsnets/models/market_entity.dart';
 
 import '../../../include.dart';
@@ -8,19 +9,22 @@ import '../../../include.dart';
 class MarketBuyController extends GetxController {
 
   late MarketEntity data;
+  late MarketCouponEntity entity = new MarketCouponEntity();
 
   num count = 1;
   bool agreeMent = false;
+
   bool enableBuy = false;
   String total = "0";
 
 
- void init(MarketEntity entity) {
-   data = entity;
+ void init(MarketEntity marketEntity) {
+   data = marketEntity;
    count = 1;
    agreeMent = false;
    enableBuy = false;
    num all = count * data.price;
+
    total = all.toString();
  }
 
@@ -71,6 +75,16 @@ class MarketBuyController extends GetxController {
 
   }
 
+  // 设置优惠券
+  void setCoupon(MarketCouponEntity couponEntity) {
+    entity = couponEntity;
+    if (entity.sel) {
+      total = (count * data.price - 200).toString();
+    }else{
+      total = (count * data.price).toString();
+    }
 
+    update();
+  }
 
 }

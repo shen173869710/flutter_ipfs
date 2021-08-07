@@ -32,17 +32,23 @@ class CnyWithdrawalEndPage extends StatelessWidget {
       isBank = false;
     }
     controller.setType(type);
-
+    controller.init();
     entiy = ModalRoute.of(context)!.settings.arguments as AccountEntiy;
     if (entiy != null) {
       if(isBank) {
         _item1.text = entiy.accountName;
         _item2.text = entiy.accountBank;
         _item3.text = entiy.accountNumber;
+        controller.setitem1(entiy.accountName);
+        controller.setitem2(entiy.accountBank);
+        controller.setitem3(entiy.accountNumber);
       }else{
         _item1.text = entiy.accountName;
         _item2.text = entiy.accountNumber;
+        controller.setitem1(entiy.accountName);
+        controller.setitem2(entiy.accountNumber);
       }
+
     }
     
     
@@ -99,7 +105,6 @@ class CnyWithdrawalEndPage extends StatelessWidget {
   }
   /**提现金额**/
   Padding buildMoney() {
-
     return Padding(padding: EdgeInsets.fromLTRB(0.w, 20.h, 50.w, 0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,

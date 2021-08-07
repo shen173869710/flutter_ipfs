@@ -149,6 +149,7 @@ flutter:
     - assets/img/ic_wallet_item_4.png
     - assets/img/ic_expired.png
     - assets/img/my_wallet_fil.png
+    - assets/img/ic_coupon_used.png
     - assets/img/ic_like.png
     - assets/img/ic_eth.png
     - assets/img/me_item_3.png
@@ -156,6 +157,7 @@ flutter:
     - assets/img/ic_withdraw_scan.png
     - assets/img/ic_buy_sucess.png
     - assets/img/me_item_1.png
+    - assets/img/ic_coupon_usdt.png
     - assets/img/home_notice.png
     - assets/img/ic_used.png
     - assets/img/tab_quotes_p.png
@@ -178,7 +180,6 @@ flutter:
     - assets/img/ic_white_back.png
     - assets/img/title_bar_head.jpg
     - assets/img/ic_address_edit.png
-    - assets/img/ic_quote-down.png
     - assets/img/ic_quote_up.png
     - assets/img/ic_unlike.png
     - assets/img/ic_cny_icon.png
@@ -222,8 +223,10 @@ flutter:
     - assets/img/me_item_15.png
     - assets/img/more_item_10.png
     - assets/img/more_item_6.png
+    - assets/img/ic_coupon_usdt_n.png
     - assets/img/ic_choose_image.png
     - assets/img/home_monitor.png
+    - assets/img/ic_coupon_cny_n.png
     - assets/img/more_item_11.png
     - assets/img/ic_exchange.png
     - assets/img/me_item_14.png
@@ -247,13 +250,16 @@ flutter:
     - assets/img/me_item_13.png
     - assets/img/ic_play.png
     - assets/img/icon_usdt.png
+    - assets/img/ic_coupon_cny.png
     - assets/img/ic_launcher_round.png
     - assets/img/more_item_1.png
     - assets/img/home_treasure.png
     - assets/img/me_item_12.png
+    - assets/img/ic_quote_down.png
     - assets/img/ic_up.png
     - assets/img/my_wallet_usdt.png
     - assets/img/ic_add_photo.png
+    - assets/img/ic_coupon_dated.png
     - assets/img/market_recomed.png
     - assets/img/my_wallet_eth.png
     - assets/img/ic_del.png

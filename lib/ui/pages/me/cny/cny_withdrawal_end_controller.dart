@@ -1,6 +1,7 @@
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:ipfsnets/http/api_service.dart';
 import 'package:ipfsnets/include.dart';
+import 'package:ipfsnets/models/acount_entiy.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/utils/string_util.dart';
 import 'package:ipfsnets/utils/toast_util.dart';
@@ -13,8 +14,28 @@ class CnyWithdrawalEndController extends GetxController{
   bool isEnable = false;
   String type = "1";
 
+  init(){
+    item1 ="";
+    item2 ="";
+    item3 ="";
+    item4 ="";
+    isEnable = false;
+  }
+
+  setitem1(String str){
+    item1 = str;
+  }
+
+  setitem2(String str){
+    item2 = str;
+  }
+
+  setitem3(String str){
+    item3 = str;
+  }
+
   void setType(String str) {
-    LogUtil.e("setType");
+    LogUtil.e("setType"+str);
     type = str;
 
   }
@@ -46,7 +67,6 @@ class CnyWithdrawalEndController extends GetxController{
 
 
   void enableButton() {
-
     LogUtil.e(isEnable.toString()+"type ="+type + " item1="+item1+ " item2="+item2+ " item3="+item3+ " item4="+item4);
     if (type == "1") {
       if (StringUtil.isNotEmpty(item1) && StringUtil.isNotEmpty(item2) && StringUtil.isNotEmpty(item4)) {
@@ -54,7 +74,7 @@ class CnyWithdrawalEndController extends GetxController{
       }else{
         isEnable = false;
       }
-    }else if (type == "2") {
+    }else {
       if (StringUtil.isNotEmpty(item1) && StringUtil.isNotEmpty(item2) && StringUtil.isNotEmpty(item3) &&StringUtil.isNotEmpty(item4)) {
         isEnable = true;
       }else{

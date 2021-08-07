@@ -51,6 +51,8 @@ class R {
   static final String assetsImgIcExpired = 'assets/img/ic_expired.png';
   /// ![](http://127.0.0.1:11111/assets/img/my_wallet_fil.png)
   static final String assetsImgMyWalletFil = 'assets/img/my_wallet_fil.png';
+  /// ![](http://127.0.0.1:11111/assets/img/ic_coupon_used.png)
+  static final String assetsImgIcCouponUsed = 'assets/img/ic_coupon_used.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_like.png)
   static final String assetsImgIcLike = 'assets/img/ic_like.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_eth.png)
@@ -65,6 +67,8 @@ class R {
   static final String assetsImgIcBuySucess = 'assets/img/ic_buy_sucess.png';
   /// ![](http://127.0.0.1:11111/assets/img/me_item_1.png)
   static final String assetsImgMeItem1 = 'assets/img/me_item_1.png';
+  /// ![](http://127.0.0.1:11111/assets/img/ic_coupon_usdt.png)
+  static final String assetsImgIcCouponUsdt = 'assets/img/ic_coupon_usdt.png';
   /// ![](http://127.0.0.1:11111/assets/img/home_notice.png)
   static final String assetsImgHomeNotice = 'assets/img/home_notice.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_used.png)
@@ -109,8 +113,6 @@ class R {
   static final String assetsImgTitleBarHead = 'assets/img/title_bar_head.jpg';
   /// ![](http://127.0.0.1:11111/assets/img/ic_address_edit.png)
   static final String assetsImgIcAddressEdit = 'assets/img/ic_address_edit.png';
-  /// ![](http://127.0.0.1:11111/assets/img/ic_quote-down.png)
-  static final String assetsImgIcQuote_down = 'assets/img/ic_quote-down.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_quote_up.png)
   static final String assetsImgIcQuoteUp = 'assets/img/ic_quote_up.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_unlike.png)
@@ -197,10 +199,14 @@ class R {
   static final String assetsImgMoreItem10 = 'assets/img/more_item_10.png';
   /// ![](http://127.0.0.1:11111/assets/img/more_item_6.png)
   static final String assetsImgMoreItem6 = 'assets/img/more_item_6.png';
+  /// ![](http://127.0.0.1:11111/assets/img/ic_coupon_usdt_n.png)
+  static final String assetsImgIcCouponUsdtN = 'assets/img/ic_coupon_usdt_n.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_choose_image.png)
   static final String assetsImgIcChooseImage = 'assets/img/ic_choose_image.png';
   /// ![](http://127.0.0.1:11111/assets/img/home_monitor.png)
   static final String assetsImgHomeMonitor = 'assets/img/home_monitor.png';
+  /// ![](http://127.0.0.1:11111/assets/img/ic_coupon_cny_n.png)
+  static final String assetsImgIcCouponCnyN = 'assets/img/ic_coupon_cny_n.png';
   /// ![](http://127.0.0.1:11111/assets/img/more_item_11.png)
   static final String assetsImgMoreItem11 = 'assets/img/more_item_11.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_exchange.png)
@@ -247,6 +253,8 @@ class R {
   static final String assetsImgIcPlay = 'assets/img/ic_play.png';
   /// ![](http://127.0.0.1:11111/assets/img/icon_usdt.png)
   static final String assetsImgIconUsdt = 'assets/img/icon_usdt.png';
+  /// ![](http://127.0.0.1:11111/assets/img/ic_coupon_cny.png)
+  static final String assetsImgIcCouponCny = 'assets/img/ic_coupon_cny.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_launcher_round.png)
   static final String assetsImgIcLauncherRound = 'assets/img/ic_launcher_round.png';
   /// ![](http://127.0.0.1:11111/assets/img/more_item_1.png)
@@ -255,12 +263,16 @@ class R {
   static final String assetsImgHomeTreasure = 'assets/img/home_treasure.png';
   /// ![](http://127.0.0.1:11111/assets/img/me_item_12.png)
   static final String assetsImgMeItem12 = 'assets/img/me_item_12.png';
+  /// ![](http://127.0.0.1:11111/assets/img/ic_quote_down.png)
+  static final String assetsImgIcQuoteDown = 'assets/img/ic_quote_down.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_up.png)
   static final String assetsImgIcUp = 'assets/img/ic_up.png';
   /// ![](http://127.0.0.1:11111/assets/img/my_wallet_usdt.png)
   static final String assetsImgMyWalletUsdt = 'assets/img/my_wallet_usdt.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_add_photo.png)
   static final String assetsImgIcAddPhoto = 'assets/img/ic_add_photo.png';
+  /// ![](http://127.0.0.1:11111/assets/img/ic_coupon_dated.png)
+  static final String assetsImgIcCouponDated = 'assets/img/ic_coupon_dated.png';
   /// ![](http://127.0.0.1:11111/assets/img/market_recomed.png)
   static final String assetsImgMarketRecomed = 'assets/img/market_recomed.png';
   /// ![](http://127.0.0.1:11111/assets/img/my_wallet_eth.png)

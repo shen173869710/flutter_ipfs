@@ -353,6 +353,10 @@
   "market_coupons_about": "使用条件",
   "market_coupons_time": "有效期至",
 
+  "market_end_title": "购买成功",
+  "market_end_desc": "购买成功",
+  "market_end_signed": "我的服务器",
+
   "quote_item_1": "自选",
   "quote_item_2": "市值",
   "quote_item_3": "热搜",

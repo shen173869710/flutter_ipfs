@@ -28,7 +28,7 @@ class HomeController extends GetxController {
   int btnSel = 0;
 
   onBtnClick(int index) {
-    btnSel = index;
+    btnSel = 0;
     update();
   }
 }

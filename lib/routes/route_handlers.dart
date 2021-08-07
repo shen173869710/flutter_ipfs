@@ -1,7 +1,9 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:ipfsnets/models/market_coupon_entity.dart';
 import 'package:ipfsnets/ui/pages/market/market_buy_page.dart';
 import 'package:ipfsnets/ui/pages/market/market_coupons_page.dart';
+import 'package:ipfsnets/ui/pages/market/market_end_page.dart';
 import 'package:ipfsnets/ui/pages/market/market_info_page.dart';
 import 'package:ipfsnets/ui/pages/me/baseListpage/base_list_page.dart';
 import 'package:ipfsnets/ui/pages/me/cny/cny_rechage_record_page.dart';
@@ -177,7 +179,11 @@ var marketBuyHandler = Handler(handlerFunc: (BuildContext? context, Map<String, 
 });
 
 var marketCouponsHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-  return MarketCouponsPage();
+  return MarketCouponsPage(MarketCouponEntity());
+});
+
+var marketEndHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return MarketEndPage();
 });
 //########################  设置相关  ##########################//
 // 设置页面

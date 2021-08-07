@@ -65,7 +65,7 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage> with Auto
         Visibility(child:Column(
           children: [
             Image.asset(R.assetsImgIcQuoteUp, width: 15.w,height: 15.w,),
-            Image.asset(R.assetsImgIcQuote_down, width: 15.w,height: 15.w,),
+            Image.asset(R.assetsImgIcQuoteDown, width: 15.w,height: 15.w,),
           ],
         ),visible: id == 2?true:false,),
         Expanded(child: SizedBox()),
@@ -83,7 +83,7 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage> with Auto
         Visibility(child:Column(
           children: [
             Image.asset(R.assetsImgIcQuoteUp, width: 15.w,height: 15.w,),
-            Image.asset(R.assetsImgIcQuote_down, width: 15.w,height: 15.w,),
+            Image.asset(R.assetsImgIcQuoteDown, width: 15.w,height: 15.w,),
           ],
         ),visible: id == 4?false:true,),
         Expanded(child: SizedBox()),
@@ -100,7 +100,7 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage> with Auto
         Visibility(child:Column(
           children: [
             Image.asset(R.assetsImgIcQuoteUp, width: 15.w,height: 15.w,),
-            Image.asset(R.assetsImgIcQuote_down, width: 15.w,height: 15.w,),
+            Image.asset(R.assetsImgIcQuoteDown, width: 15.w,height: 15.w,),
           ],
         ),visible:id == 4?false:true,),
       ],

@@ -11,14 +11,16 @@ import 'market_coupon_item.dart';
 
 class MarketCouponListPage extends StatefulWidget {
   late String type;
-  MarketCouponListPage(this.type);
+  MarketCouponEntity couponEntity;
+  MarketCouponListPage(this.type,this.couponEntity);
   @override
-  _MarketCouponListState createState() => _MarketCouponListState(type);
+  _MarketCouponListState createState() => _MarketCouponListState(type,couponEntity);
 }
 
 class _MarketCouponListState extends BaseListPageState<MarketCouponListPage> with AutomaticKeepAliveClientMixin{
   late String type;
-  _MarketCouponListState(this.type);
+  MarketCouponEntity couponEntity;
+  _MarketCouponListState(this.type,this.couponEntity);
   List<MarketCouponEntity> list = [];
   @override
   Widget build(BuildContext context) {
@@ -30,13 +32,24 @@ class _MarketCouponListState extends BaseListPageState<MarketCouponListPage> wit
 
   @override
   Widget setListView(int index) {
-    return MarketCouponItem(list[index]);
+    return MarketCouponItem(data: list[index],index: index,onItemSelListener: (sel,postion){
+        int length = list.length;
+        for(int i = 0; i < length; i++) {
+          list[i].sel = false;
+        }
+        list[postion].sel = sel;
+        setState(() {
+
+        });
+
+        NavigatorUtil.goBackWithParams(context, list[index]);
+    },);
   }
 
   @override
   void onItemClick(BuildContext context, int index) {
     // TODO: implement onItemClick
-
+    LogUtil.e("index = "+index.toString());
 
   }
 
@@ -46,12 +59,20 @@ class _MarketCouponListState extends BaseListPageState<MarketCouponListPage> wit
     return list.length;
   }
 
-
   @override
   Future<BaseEntity> getData() async{
     BaseEntity entity = await MarketApi.getMachineCoupon(type);
     if (entity.isOk()) {
       list.addAll(entity.data);
+      if (couponEntity != null && couponEntity.couponId != null && couponEntity.sel) {
+        int length = list.length;
+        for(int i = 0; i < length; i++) {
+          if (couponEntity.couponId == list[i].couponId) {
+            list[i].sel = couponEntity.sel;
+          }
+        }
+      }
+
       setState(() {
       });
     }

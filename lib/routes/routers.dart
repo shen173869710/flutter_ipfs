@@ -52,6 +52,7 @@ class Routes {
   static String marketInfoPage = "/market/marketinfopage";
   static String marketBuyPage = "/market/marketbuypage";
   static String marketCouponsPage = "/me/market/marketCouponspage";
+  static String marketEndPage = "/me/market/marketEndpage";
   //市场行情
   static String quoteSearchPage = "/quote/quoteSearchPage";
   // 设置页面
@@ -119,6 +120,8 @@ class Routes {
     router.define(marketInfoPage, handler:marketInfoHandler);
     router.define(marketBuyPage, handler:marketBuyHandler);
     router.define(marketCouponsPage, handler:marketCouponsHandler);
+    router.define(marketEndPage, handler:marketEndHandler);
+
     router.define(quoteSearchPage, handler:quoteSearchHandler);
 
   }

@@ -341,6 +341,10 @@
   "password_dialog_title": "输入数字支付密码",
   "paddword_dailog_forget": "忘记密码",
 
+  "market_end_title": "购买成功",
+  "market_end_desc": "购买成功",
+  "market_end_signed": "我的服务器",
+
   "market_coupons_title": "优惠券",
   "market_coupons_item_1": "未使用",
   "market_coupons_item_2": "已使用",

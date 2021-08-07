@@ -23,14 +23,16 @@ class CnyAccountController extends GetxController{
    getList(int pageNum) async{
      BaseEntity baseEntity  = await ApiServer.getCnyList(pageNum);
      total = baseEntity.total;
-     list.addAll(baseEntity.data);
+     if(baseEntity.data != null) {
+       list.addAll(baseEntity.data);
+     }
+
      update();
   }
 
   Future<bool> init() async{
     list.clear();
-      await Future.wait<dynamic>([getAccount(),getList(1)]).then((value) => (){
-      });
+      await Future.wait<dynamic>([getAccount(),getList(1)]).then((value) => (){});
       update();
     return true;
   }
@@ -42,7 +44,8 @@ class CnyAccountController extends GetxController{
     list.addAll(baseEntity.data);
     update();
     int max = (pageNum-1) * 10;
-    if (max > total) {
+    LogUtil.e("max ="+max.toString()+ "pageNUm = "+ pageNum.toString() + "total = "+total.toString());
+    if (total > max) {
       return false;
     }
     return true;

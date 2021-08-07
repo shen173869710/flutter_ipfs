@@ -106,6 +106,12 @@ class ITextStyles {
     fontWeight: FontWeight.normal,
   );
 
+  static TextStyle itemContentSel = TextStyle(
+    fontSize: Dimens.font_sp14,
+    color: Colours.button_sel,
+    fontWeight: FontWeight.normal,
+  );
+
   // listitem 内容
   static TextStyle itemContent12 = TextStyle(
     fontSize: Dimens.font_sp12,

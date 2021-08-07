@@ -107,7 +107,6 @@ class _UserManagerState extends State<UserManagerPage> {
               Padding(
                 padding: EdgeInsets.fromLTRB(30.w, 50.h, 30.w, 0),
                 child: LoginButton(text: S.current.save, endble: true, onPressed: () async {
-                  LogUtil.e("点击点击"+(userController != null).toString());
                   bool isSuc =  await userController.doUpdateUser(_headUrl!, _sex!, _nickName!);
                   if (isSuc) {
                     ToastUtil.show(S.current.send_success);

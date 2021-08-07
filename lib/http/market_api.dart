@@ -28,7 +28,7 @@ class MarketApi{
   // 优惠券
   static const String machine_coupon= "machine/app/coupon/";
   static  Future<BaseEntity> getMachineCoupon(String type) {
-    return HttpManager.getInstance().get<List<MarketCouponEntity>>(machine_info+type.toString());
+    return HttpManager.getInstance().get<List<MarketCouponEntity>>(machine_coupon+type.toString());
   }
 
 

@@ -43,7 +43,7 @@ class _HomeStatus extends State<HomePage> {
             headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
                 SliverAppBar(
-                  expandedHeight: 350.h,
+                  expandedHeight: 0.h,
                   backgroundColor: Colours.app_bar_bg,
                   pinned: true,
                   flexibleSpace: LayoutBuilder(
@@ -60,18 +60,17 @@ class _HomeStatus extends State<HomePage> {
                 ),
               ];
             },
-
             body:SingleChildScrollView(
               child: Column(
                 children: [
                   buildNotice(),
                   buildItem1(),
                   buildItem2(),
-                  buildTilte(R.assetsImgHomeItem3,S.current.home_item_3,false),
+                  buildTilte(R.assetsImgHomeItem3,S.current.home_item_3,"",false),
                   buildItem3(context),
-                  buildTilte(R.assetsImgHomeItem4,S.current.home_item_4,true),
+                  buildTilte(R.assetsImgHomeItem4,S.current.home_item_4,S.current.home_info,true),
                   buildItem4(context),
-                  buildTilte(R.assetsImgHomeItem5,S.current.home_item_5,false),
+                  buildTilte(R.assetsImgHomeItem5,S.current.home_item_5,"切换CNY",true),
                   buildItem5(context)
                 ],
               ),
@@ -121,7 +120,7 @@ class _HomeStatus extends State<HomePage> {
   }
 
   // 标题
-  buildTilte(String image,String title,bool show) {
+  buildTilte(String image,String title,String info,bool show) {
     return Container(
       margin: EdgeInsets.only(left: 20.w, right: 20.w,top: 10.w,bottom: 10.w),
       child: Row(
@@ -130,7 +129,7 @@ class _HomeStatus extends State<HomePage> {
           Gaps.hGap4,
           Text(title, style: ITextStyles.itemTitle,),
           Expanded(child: SizedBox()),
-          Visibility(child:Text(S.current.home_info, style: ITextStyles.itemContent,),visible: show,)
+          Visibility(child:Text(info, style: ITextStyles.itemContentSel,),visible: show,)
 
         ],
       ),
@@ -151,7 +150,7 @@ class _HomeStatus extends State<HomePage> {
             children: [
               Image.asset(R.assetsImgHomeNotice, height: 35.w, width: 35.w,),
               Gaps.hGap4,
-              Flexible(child:  Text(controller.notice, style:ITextStyles.itemContent,textAlign: TextAlign.left,overflow: TextOverflow.ellipsis,maxLines:1),),
+              Flexible(child:Text(controller.notice, style:ITextStyles.itemContent,textAlign: TextAlign.left,overflow: TextOverflow.ellipsis,maxLines:1),),
               SizedBox(),
             ],),
         )
@@ -166,6 +165,7 @@ class _HomeStatus extends State<HomePage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
+
           buildItm(R.assetsImgHomeItemWallet,  S.current.home_wallet),
           buildItm(R.assetsImgHomeItemTreasure,  S.current.home_treasure),
           buildItm(R.assetsImgHomeItemMonitoring,  S.current.home_monitoring),
@@ -194,13 +194,14 @@ class _HomeStatus extends State<HomePage> {
         children: [
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               buildItem3Title(0),
-              buildItem3Title(1),
-              buildItem3Title(2),
+              // buildItem3Title(1),
+              // buildItem3Title(2),
             ],
           ),
+          Gaps.vGap4,
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -256,18 +257,18 @@ class _HomeStatus extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Expanded(child:buildItem3Desc(controller.item4_1, S.current.home_item_4_1),flex: 1,),
-              Expanded(child:buildItem3Desc(controller.item4_2, S.current.home_item_4_2),flex: 1,)
+              Expanded(child:buildItem3Desc(controller.item4_3, S.current.home_item_4_3),flex: 1,)
             ],
           ),
-          Gaps.vGap8,
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Expanded(child:buildItem3Desc(controller.item4_3, S.current.home_item_4_3),flex: 1,),
-              Expanded(child:buildItem3Desc(controller.item4_4, S.current.home_item_4_4),flex: 1,)
-            ],
-          ),
+          // Gaps.vGap8,
+          // Row(
+          //   crossAxisAlignment: CrossAxisAlignment.start,
+          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //   children: [
+          //     Expanded(child:buildItem3Desc(controller.item4_3, S.current.home_item_4_3),flex: 1,),
+          //     Expanded(child:buildItem3Desc(controller.item4_4, S.current.home_item_4_4),flex: 1,)
+          //   ],
+          // ),
         ],
       ),
     );
@@ -297,7 +298,7 @@ class _HomeStatus extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Expanded(child:buildItem5Desc(controller.item5_1, S.current.home_item_5_1,Color(0xffF23E2A)),flex: 1,),
-              Expanded(child:buildItem5Desc(controller.item5_2, S.current.home_item_5_2,Color(0xff516DFF)),flex: 1,)
+              Expanded(child:buildItem3Desc(controller.item5_3, S.current.home_item_5_3),flex: 1,),
             ],
           ),
           Gaps.vGap8,
@@ -307,7 +308,7 @@ class _HomeStatus extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Expanded(child:buildItem3Desc(controller.item5_3, S.current.home_item_5_3),flex: 1,),
+
               Expanded(child:buildItem3Desc(controller.item5_4, S.current.home_item_5_4),flex: 1,),
               Expanded(child:buildItem3Desc(controller.item5_5, S.current.home_item_5_5),flex: 1,)
             ],
@@ -346,7 +347,11 @@ class _HomeStatus extends State<HomePage> {
           )
         ],
       ),
-      onTap: () {},
+      onTap: () {
+        if (title == S.current.home_wallet) {
+          NavigatorUtil.jump(context, Routes.walletPage);
+        }
+      },
     );
   }
 }

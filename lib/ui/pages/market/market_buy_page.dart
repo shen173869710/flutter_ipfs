@@ -3,8 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:ipfsnets/dialog/password_dialog.dart';
+import 'package:ipfsnets/models/market_coupon_entity.dart';
 import 'package:ipfsnets/models/market_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
+import 'package:ipfsnets/ui/pages/market/market_coupons_page.dart';
 
 import '../../../include.dart';
 import 'market_buy_controller.dart';
@@ -135,14 +137,24 @@ class MarketBuyPage extends StatelessWidget{
               TextSpan(text: S.current.market_buy_coupons, style:ITextStyles.itemTitle),
             ])),
             Expanded(child: SizedBox()),
-            Text.rich(TextSpan(children: [
-              TextSpan(text: S.current.market_buy_coupons_hint, style:ITextStyles.itemTitle),
+            GestureDetector(child:  Text.rich(TextSpan(children: [
+              TextSpan(text: getCoupon(), style:ITextStyles.itemTitle),
               TextSpan(text: "  "),
-              WidgetSpan(child:GestureDetector(child: Image.asset(R.assetsImgIcArrowRight, height: 30.w, width: 30.w,),onTap: (){toCoupons(context);},)),
-            ])),
+              WidgetSpan(child: Image.asset(R.assetsImgIcArrowRight, height: 30.w, width: 30.w,)),
+            ])),onTap: (){
+              toCoupons(context);},),
+
           ],
         ));
   }
+
+  String getCoupon() {
+    if ( StringUtil.isNotEmpty(controller.entity.name) && controller.entity.sel) {
+      return controller.entity.name;
+    }
+    return S.current.market_buy_coupons_hint;
+  }
+
 
   // 选择钱包
   Container buildChooseMoney(BuildContext context) {
@@ -229,7 +241,10 @@ class MarketBuyPage extends StatelessWidget{
     context: context,
     enableDrag: false,
     isScrollControlled: true,
-    builder: (_) =>  PasswordDiaglog());
+    builder: (_) =>  PasswordDiaglog(onItemClickListener: (code){
+      LogUtil.e("showDialog()");
+      NavigatorUtil.jump(context, Routes.marketEndPage);
+    },));
   }
 
   // 用户协议
@@ -263,7 +278,11 @@ class MarketBuyPage extends StatelessWidget{
   }
 
   void toBuy(BuildContext context) {
-    NavigatorUtil.push(context,Routes.marketInfoPage,arguments: data);
+    // NavigatorUtil.push(context,Routes.marketInfoPage,arguments: data);
+    NavigatorUtil.pushResult(context, Routes.marketInfoPage, (Object code) {
+      print("code = " +code.toString());
+
+    });
   }
 
   // 添加数量
@@ -275,7 +294,18 @@ class MarketBuyPage extends StatelessWidget{
     }
   }
   // 选择优惠券
-  void toCoupons(BuildContext context) {
-    NavigatorUtil.jump(context, Routes.marketCouponsPage);
+  Future<void> toCoupons(BuildContext context) async {
+    var data = await Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
+              return MarketCouponsPage(controller.entity);
+            }
+        ),
+    );
+    if (data != null) {
+      MarketCouponEntity entity = data;
+      if (entity != null) {
+        controller.setCoupon(entity);
+      }
+    }
+
   }
 }

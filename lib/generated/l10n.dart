@@ -3150,6 +3150,36 @@ class S {
     );
   }
 
+  /// `购买成功`
+  String get market_end_title {
+    return Intl.message(
+      '购买成功',
+      name: 'market_end_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `购买成功`
+  String get market_end_desc {
+    return Intl.message(
+      '购买成功',
+      name: 'market_end_desc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `我的服务器`
+  String get market_end_signed {
+    return Intl.message(
+      '我的服务器',
+      name: 'market_end_signed',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `自选`
   String get quote_item_1 {
     return Intl.message(

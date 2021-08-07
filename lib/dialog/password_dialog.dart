@@ -2,15 +2,16 @@
 import '../include.dart';
 
 class PasswordDiaglog extends StatefulWidget {
-
-  const PasswordDiaglog({Key? key}) : super(key: key);
+   void Function(String index) onItemClickListener;
+   PasswordDiaglog({required this.onItemClickListener});
 
   @override
-  _PasswordDiaglogState createState() => _PasswordDiaglogState();
+  _PasswordDiaglogState createState() => _PasswordDiaglogState(this.onItemClickListener);
 }
 
 class _PasswordDiaglogState extends State<PasswordDiaglog> {
-
+  void Function(String index) onItemClickListener;
+  _PasswordDiaglogState( this.onItemClickListener);
   int _index = 0;
   final _list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 0];
   final List<String> _codeList = ['', '', '', '', '', ''];
@@ -136,11 +137,15 @@ class _PasswordDiaglogState extends State<PasswordDiaglog> {
             for (var i = 0; i < _codeList.length; i ++) {
               code = code + _codeList[i];
             }
-            ToastUtil.show('密码：$code');
+
             _index = 0;
             for (var i = 0; i < _codeList.length; i ++) {
               _codeList[i] = '';
             }
+
+            NavigatorUtil.goBack(context);
+            onItemClickListener(code);
+            LogUtil.e("back");
           }
           setState(() {
 
