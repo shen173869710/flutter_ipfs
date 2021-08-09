@@ -43,7 +43,7 @@ class MarketCouponItem extends StatelessWidget {
 
   // 使用条件
   String getAbout(MarketCouponEntity entity) {
-    return S.current.market_coupons_about+" "+ entity.condition;
+    return S.current.market_coupons_about+" "+ entity.condition.toString();
   }
 
   String getTime(MarketCouponEntity entity) {
@@ -54,8 +54,9 @@ class MarketCouponItem extends StatelessWidget {
   //1 已使用
   //2 已过期
   getChild(MarketCouponEntity data) {
+    print(data.sel);
     if (data.status == 0) {
-      return Checkbox(activeColor: Colours.button_sel, value: data.sel,
+      return Checkbox(activeColor: Colours.button_sel, value: data.sel == null?false:data.sel,
           onChanged: (value) {
             onItemSelListener(value!,index);
             // state.repository.isAggress = value!;

@@ -1,5 +1,6 @@
 
 import 'package:ipfsnets/models/market_bar_entity.dart';
+import 'package:ipfsnets/models/market_buy_entity.dart';
 import 'package:ipfsnets/models/market_coupon_entity.dart';
 import 'package:ipfsnets/models/market_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
@@ -23,6 +24,13 @@ class MarketApi{
     Map<String, dynamic> param = new Map();
     param['extId'] = id;
     return HttpManager.getInstance().get<MarketEntity>(machine_info+id.toString(),params: param);
+  }
+
+
+  // 服务器支付货币
+  static const String machine_coin_info = "machine/app/record/";
+  static  Future<BaseEntity> getMachineCoinInfo(num id) {
+    return HttpManager.getInstance().get<MarketBuyEntity>(machine_coin_info+id.toString());
   }
 
   // 优惠券

@@ -57,6 +57,7 @@
   "save": "保存",
   "cancle": "取消",
   "not_enough": "余额不足",
+  "can_not_use": "不符合使用条件",
   "not_account": "账户不能为空",
   "transfer_success": "转账成功",
   "transfer_fail": "转账失败",

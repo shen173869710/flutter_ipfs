@@ -8,6 +8,7 @@ import 'package:ipfsnets/models/cny_recharge_record_entity.dart';
 import 'package:ipfsnets/models/cny_withdrawal_record_entity.dart';
 import 'package:ipfsnets/models/image_entity.dart';
 import 'package:ipfsnets/models/market_bar_entity.dart';
+import 'package:ipfsnets/models/market_buy_entity.dart';
 import 'package:ipfsnets/models/market_coupon_entity.dart';
 import 'package:ipfsnets/models/market_entity.dart';
 import 'package:ipfsnets/models/quote_optional_entity.dart';
@@ -50,6 +51,8 @@ class EntityFactory {
       return WalletInfoEntity.fromJson(json)as T;
     }else if (name == "MarketEntity"){
       return MarketEntity.fromJson(json)as T;
+    }else if (name == "MarketBuyEntity"){
+      return MarketBuyEntity.fromJson(json)as T;
     }else {
       return json as T;
     }

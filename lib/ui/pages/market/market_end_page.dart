@@ -20,7 +20,7 @@ class MarketEndPage extends StatelessWidget{
         child: Column(
           children: [
 
-              Image.asset(R.assetsImgIcBuySucess, height: 369.h,width: 290.h,fit: BoxFit.fill,),
+              Image.asset(R.assetsImgIcBuySucess, height: 320.w,width: 320.w,fit: BoxFit.fill,),
               Gaps.vGap10,
               Container(child: Text(S.current.market_end_signed,style: TextStyle(color: Colours.white,fontSize: 16),),
                 alignment: Alignment.center,

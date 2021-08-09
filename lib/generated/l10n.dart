@@ -590,6 +590,16 @@ class S {
     );
   }
 
+  /// `不符合使用条件`
+  String get can_not_use {
+    return Intl.message(
+      '不符合使用条件',
+      name: 'can_not_use',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `账户不能为空`
   String get not_account {
     return Intl.message(

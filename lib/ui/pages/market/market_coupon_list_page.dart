@@ -33,6 +33,11 @@ class _MarketCouponListState extends BaseListPageState<MarketCouponListPage> wit
   @override
   Widget setListView(int index) {
     return MarketCouponItem(data: list[index],index: index,onItemSelListener: (sel,postion){
+
+        if (couponEntity.type != list[index].type || couponEntity.total < list[index].condition) {
+          return ToastUtil.show(S.current.can_not_use);
+        }
+
         int length = list.length;
         for(int i = 0; i < length; i++) {
           list[i].sel = false;

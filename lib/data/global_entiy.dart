@@ -38,7 +38,7 @@ class GlobalEntiy{
   static String LANGUAGE_EN = "en";
 
   // 用户名最大输入
-  static int PHONE_MAX_INPUT = 16;
+  static int PHONE_MAX_INPUT = 32;
   // 密码最大输入
   static int PWD_MAX_INPUT = 16;
   // 密码最小输入

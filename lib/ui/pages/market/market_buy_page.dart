@@ -3,8 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:ipfsnets/dialog/password_dialog.dart';
+import 'package:ipfsnets/http/market_api.dart';
+import 'package:ipfsnets/models/market_buy_entity.dart';
 import 'package:ipfsnets/models/market_coupon_entity.dart';
 import 'package:ipfsnets/models/market_entity.dart';
+import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/pages/market/market_coupons_page.dart';
 
@@ -24,6 +27,8 @@ class MarketBuyPage extends StatelessWidget{
   Widget build(BuildContext context) {
     data = ModalRoute.of(context)!.settings.arguments as MarketEntity;
     controller.init(data);
+    getData();
+
     return GetBuilder<MarketBuyController>(builder: (controller) {
       return Scaffold(
         backgroundColor: Colours.layout_bg,
@@ -164,20 +169,20 @@ class MarketBuyPage extends StatelessWidget{
         alignment: Alignment.topLeft,
         child:Column(
           children: [
-
-            buildChooseMoneyItem("CNY", "100"),
-            buildChooseMoneyItem("USDT", "200"),
+            buildChooseMoneyItem(R.assetsImgIconCny,"CNY", controller.buyEntity.cnyBalance.toString(), 0),
+            buildChooseMoneyItemn(R.assetsImgIconUsdt,"USDT", controller.buyEntity.usdtBalance.toString(), 1),
             buildRegisterAndForget(context, controller),
           ],
         ));
   }
 
-  Row buildChooseMoneyItem(String title, String desc) {
+
+  Row buildChooseMoneyItem(String image, String title, String desc, int index) {
     return Row(
       children: [
         SizedBox(width: 20.w),
         Text.rich(TextSpan(children: [
-          WidgetSpan(child:GestureDetector(child: Image.asset(R.assetsImgIcCoupon, height: 35.w, width: 35.w,),onTap: (){},)),
+          WidgetSpan(child:GestureDetector(child: Image.asset(image, height: 35.w, width: 35.w,),onTap: (){},)),
           TextSpan(text: "  "),
           TextSpan(text: title, style:ITextStyles.itemTitle),
         ])),
@@ -185,9 +190,31 @@ class MarketBuyPage extends StatelessWidget{
         Text(desc,style: ITextStyles.itemTitle,),
         Checkbox(
             activeColor: Colours.button_sel,
-            value: controller.agreeMent,
+            value: controller.selCny,
             onChanged: (value) {
+              controller.setSelCny(true);
+            },
+            shape: CircleBorder()),
+      ],
+    );
+  }
 
+  Row buildChooseMoneyItemn(String image, String title, String desc, int index) {
+    return Row(
+      children: [
+        SizedBox(width: 20.w),
+        Text.rich(TextSpan(children: [
+          WidgetSpan(child:GestureDetector(child: Image.asset(image, height: 35.w, width: 35.w,),onTap: (){},)),
+          TextSpan(text: "  "),
+          TextSpan(text: title, style:ITextStyles.itemTitle),
+        ])),
+        Expanded(child: SizedBox()),
+        Text(desc,style: ITextStyles.itemTitle,),
+        Checkbox(
+            activeColor: Colours.button_sel,
+            value: !controller.selCny,
+            onChanged: (value) {
+              controller.setSelCny(false);
             },
             shape: CircleBorder()),
       ],
@@ -226,14 +253,13 @@ class MarketBuyPage extends StatelessWidget{
   }
 
   Future<void> getData() async {
-    // BaseEntity baseEntity = await MarketApi.getMachineInfo(num.parse(widget.id));
-    // if (baseEntity.isOk()) {
-    //   MarketEntity barEntity = baseEntity.data;
-    //   if (barEntity != null) {
-    //     data = barEntity;
-    //
-    //   }
-    // }
+    BaseEntity baseEntity = await MarketApi.getMachineCoinInfo(data.machineId);;
+    if (baseEntity.isOk()) {
+      MarketBuyEntity buyEntity = baseEntity.data;
+      if (buyEntity != null) {
+         controller.setBuyInfo(buyEntity);
+      }
+    }
   }
 
   void showDialog(BuildContext context) {

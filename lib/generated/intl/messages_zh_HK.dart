@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "action_settings": MessageLookupByLibrary.simpleMessage("设置"),
+        "can_not_use": MessageLookupByLibrary.simpleMessage("不符合使用条件"),
         "cancle": MessageLookupByLibrary.simpleMessage("取消"),
         "choose_camera": MessageLookupByLibrary.simpleMessage("拍照"),
         "choose_photo": MessageLookupByLibrary.simpleMessage("从相册选择"),

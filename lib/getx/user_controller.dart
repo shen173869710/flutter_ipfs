@@ -83,7 +83,6 @@ class UserController extends GetxController {
       }
       return true;
     }
-
     return false;
   }
 }
