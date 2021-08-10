@@ -66,6 +66,7 @@ abstract class BaseListPageState< W extends StatefulWidget>extends State<W>{
         header: _enableRefresh ? Refresh.head: null,
         footer: _enableLoadMore ? Refresh.loadMore: null,
         onRefresh: _onRefresh,
+        shrinkWrap: true,
         onLoad: _onLoading,
           topBouncing: true,
           bottomBouncing: true,

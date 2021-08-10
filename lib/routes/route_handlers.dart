@@ -12,6 +12,13 @@ import 'package:ipfsnets/ui/pages/login_page.dart';
 import 'package:ipfsnets/ui/pages/main_page.dart';
 import 'package:ipfsnets/ui/pages/me/cny/cny_withdrawal_end_page.dart';
 import 'package:ipfsnets/ui/pages/me/cny/cny_withdrawal_record_page.dart';
+import 'package:ipfsnets/ui/pages/me/machine/machine_earnings_page.dart';
+import 'package:ipfsnets/ui/pages/me/machine/machine_hosting_page.dart';
+import 'package:ipfsnets/ui/pages/me/machine/machine_info_page.dart';
+import 'package:ipfsnets/ui/pages/me/machine/machine_page.dart';
+import 'package:ipfsnets/ui/pages/me/machine/machine_pledge_page.dart';
+import 'package:ipfsnets/ui/pages/me/machine/machine_total_page.dart';
+import 'package:ipfsnets/ui/pages/me/machine/machine_update_page.dart';
 import 'package:ipfsnets/ui/pages/me/more/more_page.dart';
 import 'package:ipfsnets/ui/pages/me/qrcode/qtcode_scanner_page.dart';
 import 'package:ipfsnets/ui/pages/me/setting/language_page.dart';
@@ -161,7 +168,7 @@ var transferRecordHandler = Handler(handlerFunc: (BuildContext? context, Map<Str
   final String coinCode = params['coinCode']?.first ?? '';
   return TransferRecordPage(coinCode: coinCode,);
 });
-//####################################  服务器相关  ###################################//
+//####################################  市场相关  ###################################//
 var qtcodeScannerHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   return ;
 });
@@ -185,6 +192,36 @@ var marketCouponsHandler = Handler(handlerFunc: (BuildContext? context, Map<Stri
 var marketEndHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   return MarketEndPage();
 });
+
+//####################################  我的服务器 ###################################//
+var machineHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return MachinePage();
+});
+// 我的服务器详情
+var machineInfoHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return MachineInfoPage();
+});
+// 我的服务器月收益
+var machineTotalHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return MachineTotalPage(1);
+});
+// 我的服务器天收益
+var machineEarningsHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return MachineEarningsPage(1);
+});
+// 我的服务器托管
+var machineHostingHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return MachineHostingPage();
+});
+// 我的服务器升级
+var machineUpdateHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return MachineUpdatePage();
+});
+// 我的服务器质押
+var machinePledgeHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return MachinePledgePage();
+});
+
 //########################  设置相关  ##########################//
 // 设置页面
 var settingHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {

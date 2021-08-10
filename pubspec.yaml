@@ -126,6 +126,7 @@ flutter:
     - assets/img/me_item_4.png
     - assets/img/ic_wallet_item_2.png
     - assets/img/ic_score_1.png
+    - assets/img/ic_machine_btc.png
     - assets/img/login_phone.png
     - assets/img/ic_down.png
     - assets/img/ic_wallet_item_3.png
@@ -151,6 +152,8 @@ flutter:
     - assets/img/my_wallet_fil.png
     - assets/img/ic_coupon_used.png
     - assets/img/ic_like.png
+    - assets/img/ic_machine_online.png
+    - assets/img/ic_machine_offline.png
     - assets/img/ic_eth.png
     - assets/img/me_item_3.png
     - assets/img/home_item_treasure.png
@@ -170,6 +173,7 @@ flutter:
     - assets/img/ic_light.png
     - assets/img/tab_market_n.png
     - assets/img/icon_wallet.png
+    - assets/img/ic_machine_bg.png
     - assets/img/ic_write_more.png
     - assets/img/icon_cny.png
     - assets/img/ic_pay_del.png
@@ -182,6 +186,7 @@ flutter:
     - assets/img/ic_address_edit.png
     - assets/img/ic_quote_up.png
     - assets/img/ic_unlike.png
+    - assets/img/ic_machine_fil.png
     - assets/img/ic_cny_icon.png
     - assets/img/me_item_19.png
     - assets/img/ic_dark_search.png
@@ -238,6 +243,7 @@ flutter:
     - assets/img/ic_arrow.png
     - assets/img/more_item_3.png
     - assets/img/ic_copy.png
+    - assets/img/ic_machine_eth.png
     - assets/img/ic_launcher.png
     - assets/img/ic_cny_withdrawal.png
     - assets/img/more_item_2.png

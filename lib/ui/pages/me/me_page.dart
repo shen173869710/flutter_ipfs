@@ -270,6 +270,7 @@ class MePage extends StatelessWidget {
         break;
       case 8:
       //服务器
+        NavigatorUtil.jump(context, Routes.machinePage);
         break;
       case 9:
       //购物车

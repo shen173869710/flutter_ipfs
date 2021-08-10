@@ -211,7 +211,6 @@ class _HomeStatus extends State<HomePage> {
               buildItem1Desc(controller.item3_3, S.current.home_item_3_2_desc,Color(0xff00E253)),
               Gaps.vLine,
               buildItem1Desc(controller.item3_3, S.current.home_item_3_3_desc,Color(0xffF23E2A)),
-
             ],
           ),
           Gaps.vGap8

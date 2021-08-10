@@ -5,6 +5,8 @@ class R {
   static final String assetsImgIcWalletItem2 = 'assets/img/ic_wallet_item_2.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_score_1.png)
   static final String assetsImgIcScore1 = 'assets/img/ic_score_1.png';
+  /// ![](http://127.0.0.1:11111/assets/img/ic_machine_btc.png)
+  static final String assetsImgIcMachineBtc = 'assets/img/ic_machine_btc.png';
   /// ![](http://127.0.0.1:11111/assets/img/login_phone.png)
   static final String assetsImgLoginPhone = 'assets/img/login_phone.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_down.png)
@@ -55,6 +57,10 @@ class R {
   static final String assetsImgIcCouponUsed = 'assets/img/ic_coupon_used.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_like.png)
   static final String assetsImgIcLike = 'assets/img/ic_like.png';
+  /// ![](http://127.0.0.1:11111/assets/img/ic_machine_online.png)
+  static final String assetsImgIcMachineOnline = 'assets/img/ic_machine_online.png';
+  /// ![](http://127.0.0.1:11111/assets/img/ic_machine_offline.png)
+  static final String assetsImgIcMachineOffline = 'assets/img/ic_machine_offline.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_eth.png)
   static final String assetsImgIcEth = 'assets/img/ic_eth.png';
   /// ![](http://127.0.0.1:11111/assets/img/me_item_3.png)
@@ -93,6 +99,8 @@ class R {
   static final String assetsImgTabMarketN = 'assets/img/tab_market_n.png';
   /// ![](http://127.0.0.1:11111/assets/img/icon_wallet.png)
   static final String assetsImgIconWallet = 'assets/img/icon_wallet.png';
+  /// ![](http://127.0.0.1:11111/assets/img/ic_machine_bg.png)
+  static final String assetsImgIcMachineBg = 'assets/img/ic_machine_bg.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_write_more.png)
   static final String assetsImgIcWriteMore = 'assets/img/ic_write_more.png';
   /// ![](http://127.0.0.1:11111/assets/img/icon_cny.png)
@@ -117,6 +125,8 @@ class R {
   static final String assetsImgIcQuoteUp = 'assets/img/ic_quote_up.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_unlike.png)
   static final String assetsImgIcUnlike = 'assets/img/ic_unlike.png';
+  /// ![](http://127.0.0.1:11111/assets/img/ic_machine_fil.png)
+  static final String assetsImgIcMachineFil = 'assets/img/ic_machine_fil.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_cny_icon.png)
   static final String assetsImgIcCnyIcon = 'assets/img/ic_cny_icon.png';
   /// ![](http://127.0.0.1:11111/assets/img/me_item_19.png)
@@ -229,6 +239,8 @@ class R {
   static final String assetsImgMoreItem3 = 'assets/img/more_item_3.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_copy.png)
   static final String assetsImgIcCopy = 'assets/img/ic_copy.png';
+  /// ![](http://127.0.0.1:11111/assets/img/ic_machine_eth.png)
+  static final String assetsImgIcMachineEth = 'assets/img/ic_machine_eth.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_launcher.png)
   static final String assetsImgIcLauncher = 'assets/img/ic_launcher.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_cny_withdrawal.png)

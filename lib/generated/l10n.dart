@@ -3190,6 +3190,416 @@ class S {
     );
   }
 
+  /// `在线数量`
+  String get machine_item_1 {
+    return Intl.message(
+      '在线数量',
+      name: 'machine_item_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `矿机数量`
+  String get machine_item_2 {
+    return Intl.message(
+      '矿机数量',
+      name: 'machine_item_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `当前算力`
+  String get machine_item_3 {
+    return Intl.message(
+      '当前算力',
+      name: 'machine_item_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `有效容量`
+  String get machine_item_4 {
+    return Intl.message(
+      '有效容量',
+      name: 'machine_item_4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `今日产币`
+  String get machine_item_5 {
+    return Intl.message(
+      '今日产币',
+      name: 'machine_item_5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `累计产币`
+  String get machine_item_6 {
+    return Intl.message(
+      '累计产币',
+      name: 'machine_item_6',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `查看收益`
+  String get machine_item_7 {
+    return Intl.message(
+      '查看收益',
+      name: 'machine_item_7',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `购买服务器`
+  String get machine_item_8 {
+    return Intl.message(
+      '购买服务器',
+      name: 'machine_item_8',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `在线`
+  String get machine_list_online {
+    return Intl.message(
+      '在线',
+      name: 'machine_list_online',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `离线`
+  String get machine_list_offline {
+    return Intl.message(
+      '离线',
+      name: 'machine_list_offline',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `有效容量`
+  String get machine_list_1 {
+    return Intl.message(
+      '有效容量',
+      name: 'machine_list_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `当前算力`
+  String get machine_list_2 {
+    return Intl.message(
+      '当前算力',
+      name: 'machine_list_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `当前质押`
+  String get machine_list_3 {
+    return Intl.message(
+      '当前质押',
+      name: 'machine_list_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `到期时间`
+  String get machine_list_4 {
+    return Intl.message(
+      '到期时间',
+      name: 'machine_list_4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `台`
+  String get machine_tai {
+    return Intl.message(
+      '台',
+      name: 'machine_tai',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `服务器详情`
+  String get machine_info_title {
+    return Intl.message(
+      '服务器详情',
+      name: 'machine_info_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `服务器编号`
+  String get machine_info_1 {
+    return Intl.message(
+      '服务器编号',
+      name: 'machine_info_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `设备状态`
+  String get machine_info_2 {
+    return Intl.message(
+      '设备状态',
+      name: 'machine_info_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `购买日期`
+  String get machine_info_3 {
+    return Intl.message(
+      '购买日期',
+      name: 'machine_info_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `上线时间`
+  String get machine_info_4 {
+    return Intl.message(
+      '上线时间',
+      name: 'machine_info_4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `托管到期`
+  String get machine_info_5 {
+    return Intl.message(
+      '托管到期',
+      name: 'machine_info_5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `设备型号`
+  String get machine_info_6 {
+    return Intl.message(
+      '设备型号',
+      name: 'machine_info_6',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `所属区域`
+  String get machine_info_7 {
+    return Intl.message(
+      '所属区域',
+      name: 'machine_info_7',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `当前算力`
+  String get machine_info_8 {
+    return Intl.message(
+      '当前算力',
+      name: 'machine_info_8',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `存储容量`
+  String get machine_info_9 {
+    return Intl.message(
+      '存储容量',
+      name: 'machine_info_9',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `有效容量`
+  String get machine_info_10 {
+    return Intl.message(
+      '有效容量',
+      name: 'machine_info_10',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `设备编号`
+  String get machine_info_11 {
+    return Intl.message(
+      '设备编号',
+      name: 'machine_info_11',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `已生产量`
+  String get machine_info_12 {
+    return Intl.message(
+      '已生产量',
+      name: 'machine_info_12',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `质押费`
+  String get machine_info_13 {
+    return Intl.message(
+      '质押费',
+      name: 'machine_info_13',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `GAS费`
+  String get machine_info_14 {
+    return Intl.message(
+      'GAS费',
+      name: 'machine_info_14',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `托管`
+  String get machine_info_btn_1 {
+    return Intl.message(
+      '托管',
+      name: 'machine_info_btn_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `升级`
+  String get machine_info_btn_2 {
+    return Intl.message(
+      '升级',
+      name: 'machine_info_btn_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `质押`
+  String get machine_info_btn_3 {
+    return Intl.message(
+      '质押',
+      name: 'machine_info_btn_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `服务器收益`
+  String get machine_earnings_title {
+    return Intl.message(
+      '服务器收益',
+      name: 'machine_earnings_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `今日收益`
+  String get machine_earnings_today {
+    return Intl.message(
+      '今日收益',
+      name: 'machine_earnings_today',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `立即释放`
+  String get machine_earnings_atonce {
+    return Intl.message(
+      '立即释放',
+      name: 'machine_earnings_atonce',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `线性释放`
+  String get machine_earnings_linear {
+    return Intl.message(
+      '线性释放',
+      name: 'machine_earnings_linear',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `服务器ID`
+  String get machine_earnings_item_1 {
+    return Intl.message(
+      '服务器ID',
+      name: 'machine_earnings_item_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `产币收益`
+  String get machine_earnings_item_2 {
+    return Intl.message(
+      '产币收益',
+      name: 'machine_earnings_item_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `立即释放 25%`
+  String get machine_earnings_item_3 {
+    return Intl.message(
+      '立即释放 25%',
+      name: 'machine_earnings_item_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `线性释放 180天`
+  String get machine_earnings_item_4 {
+    return Intl.message(
+      '线性释放 180天',
+      name: 'machine_earnings_item_4',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `自选`
   String get quote_item_1 {
     return Intl.message(

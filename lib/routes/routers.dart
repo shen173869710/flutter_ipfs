@@ -42,12 +42,18 @@ class Routes {
   static String walletWithdrawalAddressPage = "/me/wallet/walletwithdrawaladdresspage";
 
   static String qrcodeScannerPage = "/me/wallet/qrcodescannerpage";
-
   static String walletExchangeRecordPage = "/me/wallet/walletexchangerecordpage";
   // 内网转账
   static String transferPage = "/me/transfer/transferpage";
   static String transferRecordPage = "/me/transfer/transferrecordpage";
-
+  // 我的服务器
+  static String machinePage = "/me/machine/machinePage";
+  static String machineInfoPage = "/me/machine/machineInfoPage";
+  static String machineTotalPage = "/me/machine/machineTotalPage";
+  static String machineEarningsPage = "/me/machine/machineEarningsPage";
+  static String machineHostingPage = "/me/machine/machineHostingPage";
+  static String machinePledgePage = "/me/machine/machinePledgePage";
+  static String machineUpdatePage = "/me/machine/machineUpdatePage";
   // 服务器市场
   static String marketInfoPage = "/market/marketinfopage";
   static String marketBuyPage = "/market/marketbuypage";
@@ -121,6 +127,13 @@ class Routes {
     router.define(marketBuyPage, handler:marketBuyHandler);
     router.define(marketCouponsPage, handler:marketCouponsHandler);
     router.define(marketEndPage, handler:marketEndHandler);
+    router.define(machinePage, handler:machineHandler);
+    router.define(machineInfoPage, handler:machineInfoHandler);
+    router.define(machineTotalPage, handler:machineTotalHandler);
+    router.define(machineEarningsPage, handler:machineEarningsHandler);
+    router.define(machineHostingPage, handler:machineHostingHandler);
+    router.define(machinePledgePage, handler:machinePledgeHandler);
+    router.define(machineUpdatePage, handler:machineUpdateHandler);
 
     router.define(quoteSearchPage, handler:quoteSearchHandler);
 
