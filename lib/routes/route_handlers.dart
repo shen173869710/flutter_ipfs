@@ -20,6 +20,7 @@ import 'package:ipfsnets/ui/pages/me/machine/machine_pledge_page.dart';
 import 'package:ipfsnets/ui/pages/me/machine/machine_total_page.dart';
 import 'package:ipfsnets/ui/pages/me/machine/machine_update_page.dart';
 import 'package:ipfsnets/ui/pages/me/more/more_page.dart';
+import 'package:ipfsnets/ui/pages/me/other/fans_page.dart';
 import 'package:ipfsnets/ui/pages/me/qrcode/qtcode_scanner_page.dart';
 import 'package:ipfsnets/ui/pages/me/setting/language_page.dart';
 import 'package:ipfsnets/ui/pages/me/setting/setting_page.dart';
@@ -211,21 +212,25 @@ var machineEarningsHandler = Handler(handlerFunc: (BuildContext? context, Map<St
 });
 // 我的服务器托管
 var machineHostingHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-  return MachineHostingPage();
+  return MachineHostingPage(params['machineId']?.first ?? '');
 });
 // 我的服务器升级
 var machineUpdateHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-  return MachineUpdatePage();
+  return MachineUpdatePage(params['machineId']?.first ?? '');
 });
 // 我的服务器质押
 var machinePledgeHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-  return MachinePledgePage();
+  return MachinePledgePage(params['machineId']?.first ?? '');
 });
 
 //########################  设置相关  ##########################//
 // 设置页面
 var settingHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   return SettingPage();
+});
+
+var fansHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return FansPage();
 });
 // 多语言
 var languageHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {

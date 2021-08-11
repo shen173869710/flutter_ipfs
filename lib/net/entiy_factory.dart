@@ -7,6 +7,8 @@ import 'package:ipfsnets/models/cny_recharge_entity.dart';
 import 'package:ipfsnets/models/cny_recharge_record_entity.dart';
 import 'package:ipfsnets/models/cny_withdrawal_record_entity.dart';
 import 'package:ipfsnets/models/image_entity.dart';
+import 'package:ipfsnets/models/machine_entity.dart';
+import 'package:ipfsnets/models/machine_top_entity.dart';
 import 'package:ipfsnets/models/market_bar_entity.dart';
 import 'package:ipfsnets/models/market_buy_entity.dart';
 import 'package:ipfsnets/models/market_coupon_entity.dart';
@@ -53,6 +55,8 @@ class EntityFactory {
       return MarketEntity.fromJson(json)as T;
     }else if (name == "MarketBuyEntity"){
       return MarketBuyEntity.fromJson(json)as T;
+    }else if (name == "MachineTopEntity"){
+      return MachineTopEntity.fromJson(json)as T;
     }else {
       return json as T;
     }
@@ -101,6 +105,9 @@ class EntityFactory {
     }else if(<QuoteOptionalEntity>[] is M){
       LogUtil.e("解析数组对象 MarketEntity");
       return data.map<QuoteOptionalEntity>((e) => QuoteOptionalEntity.fromJson(e)).toList() as M;
+    }else if(<MachineEntity>[] is M){
+      LogUtil.e("解析数组对象 MachineEntity");
+      return data.map<MachineEntity>((e) => MachineEntity.fromJson(e)).toList() as M;
     }
     throw Exception("-----------------数组子类异常 no fond");
   }

@@ -32,7 +32,7 @@ class _SettingState extends State<SettingPage> {
         appBar: AppBar(
           title: new Text(S.current.setting_title),
           centerTitle: true,
-          backgroundColor: Colours.button_sel,
+          backgroundColor: Colours.app_bar_bg,
         ),
         body: Form(
           child: Column(

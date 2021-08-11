@@ -63,6 +63,7 @@ class Routes {
   static String quoteSearchPage = "/quote/quoteSearchPage";
   // 设置页面
   static String settingPage = "/me/setting/settingpage";
+  static String fansPage = "/me/fanspage";
   static String passwordPage = "/me/setting/passwordpage";
   static String languagePage = "/me/setting/languagePage";
   static String baseListPage = "/me/baselistpage/baselistpage";
@@ -136,7 +137,7 @@ class Routes {
     router.define(machineUpdatePage, handler:machineUpdateHandler);
 
     router.define(quoteSearchPage, handler:quoteSearchHandler);
-
+    router.define(fansPage, handler:fansHandler);
   }
 }
 

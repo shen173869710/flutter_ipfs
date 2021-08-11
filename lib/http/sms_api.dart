@@ -2,10 +2,12 @@
 
 import 'dart:convert';
 import 'package:ipfsnets/net/base_entity.dart';
+import 'package:ipfsnets/utils/user_util.dart';
 import 'http_manager.dart';
 
 class SmsApi {
 
+  static int CODE_TYPE_SET_PAY_PWD = 1003;
   // 发送验证码
   static const String send_code = "wallet/app/send/code";
 
@@ -18,10 +20,10 @@ class SmsApi {
    *    PAY_CONFIRM(2001, "pay_code:","支付确认"),
    */
   // 发送短信验证码
-  static  Future<BaseEntity> sendSms(int type, String username) {
+  static  Future<BaseEntity> sendSms(int type) {
     Map<String, dynamic> params = new Map();
     params['type'] = type;
-    params['username'] = username;
+    params['username'] = UserUtil.getUserInfo().username;
     return HttpManager.getInstance().post(send_code,jsonEncode(params));
   }
 

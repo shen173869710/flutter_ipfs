@@ -65,7 +65,11 @@ class ITextStyles {
     color: Colours.text_white
   );
 
-
+  static TextStyle whiteTitle16 = TextStyle(
+      fontSize: Dimens.font_sp16,
+      fontWeight: FontWeight.normal,
+      color: Colours.text_white
+  );
 
   static TextStyle mainTitle = TextStyle(
     fontSize: Dimens.font_sp18,

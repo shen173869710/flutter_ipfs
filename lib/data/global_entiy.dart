@@ -19,9 +19,18 @@ import '../r.dart';
 
 class GlobalEntiy{
   // 注册协议
-  static String web_reigster = "https://www.baidu.com";
+  static String web_reigster = "http://124.16.8.140:84/register-protocol";
   // 服务器购买协议
-  static String web_market_buy = "https://www.baidu.com";
+  static String web_market_buy = "http://124.16.8.140:84/purchase-protocol";
+  // 服务器托管协议
+  static String web_machine_hosting = "http://124.16.8.140:84/deposit-protocol";
+  // 服务器升级协议
+  static String web_machine_updete = "http://124.16.8.140:84/upgrade-protocol";
+  // 推广二维码
+  static String web_qrcode = "http://124.16.8.140:84/promo";
+  // 我的客服
+  static String web_my_server= "http://chat.ahcdialogchat.com/chat/h5/chatLink.html?channelId=1NfXw7";
+
 
   static Future init(VoidCallback callback) async {
     // await SpUtil.getInstance();
@@ -74,13 +83,13 @@ class GlobalEntiy{
   static  List<String> LIFE_TITLE = [S.current.me_item_5, S.current.me_item_6, S.current.me_item_7,S.current.me_item_8];
   static  List<String> LIFE_IMAGE = [R.assetsImgMeItem5, R.assetsImgMeItem6, R.assetsImgMeItem7, R.assetsImgMeItem8];
   // 财富生活
-  static  List<String> SERVER_TITLE = [S.current.me_item_9, S.current.me_item_10, S.current.me_item_11,
-    S.current.me_item_12,S.current.me_item_13,S.current.me_item_14,
-    S.current.me_item_15,S.current.me_item_16,S.current.me_item_17,
+  static  List<String> SERVER_TITLE = [S.current.me_item_9,  S.current.me_item_11,
+    S.current.me_item_12,S.current.me_item_14,
+    S.current.me_item_15,S.current.me_item_17,
     S.current.me_item_18,S.current.me_item_19];
-  static  List<String> SERVER_IMAGE = [R.assetsImgMeItem9, R.assetsImgMeItem10, R.assetsImgMeItem11,
-    R.assetsImgMeItem12,R.assetsImgMeItem13, R.assetsImgMeItem14,
-    R.assetsImgMeItem15,R.assetsImgMeItem16, R.assetsImgMeItem17,
+  static  List<String> SERVER_IMAGE = [R.assetsImgMeItem9, R.assetsImgMeItem11,
+    R.assetsImgMeItem12, R.assetsImgMeItem14,
+    R.assetsImgMeItem15, R.assetsImgMeItem17,
     R.assetsImgMeItem18,R.assetsImgMeItem19];
 
   // 更多应用

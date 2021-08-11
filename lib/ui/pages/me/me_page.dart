@@ -273,38 +273,40 @@ class MePage extends StatelessWidget {
         NavigatorUtil.jump(context, Routes.machinePage);
         break;
       case 9:
-      //购物车
+      //CNY账号
+        NavigatorUtil.jump(context, Routes.cnyAccount);
         break;
       case 10:
-      //CNY账号
-      NavigatorUtil.jump(context, Routes.cnyAccount);
+      //转账
+        NavigatorUtil.jump(context, Routes.transferPage);
         break;
       case 11:
-        NavigatorUtil.jump(context, Routes.transferPage);
-      //内网转账
+      //我的粉丝
+        NavigatorUtil.jump(context, Routes.fansPage);
         break;
       case 12:
-      //佣金提现
-        break;
-      case 13:
-      //我的粉丝
-        break;
-      case 14:
       //推广二维码
         break;
-      case 15:
-      //消息通知
-        break;
-      case 16:
+      case 13:
       //我的客服
+        NavigatorUtil.goWebViewPage(context, S.current.me_item_17, GlobalEntiy.web_my_server);
         break;
-      case 17:
+      case 14:
       //设置
         NavigatorUtil.jump(context, Routes.settingPage);
         break;
-      case 18:
+      case 15:
       //更多应用
         NavigatorUtil.jump(context, Routes.morePage);
+        break;
+      case 16:
+
+        break;
+      case 17:
+
+        break;
+      case 18:
+
         break;
     }
   }

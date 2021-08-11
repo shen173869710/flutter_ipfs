@@ -12,10 +12,15 @@ import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/pages/market/market_buy_controller.dart';
 import 'package:ipfsnets/ui/pages/market/market_coupons_page.dart';
+
 import '../../../../include.dart';
 
 
 class MachinePledgePage extends StatelessWidget{
+
+  String machineId;
+  MachinePledgePage(this.machineId);
+
   late MarketEntity data;
   // 用户协议
   final _registProtocolRecognizer = new TapGestureRecognizer();

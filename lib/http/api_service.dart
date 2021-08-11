@@ -118,6 +118,26 @@ class ApiServer {
     return HttpManager.getInstance().post(change_username, json);
   }
 
+
+  // 设置支付密码
+  static const String set_pay_pwd = "wallet/app/user/setPayPwd";
+  static Future<BaseEntity> setPayPassword(String paypwd, String verifyCode) {
+    var params = DataHelper.getBaseMap();
+    params['paypwd'] = paypwd;
+    params['verifyCode'] = verifyCode;
+    String json = jsonEncode(params);
+    return HttpManager.getInstance().post(set_pay_pwd, json);
+  }
+  // 修改支付密码
+  static const String reset_pay_pwd = "wallet/app/user/resetPaypwd";
+  static Future<BaseEntity> resetPayPassword(String newPassword, String oldPassword) {
+    var params = DataHelper.getBaseMap();
+    params['newPassword'] = newPassword;
+    params['oldPassword'] = oldPassword;
+    String json = jsonEncode(params);
+    return HttpManager.getInstance().post(reset_pay_pwd, json);
+  }
+
   // cny 首页
   static const String cny_account = "cny/app/account/home";
   static const String cny_account_list = "cny/app/account/statement/list";

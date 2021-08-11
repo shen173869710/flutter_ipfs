@@ -1,4 +1,6 @@
 
+import 'dart:convert';
+
 import 'package:ipfsnets/models/market_bar_entity.dart';
 import 'package:ipfsnets/models/market_buy_entity.dart';
 import 'package:ipfsnets/models/market_coupon_entity.dart';
@@ -27,7 +29,7 @@ class MarketApi{
   }
 
 
-  // 服务器支付货币
+  // 获取服务器详细信息
   static const String machine_coin_info = "machine/app/record/";
   static  Future<BaseEntity> getMachineCoinInfo(num id) {
     return HttpManager.getInstance().get<MarketBuyEntity>(machine_coin_info+id.toString());
@@ -39,5 +41,23 @@ class MarketApi{
     return HttpManager.getInstance().get<List<MarketCouponEntity>>(machine_coupon+type.toString());
   }
 
+  // 购买服务器
+  static const String machine_buy= "machine/app/record/";
+
+  /**
+   *  payType "0" cny
+   *          "1" usdt
+   */
+  static  Future<BaseEntity> machineBuy(num machineId, num count, num couponId,String password,String payType) {
+    Map<String, dynamic> param = new Map();
+    param['count'] = count;
+    param['machineId'] = machineId;
+    if (couponId != null && couponId > 0) {
+      param['coupon'] = couponId;
+    }
+    param['password'] = password;
+    param['payType'] = payType;
+    return HttpManager.getInstance().post<MarketBuyEntity>(machine_buy,jsonEncode(param));
+  }
 
 }

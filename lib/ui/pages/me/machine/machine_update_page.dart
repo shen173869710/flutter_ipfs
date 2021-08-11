@@ -18,6 +18,9 @@ import '../../../../include.dart';
 
 
 class MachineUpdatePage extends StatelessWidget{
+  String machineId;
+  MachineUpdatePage(this.machineId);
+
   late MarketEntity data;
   // 用户协议
   final _registProtocolRecognizer = new TapGestureRecognizer();

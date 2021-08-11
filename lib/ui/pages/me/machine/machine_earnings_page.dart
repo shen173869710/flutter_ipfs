@@ -23,9 +23,8 @@ class _MachineEarningsState extends BaseListPageState<MachineEarningsPage> with 
   List<MarketEntity> list = [];
   @override
   Widget build(BuildContext context) {
-
     setEnableRefresh(false);
-
+    setEnableLoadMore(false);
 
     return Scaffold(
         backgroundColor: Colours.bg_color,

@@ -30,6 +30,7 @@ class PasswordPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final PasswordController controller = Get.put(PasswordController());
     controller.type = type;
+    controller.init();
     _codeController.addListener(() {
       controller.setCode(_codeController.text);
     });
@@ -38,7 +39,7 @@ class PasswordPage extends StatelessWidget {
           appBar: AppBar(
             title: new Text(getTitle()),
             centerTitle: true,
-            backgroundColor: Colours.button_sel,
+            backgroundColor: Colours.app_bar_bg,
           ),
           body: Form(
             child: ListView(
@@ -82,11 +83,7 @@ class PasswordPage extends StatelessWidget {
           text: S.current.sure,
           endble: controller.enableSure,
           onPressed: () async {
-            bool isSuc = await controller.doSubmit();
-            if (isSuc) {
-              NavigatorUtil.goToLogin(context);
-            }
-
+            bool isSuc = await controller.doSubmit(context);
           }),
     );
   }
@@ -210,11 +207,11 @@ class PasswordPage extends StatelessWidget {
     }else if (type == GlobalEntiy.PASSWORD_APLAY) {
       // 修改支付密码
       if (postion == 1) {
-        return true;
+        return false;
       }else if (postion == 2) {
         return true;
       }else if (postion == 3) {
-        return false;
+        return true;
       }else if (postion == 4) {
         return true;
       }
@@ -243,9 +240,9 @@ class PasswordPage extends StatelessWidget {
       }
     }else if (type == GlobalEntiy.PASSWORD_APLAY) {
       // 修改支付密码
-      if (postion == 1) {
+      if (postion == 2) {
         return S.current.pwd_pay_new;
-      }else if (postion == 2) {
+      }else if (postion == 3) {
         return S.current.pwd_pay_new_again;
       }else if (postion == 4) {
         return S.current.pwd_pay_code;

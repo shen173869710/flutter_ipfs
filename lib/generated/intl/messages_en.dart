@@ -101,6 +101,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "day": MessageLookupByLibrary.simpleMessage("天"),
         "edit_nick_input": MessageLookupByLibrary.simpleMessage("请输入昵称"),
         "edit_nick_name": MessageLookupByLibrary.simpleMessage("编辑昵称"),
+        "fans_item_1": MessageLookupByLibrary.simpleMessage("直推业绩"),
+        "fans_item_2": MessageLookupByLibrary.simpleMessage("总业绩"),
+        "fans_title": MessageLookupByLibrary.simpleMessage("我的粉丝"),
         "find_tab_1": MessageLookupByLibrary.simpleMessage("热门推荐"),
         "find_tab_2": MessageLookupByLibrary.simpleMessage("企业公告"),
         "find_tab_3": MessageLookupByLibrary.simpleMessage("新闻资讯"),
@@ -195,6 +198,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "machine_list_offline": MessageLookupByLibrary.simpleMessage("离线"),
         "machine_list_online": MessageLookupByLibrary.simpleMessage("在线"),
         "machine_tai": MessageLookupByLibrary.simpleMessage("台"),
+        "machine_total_1": MessageLookupByLibrary.simpleMessage("区块总收益 (FIL)"),
+        "machine_total_2": MessageLookupByLibrary.simpleMessage("累计解锁"),
+        "machine_total_3": MessageLookupByLibrary.simpleMessage("当前冻结"),
+        "machine_total_4": MessageLookupByLibrary.simpleMessage("月收益"),
+        "machine_total_list_1":
+            MessageLookupByLibrary.simpleMessage("区块收益 (FIL)"),
+        "machine_total_list_2":
+            MessageLookupByLibrary.simpleMessage("立即释放 25%"),
+        "machine_total_list_3": MessageLookupByLibrary.simpleMessage("线性释放"),
+        "machine_total_title": MessageLookupByLibrary.simpleMessage("区块收益"),
         "market_buy_coupons": MessageLookupByLibrary.simpleMessage("优惠券"),
         "market_buy_coupons_hint":
             MessageLookupByLibrary.simpleMessage("选择优惠券"),
@@ -239,7 +252,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "me_item_1": MessageLookupByLibrary.simpleMessage("全部"),
         "me_item_10": MessageLookupByLibrary.simpleMessage("购物车"),
         "me_item_11": MessageLookupByLibrary.simpleMessage("CNY账号"),
-        "me_item_12": MessageLookupByLibrary.simpleMessage("内网转账"),
+        "me_item_12": MessageLookupByLibrary.simpleMessage("转账"),
         "me_item_13": MessageLookupByLibrary.simpleMessage("佣金提现"),
         "me_item_14": MessageLookupByLibrary.simpleMessage("我的粉丝"),
         "me_item_15": MessageLookupByLibrary.simpleMessage("推广二维码"),
@@ -283,7 +296,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "not_enough": MessageLookupByLibrary.simpleMessage("余额不足"),
         "option_faile": MessageLookupByLibrary.simpleMessage("操作失败"),
         "option_success": MessageLookupByLibrary.simpleMessage("操作成功"),
-        "paddword_dailog_forget": MessageLookupByLibrary.simpleMessage("忘记密码"),
+        "paddword_dailog_forget": MessageLookupByLibrary.simpleMessage("设置密码"),
         "password_dialog_title":
             MessageLookupByLibrary.simpleMessage("输入数字支付密码"),
         "password_no_equal": MessageLookupByLibrary.simpleMessage("两次输入的密码不相同"),
@@ -299,7 +312,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pwd_pay_code": MessageLookupByLibrary.simpleMessage("请输入手机验证码"),
         "pwd_pay_new": MessageLookupByLibrary.simpleMessage("请输支付密码(6位纯数字)"),
         "pwd_pay_new_again": MessageLookupByLibrary.simpleMessage("请再次输入密码"),
-        "pwd_pay_title": MessageLookupByLibrary.simpleMessage("修改支付密码"),
+        "pwd_pay_title": MessageLookupByLibrary.simpleMessage("设置支付密码"),
         "quote_gains": MessageLookupByLibrary.simpleMessage("涨幅"),
         "quote_gains_today": MessageLookupByLibrary.simpleMessage("今日涨幅"),
         "quote_item_1": MessageLookupByLibrary.simpleMessage("自选"),
@@ -338,7 +351,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "setting_change_logig_pwd":
             MessageLookupByLibrary.simpleMessage("修改登录密码"),
         "setting_change_pay_pwd":
-            MessageLookupByLibrary.simpleMessage("修改支付密码"),
+            MessageLookupByLibrary.simpleMessage("设置支付密码"),
         "setting_change_phone": MessageLookupByLibrary.simpleMessage("修改账户"),
         "setting_language": MessageLookupByLibrary.simpleMessage("语言设置"),
         "setting_logout": MessageLookupByLibrary.simpleMessage("退出登录"),

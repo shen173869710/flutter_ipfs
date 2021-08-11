@@ -3,6 +3,7 @@
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:ipfsnets/data/global_entiy.dart';
 import 'package:ipfsnets/http/api_service.dart';
+import 'package:ipfsnets/http/sms_api.dart';
 import 'package:ipfsnets/include.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/utils/string_util.dart';
@@ -15,6 +16,13 @@ class PasswordController extends GetxController {
   late String value2;
   late String value3;
   late String code;
+
+  init () {
+    value1 = "";
+    value2 = "";
+    value3 = "";
+    code = "";
+  }
 
   void setValue1(String str) {
     this.value1 = str;
@@ -56,8 +64,8 @@ class PasswordController extends GetxController {
         ) {
         enableSure = true;
     }else if (type == GlobalEntiy.PASSWORD_APLAY
-        && StringUtil.greateLength(value1, 5)
         && StringUtil.greateLength(value2, 5)
+        && StringUtil.greateLength(value3, 5)
         && StringUtil.equalLenght(code, 6)) {
         enableSure = true;
     }else{
@@ -68,12 +76,10 @@ class PasswordController extends GetxController {
 
 
   // 提交修改
-  Future<bool> doSubmit() async{
+  Future<bool> doSubmit(BuildContext context) async{
 
     if (type == GlobalEntiy.PASSWORD_ACCOUNT) {
       // 修改账户
-      LogUtil.e(value1+" "+code);
-
       BaseEntity baseEntity  = await ApiServer.changeUsername(value1, value2);
       if (baseEntity.isOk()) {
         ToastUtil.show(S.current.option_success);
@@ -92,6 +98,8 @@ class PasswordController extends GetxController {
       BaseEntity baseEntity  = await ApiServer.changePassword(value1, value2);
       if (baseEntity.isOk()) {
         ToastUtil.show(S.current.option_success);
+
+        NavigatorUtil.goToLogin(context);
         return true;
       }else{
         ToastUtil.show(baseEntity.msg);
@@ -99,21 +107,41 @@ class PasswordController extends GetxController {
 
     }else if (type == GlobalEntiy.PASSWORD_APLAY) {
       // 修改支付
-      LogUtil.e(value1+" "+value2+ "  " +code);
+      LogUtil.e(value2+" "+value2+ "  " +code);
+
+      if (value2 != value3) {
+        ToastUtil.show(S.current.password_no_equal);
+        return false;
+      }
+      BaseEntity baseEntity  = await ApiServer.setPayPassword(value2,code);
+      if (baseEntity.isOk()) {
+        ToastUtil.show(S.current.option_success);
+        return false;
+      }else {
+        ToastUtil.show(baseEntity.msg);
+        return false;
+      }
     }
 
-    // BaseEntity baseEntity  = await ApiServer.register(account, password, code,shareCode);
-    // if (baseEntity.isOk()) {
-    //   return true;
-    // }else {
-    //   ToastUtil.show(baseEntity.msg);
-    // }
+
     return false;
   }
 
   // 获取验证码
-  bool  getCode() {
+  Future<bool> getCode() async{
+    if (type == GlobalEntiy.PASSWORD_ACCOUNT) {
 
+    }else if (type == GlobalEntiy.PASSWORD_CHANGE) {
+
+    }else if (type == GlobalEntiy.PASSWORD_APLAY) {
+      BaseEntity baseEntity  = await SmsApi.sendSms(SmsApi.CODE_TYPE_SET_PAY_PWD);
+      if (baseEntity.isOk()) {
+        ToastUtil.show(S.current.send_success);
+      }else{
+        ToastUtil.show(baseEntity.msg);
+        return false;
+      }
+    }
 
     return true;
   }

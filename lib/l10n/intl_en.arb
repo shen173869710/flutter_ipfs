@@ -101,10 +101,11 @@
   "me_item_6": "付款",
   "me_item_7": "收款",
   "me_item_8": "扫一扫",
+
   "me_item_9": "服务器",
   "me_item_10": "购物车",
   "me_item_11": "CNY账号",
-  "me_item_12": "内网转账",
+  "me_item_12": "转账",
   "me_item_13": "佣金提现",
   "me_item_14": "我的粉丝",
   "me_item_15": "推广二维码",
@@ -345,7 +346,7 @@
   "market_buy_desc_more": "《服务器购买协议》",
 
   "password_dialog_title": "输入数字支付密码",
-  "paddword_dailog_forget": "忘记密码",
+  "paddword_dailog_forget": "设置密码",
 
   "market_coupons_title": "优惠券",
   "market_coupons_item_1": "未使用",
@@ -393,6 +394,15 @@
   "machine_info_btn_2": "升级",
   "machine_info_btn_3": "质押",
 
+  "machine_total_title": "区块收益",
+  "machine_total_1": "区块总收益 (FIL)",
+  "machine_total_2": "累计解锁",
+  "machine_total_3": "当前冻结",
+  "machine_total_4": "月收益",
+  "machine_total_list_1": "区块收益 (FIL)",
+  "machine_total_list_2": "立即释放 25%",
+  "machine_total_list_3": "线性释放",
+
   "machine_earnings_title": "服务器收益",
   "machine_earnings_today": "今日收益",
   "machine_earnings_atonce": "立即释放",
@@ -416,10 +426,14 @@
   "quote_search_history": "搜索历史",
   "quote_search_clean": "清空历史",
 
+  "fans_title": "我的粉丝",
+  "fans_item_1": "直推业绩",
+  "fans_item_2": "总业绩",
+
   "setting_title": "设置",
   "setting_change_phone": "修改账户",
   "setting_change_logig_pwd": "修改登录密码",
-  "setting_change_pay_pwd": "修改支付密码",
+  "setting_change_pay_pwd": "设置支付密码",
   "setting_language": "语言设置",
   "setting_version": "版本",
   "setting_logout": "退出登录",
@@ -433,7 +447,7 @@
   "pwd_login_new": "请输入新密码",
   "pwd_login_again": "请再次输入新密码",
 
-  "pwd_pay_title": "修改支付密码",
+  "pwd_pay_title": "设置支付密码",
   "pwd_pay_new": "请输支付密码(6位纯数字)",
   "pwd_pay_new_again": "请再次输入密码",
   "pwd_pay_code": "请输入手机验证码",

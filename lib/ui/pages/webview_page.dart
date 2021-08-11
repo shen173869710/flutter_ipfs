@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:ipfsnets/include.dart';
 import 'package:ipfsnets/res/styles.dart';
 import 'package:ipfsnets/ui/widget/my_app_bar.dart';
 import 'package:ipfsnets/utils/device_utils.dart';
@@ -29,6 +30,7 @@ class _WebViewPageState extends State<WebViewPage> {
   void initState() {
     super.initState();
     // Enable hybrid composition.
+    LogUtil.e(widget.url);
     if (Device.isAndroid) {
       WebView.platform = SurfaceAndroidWebView();
     }

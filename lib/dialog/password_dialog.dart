@@ -67,7 +67,9 @@ class _PasswordDiaglogState extends State<PasswordDiaglog> {
                   Row(
                     children: [
                       Expanded(child: SizedBox()),
-                      Text(S.current.paddword_dailog_forget, style: TextStyle(fontSize: 14, color: Colours.button_sel)),
+                      GestureDetector(child:Text(S.current.paddword_dailog_forget, style: TextStyle(fontSize: 14, color: Colours.button_sel)),onTap: (){
+                        NavigatorUtil.goPasswordPage(context,GlobalEntiy.PASSWORD_APLAY);
+                      },),
                       Gaps.hGap16
                     ],
                   )

@@ -6,24 +6,18 @@ import 'package:ipfsnets/models/machine_entity.dart';
 import 'package:ipfsnets/models/market_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
+import 'package:ipfsnets/ui/pages/me/machine/machine_total_list_item.dart';
 import 'package:ipfsnets/ui/widget/base_list_page.dart';
 
-import 'machine_earnings_list_item.dart';
-import 'machine_total_list_item.dart';
 
-class MachineTotalPage extends StatefulWidget {
 
-  late num id;
-  MachineTotalPage(this.id);
+class FansPage extends StatefulWidget {
   @override
-  _MachineTotalState createState() => _MachineTotalState(id);
+  _FansState createState() => _FansState();
 }
 
-class _MachineTotalState extends BaseListPageState<MachineTotalPage> with AutomaticKeepAliveClientMixin{
-  late num id;
-  _MachineTotalState(this.id);
+class _FansState extends BaseListPageState<FansPage> with AutomaticKeepAliveClientMixin{
   late MachineEntity entity;
-
   List<MarketEntity> list = [];
   @override
   Widget build(BuildContext context) {
@@ -33,7 +27,7 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
     return Scaffold(
         backgroundColor: Colours.bg_color,
         appBar: AppBar(
-          title: new Text(S.current.machine_total_title),
+          title: Text(S.current.fans_title),
           centerTitle: true,
           backgroundColor: Colours.app_bar_bg,
         ),
@@ -49,8 +43,7 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
                 )),
             Column(
               children: [
-                buildItem4(context),
-                buildItem2(context),
+                buildTop(context),
                 Expanded(child: buildRefreshView(context),),
               ],
             )
@@ -81,7 +74,7 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
 
   @override
   Future<BaseEntity> getData() async{
-    BaseEntity entity = await MarketApi.getMachineById(id, false);
+    BaseEntity entity = await MarketApi.getMachineById(1, false);
     if (entity.isOk()) {
       list.addAll(entity.data);
       setState(() {
@@ -97,58 +90,33 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
   }
 
 
-  // 矿区收益
-  buildItem4(BuildContext context){
+  buildTop(BuildContext context){
     return Container(
       margin: EdgeInsets.all(20.w),
       padding: EdgeInsets.all(30.w),
       decoration: ITextStyles.boxDecoration,
-      child:Column(
+      child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text(S.current.machine_total_1, style: ITextStyles.itemContent),
-              Gaps.vGap8,
-              Text("123456", style: TextStyle(fontSize: 20,color: Color(0xffF23E2A)),),
-            ],
+          Gaps.hGap16,
+          Expanded(child:buildItemTitle(S.current.fans_item_1, "123"),flex: 1,),
+          SizedBox(
+            width: 1.w,
+            height: 70.h,
+            child: VerticalDivider(),
           ),
-          Gaps.vGap8,
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Expanded(child:buildItem3Desc(S.current.machine_total_2, S.current.machine_total_2),flex: 1,),
-              Expanded(child:buildItem3Desc(S.current.machine_total_3, S.current.machine_total_3),flex: 1,)
-            ],
-          ),
+          Gaps.hGap16,
+          Expanded(child:buildItemTitle(S.current.fans_item_2, "12356"),flex: 1,)
         ],
       ),
     );
   }
 
 
-  // 矿区收益
-  buildItem2(BuildContext context){
-    return Container(
-      margin: EdgeInsets.all(20.w),
-      child:Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text.rich(TextSpan(children: [
-              TextSpan(text: "2012-03",style: ITextStyles.itemTitle),
-              WidgetSpan(child: Image.asset(R.assetsImgIcDown, height: 35.w, width: 35.w,)),
-            ])),
-          Expanded(child: SizedBox(),),
-          Text(S.current.machine_total_4+"：123 FIL", style: ITextStyles.itemContent),
-        ],
-      ),
-    );
-  }
 
-  buildItem3Desc(String title, String dec) {
+
+  buildItem(String title, String dec) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -158,6 +126,23 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
       ],
     );
   }
+
+  buildItemTitle(String title,String desc) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text.rich(TextSpan(children: [
+          WidgetSpan(child: Image.asset(R.assetsImgIconCny, height: 30.w, width: 30.w,)),
+          TextSpan(text: " "),
+          TextSpan(text: title,style: ITextStyles.itemContent),
+        ])),
+        Gaps.vGap8,
+        Text(desc, style: TextStyle(color: Colours.item_red, fontSize: 18),),
+      ],
+    );
+  }
+
+
 
   @override
   bool get wantKeepAlive => true;

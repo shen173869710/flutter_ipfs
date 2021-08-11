@@ -267,9 +267,20 @@ class MarketBuyPage extends StatelessWidget{
     context: context,
     enableDrag: false,
     isScrollControlled: true,
-    builder: (_) =>  PasswordDiaglog(onItemClickListener: (code){
-      LogUtil.e("showDialog()");
-      NavigatorUtil.jump(context, Routes.marketEndPage);
+    builder: (_) =>  PasswordDiaglog(onItemClickListener: (code) async {
+      LogUtil.e("showDialog()"+code.toString());
+      String type = "1";
+      if (controller.selCny) {
+        type = "0";
+      }
+      BaseEntity baseEntity = await MarketApi.machineBuy(data.machineId,controller.count,controller.entity.couponId, code,type);;
+      if (baseEntity.isOk()) {
+        NavigatorUtil.goBack(context);
+        NavigatorUtil.jump(context, Routes.marketEndPage);
+      }else{
+        ToastUtil.show(baseEntity.msg);
+      }
+
     },));
   }
 

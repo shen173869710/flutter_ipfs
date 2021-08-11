@@ -3,13 +3,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:ipfsnets/http/machine_api.dart';
-import 'package:ipfsnets/models/main_tab_entiy.dart';
+import 'package:ipfsnets/models/machine_entity.dart';
+import 'package:ipfsnets/models/machine_top_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
+import 'package:ipfsnets/ui/pages/register/index_controller.dart';
+import 'package:ipfsnets/utils/LoadingUtils.dart';
+
 import '../../../../include.dart';
 
 
 class MachinePage extends StatefulWidget{
+
+
 
   @override
   State<StatefulWidget> createState() {
@@ -18,11 +24,18 @@ class MachinePage extends StatefulWidget{
 }
 
 class _MachineStatus extends State<MachinePage> {
-  List<MainTabEntiy> entiys = [];
+  late MachineTopEntity entity;
+  late List<MachineEntity> list = [];
+
+  final IndexController controller = Get.put(IndexController());
+
   EasyRefreshController _refreshController = EasyRefreshController();
   @override
   void initState() {
     // TODO: implement initState
+    list = [];
+    entity = MachineTopEntity();
+    entity.init();
     getData();
     super.initState();
   }
@@ -31,21 +44,20 @@ class _MachineStatus extends State<MachinePage> {
 
 
   Future<void> getData() async {
+    LoadingUtils.show();
     BaseEntity baseEntity = await MachineApi.getMachineStatistics();
-    if (baseEntity.isOk()) {
-      // List<MarketBarEntity> barEntity = baseEntity.data;
-      // if (barEntity != null && barEntity.length > 0) {
-      //   int length = barEntity.length;
-      //   List<MainTabEntiy> temp = [];
-      //   for (int i = 0; i < length; i++) {
-      //     MainTabEntiy entiy = new MainTabEntiy(barEntity[i].name, MarketListPage(barEntity[i].typeId));
-      //     temp.add(entiy);
-      //   }
-      //   entiys = temp;
-      //   tabController  = TabController(length: entiys.length, vsync: this);
-      //   setState(() {
-      //   });
-      }
+    if (baseEntity.isOk() && baseEntity.data != null) {
+      entity = baseEntity.data;
+    }
+    BaseEntity info = await MachineApi.getMachineList();
+    if (info.isOk()&& info.data != null) {
+      list = info.data;
+    }
+    setState(() {
+
+    });
+    LoadingUtils.dismiss();
+
   }
 
 
@@ -79,9 +91,9 @@ class _MachineStatus extends State<MachinePage> {
                           Expanded(child: SizedBox()),
                         ],
                       ),
-                      buildItem(S.current.machine_item_1,S.current.machine_item_2, 1,10,0),
+                      buildItem(S.current.machine_item_1,S.current.machine_item_2, entity.onlineNumber,entity.machineNumber,0),
                       Gaps.vGap10,
-                      buildItemM(S.current.machine_item_3,S.current.machine_item_4, 15,20,1),
+                      buildItemM(S.current.machine_item_3,S.current.machine_item_4, entity.allUseCap,entity.allRealCap,1),
                       Gaps.vGap12,
                       buildInfo(),
                       Gaps.vGap12,
@@ -114,10 +126,10 @@ class _MachineStatus extends State<MachinePage> {
     );
   }
   // 在线数量
-  buildItem(String title, String dec,int number, int all,int index) {
+  buildItem(String title, String dec,num number, num all,int index) {
     return Container(
       padding: EdgeInsets.all(30.w),
-      width: 430.w,
+      width: 460.w,
       decoration: BoxDecoration(
           color: Color(0x9F828DF6),
           borderRadius: new BorderRadius.circular((10.w)),
@@ -130,7 +142,7 @@ class _MachineStatus extends State<MachinePage> {
             height: 100.w,
             child: _circularProgressIndicator(number,all),
           ),
-          Gaps.hGap16,
+          Gaps.hGap12,
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -153,10 +165,10 @@ class _MachineStatus extends State<MachinePage> {
     );
   }
 
-  buildItemM(String title, String dec,int number, int all,int index) {
+  buildItemM(String title, String dec,num number, num all,int index) {
     return Container(
       padding: EdgeInsets.all(30.w),
-      width: 430.w,
+      width: 460.w,
       decoration: BoxDecoration(
         color: Color(0x9F828DF6),
         borderRadius: new BorderRadius.circular((10.w)),
@@ -169,7 +181,7 @@ class _MachineStatus extends State<MachinePage> {
             height: 100.w,
             child: _circularProgressIndicator(number,all),
           ),
-          Gaps.hGap16,
+          Gaps.hGap12,
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -192,9 +204,15 @@ class _MachineStatus extends State<MachinePage> {
     );
   }
 
-  CircularProgressIndicator _circularProgressIndicator(int postion, int all){
+  CircularProgressIndicator _circularProgressIndicator(num postion, num all){
+    if (postion == null) {
+      postion = 0;
+    }
+    if (all == null) {
+      all = 0;
+    }
     return CircularProgressIndicator(
-      value: postion/all, // 当前进度
+      value: all == 0?0:postion/all, // 当前进度
       strokeWidth: 10, // 最小宽度
       backgroundColor: Color(0xFFA9BAE1), // 进度条背景色
       valueColor: AlwaysStoppedAnimation<Color>(Colors.yellow), // 进度条当前进度颜色
@@ -226,7 +244,7 @@ class _MachineStatus extends State<MachinePage> {
             children: [
               Text(S.current.machine_item_5, style: ITextStyles.itemTitle,),
               Gaps.vGap4,
-              Text("123", style: ITextStyles.itemTitle,),
+              Text(entity.todayYield.toString(), style: ITextStyles.itemTitle,),
             ],
           ),
           Gaps.vLine,
@@ -235,7 +253,7 @@ class _MachineStatus extends State<MachinePage> {
             children: [
               Text(S.current.machine_item_6, style: ITextStyles.itemTitle,),
               Gaps.vGap4,
-              Text("1111111111", style: ITextStyles.itemTitle,),
+              Text(entity.allYield.toString(), style: ITextStyles.itemTitle,),
             ],
           ),
         ],
@@ -268,7 +286,8 @@ class _MachineStatus extends State<MachinePage> {
             borderRadius: new BorderRadius.circular((10.w)),
           ),
           child: GestureDetector(child:Text(S.current.machine_item_8,style: ITextStyles.textWhite14,),onTap: (){
-            NavigatorUtil.jump(context, Routes.marketBuyPage);
+            NavigatorUtil.goBack(context);
+            controller.changePage(1);
           },)
         ),
       ],
@@ -287,16 +306,16 @@ class _MachineStatus extends State<MachinePage> {
         bottomBouncing: true,
         slivers: [
           SliverList(delegate: SliverChildBuilderDelegate((context, index) {
-            return GestureDetector(child: setListView(index),onTap: (){
+            return GestureDetector(child: setListView(list[index]),onTap: (){
               onItemClick(context, index);
             },);
-          },childCount: 5
+          },childCount: list.length,
           ))
         ]);
 
   }
 
-  Widget setListView(int index) {
+  Widget setListView(MachineEntity data) {
     return Stack(
       children: [
         Container(
@@ -320,51 +339,57 @@ class _MachineStatus extends State<MachinePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      R.assetsImgIcMachineOnline,
+                    Image.asset(data.online == "1"?R.assetsImgIcMachineOffline:R.assetsImgIcMachineOnline,
                       width: 60.w,
                       height: 70.w,
                     ),
                     Gaps.vGap4,
-                    Text(S.current.machine_list_online,style: ITextStyles.itemTitle,),
+                    Text(data.online == "1"?S.current.machine_list_offline:S.current.machine_list_online,
+                      style: data.online == "1"?ITextStyles.itemContent:ITextStyles.itemTitle,),
                   ],
                 ),
                 flex: 1,
               ),
               Gaps.vLine,
-              Gaps.hGap16,
+              Gaps.hGap8,
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(S.current.machine_list_1+" 111",
-                      style: ITextStyles.itemTitle,
-                    ),
+                    Text.rich(TextSpan(children: [
+                      TextSpan(text: S.current.machine_list_1,style: ITextStyles.itemContent),
+                      TextSpan(text: data.realCap.toString(),style: ITextStyles.itemTitle),
+                      TextSpan(text: "TB",style: ITextStyles.itemTitle),
+                    ])),
                     Gaps.vGap8,
-                    Text(
-                      S.current.machine_list_3+" 333",
-                      style: ITextStyles.itemTitle,
-                    ),
+                    Text.rich(TextSpan(children: [
+                      TextSpan(text: S.current.machine_list_3,style: ITextStyles.itemContent),
+                      TextSpan(text: data.pledge.toString(),style: ITextStyles.itemTitle),
+                      TextSpan(text: "FIL",style: ITextStyles.itemTitle),
+                    ])),
+
                   ],
                 ),
-                flex: 2,
+                flex: 3,
               ),
               Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        S.current.machine_list_2+" 2222",
-                        style: ITextStyles.itemTitle,
-                      ),
+                      Text.rich(TextSpan(children: [
+                        TextSpan(text: S.current.machine_list_2,style: ITextStyles.itemContent),
+                        TextSpan(text: data.useCap.toString(),style: ITextStyles.itemTitle),
+                        TextSpan(text: "TB",style: ITextStyles.itemTitle),
+                      ])),
                       Gaps.vGap8,
-                      Text(
-                        S.current.machine_list_4+" 444",
-                        style: ITextStyles.itemTitle,
-                      ),
+                      Text.rich(TextSpan(children: [
+                        TextSpan(text: S.current.machine_list_4,style: ITextStyles.itemContent),
+                        TextSpan(text: data.realCap.toString(),style: ITextStyles.itemTitle),
+                        TextSpan(text: "TB",style: ITextStyles.itemTitle),
+                      ])),
                     ],
                   ),
-                  flex: 2)
+                  flex: 3)
             ],
           ),
         ),
@@ -375,7 +400,7 @@ class _MachineStatus extends State<MachinePage> {
             alignment: Alignment.center,
             children: [
               Image.asset(R.assetsImgIcMachineBtc,width: 82.w,height: 51.w,fit: BoxFit.fitWidth,),
-              Text("BTC", style: TextStyle(fontSize: 10, color: Colours.white),),
+              Text("FIL", style: TextStyle(fontSize: 10, color: Colours.white),),
             ],
 
           )
@@ -385,7 +410,7 @@ class _MachineStatus extends State<MachinePage> {
   }
 
   void onItemClick(BuildContext context, int index){
-    NavigatorUtil.jump(context, Routes.machineInfoPage);
+    NavigatorUtil.push(context,Routes.machineInfoPage,arguments: list[index]);
 
   }
 }

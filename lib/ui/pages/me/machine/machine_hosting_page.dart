@@ -18,6 +18,8 @@ import '../../../../include.dart';
 
 
 class MachineHostingPage extends StatelessWidget{
+  String machineId;
+  MachineHostingPage(this.machineId);
   late MarketEntity data;
   // 用户协议
   final _registProtocolRecognizer = new TapGestureRecognizer();
@@ -304,13 +306,7 @@ class MachineHostingPage extends StatelessWidget{
     );
   }
 
-  void toBuy(BuildContext context) {
-    // NavigatorUtil.push(context,Routes.marketInfoPage,arguments: data);
-    NavigatorUtil.pushResult(context, Routes.marketInfoPage, (Object code) {
-      print("code = " +code.toString());
 
-    });
-  }
 
   // 添加数量
   void addNumber(bool add) {

@@ -1000,10 +1000,10 @@ class S {
     );
   }
 
-  /// `内网转账`
+  /// `转账`
   String get me_item_12 {
     return Intl.message(
-      '内网转账',
+      '转账',
       name: 'me_item_12',
       desc: '',
       args: [],
@@ -3090,10 +3090,10 @@ class S {
     );
   }
 
-  /// `忘记密码`
+  /// `设置密码`
   String get paddword_dailog_forget {
     return Intl.message(
-      '忘记密码',
+      '设置密码',
       name: 'paddword_dailog_forget',
       desc: '',
       args: [],
@@ -3520,6 +3520,86 @@ class S {
     );
   }
 
+  /// `区块收益`
+  String get machine_total_title {
+    return Intl.message(
+      '区块收益',
+      name: 'machine_total_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `区块总收益 (FIL)`
+  String get machine_total_1 {
+    return Intl.message(
+      '区块总收益 (FIL)',
+      name: 'machine_total_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `累计解锁`
+  String get machine_total_2 {
+    return Intl.message(
+      '累计解锁',
+      name: 'machine_total_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `当前冻结`
+  String get machine_total_3 {
+    return Intl.message(
+      '当前冻结',
+      name: 'machine_total_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `月收益`
+  String get machine_total_4 {
+    return Intl.message(
+      '月收益',
+      name: 'machine_total_4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `区块收益 (FIL)`
+  String get machine_total_list_1 {
+    return Intl.message(
+      '区块收益 (FIL)',
+      name: 'machine_total_list_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `立即释放 25%`
+  String get machine_total_list_2 {
+    return Intl.message(
+      '立即释放 25%',
+      name: 'machine_total_list_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `线性释放`
+  String get machine_total_list_3 {
+    return Intl.message(
+      '线性释放',
+      name: 'machine_total_list_3',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `服务器收益`
   String get machine_earnings_title {
     return Intl.message(
@@ -3730,6 +3810,36 @@ class S {
     );
   }
 
+  /// `我的粉丝`
+  String get fans_title {
+    return Intl.message(
+      '我的粉丝',
+      name: 'fans_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `直推业绩`
+  String get fans_item_1 {
+    return Intl.message(
+      '直推业绩',
+      name: 'fans_item_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `总业绩`
+  String get fans_item_2 {
+    return Intl.message(
+      '总业绩',
+      name: 'fans_item_2',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `设置`
   String get setting_title {
     return Intl.message(
@@ -3760,10 +3870,10 @@ class S {
     );
   }
 
-  /// `修改支付密码`
+  /// `设置支付密码`
   String get setting_change_pay_pwd {
     return Intl.message(
-      '修改支付密码',
+      '设置支付密码',
       name: 'setting_change_pay_pwd',
       desc: '',
       args: [],
@@ -3870,10 +3980,10 @@ class S {
     );
   }
 
-  /// `修改支付密码`
+  /// `设置支付密码`
   String get pwd_pay_title {
     return Intl.message(
-      '修改支付密码',
+      '设置支付密码',
       name: 'pwd_pay_title',
       desc: '',
       args: [],
