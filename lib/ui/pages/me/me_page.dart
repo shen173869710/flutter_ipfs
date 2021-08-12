@@ -42,7 +42,7 @@ class MePage extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    userController.user.nickname!,
+                    userController.user.nickname,
                     maxLines: 1,
                     style: TextStyle(fontSize: Dimens.font_sp20, color: Colours.text_white),
                   ),
@@ -56,7 +56,7 @@ class MePage extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                       ),
                       Text(
-                        userController.user.username!,
+                        userController.user.username,
                         maxLines: 1,
                         textAlign: TextAlign.left,
                         style: TextStyle(color: Colors.white),
@@ -84,7 +84,7 @@ class MePage extends StatelessWidget {
 
   // 创建头像
   ClipOval buildUserHead(UserController userController) {
-    return ClipOval(clipper: _MyClipper(),child: ImageUtil.getHeadFormNet(userController.user.avatar!));
+    return ClipOval(clipper: _MyClipper(),child: ImageUtil.getHeadFormNet(userController.user.avatar));
   }
 
   // 创建账户布局

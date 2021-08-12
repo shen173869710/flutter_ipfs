@@ -93,7 +93,7 @@ class MachineInfoPage extends StatelessWidget {
                 borderRadius: new BorderRadius.circular((40.w)),
               ),
               child:GestureDetector(child:Text(S.current.machine_info_btn_1,style: ITextStyles.whiteTitle16,),onTap: (){
-                NavigatorUtil.push(context, '${Routes.machineTotalPage}?machineId=${Uri.encodeComponent(entity.machineId.toString())}');
+                NavigatorUtil.push(context, '${Routes.machineHostingPage}?machineId=${Uri.encodeComponent(entity.machineId.toString())}');
               },),
             ),
             Container(

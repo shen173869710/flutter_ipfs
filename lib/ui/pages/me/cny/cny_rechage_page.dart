@@ -236,7 +236,7 @@ class _CnyRechageStatus extends State<CnyRechagePage> {
       BaseEntity baseEntity = await ApiServer.uploadFile(_image!);
       if (baseEntity != null && baseEntity.code == 200) {
         ImageEntity entity = baseEntity.data;
-        LogUtil.e("url==" + entity.url!);
+        LogUtil.e("url==" + entity.url);
         if (entity != null) {
           setState(() {
             _headUrl = entity.url;
@@ -262,7 +262,7 @@ class _CnyRechageStatus extends State<CnyRechagePage> {
             ToastUtil.show(S.current.option_success);
           });
         }
-        LogUtil.e("fromPhoteo url==" + entity.url!);
+        LogUtil.e("fromPhoteo url==" + entity.url);
       }
       LogUtil.e("code ==" + baseEntity.code.toString());
     }

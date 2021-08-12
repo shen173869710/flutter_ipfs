@@ -32,9 +32,9 @@ class _UserManagerState extends State<UserManagerPage> {
   File? _image;
   final picker = ImagePicker();
 
-  String? _headUrl = "";
-  String? _sex = "";
-  String? _nickName = "";
+  late String _headUrl = "";
+  late String _sex = "";
+  late String _nickName = "";
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +67,7 @@ class _UserManagerState extends State<UserManagerPage> {
               Gaps.vGap16,
               ClickItem(
                 title: S.current.me_info_nick,
-                content: (_nickName==null||_nickName!.isEmpty)?userController.user.nickname!:_nickName!,
+                content: (_nickName==null||_nickName.isEmpty)?userController.user.nickname:_nickName,
                 onTap: () async {
                   // Application.router!.navigateTo(context, Routes.userEdit, transition: TransitionType.inFromRight,).then((result) => (){
                   //   print(result);
@@ -97,7 +97,7 @@ class _UserManagerState extends State<UserManagerPage> {
                   }),
               ClickItem(
                 title: S.current.me_info_phone,
-                content: userController.user.username!,
+                content: userController.user.username,
               ),
               Gaps.vGap16,
               ClickItem(
@@ -107,12 +107,12 @@ class _UserManagerState extends State<UserManagerPage> {
               Padding(
                 padding: EdgeInsets.fromLTRB(30.w, 50.h, 30.w, 0),
                 child: LoginButton(text: S.current.save, endble: true, onPressed: () async {
-                  bool isSuc =  await userController.doUpdateUser(_headUrl!, _sex!, _nickName!);
+                  bool isSuc =  await userController.doUpdateUser(_headUrl, _sex, _nickName);
                   if (isSuc) {
                     ToastUtil.show(S.current.send_success);
-                    userController.changeUserNickNam(_nickName!);
-                    userController.changeUserHead(_headUrl!);
-                    userController.changeUserGender(_sex!);
+                    userController.changeUserNickNam(_nickName);
+                    userController.changeUserHead(_headUrl);
+                    userController.changeUserGender(_sex);
                   }
 
                 }),
@@ -123,13 +123,13 @@ class _UserManagerState extends State<UserManagerPage> {
   }
 
   GestureDetector getHeadDefault() {
-    return GestureDetector(child: ImageUtil.getHeadFormNet(userController.user.avatar!), onTap: () {choosePhoto(context);});
+    return GestureDetector(child: ImageUtil.getHeadFormNet(userController.user.avatar), onTap: () {choosePhoto(context);});
   }
 
   // 获取性别
   String getSex() {
     String str = "";
-    if (_sex == null || _sex!.isEmpty) {
+    if (_sex == null || _sex.isEmpty) {
       if (userController.user.sex != null && userController.user.sex == "2"){
         str = S.current.me_info_image_woman;
       }else{
@@ -192,7 +192,7 @@ class _UserManagerState extends State<UserManagerPage> {
       BaseEntity baseEntity = await ApiServer.uploadFile(_image!);
       if (baseEntity != null && baseEntity.code == 200) {
         ImageEntity entity = baseEntity.data;
-        LogUtil.e("url==" + entity.url!);
+        LogUtil.e("url==" + entity.url);
         if (entity != null) {
           setState(() {
             _headUrl = entity.url;
@@ -217,7 +217,7 @@ class _UserManagerState extends State<UserManagerPage> {
             _headUrl = entity.url;
           });
         }
-        LogUtil.e("fromPhoteo url==" + entity.url!);
+        LogUtil.e("fromPhoteo url==" + entity.url);
       }
       LogUtil.e("code ==" + baseEntity.code.toString());
       // }

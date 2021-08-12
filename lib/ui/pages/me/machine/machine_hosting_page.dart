@@ -14,6 +14,7 @@ import 'package:ipfsnets/ui/pages/market/market_buy_controller.dart';
 import 'package:ipfsnets/ui/pages/market/market_coupons_page.dart';
 
 import '../../../../include.dart';
+import 'machine_hosting_controller.dart';
 
 
 
@@ -24,15 +25,15 @@ class MachineHostingPage extends StatelessWidget{
   // 用户协议
   final _registProtocolRecognizer = new TapGestureRecognizer();
 
-  final MarketBuyController controller = Get.put(MarketBuyController());
+  final MachineHostingController controller = Get.put(MachineHostingController());
 
   @override
   Widget build(BuildContext context) {
-    data = ModalRoute.of(context)!.settings.arguments as MarketEntity;
+
     controller.init(data);
     getData();
 
-    return GetBuilder<MarketBuyController>(builder: (controller) {
+    return GetBuilder<MachineHostingController>(builder: (controller) {
       return Scaffold(
         backgroundColor: Colours.layout_bg,
         appBar: AppBar(
@@ -277,7 +278,7 @@ class MachineHostingPage extends StatelessWidget{
   }
 
   // 用户协议
-  Row buildRegisterAndForget(BuildContext context, MarketBuyController controller) {
+  Row buildRegisterAndForget(BuildContext context, MachineHostingController controller) {
     return Row(
       children:[
         Checkbox(

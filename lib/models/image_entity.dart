@@ -5,8 +5,8 @@ import 'package:json_annotation/json_annotation.dart';
 part 'image_entity.g.dart';
 @JsonSerializable()
 class ImageEntity {
-  String? name;
-  String? url;
+  late String name;
+  late String url;
 	ImageEntity();
   factory ImageEntity.fromJson(Map<String, dynamic> json) =>
       _$ImageEntityFromJson(json);

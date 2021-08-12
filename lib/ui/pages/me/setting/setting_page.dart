@@ -39,7 +39,7 @@ class _SettingState extends State<SettingPage> {
             children: <Widget>[
               ClickItem(
                   title: S.current.setting_change_phone,
-                  content: userEntity.username!,
+                  content: userEntity.username,
                   onTap: () {
                     NavigatorUtil.goPasswordPage(context,GlobalEntiy.PASSWORD_ACCOUNT);
                   }),
