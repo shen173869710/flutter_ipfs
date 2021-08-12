@@ -22,7 +22,11 @@ class MarketEndPage extends StatelessWidget{
 
               Image.asset(R.assetsImgIcBuySucess, height: 320.w,width: 320.w,fit: BoxFit.fill,),
               Gaps.vGap10,
-              Container(child: Text(S.current.market_end_signed,style: TextStyle(color: Colours.white,fontSize: 16),),
+              Container(child: GestureDetector(child:Text(S.current.market_end_signed,style: TextStyle(color: Colours.white,fontSize: 16),) ,onTap: (){
+                NavigatorUtil.goBack(context);
+                NavigatorUtil.jump(context, Routes.machinePage);
+              },)
+              ,
                 alignment: Alignment.center,
               decoration: BoxDecoration(
                 borderRadius: new BorderRadius.circular((20.w)),

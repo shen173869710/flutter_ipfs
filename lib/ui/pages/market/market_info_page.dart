@@ -282,6 +282,7 @@ class _MarketInfoStatus extends State<MarketInfoPage> {
       child: LoginButton(text: S.current.market_item_buy,
           endble :true,
           onPressed: () {
+            NavigatorUtil.goBack(context);
             NavigatorUtil.push(context,Routes.marketBuyPage,arguments: data);
           }),
     );

@@ -7,8 +7,6 @@ import 'package:ipfsnets/include.dart';
 
 class StringUtil{
 
-
-
   static bool equal(String start, String end) {
     if(start != null && end != null && start == end){
       return true;
@@ -74,11 +72,9 @@ class StringUtil{
     return "¥"+str;
   }
 
-
   /**
    *   list 对象转string
    */
-
   static String listToString(List<String>str) {
     return JsonEncoder().convert(str);
   }

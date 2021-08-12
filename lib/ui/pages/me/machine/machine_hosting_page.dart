@@ -290,7 +290,7 @@ class MachineHostingPage extends StatelessWidget{
         Text.rich(TextSpan(children: [
           TextSpan(text: S.current.register_desc,style: TextStyle(fontSize: 12)),
           TextSpan(
-              text: S.current.market_buy_desc_more,
+              text: S.current.market_hostings_desc_more,
               style: TextStyle(
                   color: Colours.button_sel,
                   fontSize: 12,
@@ -298,7 +298,7 @@ class MachineHostingPage extends StatelessWidget{
                   decorationStyle: TextDecorationStyle.solid),
               recognizer:_registProtocolRecognizer..onTap=(){
                 LogUtil.e("打开网页");
-                NavigatorUtil.goWebViewPage(context, S.current.market_buy_desc_more, GlobalEntiy.web_market_buy);
+                NavigatorUtil.goWebViewPage(context, S.current.market_hostings_desc_more, GlobalEntiy.web_machine_hosting);
               }
           ),
         ]))

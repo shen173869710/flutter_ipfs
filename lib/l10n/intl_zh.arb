@@ -42,6 +42,8 @@
   "register_pwd_again": "请再次输入登录密码",
   "register_desc": "我已阅读并同意",
   "register_desc_more": "《用户注册协议》",
+  "market_update_desc_more": "《服务器升级协议》",
+  "market_hostings_desc_more": "《服务器托管协议》",
   "register_login": "我已注册,去登陆",
   "register_phone": "手机注册",
   "register_email": "邮箱注册",

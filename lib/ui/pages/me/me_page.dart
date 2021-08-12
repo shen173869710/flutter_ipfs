@@ -286,6 +286,7 @@ class MePage extends StatelessWidget {
         break;
       case 12:
       //推广二维码
+        NavigatorUtil.goWebViewPage(context, S.current.me_item_15, GlobalEntiy.web_qrcode);
         break;
       case 13:
       //我的客服

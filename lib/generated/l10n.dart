@@ -3080,6 +3080,26 @@ class S {
     );
   }
 
+  /// `《服务器升级协议》`
+  String get market_update_desc_more {
+    return Intl.message(
+      '《服务器升级协议》',
+      name: 'market_update_desc_more',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `《服务器托管协议》`
+  String get market_hostings_desc_more {
+    return Intl.message(
+      '《服务器托管协议》',
+      name: 'market_hostings_desc_more',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `输入数字支付密码`
   String get password_dialog_title {
     return Intl.message(

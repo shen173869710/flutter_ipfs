@@ -226,6 +226,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "market_end_desc": MessageLookupByLibrary.simpleMessage("购买成功"),
         "market_end_signed": MessageLookupByLibrary.simpleMessage("我的服务器"),
         "market_end_title": MessageLookupByLibrary.simpleMessage("购买成功"),
+        "market_hostings_desc_more":
+            MessageLookupByLibrary.simpleMessage("《服务器托管协议》"),
         "market_info_know": MessageLookupByLibrary.simpleMessage("购买须知"),
         "market_info_notice": MessageLookupByLibrary.simpleMessage(
             "1.市场价格波动或挖矿难度调整都可能导致合约的产出变动,无论从数字资产还是法币角度,本产品不对合约产出作出任何承诺,因挖矿难度、市场价值波动等因素,导致产出的数字资产价值变动,有用户自行承担.合约发行方对本条款保留所以解释权;\n2.本合同不涉及数字资产交易,若用户自行参加第三方的数字资产交易,应当自行承担责任和风险;\n3.用户理解并同意，如发生合同订立时不能预见、不能避免且不能克服的客观情况而导致合同无法继续履行,本合同自动终止,合同各方互不承担责任,由此造成的损失须各方自行承担,用户已支付的费用不予退还."),
@@ -239,6 +241,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "market_item_6": MessageLookupByLibrary.simpleMessage("份"),
         "market_item_buy": MessageLookupByLibrary.simpleMessage("立即购买"),
         "market_item_recommend": MessageLookupByLibrary.simpleMessage("推荐"),
+        "market_update_desc_more":
+            MessageLookupByLibrary.simpleMessage("《服务器升级协议》"),
         "me_info_address": MessageLookupByLibrary.simpleMessage("我的收货地址"),
         "me_info_head": MessageLookupByLibrary.simpleMessage("头像"),
         "me_info_image_camera": MessageLookupByLibrary.simpleMessage("拍照"),

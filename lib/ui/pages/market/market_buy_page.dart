@@ -19,7 +19,6 @@ class MarketBuyPage extends StatelessWidget{
   // 用户协议
   final _registProtocolRecognizer = new TapGestureRecognizer();
 
-  final _moneyRecognizer  = new TapGestureRecognizer();
 
   final MarketBuyController controller = Get.put(MarketBuyController());
 
@@ -263,12 +262,37 @@ class MarketBuyPage extends StatelessWidget{
   }
 
   void showDialog(BuildContext context) {
+    num all;
+    if (controller.selCny) {
+      all = controller.buyEntity.cnyPrice * controller.count;
+      if (controller.entity.sel && controller.entity.couponId > 0) {
+        all = all = controller.entity.faceValue;
+      }
+
+      if (all > controller.buyEntity.cnyBalance) {
+        ToastUtil.show(S.current.not_enough);
+        return;
+      }
+    }else{
+      all = controller.buyEntity.usdtPrice * controller.count;
+      if (controller.entity.sel && controller.entity.couponId > 0) {
+        all = all = controller.entity.faceValue;
+      }
+
+      if (all > controller.buyEntity.usdtPrice) {
+        ToastUtil.show(S.current.not_enough);
+        return;
+      }
+    }
+
+
     showModalBottomSheet<void>(
     context: context,
     enableDrag: false,
     isScrollControlled: true,
     builder: (_) =>  PasswordDiaglog(onItemClickListener: (code) async {
       LogUtil.e("showDialog()"+code.toString());
+
       String type = "1";
       if (controller.selCny) {
         type = "0";

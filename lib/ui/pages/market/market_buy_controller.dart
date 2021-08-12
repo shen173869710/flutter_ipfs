@@ -85,7 +85,7 @@ class MarketBuyController extends GetxController {
    }
 
    entity.total = all;
-    total = all.toString();
+   total = all.toString();
 
    if (selCny) {
      total = total + "CNY";
