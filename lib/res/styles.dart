@@ -82,7 +82,11 @@ class ITextStyles {
     color: Colours.item_title_color,
     fontWeight: FontWeight.normal,
   );
-
+  static TextStyle itemTitleSel16 = TextStyle(
+    fontSize: Dimens.font_sp16,
+    color: Colours.button_sel,
+    fontWeight: FontWeight.normal,
+  );
   // listitem 标题
   static TextStyle itemTitle = TextStyle(
     fontSize: Dimens.font_sp14,
@@ -149,7 +153,7 @@ class IButtonStyle {
               return Colours.button_sel;
         },
       ),
-      minimumSize: MaterialStateProperty.all(Size(200, 70.h)),
+      minimumSize: MaterialStateProperty.all(Size(200, 80.h)),
   );
 
   static ButtonStyle updateButton = ButtonStyle(

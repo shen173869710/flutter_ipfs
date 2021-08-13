@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:ipfsnets/models/acount_entiy.dart';
 import 'package:ipfsnets/models/wallet_account_entity.dart';
 
 import '../include.dart';

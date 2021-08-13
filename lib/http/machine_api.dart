@@ -36,4 +36,6 @@ class MachineApi{
     return HttpManager.getInstance().get<WalletInfoEntity>(machine_info+machineId.toString(),withLoading: true);
   }
 
+
+
 }

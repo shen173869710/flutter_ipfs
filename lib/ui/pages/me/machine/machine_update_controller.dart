@@ -4,12 +4,10 @@ import 'package:ipfsnets/models/market_coupon_entity.dart';
 import '../../../../include.dart';
 
 
-class MachineHostingController extends GetxController {
-
+class MachineUpdateController extends GetxController {
 
   late MachineHostingEntity data;
   late MarketCouponEntity entity;
-
 
   bool selCny = true;
 
@@ -50,17 +48,22 @@ class MachineHostingController extends GetxController {
   }
 
   // 点击增加服务器
-  void addCount(int index) {
-    if (data.hostingPeriod != null && data.hostingPeriod.length > index) {
-      count = data.hostingPeriod[index];
-    }
+  void addCount() {
+    count++;
     LogUtil.e(count.toString());
-
     setTotal();
     update();
   }
 
-
+  void subCount() {
+    count--;
+    LogUtil.e(count.toString());
+    if (count <= 1) {
+      count = 1;
+    }
+    setTotal();
+    update();
+  }
 
   setTotal() {
     num price = 0;
@@ -73,7 +76,6 @@ class MachineHostingController extends GetxController {
     }
     num all = count * price;
 
-    LogUtil.e("all = "+all.toString());
     if (entity.sel && entity.couponId > 0) {
       all = all - entity.faceValue;
     }
@@ -119,7 +121,7 @@ class MachineHostingController extends GetxController {
 
   void setBuyInfo(MachineHostingEntity entity) {
     data = entity;
-
+    count = 1;
     if (data.hostingPeriod != null && data.hostingPeriod.length > 0) {
       count = data.hostingPeriod[0];
     }

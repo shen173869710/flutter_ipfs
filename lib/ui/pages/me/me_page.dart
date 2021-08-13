@@ -1,6 +1,8 @@
 import 'package:ipfsnets/getx/user_controller.dart';
 import 'package:ipfsnets/include.dart';
+import 'package:ipfsnets/models/user_entity.dart';
 import 'package:ipfsnets/utils/image_util.dart';
+import 'package:ipfsnets/utils/user_util.dart';
 
 class MePage extends StatelessWidget {
   @override
@@ -286,7 +288,8 @@ class MePage extends StatelessWidget {
         break;
       case 12:
       //推广二维码
-        NavigatorUtil.goWebViewPage(context, S.current.me_item_15, GlobalEntiy.web_qrcode);
+        UserEntity userEntity = UserUtil.getUserInfo();
+        NavigatorUtil.goWebViewPage(context, S.current.me_item_15, GlobalEntiy.web_qrcode+userEntity.code);
         break;
       case 13:
       //我的客服

@@ -278,7 +278,7 @@ class _MarketInfoStatus extends State<MarketInfoPage> {
   }
 
   Padding buildLogin(BuildContext context) {
-    return  Padding(padding: EdgeInsets.fromLTRB(50.w, 30.h, 50.w, 0),
+    return  Padding(padding: EdgeInsets.fromLTRB(50.w, 30.h, 50.w, 20),
       child: LoginButton(text: S.current.market_item_buy,
           endble :true,
           onPressed: () {

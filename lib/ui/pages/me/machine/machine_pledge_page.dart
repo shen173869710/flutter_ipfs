@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:ipfsnets/dialog/password_dialog.dart';
 import 'package:ipfsnets/http/market_api.dart';
+import 'package:ipfsnets/models/machine_pledge_entity.dart';
 import 'package:ipfsnets/models/market_buy_entity.dart';
 import 'package:ipfsnets/models/market_coupon_entity.dart';
 import 'package:ipfsnets/models/market_entity.dart';
@@ -16,51 +17,55 @@ import 'package:ipfsnets/ui/pages/market/market_coupons_page.dart';
 import '../../../../include.dart';
 
 
-class MachinePledgePage extends StatelessWidget{
-
+class MachinePledgePage extends StatefulWidget{
   String machineId;
   MachinePledgePage(this.machineId);
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return MachinePledgeState();
+  }
 
-  late MarketEntity data;
-  // 用户协议
-  final _registProtocolRecognizer = new TapGestureRecognizer();
+}
 
-  final MarketBuyController controller = Get.put(MarketBuyController());
+class MachinePledgeState extends State<MachinePledgePage>{
 
+  late MachinePledgeEntity data;
+  @override
+  void initState() {
+    data = MachinePledgeEntity();
+    data.init();
+    getData();
+  }
   @override
   Widget build(BuildContext context) {
-    data = ModalRoute.of(context)!.settings.arguments as MarketEntity;
-    controller.init(data);
-    getData();
 
-    return GetBuilder<MarketBuyController>(builder: (controller) {
-      return Scaffold(
-        backgroundColor: Colours.layout_bg,
-        appBar: AppBar(
-            centerTitle: true,
-            backgroundColor: Colours.app_bar_bg,
-            title: Text(
-              S.current.market_buy_title,
-              style: ITextStyles.whiteTitle,
-            )),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              buildTitle(),
-              buildInfo(),
-              buildCoupons(context),
-              buildChooseMoney(context),
-            ],
-          ),
+    return Scaffold(
+      backgroundColor: Colours.layout_bg,
+      appBar: AppBar(
+          centerTitle: true,
+          backgroundColor: Colours.app_bar_bg,
+          title: Text(
+            S.current.machine_pledge_title,
+            style: ITextStyles.whiteTitle,
+          )),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            buildTitle(),
+            buildInfo(),
+            Gaps.vGap16,
+            buildAddItem(),
+          ],
         ),
-        bottomNavigationBar: buildBottom(context),
-      );
-    });
+      ),
+      bottomNavigationBar: buildBottom(context),
+    );
+
   }
 
   Container buildTitle() {
-    return
-      Container(
+    return Container(
         color: Colours.app_bar_bg,
         child: Container(
           padding: EdgeInsets.fromLTRB(20.w, 20.w, 20.w, 20.w),
@@ -71,15 +76,12 @@ class MachinePledgePage extends StatelessWidget{
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text.rich(TextSpan(children: [
-                WidgetSpan(child: Image.asset(R.assetsImgIcFil, height: 35.w, width: 35.w,)),
-                TextSpan(text: "  "),
-                TextSpan(text: data.name, style: TextStyle(color: Colours.item_title_color, fontSize: 18)),
-              ]),textAlign: TextAlign.left,),
-              SizedBox(),
+              Text(S.current.machine_pledge_1, style: ITextStyles.itemTitle16,),
+              Expanded(child: SizedBox()),
+              Text(data.symbol, style: ITextStyles.itemTitleSel16,),
+
             ],),
         )
-
     );
   }
 
@@ -91,164 +93,70 @@ class MachinePledgePage extends StatelessWidget{
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          Gaps.vGap4,
+          buildItem(S.current.machine_pledge_2,data.realCap.toString()+" TB"),
           Gaps.vGap12,
-          buildItem(S.current.market_item_1,data.price.toString(),ITextStyles.itemTitleRed),
+          buildItem(S.current.machine_pledge_3,data.pledge.toString()+" FIL"),
           Gaps.vGap12,
-          buildItem(S.current.market_item_2,data.nodeName,ITextStyles.itemTitle),
+          buildItem(S.current.machine_pledge_4,data.gas.toString()+" FIL"),
           Gaps.vGap12,
-          buildItem(S.current.market_item_3,data.contractPeriod.toString()+S.current.day,ITextStyles.itemTitle),
+          buildItem(S.current.machine_pledge_5,data.amount.toString()+" FIL"),
           Gaps.vGap12,
-          buildItem(S.current.market_item_4,data.initial.toString()+"TB",ITextStyles.itemTitle),
-          Gaps.vGap12,
-          buildAddItem(),
+          buildItem(S.current.machine_pledge_6,data.alreadyAmount.toString()+" FIL"),
+          Gaps.vGap4,
         ],
       ),
     );
   }
 
-  Row buildItem(String title, String desc, TextStyle textStyle) {
+  Row buildItem(String title, String desc) {
     return Row(
       children: [
-        Text(title, style: ITextStyles.itemContent,textAlign: TextAlign.start,),
+        Text(title, style: ITextStyles.itemTitle),
         Expanded(child: SizedBox(),),
-        Text(desc, style: textStyle,textAlign: TextAlign.end),
+        Text(desc, style: ITextStyles.itemTitle),
       ],
     );
   }
 
-  Row buildAddItem() {
-    return Row(
-      children: [
-        Text(S.current.market_buy_num, style: ITextStyles.itemContent,textAlign: TextAlign.start,),
-        Expanded(child: SizedBox(),),
-        Text.rich(TextSpan(children: [
-          WidgetSpan(child:GestureDetector(child: Image.asset(R.assetsImgIcAdd, height: 30.w, width: 30.w,),onTap: (){addNumber(true);},)),
-          TextSpan(text: "  "),
-          TextSpan(text: controller.count.toString(), style:ITextStyles.itemTitle),
-          TextSpan(text: "  "),
-          WidgetSpan(child: GestureDetector(child: Image.asset(R.assetsImgIcSub, height: 30.w, width: 30.w,),onTap: (){addNumber(false);},)),
-        ]),textAlign: TextAlign.left,),
-      ],
-    );
-  }
-
-  // 优惠券
-  Container buildCoupons(BuildContext context) {
-    return Container(margin: EdgeInsets.fromLTRB(0.w, 20.w, 0.w, 20.w),
-        padding: ITextStyles.containerMargin,
-        decoration: ITextStyles.boxDecoration,
-        alignment: Alignment.topLeft,
-        child: Row(
-          children: [
-            Text.rich(TextSpan(children: [
-              WidgetSpan(child:GestureDetector(child: Image.asset(R.assetsImgIcCoupon, height: 35.w, width: 35.w,),onTap: (){},)),
-              TextSpan(text: "  "),
-              TextSpan(text: S.current.market_buy_coupons, style:ITextStyles.itemTitle),
-            ])),
-            Expanded(child: SizedBox()),
-            GestureDetector(child:  Text.rich(TextSpan(children: [
-              TextSpan(text: getCoupon(), style:ITextStyles.itemTitle),
-              TextSpan(text: "  "),
-              WidgetSpan(child: Image.asset(R.assetsImgIcArrowRight, height: 30.w, width: 30.w,)),
-            ])),onTap: (){
-              toCoupons(context);},),
-
-          ],
-        ));
-  }
-
-  String getCoupon() {
-    if ( StringUtil.isNotEmpty(controller.entity.name) && controller.entity.sel) {
-      return controller.entity.name;
-    }
-    return S.current.market_buy_coupons_hint;
-  }
-
-
-  // 选择钱包
-  Container buildChooseMoney(BuildContext context) {
+   buildAddItem() {
     return Container(
-        padding: EdgeInsets.fromLTRB(0.w, 0.w, 0.w, 0.w),
-        decoration: ITextStyles.boxDecoration,
-        alignment: Alignment.topLeft,
-        child:Column(
-          children: [
-            buildChooseMoneyItem(R.assetsImgIconCny,"CNY", controller.buyEntity.cnyBalance.toString(), 0),
-            buildChooseMoneyItemn(R.assetsImgIconUsdt,"USDT", controller.buyEntity.usdtBalance.toString(), 1),
-            buildRegisterAndForget(context, controller),
-          ],
-        ));
-  }
-
-
-  Row buildChooseMoneyItem(String image, String title, String desc, int index) {
-    return Row(
-      children: [
-        SizedBox(width: 20.w),
-        Text.rich(TextSpan(children: [
-          WidgetSpan(child:GestureDetector(child: Image.asset(image, height: 35.w, width: 35.w,),onTap: (){},)),
-          TextSpan(text: "  "),
-          TextSpan(text: title, style:ITextStyles.itemTitle),
-        ])),
-        Expanded(child: SizedBox()),
-        Text(desc,style: ITextStyles.itemTitle,),
-        Checkbox(
-            activeColor: Colours.button_sel,
-            value: controller.selCny,
-            onChanged: (value) {
-              controller.setSelCny(true);
-            },
-            shape: CircleBorder()),
-      ],
+      padding: EdgeInsets.only(top: 40.w,left: 20.w,right: 20.w,bottom: 40.w),
+      color: Colours.white,
+      child:Row(
+        children: [
+          Text(S.current.machine_pledge_7, style: TextStyle(fontSize:14,color: Colours.gray_black,)),
+          Expanded(child: SizedBox(),),
+          Text(data.needAmount.toString()+" FIL", style: ITextStyles.itemTitleRed),
+        ],
+      )
     );
-  }
 
-  Row buildChooseMoneyItemn(String image, String title, String desc, int index) {
-    return Row(
-      children: [
-        SizedBox(width: 20.w),
-        Text.rich(TextSpan(children: [
-          WidgetSpan(child:GestureDetector(child: Image.asset(image, height: 35.w, width: 35.w,),onTap: (){},)),
-          TextSpan(text: "  "),
-          TextSpan(text: title, style:ITextStyles.itemTitle),
-        ])),
-        Expanded(child: SizedBox()),
-        Text(desc,style: ITextStyles.itemTitle,),
-        Checkbox(
-            activeColor: Colours.button_sel,
-            value: !controller.selCny,
-            onChanged: (value) {
-              controller.setSelCny(false);
-            },
-            shape: CircleBorder()),
-      ],
-    );
   }
-
   Row buildBottom(BuildContext context) {
     return Row(
       children: [
         Expanded(
           child: Container(
             padding: EdgeInsets.only(left: 50.w),
-            height: 100.w,
+            height: 120.w,
             color: Colors.white,
             alignment: Alignment.centerLeft,
             child: Text.rich(TextSpan(children: [
               TextSpan(text: S.current.market_buy_total, style: ITextStyles.itemContent12),
-              TextSpan(text: controller.total, style: TextStyle(fontSize: 16,color: Colours.item_red)),
+              TextSpan(text: data.needAmount.toString() + " FIL", style: TextStyle(fontSize: 16,color: Colours.item_red)),
             ])),
           ),
           flex: 3,
         ),
         Expanded(
           child: Container(
-            alignment: Alignment.center,
-            height: 100.w,
-            color: controller.enableBuy?Colours.button_sel:Colours.button_unsel,
-            child: GestureDetector(child:Text(S.current.market_item_buy,style: TextStyle(fontSize: 16,color: Colours.white),),onTap: (){
-              showDialog(context);
-    },)
+              alignment: Alignment.center,
+              height: 120.w,
+              color: Colours.button_sel,
+              child: GestureDetector(child:Text(S.current.machine_pledge_8,style: TextStyle(fontSize: 16,color: Colours.white),),onTap: (){
+
+              },)
           ),
           flex: 2,
         ),
@@ -257,85 +165,16 @@ class MachinePledgePage extends StatelessWidget{
   }
 
   Future<void> getData() async {
-    BaseEntity baseEntity = await MarketApi.getMachineCoinInfo(data.machineId);;
+    BaseEntity baseEntity = await MarketApi.getMachinePledge(widget.machineId);;
     if (baseEntity.isOk()) {
-      MarketBuyEntity buyEntity = baseEntity.data;
-      if (buyEntity != null) {
-         controller.setBuyInfo(buyEntity);
+      if (baseEntity.data != null) {
+          data = baseEntity.data;
+          setState(() {
+
+          });
       }
     }
   }
 
-  void showDialog(BuildContext context) {
-    showModalBottomSheet<void>(
-    context: context,
-    enableDrag: false,
-    isScrollControlled: true,
-    builder: (_) =>  PasswordDiaglog(onItemClickListener: (code){
-      LogUtil.e("showDialog()");
-      NavigatorUtil.jump(context, Routes.marketEndPage);
-    },));
-  }
 
-  // 用户协议
-  Row buildRegisterAndForget(BuildContext context, MarketBuyController controller) {
-    return Row(
-      children:[
-        Checkbox(
-            activeColor: Colours.button_sel,
-            value: controller.agreeMent,
-            onChanged: (value) {
-              controller.setAgreeMent();
-            },
-            shape: CircleBorder()),
-        Text.rich(TextSpan(children: [
-          TextSpan(text: S.current.register_desc,style: TextStyle(fontSize: 12)),
-          TextSpan(
-              text: S.current.market_buy_desc_more,
-              style: TextStyle(
-                  color: Colours.button_sel,
-                  fontSize: 12,
-                  decoration: TextDecoration.underline,
-                  decorationStyle: TextDecorationStyle.solid),
-              recognizer:_registProtocolRecognizer..onTap=(){
-                LogUtil.e("打开网页");
-                NavigatorUtil.goWebViewPage(context, S.current.market_buy_desc_more, GlobalEntiy.web_market_buy);
-              }
-          ),
-        ]))
-      ],
-    );
-  }
-
-  void toBuy(BuildContext context) {
-    // NavigatorUtil.push(context,Routes.marketInfoPage,arguments: data);
-    NavigatorUtil.pushResult(context, Routes.marketInfoPage, (Object code) {
-      print("code = " +code.toString());
-
-    });
-  }
-
-  // 添加数量
-  void addNumber(bool add) {
-    if (add) {
-      controller.addCount();
-    }else{
-      controller.subCount();
-    }
-  }
-  // 选择优惠券
-  Future<void> toCoupons(BuildContext context) async {
-    var data = await Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
-              return MarketCouponsPage(controller.entity);
-            }
-        ),
-    );
-    if (data != null) {
-      MarketCouponEntity entity = data;
-      if (entity != null) {
-        controller.setCoupon(entity);
-      }
-    }
-
-  }
 }

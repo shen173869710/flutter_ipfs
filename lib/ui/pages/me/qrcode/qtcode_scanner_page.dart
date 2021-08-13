@@ -35,11 +35,11 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
         ? 250.0
         : 300.0;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.current.me_item_8),
-        centerTitle: true,
-        backgroundColor: Colours.app_bar_bg,
-      ),
+      // appBar: AppBar(
+      //   title: Text(S.current.me_item_8),
+      //   centerTitle: true,
+      //   backgroundColor: Color(0x55000000),
+      // ),
       body: Stack(
         children: <Widget>[
           Positioned.fill(
@@ -55,8 +55,21 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
               ),
             ),
           ),
+
           Positioned(
-            bottom: 60,
+            top: 30,
+            left: 20,
+            child: Center(
+              child: IconButton(
+                icon:Icon(Icons.arrow_back_ios_rounded, size: 32, color: Colors.white,),
+                onPressed: () {
+                  NavigatorUtil.goBack(context);
+                },
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 130,
             left: 0,
             right: 0,
             child: Center(
@@ -66,6 +79,17 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
                   controller?.toggleFlash();
                 },
               ),
+            ),
+          ),
+
+          Positioned(
+            bottom: 20,
+            right: 20,
+            child: IconButton(
+              icon: const Icon(Icons.broken_image_outlined, size: 35, color: Colors.white,),
+              onPressed: () {
+                controller?.toggleFlash();
+              },
             ),
           ),
           // const Positioned(

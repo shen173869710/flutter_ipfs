@@ -3700,6 +3700,206 @@ class S {
     );
   }
 
+  /// `服务器托管`
+  String get machine_hosting_title {
+    return Intl.message(
+      '服务器托管',
+      name: 'machine_hosting_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `设备编号`
+  String get machine_hosting_number {
+    return Intl.message(
+      '设备编号',
+      name: 'machine_hosting_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `托管时间`
+  String get machine_hosting_time {
+    return Intl.message(
+      '托管时间',
+      name: 'machine_hosting_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `单价`
+  String get machine_hosting_price {
+    return Intl.message(
+      '单价',
+      name: 'machine_hosting_price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `区域节点`
+  String get machine_hosting_node {
+    return Intl.message(
+      '区域节点',
+      name: 'machine_hosting_node',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `立即托管`
+  String get machine_hosting_submit {
+    return Intl.message(
+      '立即托管',
+      name: 'machine_hosting_submit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `升级服务器`
+  String get machine_update_title {
+    return Intl.message(
+      '升级服务器',
+      name: 'machine_update_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `设备编号`
+  String get machine_update_number {
+    return Intl.message(
+      '设备编号',
+      name: 'machine_update_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `存储容量`
+  String get machine_update_size {
+    return Intl.message(
+      '存储容量',
+      name: 'machine_update_size',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `单价`
+  String get machine_update_price {
+    return Intl.message(
+      '单价',
+      name: 'machine_update_price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `单价`
+  String get machine_update_buy {
+    return Intl.message(
+      '单价',
+      name: 'machine_update_buy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `质押FIL`
+  String get machine_pledge_title {
+    return Intl.message(
+      '质押FIL',
+      name: 'machine_pledge_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `设备编号`
+  String get machine_pledge_1 {
+    return Intl.message(
+      '设备编号',
+      name: 'machine_pledge_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `有效容量`
+  String get machine_pledge_2 {
+    return Intl.message(
+      '有效容量',
+      name: 'machine_pledge_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `所需质押`
+  String get machine_pledge_3 {
+    return Intl.message(
+      '所需质押',
+      name: 'machine_pledge_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `所需GAS`
+  String get machine_pledge_4 {
+    return Intl.message(
+      '所需GAS',
+      name: 'machine_pledge_4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `总数量`
+  String get machine_pledge_5 {
+    return Intl.message(
+      '总数量',
+      name: 'machine_pledge_5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `当前质押总量`
+  String get machine_pledge_6 {
+    return Intl.message(
+      '当前质押总量',
+      name: 'machine_pledge_6',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `仍需质押`
+  String get machine_pledge_7 {
+    return Intl.message(
+      '仍需质押',
+      name: 'machine_pledge_7',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `立即质押`
+  String get machine_pledge_8 {
+    return Intl.message(
+      '立即质押',
+      name: 'machine_pledge_8',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `自选`
   String get quote_item_1 {
     return Intl.message(

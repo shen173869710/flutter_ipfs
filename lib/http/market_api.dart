@@ -1,6 +1,8 @@
 
 import 'dart:convert';
 
+import 'package:ipfsnets/models/machine_hosting_entity.dart';
+import 'package:ipfsnets/models/machine_pledge_entity.dart';
 import 'package:ipfsnets/models/market_bar_entity.dart';
 import 'package:ipfsnets/models/market_buy_entity.dart';
 import 'package:ipfsnets/models/market_coupon_entity.dart';
@@ -9,9 +11,9 @@ import 'package:ipfsnets/net/base_entity.dart';
 import 'http_manager.dart';
 
 class MarketApi{
-  // 服务器tabBar
+  ///我的服务器
   static const String machine_home = "machine/app/type/mini/list";
-  ///提交cny 提现首页
+
   static  Future<BaseEntity> getMachineHome() {
     return HttpManager.getInstance().get<List<MarketBarEntity>>(machine_home,withLoading: true);
   }
@@ -43,7 +45,6 @@ class MarketApi{
 
   // 购买服务器
   static const String machine_buy= "machine/app/record/";
-
   /**
    *  payType "0" cny
    *          "1" usdt
@@ -60,4 +61,22 @@ class MarketApi{
     return HttpManager.getInstance().post<MarketBuyEntity>(machine_buy,jsonEncode(param));
   }
 
+
+  // 服务器托管续期
+  static const String machine_hosting = "machine/app/hosting/";
+  static  Future<BaseEntity> getMachineHosting(String id) {
+    return HttpManager.getInstance().get<MachineHostingEntity>(machine_hosting+id);
+  }
+
+  // 服务器升级
+  static const String machine_update = "machine/app/upgrade/";
+  static  Future<BaseEntity> getMachineUpdate(String id) {
+    return HttpManager.getInstance().get<MachineHostingEntity>(machine_update+id);
+  }
+
+  // 服务器质押
+  static const String machine_pledge = "machine/app/pledge/";
+  static  Future<BaseEntity> getMachinePledge(String id) {
+    return HttpManager.getInstance().get<MachinePledgeEntity>(machine_pledge+id);
+  }
 }

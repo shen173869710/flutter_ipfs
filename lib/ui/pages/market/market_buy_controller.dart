@@ -1,6 +1,3 @@
-
-
-
 import 'package:ipfsnets/models/market_buy_entity.dart';
 import 'package:ipfsnets/models/market_coupon_entity.dart';
 import 'package:ipfsnets/models/market_entity.dart';

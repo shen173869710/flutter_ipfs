@@ -67,7 +67,7 @@ class MarketBuyPage extends StatelessWidget{
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text.rich(TextSpan(children: [
-                WidgetSpan(child: Image.asset(R.assetsImgIcFil, height: 35.w, width: 35.w,)),
+                WidgetSpan(child: Image.asset(R.assetsImgIcFil, height: 40.w, width: 40.w,)),
                 TextSpan(text: "  "),
                 TextSpan(text: data.name, style: TextStyle(color: Colours.item_title_color, fontSize: 18)),
               ]),textAlign: TextAlign.left,),
@@ -96,6 +96,7 @@ class MarketBuyPage extends StatelessWidget{
           buildItem(S.current.market_item_4,data.initial.toString()+"TB",ITextStyles.itemTitle),
           Gaps.vGap12,
           buildAddItem(),
+          Gaps.vGap12,
         ],
       ),
     );
@@ -104,7 +105,7 @@ class MarketBuyPage extends StatelessWidget{
   Row buildItem(String title, String desc, TextStyle textStyle) {
     return Row(
       children: [
-        Text(title, style: ITextStyles.itemContent,textAlign: TextAlign.start,),
+        Text(title, style: ITextStyles.itemTitle,textAlign: TextAlign.start,),
         Expanded(child: SizedBox(),),
         Text(desc, style: textStyle,textAlign: TextAlign.end),
       ],
@@ -114,14 +115,14 @@ class MarketBuyPage extends StatelessWidget{
   Row buildAddItem() {
     return Row(
       children: [
-        Text(S.current.market_buy_num, style: ITextStyles.itemContent,textAlign: TextAlign.start,),
+        Text(S.current.market_buy_num, style: ITextStyles.itemTitle,textAlign: TextAlign.start,),
         Expanded(child: SizedBox(),),
         Text.rich(TextSpan(children: [
-          WidgetSpan(child:GestureDetector(child: Image.asset(R.assetsImgIcAdd, height: 30.w, width: 30.w,),onTap: (){addNumber(true);},)),
+          WidgetSpan(child:GestureDetector(child: Image.asset(R.assetsImgIcAdd, height: 40.w, width: 40.w,),onTap: (){addNumber(true);},)),
           TextSpan(text: "  "),
           TextSpan(text: controller.count.toString(), style:ITextStyles.itemTitle),
           TextSpan(text: "  "),
-          WidgetSpan(child: GestureDetector(child: Image.asset(R.assetsImgIcSub, height: 30.w, width: 30.w,),onTap: (){addNumber(false);},)),
+          WidgetSpan(child: GestureDetector(child: Image.asset(R.assetsImgIcSub, height: 40.w, width: 40.w,),onTap: (){addNumber(false);},)),
         ]),textAlign: TextAlign.left,),
       ],
     );
@@ -129,14 +130,14 @@ class MarketBuyPage extends StatelessWidget{
 
   // 优惠券
   Container buildCoupons(BuildContext context) {
-    return Container(margin: EdgeInsets.fromLTRB(0.w, 20.w, 0.w, 20.w),
+    return Container(margin: EdgeInsets.fromLTRB(0.w, 40.w, 0.w, 40.w),
         padding: ITextStyles.containerMargin,
         decoration: ITextStyles.boxDecoration,
         alignment: Alignment.topLeft,
         child: Row(
           children: [
             Text.rich(TextSpan(children: [
-              WidgetSpan(child:GestureDetector(child: Image.asset(R.assetsImgIcCoupon, height: 35.w, width: 35.w,),onTap: (){},)),
+              WidgetSpan(child:GestureDetector(child: Image.asset(R.assetsImgIcCoupon, height: 40.w, width: 40.w,),onTap: (){},)),
               TextSpan(text: "  "),
               TextSpan(text: S.current.market_buy_coupons, style:ITextStyles.itemTitle),
             ])),
@@ -181,7 +182,7 @@ class MarketBuyPage extends StatelessWidget{
       children: [
         SizedBox(width: 20.w),
         Text.rich(TextSpan(children: [
-          WidgetSpan(child:GestureDetector(child: Image.asset(image, height: 35.w, width: 35.w,),onTap: (){},)),
+          WidgetSpan(child:GestureDetector(child: Image.asset(image, height: 40.w, width: 40.w,),onTap: (){},)),
           TextSpan(text: "  "),
           TextSpan(text: title, style:ITextStyles.itemTitle),
         ])),
@@ -203,7 +204,7 @@ class MarketBuyPage extends StatelessWidget{
       children: [
         SizedBox(width: 20.w),
         Text.rich(TextSpan(children: [
-          WidgetSpan(child:GestureDetector(child: Image.asset(image, height: 35.w, width: 35.w,),onTap: (){},)),
+          WidgetSpan(child:GestureDetector(child: Image.asset(image, height: 40.w, width: 40.w,),onTap: (){},)),
           TextSpan(text: "  "),
           TextSpan(text: title, style:ITextStyles.itemTitle),
         ])),
@@ -226,7 +227,7 @@ class MarketBuyPage extends StatelessWidget{
         Expanded(
           child: Container(
             padding: EdgeInsets.only(left: 50.w),
-            height: 100.w,
+            height: 120.w,
             color: Colors.white,
             alignment: Alignment.centerLeft,
             child: Text.rich(TextSpan(children: [
@@ -239,7 +240,7 @@ class MarketBuyPage extends StatelessWidget{
         Expanded(
           child: Container(
             alignment: Alignment.center,
-            height: 100.w,
+            height: 120.w,
             color: controller.enableBuy?Colours.button_sel:Colours.button_unsel,
             child: GestureDetector(child:Text(S.current.market_item_buy,style: TextStyle(fontSize: 16,color: Colours.white),),onTap: (){
               showDialog(context);
@@ -266,9 +267,9 @@ class MarketBuyPage extends StatelessWidget{
     if (controller.selCny) {
       all = controller.buyEntity.cnyPrice * controller.count;
       if (controller.entity.sel && controller.entity.couponId > 0) {
-        all = all = controller.entity.faceValue;
+        all = all - controller.entity.faceValue;
       }
-
+      LogUtil.e("all--- = "+all.toString() + "controller.buyEntity.cnyBalance = "+controller.buyEntity.cnyBalance.toString());
       if (all > controller.buyEntity.cnyBalance) {
         ToastUtil.show(S.current.not_enough);
         return;
@@ -276,10 +277,10 @@ class MarketBuyPage extends StatelessWidget{
     }else{
       all = controller.buyEntity.usdtPrice * controller.count;
       if (controller.entity.sel && controller.entity.couponId > 0) {
-        all = all = controller.entity.faceValue;
+        all = all - controller.entity.faceValue;
       }
 
-      if (all > controller.buyEntity.usdtPrice) {
+      if (all > controller.buyEntity.usdtBalance) {
         ToastUtil.show(S.current.not_enough);
         return;
       }

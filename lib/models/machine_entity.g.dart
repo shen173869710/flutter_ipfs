@@ -38,6 +38,8 @@ Map<String, dynamic> _$MachineEntityToJson(MachineEntity instance) =>
       'gas': instance.gas,
       'hostingExpTime': instance.hostingExpTime,
       'machineId': instance.machineId,
+      'hostingStatus': instance.hostingStatus,
+      'income': instance.income,
       'name': instance.name,
       'nodeName': instance.nodeName,
       'online': instance.online,

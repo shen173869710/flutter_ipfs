@@ -27,7 +27,7 @@ class GlobalEntiy{
   // 服务器升级协议
   static String web_machine_updete = "http://124.16.8.140:84/upgrade-protocol";
   // 推广二维码
-  static String web_qrcode = "http://124.16.8.140:84/promo";
+  static String web_qrcode = "http://124.16.8.140:84/promo?code=";
   // 我的客服
   static String web_my_server= "http://chat.ahcdialogchat.com/chat/h5/chatLink.html?channelId=1NfXw7";
 

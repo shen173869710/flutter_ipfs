@@ -8,6 +8,8 @@ import 'package:ipfsnets/models/cny_recharge_record_entity.dart';
 import 'package:ipfsnets/models/cny_withdrawal_record_entity.dart';
 import 'package:ipfsnets/models/image_entity.dart';
 import 'package:ipfsnets/models/machine_entity.dart';
+import 'package:ipfsnets/models/machine_hosting_entity.dart';
+import 'package:ipfsnets/models/machine_pledge_entity.dart';
 import 'package:ipfsnets/models/machine_top_entity.dart';
 import 'package:ipfsnets/models/market_bar_entity.dart';
 import 'package:ipfsnets/models/market_buy_entity.dart';
@@ -57,6 +59,10 @@ class EntityFactory {
       return MarketBuyEntity.fromJson(json)as T;
     }else if (name == "MachineTopEntity"){
       return MachineTopEntity.fromJson(json)as T;
+    }else if (name == "MachineHostingEntity"){
+      return MachineHostingEntity.fromJson(json)as T;
+    }else if (name == "MachinePledgeEntity"){
+      return MachinePledgeEntity.fromJson(json)as T;
     }else {
       return json as T;
     }

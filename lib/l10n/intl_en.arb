@@ -414,6 +414,30 @@
   "machine_earnings_item_3": "立即释放 25%",
   "machine_earnings_item_4": "线性释放 180天",
 
+  "machine_hosting_title": "服务器托管",
+  "machine_hosting_number": "设备编号",
+  "machine_hosting_time": "托管时间",
+  "machine_hosting_price": "单价",
+  "machine_hosting_node": "区域节点",
+  "machine_hosting_submit": "立即托管",
+
+  "machine_update_title": "升级服务器",
+  "machine_update_number": "设备编号",
+  "machine_update_size": "存储容量",
+  "machine_update_price": "单价",
+  "machine_update_buy": "单价",
+
+  "machine_pledge_title": "质押FIL",
+  "machine_pledge_1": "设备编号",
+  "machine_pledge_2": "有效容量",
+  "machine_pledge_3": "所需质押",
+  "machine_pledge_4": "所需GAS",
+  "machine_pledge_5": "总数量",
+  "machine_pledge_6": "当前质押总量",
+  "machine_pledge_7": "仍需质押",
+  "machine_pledge_8": "立即质押",
+
+
   "quote_item_1": "自选",
   "quote_item_2": "市值",
   "quote_item_3": "热搜",

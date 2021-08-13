@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class Colours {
+  static const Color tran = Color(0x000000);
   static const Color bg_color = Color(0xfff1f1f1);
   static const Color dark_bg_color = Color(0xFF18191A);
 
@@ -33,7 +34,7 @@ class Colours {
   static const Color text_normal = Color(0xFF666666);
 
   static const Color divider = Color(0xffe5e5e5);
-
+  static const Color gray_black = Color(0xFF000000); //51
   static const Color gray_33 = Color(0xFF333333); //51
   static const Color gray_66 = Color(0xFF666666); //102
   static const Color gray_99 = Color(0xFF999999); //153

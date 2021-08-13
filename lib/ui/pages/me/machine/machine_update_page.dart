@@ -5,42 +5,40 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:ipfsnets/dialog/password_dialog.dart';
 import 'package:ipfsnets/http/market_api.dart';
-import 'package:ipfsnets/models/market_buy_entity.dart';
+import 'package:ipfsnets/models/machine_hosting_entity.dart';
 import 'package:ipfsnets/models/market_coupon_entity.dart';
-import 'package:ipfsnets/models/market_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/pages/market/market_buy_controller.dart';
 import 'package:ipfsnets/ui/pages/market/market_coupons_page.dart';
 
 import '../../../../include.dart';
+import 'machine_update_controller.dart';
 
 
 
 class MachineUpdatePage extends StatelessWidget{
   String machineId;
   MachineUpdatePage(this.machineId);
-
-  late MarketEntity data;
   // 用户协议
   final _registProtocolRecognizer = new TapGestureRecognizer();
 
-  final MarketBuyController controller = Get.put(MarketBuyController());
+  final MachineUpdateController controller = Get.put(MachineUpdateController());
 
   @override
   Widget build(BuildContext context) {
-    data = ModalRoute.of(context)!.settings.arguments as MarketEntity;
-    controller.init(data);
+
+    controller.init();
     getData();
 
-    return GetBuilder<MarketBuyController>(builder: (controller) {
+    return GetBuilder<MachineUpdateController>(builder: (controller) {
       return Scaffold(
         backgroundColor: Colours.layout_bg,
         appBar: AppBar(
             centerTitle: true,
             backgroundColor: Colours.app_bar_bg,
             title: Text(
-              S.current.market_buy_title,
+              S.current.machine_update_title,
               style: ITextStyles.whiteTitle,
             )),
         body: SingleChildScrollView(
@@ -59,8 +57,7 @@ class MachineUpdatePage extends StatelessWidget{
   }
 
   Container buildTitle() {
-    return
-      Container(
+    return Container(
         color: Colours.app_bar_bg,
         child: Container(
           padding: EdgeInsets.fromLTRB(20.w, 20.w, 20.w, 20.w),
@@ -71,15 +68,12 @@ class MachineUpdatePage extends StatelessWidget{
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text.rich(TextSpan(children: [
-                WidgetSpan(child: Image.asset(R.assetsImgIcFil, height: 35.w, width: 35.w,)),
-                TextSpan(text: "  "),
-                TextSpan(text: data.name, style: TextStyle(color: Colours.item_title_color, fontSize: 18)),
-              ]),textAlign: TextAlign.left,),
-              SizedBox(),
+              Text(S.current.machine_hosting_number, style: ITextStyles.itemTitle16,),
+              Expanded(child: SizedBox()),
+              Text(controller.data.symbol, style: ITextStyles.itemTitleSel16,),
+
             ],),
         )
-
     );
   }
 
@@ -91,16 +85,13 @@ class MachineUpdatePage extends StatelessWidget{
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          Gaps.vGap4,
+          buildItem(S.current.machine_update_size,controller.data.expand.toString()+" TB",ITextStyles.itemTitle),
           Gaps.vGap12,
-          buildItem(S.current.market_item_1,data.price.toString(),ITextStyles.itemTitleRed),
-          Gaps.vGap12,
-          buildItem(S.current.market_item_2,data.nodeName,ITextStyles.itemTitle),
-          Gaps.vGap12,
-          buildItem(S.current.market_item_3,data.contractPeriod.toString()+S.current.day,ITextStyles.itemTitle),
-          Gaps.vGap12,
-          buildItem(S.current.market_item_4,data.initial.toString()+"TB",ITextStyles.itemTitle),
+          buildItem(S.current.market_item_1,controller.data.cnyPrice.toString()+" CNY",ITextStyles.itemTitleRed),
           Gaps.vGap12,
           buildAddItem(),
+          Gaps.vGap4,
         ],
       ),
     );
@@ -109,7 +100,7 @@ class MachineUpdatePage extends StatelessWidget{
   Row buildItem(String title, String desc, TextStyle textStyle) {
     return Row(
       children: [
-        Text(title, style: ITextStyles.itemContent,textAlign: TextAlign.start,),
+        Text(title, style: ITextStyles.itemTitle,textAlign: TextAlign.start,),
         Expanded(child: SizedBox(),),
         Text(desc, style: textStyle,textAlign: TextAlign.end),
       ],
@@ -119,14 +110,14 @@ class MachineUpdatePage extends StatelessWidget{
   Row buildAddItem() {
     return Row(
       children: [
-        Text(S.current.market_buy_num, style: ITextStyles.itemContent,textAlign: TextAlign.start,),
+        Text(S.current.market_buy_num, style: ITextStyles.itemTitle,textAlign: TextAlign.start,),
         Expanded(child: SizedBox(),),
         Text.rich(TextSpan(children: [
-          WidgetSpan(child:GestureDetector(child: Image.asset(R.assetsImgIcAdd, height: 30.w, width: 30.w,),onTap: (){addNumber(true);},)),
+          WidgetSpan(child:GestureDetector(child: Image.asset(R.assetsImgIcAdd, height: 40.w, width: 40.w,),onTap: (){addNumber(true);},)),
           TextSpan(text: "  "),
           TextSpan(text: controller.count.toString(), style:ITextStyles.itemTitle),
           TextSpan(text: "  "),
-          WidgetSpan(child: GestureDetector(child: Image.asset(R.assetsImgIcSub, height: 30.w, width: 30.w,),onTap: (){addNumber(false);},)),
+          WidgetSpan(child: GestureDetector(child: Image.asset(R.assetsImgIcSub, height: 40.w, width: 40.w,),onTap: (){addNumber(false);},)),
         ]),textAlign: TextAlign.left,),
       ],
     );
@@ -141,7 +132,7 @@ class MachineUpdatePage extends StatelessWidget{
         child: Row(
           children: [
             Text.rich(TextSpan(children: [
-              WidgetSpan(child:GestureDetector(child: Image.asset(R.assetsImgIcCoupon, height: 35.w, width: 35.w,),onTap: (){},)),
+              WidgetSpan(child:GestureDetector(child: Image.asset(R.assetsImgIcCoupon, height: 40.w, width: 40.w,),onTap: (){},)),
               TextSpan(text: "  "),
               TextSpan(text: S.current.market_buy_coupons, style:ITextStyles.itemTitle),
             ])),
@@ -149,7 +140,7 @@ class MachineUpdatePage extends StatelessWidget{
             GestureDetector(child:  Text.rich(TextSpan(children: [
               TextSpan(text: getCoupon(), style:ITextStyles.itemTitle),
               TextSpan(text: "  "),
-              WidgetSpan(child: Image.asset(R.assetsImgIcArrowRight, height: 30.w, width: 30.w,)),
+              WidgetSpan(child: Image.asset(R.assetsImgIcArrowRight, height: 40.w, width: 40.w,)),
             ])),onTap: (){
               toCoupons(context);},),
 
@@ -173,8 +164,8 @@ class MachineUpdatePage extends StatelessWidget{
         alignment: Alignment.topLeft,
         child:Column(
           children: [
-            buildChooseMoneyItem(R.assetsImgIconCny,"CNY", controller.buyEntity.cnyBalance.toString(), 0),
-            buildChooseMoneyItemn(R.assetsImgIconUsdt,"USDT", controller.buyEntity.usdtBalance.toString(), 1),
+            buildChooseMoneyItem(R.assetsImgIconCny,"CNY", controller.data.cnyBalance.toString(), 0),
+            buildChooseMoneyItemn(R.assetsImgIconUsdt,"USDT", controller.data.usdtBalance.toString(), 1),
             buildRegisterAndForget(context, controller),
           ],
         ));
@@ -186,7 +177,7 @@ class MachineUpdatePage extends StatelessWidget{
       children: [
         SizedBox(width: 20.w),
         Text.rich(TextSpan(children: [
-          WidgetSpan(child:GestureDetector(child: Image.asset(image, height: 35.w, width: 35.w,),onTap: (){},)),
+          WidgetSpan(child:GestureDetector(child: Image.asset(image, height: 40.w, width: 40.w,),onTap: (){},)),
           TextSpan(text: "  "),
           TextSpan(text: title, style:ITextStyles.itemTitle),
         ])),
@@ -208,7 +199,7 @@ class MachineUpdatePage extends StatelessWidget{
       children: [
         SizedBox(width: 20.w),
         Text.rich(TextSpan(children: [
-          WidgetSpan(child:GestureDetector(child: Image.asset(image, height: 35.w, width: 35.w,),onTap: (){},)),
+          WidgetSpan(child:GestureDetector(child: Image.asset(image, height: 40.w, width: 40.w,),onTap: (){},)),
           TextSpan(text: "  "),
           TextSpan(text: title, style:ITextStyles.itemTitle),
         ])),
@@ -231,7 +222,7 @@ class MachineUpdatePage extends StatelessWidget{
         Expanded(
           child: Container(
             padding: EdgeInsets.only(left: 50.w),
-            height: 100.w,
+            height: 120.w,
             color: Colors.white,
             alignment: Alignment.centerLeft,
             child: Text.rich(TextSpan(children: [
@@ -244,9 +235,10 @@ class MachineUpdatePage extends StatelessWidget{
         Expanded(
           child: Container(
             alignment: Alignment.center,
-            height: 100.w,
+            height: 120.w,
             color: controller.enableBuy?Colours.button_sel:Colours.button_unsel,
             child: GestureDetector(child:Text(S.current.market_item_buy,style: TextStyle(fontSize: 16,color: Colours.white),),onTap: (){
+
               showDialog(context);
     },)
           ),
@@ -257,9 +249,9 @@ class MachineUpdatePage extends StatelessWidget{
   }
 
   Future<void> getData() async {
-    BaseEntity baseEntity = await MarketApi.getMachineCoinInfo(data.machineId);;
+    BaseEntity baseEntity = await MarketApi.getMachineUpdate(machineId);;
     if (baseEntity.isOk()) {
-      MarketBuyEntity buyEntity = baseEntity.data;
+      MachineHostingEntity buyEntity = baseEntity.data;
       if (buyEntity != null) {
          controller.setBuyInfo(buyEntity);
       }
@@ -267,6 +259,30 @@ class MachineUpdatePage extends StatelessWidget{
   }
 
   void showDialog(BuildContext context) {
+
+    num all;
+    if (controller.selCny) {
+      all = controller.data.cnyPrice * controller.count;
+      if (controller.entity.sel && controller.entity.couponId > 0) {
+        all = all - controller.entity.faceValue;
+      }
+
+      if (all > controller.data.cnyBalance) {
+        ToastUtil.show(S.current.not_enough);
+        return;
+      }
+    }else{
+      all = controller.data.usdtPrice * controller.count;
+      if (controller.entity.sel && controller.entity.couponId > 0) {
+        all = all - controller.entity.faceValue;
+      }
+
+      if (all > controller.data.usdtBalance) {
+        ToastUtil.show(S.current.not_enough);
+        return;
+      }
+    }
+
     showModalBottomSheet<void>(
     context: context,
     enableDrag: false,
@@ -278,7 +294,7 @@ class MachineUpdatePage extends StatelessWidget{
   }
 
   // 用户协议
-  Row buildRegisterAndForget(BuildContext context, MarketBuyController controller) {
+  Row buildRegisterAndForget(BuildContext context, MachineUpdateController controller) {
     return Row(
       children:[
         Checkbox(
