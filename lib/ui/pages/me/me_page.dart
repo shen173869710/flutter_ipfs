@@ -5,9 +5,12 @@ import 'package:ipfsnets/utils/image_util.dart';
 import 'package:ipfsnets/utils/user_util.dart';
 
 class MePage extends StatelessWidget {
+  final UserController userController = Get.put(UserController());
+
+
   @override
   Widget build(BuildContext context) {
-    final UserController userController = Get.put(UserController());
+    userController.inti();
     return GetBuilder<UserController>(builder:(userController){
       return Scaffold(backgroundColor: Colours.bg_color,body: SingleChildScrollView(
           reverse: false,
@@ -40,31 +43,23 @@ class MePage extends StatelessWidget {
               buildUserHead(userController),
               SizedBox(width: 10),
               Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     userController.user.nickname,
                     maxLines: 1,
                     style: TextStyle(fontSize: Dimens.font_sp20, color: Colours.text_white),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+
+                  Text.rich(TextSpan(
                     children: [
-                      Image.asset(
-                        R.assetsImgIcVip,
-                        width: 20.h,
-                        height: 20.h,
-                        alignment: Alignment.centerLeft,
-                      ),
-                      Text(
-                        userController.user.username,
-                        maxLines: 1,
-                        textAlign: TextAlign.left,
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ],
-                  )
+                      WidgetSpan(child:Image.asset(R.assetsImgIcVip, height: 30.w, width: 30.w,)),
+                      TextSpan(text: " "),
+                      TextSpan(text: userController.user.level.toString(), style:ITextStyles.textWhite14),
+                    ]
+                  )),
+
                 ],
               ),
               Expanded(child: SizedBox(),flex: 1,),
@@ -101,23 +96,21 @@ class MePage extends StatelessWidget {
         children: [
           Text(S.current.me_money,
             style: TextStyle(
-                color: Colours.item_content_color, fontSize: Dimens.font_sp20),
+                color: Colours.item_content_color, fontSize: Dimens.font_sp18),
           ),
           Gaps.vGap4,
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                "2.123456",
+                userController.walletHomeEntity.cnySum.toString(),
                 style: TextStyle(
-                    color: Colours.item_red, fontSize: Dimens.font_sp26),
+                    color: Colours.item_red, fontSize: Dimens.font_sp22),
               ),
-              Gaps.hGap4,
-              Text(
-                " == 4000.111",
-                style: TextStyle(
-                    color: Colours.item_title_color,
-                    fontSize: Dimens.font_sp20),
+              Gaps.hGap2,
+              Text(" ≈ "+userController.walletHomeEntity.usdtSum.toString()+" USDT",
+                style: ITextStyles.itemContent,
               ),
             ],
           ),
@@ -145,6 +138,7 @@ class MePage extends StatelessWidget {
   }
 
   Visibility buildUserAccount(UserController userController) {
+
     return Visibility(
         visible: userController.showAccount,
         child: Column(
@@ -156,8 +150,8 @@ class MePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               mainAxisSize: MainAxisSize.max,
               children: [
-                Expanded(child:buildAccountItem("NETS","33333")),
-                Expanded(child:buildAccountItem("FIL","011111111111111")),
+                Visibility(child:Expanded(child:buildAccountItem(getTitleName(0),getTitleValue(0))),visible: userController.walletHomeEntity.rows.length>0,),
+                Visibility(child:Expanded(child:buildAccountItem(getTitleName(1),getTitleValue(1))),visible: userController.walletHomeEntity.rows.length>1,),
               ],
             ),
             Gaps.vGap12,
@@ -165,8 +159,8 @@ class MePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               mainAxisSize: MainAxisSize.max,
               children: [
-                Expanded(child:buildAccountItem("USDT","33333")),
-                Expanded(child:buildAccountItem("BTC","011111111111111")),
+                Visibility(child:Expanded(child:buildAccountItem(getTitleName(2),getTitleValue(2))),visible: userController.walletHomeEntity.rows.length>2,),
+                Visibility(child:Expanded(child:buildAccountItem(getTitleName(3),getTitleValue(3))),visible: userController.walletHomeEntity.rows.length>3,),
               ],
             ),
             Gaps.vGap12,
@@ -174,8 +168,8 @@ class MePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               mainAxisSize: MainAxisSize.max,
               children: [
-                Expanded(child:buildAccountItem("ETH","33333")),
-                Expanded(child:buildAccountItem("EOS","011111111111111")),
+                Visibility(child:Expanded(child:buildAccountItem(getTitleName(4),getTitleValue(4))),visible: userController.walletHomeEntity.rows.length>4,),
+                Visibility(child:Expanded(child:buildAccountItem(getTitleName(5),getTitleValue(5))),visible: userController.walletHomeEntity.rows.length>5,),
               ],
             ),
             Gaps.vGap12,
@@ -188,10 +182,32 @@ class MePage extends StatelessWidget {
               }),
 
             ),
-
           ],
         ));
   }
+
+  String getTitleName(int index) {
+    if (userController.walletHomeEntity.rows.length > index) {
+      return userController.walletHomeEntity.rows[index]!.coinName;
+    }
+    return "";
+  }
+
+  String getTitleValue(int index) {
+    if (userController.walletHomeEntity.rows.length > index) {
+      return userController.walletHomeEntity.rows[index]!.value.toString();
+    }
+    return "";
+  }
+
+  // bulidGridView() {
+  //   return GridView.custom(
+  //       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+  //         crossAxisCount: 2),
+  //       childrenDelegate: SliverChildBuilderDelegate((context, position) {
+  //         return Text(position.toString());
+  //       }, childCount: userController.walletHomeEntity.rows.length));
+  // }
   // 创建账户imte
   Column buildAccountItem(String text, String value) {
     return Column(

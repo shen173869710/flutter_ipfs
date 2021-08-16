@@ -1,18 +1,29 @@
 
 import 'package:get/get.dart';
 import 'package:ipfsnets/http/api_service.dart';
+import 'package:ipfsnets/http/wallet_api.dart';
 import 'package:ipfsnets/include.dart';
 import 'package:ipfsnets/models/user_entity.dart';
+import 'package:ipfsnets/models/wallet_home_entity.dart';
+import 'package:ipfsnets/models/wallet_item_entiy.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/utils/string_util.dart';
 import 'package:ipfsnets/utils/user_util.dart';
 
 class UserController extends GetxController {
 
-  UserEntity user = UserUtil.getUserInfo();
-  //https://img2.baidu.com/it/u=1325995315,4158780794&fm=26&fmt=auto&gp=0.jpg
+  late UserEntity user;
 
+  late WalletHomeEntity walletHomeEntity;
   bool showAccount = false;
+
+  inti() {
+    walletHomeEntity = WalletHomeEntity(0,[],0);
+    showAccount = false;
+    user = UserUtil.getUserInfo();
+    getAccountInfo();
+  }
+
 
   void changeAccount(bool show){
     // print('UserController--onInit'+showAccount.toString());
@@ -84,5 +95,13 @@ class UserController extends GetxController {
       return true;
     }
     return false;
+  }
+
+  getAccountInfo() async {
+    BaseEntity baseEntity  = await WalletApi.getWalletHome();
+    if (baseEntity.isOk()) {
+      walletHomeEntity = baseEntity.data;
+    }
+    update();
   }
 }

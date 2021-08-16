@@ -4,12 +4,11 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:ipfsnets/dialog/password_dialog.dart';
-import 'package:ipfsnets/http/market_api.dart';
+import 'package:ipfsnets/http/machine_api.dart';
 import 'package:ipfsnets/models/machine_hosting_entity.dart';
 import 'package:ipfsnets/models/market_coupon_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
-import 'package:ipfsnets/ui/pages/market/market_buy_controller.dart';
 import 'package:ipfsnets/ui/pages/market/market_coupons_page.dart';
 
 import '../../../../include.dart';
@@ -249,7 +248,7 @@ class MachineUpdatePage extends StatelessWidget{
   }
 
   Future<void> getData() async {
-    BaseEntity baseEntity = await MarketApi.getMachineUpdate(machineId);;
+    BaseEntity baseEntity = await MachineApi.getMachineUpdate(machineId);;
     if (baseEntity.isOk()) {
       MachineHostingEntity buyEntity = baseEntity.data;
       if (buyEntity != null) {
@@ -289,7 +288,8 @@ class MachineUpdatePage extends StatelessWidget{
     isScrollControlled: true,
     builder: (_) =>  PasswordDiaglog(onItemClickListener: (code){
       LogUtil.e("showDialog()");
-      NavigatorUtil.jump(context, Routes.marketEndPage);
+      machineUpgradePay(code);
+
     },));
   }
 
@@ -323,13 +323,7 @@ class MachineUpdatePage extends StatelessWidget{
     );
   }
 
-  void toBuy(BuildContext context) {
-    // NavigatorUtil.push(context,Routes.marketInfoPage,arguments: data);
-    NavigatorUtil.pushResult(context, Routes.marketInfoPage, (Object code) {
-      print("code = " +code.toString());
 
-    });
-  }
 
   // 添加数量
   void addNumber(bool add) {
@@ -353,5 +347,15 @@ class MachineUpdatePage extends StatelessWidget{
       }
     }
 
+  }
+
+
+  Future<void> machineUpgradePay(String pwd) async {
+    BaseEntity baseEntity = await MachineApi.machineUpgradePay(controller.count, controller.entity.couponId,controller.data.machineId,pwd,controller.selCny);
+    if (baseEntity.isOk()) {
+     ToastUtil.show(S.current.option_success);
+    }else{
+      ToastUtil.show(baseEntity.msg);
+    }
   }
 }

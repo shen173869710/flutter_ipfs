@@ -4,6 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:ipfsnets/dialog/password_dialog.dart';
+import 'package:ipfsnets/http/machine_api.dart';
 import 'package:ipfsnets/http/market_api.dart';
 import 'package:ipfsnets/models/machine_pledge_entity.dart';
 import 'package:ipfsnets/models/market_buy_entity.dart';
@@ -155,7 +156,7 @@ class MachinePledgeState extends State<MachinePledgePage>{
               height: 120.w,
               color: Colours.button_sel,
               child: GestureDetector(child:Text(S.current.machine_pledge_8,style: TextStyle(fontSize: 16,color: Colours.white),),onTap: (){
-
+                showDialog(context);
               },)
           ),
           flex: 2,
@@ -165,7 +166,7 @@ class MachinePledgeState extends State<MachinePledgePage>{
   }
 
   Future<void> getData() async {
-    BaseEntity baseEntity = await MarketApi.getMachinePledge(widget.machineId);;
+    BaseEntity baseEntity = await MachineApi.getMachinePledge(widget.machineId);;
     if (baseEntity.isOk()) {
       if (baseEntity.data != null) {
           data = baseEntity.data;
@@ -176,5 +177,26 @@ class MachinePledgeState extends State<MachinePledgePage>{
     }
   }
 
+  void showDialog(BuildContext context) {
+    showModalBottomSheet<void>(
+        context: context,
+        enableDrag: false,
+        isScrollControlled: true,
+        builder: (_) =>  PasswordDiaglog(onItemClickListener: (code){
+          LogUtil.e("showDialog()");
+          machineUpgradePay(code);
+
+        },));
+  }
+
+
+  Future<void> machineUpgradePay(String pwd) async {
+    BaseEntity baseEntity = await MachineApi.machinePledgePay(data.machineId,pwd);
+    if (baseEntity.isOk()) {
+      ToastUtil.show(S.current.option_success);
+    }else{
+      ToastUtil.show(baseEntity.msg);
+    }
+  }
 
 }

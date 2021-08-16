@@ -67,8 +67,13 @@ dependencies:
   package_info: ^2.0.2
   common_utils: ^2.0.2
   # 扫码 https://github.com/juliuscanute/qr_code_scanner
-  qr_code_scanner: 0.5.2
+#  qr_code_scanner: 0.5.2
+  flutter_qr_reader: ^1.0.5
+  # 动态鉴权
+  permission_handler: ^7.1.0
 #  qrscan: ^0.3.2
+#  scan: ^0.0.6
+#  flutter_qr_reader: ^1.0.3
   qr_flutter: ^4.0.0
   flutter_rating_bar: ^4.0.0
 dev_dependencies:
@@ -147,6 +152,7 @@ flutter:
     - assets/img/me_item_6.png
     - assets/img/icon_display.png
     - assets/img/me_item_2.png
+    - assets/img/ic_welcome.jpg
     - assets/img/ic_wallet_item_4.png
     - assets/img/ic_expired.png
     - assets/img/my_wallet_fil.png
@@ -206,7 +212,6 @@ flutter:
     - assets/img/ic_get.png
     - assets/img/ic_add_file.png
     - assets/img/icon_usdt_used.png
-    - assets/img/ic_welcome.jpeg
     - assets/img/ic_cny_rechage.png
     - assets/img/me_item_16.png
     - assets/img/tab_market_p.png

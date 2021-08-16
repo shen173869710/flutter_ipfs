@@ -5,12 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:ipfsnets/dialog/choose_day_dialog.dart';
 import 'package:ipfsnets/dialog/password_dialog.dart';
-import 'package:ipfsnets/http/market_api.dart';
+import 'package:ipfsnets/http/machine_api.dart';
 import 'package:ipfsnets/models/machine_hosting_entity.dart';
 import 'package:ipfsnets/models/market_coupon_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/pages/market/market_coupons_page.dart';
+
 import '../../../../include.dart';
 import 'machine_hosting_controller.dart';
 
@@ -32,8 +33,7 @@ class MachineHostingPage extends StatelessWidget{
         appBar: AppBar(
             centerTitle: true,
             backgroundColor: Colours.app_bar_bg,
-            title: Text(
-              S.current.machine_hosting_title,
+            title: Text(controller.data.hostingStatus == 1?S.current.machine_hosting_title_s:S.current.machine_hosting_title,
               style: ITextStyles.whiteTitle,
             )),
         body: SingleChildScrollView(
@@ -230,7 +230,7 @@ class MachineHostingPage extends StatelessWidget{
             alignment: Alignment.center,
             height: 120.w,
             color: controller.enableBuy?Colours.button_sel:Colours.button_unsel,
-            child: GestureDetector(child:Text(S.current.market_item_buy,style: TextStyle(fontSize: 16,color: Colours.white),),onTap: (){
+            child: GestureDetector(child:Text(getBuyText(),style: TextStyle(fontSize: 16,color: Colours.white),),onTap: (){
               showDialog(context);
     },)
           ),
@@ -240,8 +240,27 @@ class MachineHostingPage extends StatelessWidget{
     );
   }
 
+  String getBuyText() {
+    String str = "";
+    if (controller.data.hostingDay == 0) {
+      if (controller.data.hostingStatus == 1) {
+        str = S.current.machine_hosting_submit_s;
+      }else{
+        str = S.current.machine_hosting_submit;
+      }
+    }else{
+      if (controller.data.hostingStatus == 0) {
+        str = controller.data.hostingDay.toString()+S.current.machine_hosting_unsubmit_s;
+      }else{
+        str = controller.data.hostingDay.toString()+S.current.machine_hosting_unsubmit;
+      }
+    }
+    return str;
+  }
+
+
   Future<void> getData() async {
-    BaseEntity baseEntity = await MarketApi.getMachineHosting(machineId);;
+    BaseEntity baseEntity = await MachineApi.getMachineHosting(machineId);;
     if (baseEntity.isOk()) {
       MachineHostingEntity buyEntity = baseEntity.data;
       if (buyEntity != null) {
@@ -281,7 +300,7 @@ class MachineHostingPage extends StatelessWidget{
     isScrollControlled: true,
     builder: (_) =>  PasswordDiaglog(onItemClickListener: (code){
       LogUtil.e("showDialog()");
-      NavigatorUtil.jump(context, Routes.marketEndPage);
+      machinehostingPay(code);
     },));
   }
 
@@ -337,4 +356,12 @@ class MachineHostingPage extends StatelessWidget{
     },));
   }
 
+  Future<void> machinehostingPay(String pwd) async {
+    BaseEntity baseEntity = await MachineApi.machineHostingPay(controller.count, controller.entity.couponId,controller.data.machineId,pwd,controller.selCny);
+    if (baseEntity.isOk()) {
+      ToastUtil.show(S.current.option_success);
+    }else{
+      ToastUtil.show(baseEntity.msg);
+    }
+  }
 }

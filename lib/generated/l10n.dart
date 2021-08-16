@@ -3760,6 +3760,46 @@ class S {
     );
   }
 
+  /// `天后可托管`
+  String get machine_hosting_unsubmit {
+    return Intl.message(
+      '天后可托管',
+      name: 'machine_hosting_unsubmit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `托管续期`
+  String get machine_hosting_title_s {
+    return Intl.message(
+      '托管续期',
+      name: 'machine_hosting_title_s',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `立即续期`
+  String get machine_hosting_submit_s {
+    return Intl.message(
+      '立即续期',
+      name: 'machine_hosting_submit_s',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `天后可续期`
+  String get machine_hosting_unsubmit_s {
+    return Intl.message(
+      '天后可续期',
+      name: 'machine_hosting_unsubmit_s',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `升级服务器`
   String get machine_update_title {
     return Intl.message(

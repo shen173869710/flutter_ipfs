@@ -225,8 +225,6 @@
   "wallet_recharge_copy": "复制地址",
   "wallet_recharge_scan": "扫描二维码,获取地址",
 
-
-
   "more_title": "更多应用",
   "more_tab_1": "推荐应用",
   "more_tab_2": "购物娱乐",
@@ -416,6 +414,15 @@
   "machine_hosting_price": "单价",
   "machine_hosting_node": "区域节点",
   "machine_hosting_submit": "立即托管",
+  "machine_hosting_unsubmit": "天后可托管",
+
+  "machine_hosting_title_s": "托管续期",
+  "machine_hosting_submit_s": "立即续期",
+  "machine_hosting_unsubmit_s": "天后可续期",
+
+  "machine_hosting_title": "托管续期",
+  "machine_hosting_submit_more": "立即续期",
+  "machine_hosting_submit_more_n": "天后可续期",
 
   "machine_update_title": "升级服务器",
   "machine_update_number": "设备编号",

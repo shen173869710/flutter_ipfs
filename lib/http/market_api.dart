@@ -62,21 +62,5 @@ class MarketApi{
   }
 
 
-  // 服务器托管续期
-  static const String machine_hosting = "machine/app/hosting/";
-  static  Future<BaseEntity> getMachineHosting(String id) {
-    return HttpManager.getInstance().get<MachineHostingEntity>(machine_hosting+id);
-  }
 
-  // 服务器升级
-  static const String machine_update = "machine/app/upgrade/";
-  static  Future<BaseEntity> getMachineUpdate(String id) {
-    return HttpManager.getInstance().get<MachineHostingEntity>(machine_update+id);
-  }
-
-  // 服务器质押
-  static const String machine_pledge = "machine/app/pledge/";
-  static  Future<BaseEntity> getMachinePledge(String id) {
-    return HttpManager.getInstance().get<MachinePledgeEntity>(machine_pledge+id);
-  }
 }

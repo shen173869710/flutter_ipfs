@@ -1,6 +1,5 @@
 import 'package:ipfsnets/models/machine_hosting_entity.dart';
 import 'package:ipfsnets/models/market_coupon_entity.dart';
-
 import '../../../../include.dart';
 
 

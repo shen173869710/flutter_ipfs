@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:ipfsnets/models/user_entity.dart';
 import 'package:ipfsnets/routes/navigatorUtil.dart';
 import 'package:ipfsnets/routes/routers.dart';
+import 'package:ipfsnets/ui/pages/index_page.dart';
 import 'package:ipfsnets/ui/pages/login_page.dart';
 import 'package:ipfsnets/utils/user_util.dart';
 import '../../include.dart';
@@ -21,12 +22,16 @@ class SplashPage extends StatefulWidget {
 //启动页面
 class _SplashPageState extends State<SplashPage> {
   void onDelayed() async{
-    await Future.delayed(const Duration(milliseconds: 20), () {
-      UserUtil.initUserInfo(new UserEntity());
-      Navigator.pushReplacement(context,
-        MaterialPageRoute(builder: (context) => LoginPage()),
-      );
-    });
+      // await SpUtil.getInstance();
+      await SpUtil.getInstance();
+      String language = SpUtil.getString(GlobalEntiy.LANGUAGE_KEY, defValue: 'zh').toString();
+      print("language = "+language);
+      S.load(Locale(language));
+      if (UserUtil.hasUserInfo()) {
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => IndexPage()),);
+      }else{
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()),);
+      }
   }
   void navigationPage() {
     NavigatorUtil.jump(context,Routes.login);
@@ -43,7 +48,7 @@ class _SplashPageState extends State<SplashPage> {
     // TODO: implement build
      return Scaffold(
         body: new Center(
-          // child: new Image.asset(R.assetsImgIcWelcome,fit: BoxFit.fill,width: double.infinity,height: double.infinity,),
+          child: new Image.asset(R.assetsImgIcWelcome,fit: BoxFit.fill,width: double.infinity,height: double.infinity,),
         ),
 
      );

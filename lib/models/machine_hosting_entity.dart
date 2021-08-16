@@ -9,6 +9,7 @@ class MachineHostingEntity{
 	late num hostingDay;
 	late List<int> hostingPeriod;
 	late num machineId;
+	late num hostingStatus;
 	late String nodeName;
 	late String symbol;
 	late num usdtBalance;

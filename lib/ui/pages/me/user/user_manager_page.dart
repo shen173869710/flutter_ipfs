@@ -198,6 +198,8 @@ class _UserManagerState extends State<UserManagerPage> {
             _headUrl = entity.url;
           });
         }
+      }else{
+        ToastUtil.show(baseEntity.msg);
       }
       LogUtil.e("code ==" + baseEntity.code.toString());
     }
@@ -218,6 +220,8 @@ class _UserManagerState extends State<UserManagerPage> {
           });
         }
         LogUtil.e("fromPhoteo url==" + entity.url);
+      }else{
+        ToastUtil.show(baseEntity.msg);
       }
       LogUtil.e("code ==" + baseEntity.code.toString());
       // }

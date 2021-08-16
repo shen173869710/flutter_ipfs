@@ -47,6 +47,8 @@ class R {
   static final String assetsImgIconDisplay = 'assets/img/icon_display.png';
   /// ![](http://127.0.0.1:1111/assets/img/me_item_2.png)
   static final String assetsImgMeItem2 = 'assets/img/me_item_2.png';
+  /// ![](http://127.0.0.1:1111/assets/img/ic_welcome.jpg)
+  static final String assetsImgIcWelcome = 'assets/img/ic_welcome.jpg';
   /// ![](http://127.0.0.1:1111/assets/img/ic_wallet_item_4.png)
   static final String assetsImgIcWalletItem4 = 'assets/img/ic_wallet_item_4.png';
   /// ![](http://127.0.0.1:1111/assets/img/ic_expired.png)
@@ -165,8 +167,6 @@ class R {
   static final String assetsImgIcAddFile = 'assets/img/ic_add_file.png';
   /// ![](http://127.0.0.1:1111/assets/img/icon_usdt_used.png)
   static final String assetsImgIconUsdtUsed = 'assets/img/icon_usdt_used.png';
-  /// ![](http://127.0.0.1:1111/assets/img/ic_welcome.jpeg)
-  static final String assetsImgIcWelcome = 'assets/img/ic_welcome.jpeg';
   /// ![](http://127.0.0.1:1111/assets/img/ic_cny_rechage.png)
   static final String assetsImgIcCnyRechage = 'assets/img/ic_cny_rechage.png';
   /// ![](http://127.0.0.1:1111/assets/img/me_item_16.png)

@@ -71,6 +71,7 @@ class _SettingState extends State<SettingPage> {
           endble: true,
           onPressed: () {
             SpUtil.putString(GlobalEntiy.accessToken, "");
+            UserUtil.loginout();
             NavigatorUtil.jumpLogin(context);
           }),
     );

@@ -21,7 +21,6 @@ class TeansferController extends GetxController{
 
   num coinCode = 0;
   int itemSel = 0;
-  Uint8List bytes = Uint8List(0);
   // 顶部 币种选择
   String type = "";
   // 默认选中的币种

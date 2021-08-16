@@ -8,6 +8,7 @@ import 'package:ipfsnets/ui/pages/market/market_page.dart';
 import 'package:ipfsnets/ui/pages/me/me_page.dart';
 import 'package:ipfsnets/ui/pages/quote/quote_page.dart';
 import 'package:ipfsnets/ui/pages/register/index_controller.dart';
+import 'package:ipfsnets/utils/back_top.dart';
 
 import '../../include.dart';
 import '../../r.dart';
@@ -64,9 +65,10 @@ class _IndexPageState extends State<IndexPage> {
 
   @override
   Widget build(BuildContext context) {
+    controller.changePage(0);
     // TODO: implement build
     return GetBuilder<IndexController>(builder: (controller){
-      return  Scaffold(
+      return Scaffold(
           bottomNavigationBar: BottomNavigationBar(
             items: bottomBar,
             currentIndex: controller.currentIndex,
@@ -79,11 +81,16 @@ class _IndexPageState extends State<IndexPage> {
               controller.changePage(index);
             },
           ),
-          body: IndexedStack(
+          body: WillPopScope(
+            onWillPop: BackTop.backDeskTop, child:IndexedStack(
             index: controller.currentIndex,
             children: pages,
+          ),
           )
+
+
       );
+
     });
 
 

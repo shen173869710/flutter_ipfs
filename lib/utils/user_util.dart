@@ -48,17 +48,14 @@ class UserUtil {
   }
 
 
-  static void initUserInfo(UserEntity user) {
-    // SpUtil.putString(SP_USER_ID, user.id);
-    // SpUtil.putString(SP_USER_NAME, user.username);
-    // SpUtil.putString(SP_USER_NICK, user.nick);
-    // SpUtil.putString(SP_USER_HEADURL, user.headurl);
-    // SpUtil.putString(SP_USER_DESC, user.decs);
-    // SpUtil.putString(SP_USER_GENDER, user.gender);
-    // SpUtil.putString(SP_USER_FOLLOW, user.followCount);
-    // SpUtil.putString(SP_USER_FAN, user.fanCount);
-    // SpUtil.putInt(SP_USER_ISMEMBER, user.ismember);
-    // SpUtil.putInt(SP_USER_ISVERTIFY, user.isvertify);
+  static bool hasUserInfo() {
+    String? userStr = SpUtil.getString(SP_USER_INFO);
+
+    LogUtil.e("userInfo === "+userStr!);
+    if (StringUtil.isNotEmpty(userStr)) {
+       return true;
+    }
+    return false;
   }
 
   // 判断用户是否登录

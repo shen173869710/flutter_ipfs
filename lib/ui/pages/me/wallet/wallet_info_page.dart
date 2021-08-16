@@ -52,7 +52,8 @@ class _WalletInfoState extends State<WalletInfoPage> with TickerProviderStateMix
     this.tabController = TabController(length: 3, vsync: this);
     // TODO: implement initState
     super.initState();
-
+    getData();
+    controller.initData();
 
   }
 
@@ -65,8 +66,8 @@ class _WalletInfoState extends State<WalletInfoPage> with TickerProviderStateMix
   @override
   Widget build(BuildContext context) {
     entiy = ModalRoute.of(context)!.settings.arguments as WalletItemEntiy;
-    getData();
-    controller.initData();
+
+
 
     return GetBuilder<WalletInfoController>(builder: (controller){
       return Scaffold(

@@ -9,7 +9,6 @@ import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/pages/register/index_controller.dart';
 import 'package:ipfsnets/utils/LoadingUtils.dart';
-
 import '../../../../include.dart';
 
 
@@ -356,17 +355,12 @@ class _MachineStatus extends State<MachinePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text.rich(TextSpan(children: [
-                      TextSpan(text: S.current.machine_list_1,style: ITextStyles.itemContent),
-                      TextSpan(text: data.realCap.toString(),style: ITextStyles.itemTitle),
-                      TextSpan(text: "TB",style: ITextStyles.itemTitle),
-                    ])),
-                    Gaps.vGap8,
-                    Text.rich(TextSpan(children: [
-                      TextSpan(text: S.current.machine_list_3,style: ITextStyles.itemContent),
-                      TextSpan(text: data.pledge.toString(),style: ITextStyles.itemTitle),
-                      TextSpan(text: "FIL",style: ITextStyles.itemTitle),
-                    ])),
+                    Text(S.current.machine_list_1,style: ITextStyles.itemContent),
+                    Text(data.realCap.toString()+" TB",style: ITextStyles.itemTitle),
+
+                    Gaps.vGap4,
+                    Text(S.current.machine_list_3,style: ITextStyles.itemContent),
+                    Text(data.pledge.toString()+" FIL",style: ITextStyles.itemTitle),
 
                   ],
                 ),
@@ -376,17 +370,11 @@ class _MachineStatus extends State<MachinePage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text.rich(TextSpan(children: [
-                        TextSpan(text: S.current.machine_list_2,style: ITextStyles.itemContent),
-                        TextSpan(text: data.useCap.toString(),style: ITextStyles.itemTitle),
-                        TextSpan(text: "TB",style: ITextStyles.itemTitle),
-                      ])),
-                      Gaps.vGap8,
-                      Text.rich(TextSpan(children: [
-                        TextSpan(text: S.current.machine_list_4,style: ITextStyles.itemContent),
-                        TextSpan(text: data.realCap.toString(),style: ITextStyles.itemTitle),
-                        TextSpan(text: "TB",style: ITextStyles.itemTitle),
-                      ])),
+                      Text(S.current.machine_list_2,style: ITextStyles.itemContent),
+                      Text(data.useCap.toString()+" TB",style: ITextStyles.itemTitle),
+                      Gaps.vGap4,
+                      Text(S.current.machine_list_4,style: ITextStyles.itemContent),
+                      Text(data.hostingExpTime == null?"--":DateUtil.getTime(data.hostingExpTime),style: ITextStyles.itemTitle),
                     ],
                   ),
                   flex: 3)

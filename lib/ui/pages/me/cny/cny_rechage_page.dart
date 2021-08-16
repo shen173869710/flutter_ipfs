@@ -243,6 +243,8 @@ class _CnyRechageStatus extends State<CnyRechagePage> {
           });
           ToastUtil.show(S.current.option_success);
         }
+      }else{
+        ToastUtil.show(baseEntity.msg);
       }
     }
   }
@@ -263,6 +265,8 @@ class _CnyRechageStatus extends State<CnyRechagePage> {
           });
         }
         LogUtil.e("fromPhoteo url==" + entity.url);
+      }else{
+        ToastUtil.show(baseEntity.msg);
       }
       LogUtil.e("code ==" + baseEntity.code.toString());
     }

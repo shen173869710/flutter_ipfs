@@ -38,6 +38,7 @@ class MachineHostingController extends GetxController {
     data.symbol = "";
     data.hostingDay = 0;
     data.expand = 0;
+    data.hostingStatus = 0;
     setTotal();
   }
 
@@ -104,8 +105,6 @@ class MachineHostingController extends GetxController {
     }else {
       enableBuy = false;
     }
-
-
   }
 
   // 设置优惠券

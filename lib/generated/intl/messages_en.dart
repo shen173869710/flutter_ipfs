@@ -169,8 +169,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "machine_hosting_number": MessageLookupByLibrary.simpleMessage("设备编号"),
         "machine_hosting_price": MessageLookupByLibrary.simpleMessage("单价"),
         "machine_hosting_submit": MessageLookupByLibrary.simpleMessage("立即托管"),
+        "machine_hosting_submit_s":
+            MessageLookupByLibrary.simpleMessage("立即续期"),
         "machine_hosting_time": MessageLookupByLibrary.simpleMessage("托管时间"),
         "machine_hosting_title": MessageLookupByLibrary.simpleMessage("服务器托管"),
+        "machine_hosting_title_s": MessageLookupByLibrary.simpleMessage("托管续期"),
+        "machine_hosting_unsubmit":
+            MessageLookupByLibrary.simpleMessage("天后可托管"),
+        "machine_hosting_unsubmit_s":
+            MessageLookupByLibrary.simpleMessage("天后可续期"),
         "machine_info_1": MessageLookupByLibrary.simpleMessage("服务器编号"),
         "machine_info_10": MessageLookupByLibrary.simpleMessage("有效容量"),
         "machine_info_11": MessageLookupByLibrary.simpleMessage("设备编号"),

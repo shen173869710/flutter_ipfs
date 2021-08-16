@@ -420,6 +420,11 @@
   "machine_hosting_price": "单价",
   "machine_hosting_node": "区域节点",
   "machine_hosting_submit": "立即托管",
+  "machine_hosting_unsubmit": "天后可托管",
+
+  "machine_hosting_title_s": "托管续期",
+  "machine_hosting_submit_s": "立即续期",
+  "machine_hosting_unsubmit_s": "天后可续期",
 
   "machine_update_title": "升级服务器",
   "machine_update_number": "设备编号",

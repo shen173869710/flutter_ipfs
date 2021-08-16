@@ -5,7 +5,6 @@ import 'package:dio/dio.dart';
 import 'package:ipfsnets/data/global_entiy.dart';
 import 'package:ipfsnets/utils/log_util.dart';
 import 'package:sp_util/sp_util.dart';
-import 'package:sprintf/sprintf.dart';
 import 'dio_utils.dart';
 import 'error_handle.dart';
 
@@ -13,7 +12,7 @@ class AuthInterceptor extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     final String? accessToken = SpUtil.getString(GlobalEntiy.accessToken);
-
+    LogUtil.e('accessToken ==='+accessToken!);
     // LogUtil.e("AuthInterceptor  token = "+accessToken!);
     if (accessToken != null && accessToken.isNotEmpty) {
       options.headers['Authorization'] = accessToken;
@@ -29,6 +28,7 @@ class TokenInterceptor extends Interceptor {
 
   Future<String?> getToken() async {
     final Map<String, String> params = <String, String>{};
+
     params['refresh_token'] = SpUtil.getString(GlobalEntiy.refreshToken)!;
     try {
       _tokenDio ??= Dio();

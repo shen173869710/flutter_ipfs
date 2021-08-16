@@ -13,6 +13,7 @@ MachineHostingEntity _$MachineHostingEntityFromJson(Map<String, dynamic> json) {
     ..hostingDay = json['hostingDay'] as num
     ..hostingPeriod = json['hostingPeriod'] == null ?[]:(json['hostingPeriod']as List).map((e) => e as int).toList()
     ..machineId = json['machineId'] as num
+    ..hostingStatus = json['hostingStatus'] as num
     ..nodeName = json['nodeName'] as String
     ..symbol = json['symbol'] as String
     ..usdtBalance = json['usdtBalance'] as num
@@ -30,6 +31,7 @@ Map<String, dynamic> _$MachineHostingEntityToJson(
       'machineId': instance.machineId,
       'nodeName': instance.nodeName,
       'symbol': instance.symbol,
+      'hostingStatus': instance.hostingStatus,
       'usdtBalance': instance.usdtBalance,
       'usdtPrice': instance.usdtPrice,
       'expand': instance.expand,

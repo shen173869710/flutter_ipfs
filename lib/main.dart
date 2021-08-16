@@ -1,6 +1,5 @@
 
 import 'dart:io';
-
 import 'package:flustars/flustars.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
@@ -38,12 +37,12 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _initAsync();
-  }
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   _initAsync();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -76,12 +75,12 @@ class _MyAppState extends State<MyApp> {
             );
   }
 
-  void _initAsync() async {
-    await SpUtil.getInstance();
-    String language = SpUtil.getString(GlobalEntiy.LANGUAGE_KEY, defValue: 'zh').toString();
-    print("language = "+language);
-    S.load(Locale(language));
-  }
+  // void _initAsync() async {
+  //   await SpUtil.getInstance();
+  //   String language = SpUtil.getString(GlobalEntiy.LANGUAGE_KEY, defValue: 'zh').toString();
+  //   print("language = "+language);
+  //   S.load(Locale(language));
+  // }
 
 
 }
