@@ -67,6 +67,7 @@
   "option_success": "操作成功",
   "copy_success": "复制成功",
   "register_success": "注册成功",
+  "qrcode_fail": "无法识别账户,请稍后重新扫描",
   "send_faile": "发送失败",
   "save_faile": "保存失败",
   "option_faile": "操作失败",

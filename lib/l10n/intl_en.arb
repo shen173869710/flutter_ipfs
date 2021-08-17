@@ -73,6 +73,7 @@
   "option_success": "操作成功",
   "copy_success": "复制成功",
   "register_success": "注册成功",
+  "qrcode_fail": "无法识别账户,请稍后重新扫描",
 
   "me_info_title": "我的资料",
   "me_info_head": "头像",

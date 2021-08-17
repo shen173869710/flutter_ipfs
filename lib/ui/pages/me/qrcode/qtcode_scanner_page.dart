@@ -147,6 +147,9 @@ import '../../../../include.dart';
 //   }
 // }
 class QrCodeScannerPage extends StatefulWidget {
+   String type;
+   QrCodeScannerPage(this.type);
+  
   final Widget? headerWidget = AppBar(
     backgroundColor: Colors.transparent,
     elevation: 0.0,
@@ -250,7 +253,10 @@ class QrcodeReaderViewState extends State<QrCodeScannerPage> with TickerProvider
   }
 
   void _clearAnimation() {
-    _timer.cancel();
+    if (_timer != null) {
+      _timer.cancel();
+    }
+
     if (_animationController != null) {
       _animationController?.dispose();
       _animationController = null;
@@ -272,7 +278,7 @@ class QrcodeReaderViewState extends State<QrCodeScannerPage> with TickerProvider
     if (isScan == true) return;
     isScan = true;
     stopScan();
-    LogUtil.e("data =======" +data);
+    scanResult(data);
   }
 
   void startScan() async {
@@ -300,10 +306,8 @@ class QrcodeReaderViewState extends State<QrCodeScannerPage> with TickerProvider
       return;
     }
     final rest = await FlutterQrReader.imgScan(image.path);
-    // await widget.onScan(rest);
     LogUtil.e("-----"+rest);
-
-    startScan();
+    scanResult(rest);
   }
 
   @override
@@ -531,6 +535,24 @@ class QrcodeReaderViewState extends State<QrCodeScannerPage> with TickerProvider
   void dispose() {
     _clearAnimation();
     super.dispose();
+  }
+
+  void scanResult(String data) {
+    LogUtil.e("data  =============="+data + "    widget.type =="+widget.type);
+    if (StringUtil.isNotEmpty(widget.type) && widget.type == GlobalEntiy.qrcode_address && StringUtil.isNotEmpty(data)) {
+      if (data.contains(GlobalEntiy.qrcode_address)) {
+        NavigatorUtil.goBack(context);
+        NavigatorUtil.push(context, '${Routes.transferPage}?coinCode=${Uri.encodeComponent(data)}');
+      }
+    } else if (StringUtil.isEmpty(widget.type) && StringUtil.isNotEmpty(data)){
+      NavigatorUtil.goBackWithParams(context, data);
+    }else{
+      ToastUtil.show(S.current.qrcode_fail);
+      Future.delayed(const Duration(milliseconds: 2000), () {
+        startScan();
+      });
+    }
+    
   }
 }
 

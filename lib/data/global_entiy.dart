@@ -18,6 +18,9 @@ import '../include.dart';
 import '../r.dart';
 
 class GlobalEntiy{
+
+  static String qrcode_address = "ipfsnetsaddress----";
+
   // 注册协议
   static String web_reigster = "http://124.16.8.140:84/register-protocol";
   // 服务器购买协议

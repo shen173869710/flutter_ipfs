@@ -720,6 +720,16 @@ class S {
     );
   }
 
+  /// `无法识别账户,请稍后重新扫描`
+  String get qrcode_fail {
+    return Intl.message(
+      '无法识别账户,请稍后重新扫描',
+      name: 'qrcode_fail',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `我的资料`
   String get me_info_title {
     return Intl.message(

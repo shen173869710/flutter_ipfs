@@ -66,6 +66,17 @@ class _TransferState extends State<TransferPage>  with TickerProviderStateMixin{
       controller.setCode(_item5Controller.text);
     });
     controller.init();
+
+    // 如果是扫码跳转的地址
+    if (StringUtil.isNotEmpty(widget.coinCode) && widget.coinCode.contains(GlobalEntiy.qrcode_address)) {
+       List<String> list = widget.coinCode.split("----");
+       if (list.length == 2) {
+         controller.account = list[1];
+         _item1Controller.text = list[1];
+         widget.coinCode = "";
+       }
+    }
+
     getInfo();
 
   }
@@ -224,12 +235,11 @@ class _TransferState extends State<TransferPage>  with TickerProviderStateMixin{
             Gaps.line,
             Gaps.vGap12,
             Center(
-              child: QrImage(data: controller.inAccount,size: 300.w,),
+              child: QrImage(data: GlobalEntiy.qrcode_address+controller.inAccount,size: 300.w,),
               // child: Image.memory(controller.bytes,width: 300.w,height: 300.w,),
             ),
             Gaps.vGap12,
             Center(child: Text(S.current.transfer_out_item_in_qrcode,style: ITextStyles.itemTitle)),
-
           ],
 
         ));

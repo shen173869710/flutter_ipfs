@@ -171,7 +171,7 @@ var transferRecordHandler = Handler(handlerFunc: (BuildContext? context, Map<Str
 });
 //####################################  市场相关  ###################################//
 var qtcodeScannerHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-  return QrCodeScannerPage();
+  return QrCodeScannerPage(params['type']?.first ?? '');
 });
 var marketInfoHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   final String id = params['id']?.first ?? '';

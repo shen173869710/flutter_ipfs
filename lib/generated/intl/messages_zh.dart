@@ -345,6 +345,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pwd_pay_new": MessageLookupByLibrary.simpleMessage("请输支付密码(6位纯数字)"),
         "pwd_pay_new_again": MessageLookupByLibrary.simpleMessage("请再次输入密码"),
         "pwd_pay_title": MessageLookupByLibrary.simpleMessage("设置支付密码"),
+        "qrcode_fail": MessageLookupByLibrary.simpleMessage("无法识别账户,请稍后重新扫描"),
         "quote_gains": MessageLookupByLibrary.simpleMessage("涨幅"),
         "quote_gains_today": MessageLookupByLibrary.simpleMessage("今日涨幅"),
         "quote_item_1": MessageLookupByLibrary.simpleMessage("自选"),

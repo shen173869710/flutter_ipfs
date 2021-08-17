@@ -283,7 +283,8 @@ class MePage extends StatelessWidget {
       //收款
         break;
       case 7:
-        NavigatorUtil.jump(context, Routes.qrcodeScannerPage);
+        // NavigatorUtil.jump(context, Routes.qrcodeScannerPage);
+        NavigatorUtil.push(context, '${Routes.qrcodeScannerPage}?type=${Uri.encodeComponent(GlobalEntiy.qrcode_address)}');
       //扫一扫
         break;
       case 8:
