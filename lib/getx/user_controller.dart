@@ -93,7 +93,10 @@ class UserController extends GetxController {
         return true;
       }
       return true;
+    }else{
+      ToastUtil.show(baseEntity.msg);
     }
+
     return false;
   }
 

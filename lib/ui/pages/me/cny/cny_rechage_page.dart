@@ -151,7 +151,7 @@ class _CnyRechageStatus extends State<CnyRechagePage> {
           children: [
             TextSpan(text:info, style: ITextStyles.itemTitle),
             TextSpan(text: " "),
-            WidgetSpan(child: GestureDetector(child: Image.asset(image, height: 30.w, width: 30.w,),onTap: (){
+            WidgetSpan(child: GestureDetector(child: Image.asset(image, height: 35.w, width: 35.w,),onTap: (){
                         copy(info);
             },),),
           ]
@@ -215,7 +215,7 @@ class _CnyRechageStatus extends State<CnyRechagePage> {
   void copy(String content) {
     LogUtil.e("copy() "+content);
     Clipboard.setData(ClipboardData(text: content));
-    ToastUtil.show(S.current.save_success);
+    ToastUtil.show(S.current.copy_success);
   }
 
   // 查看二维码

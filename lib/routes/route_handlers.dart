@@ -71,7 +71,7 @@ var forgetHandler = Handler(handlerFunc: (BuildContext? context, Map<String, Lis
 
 // 用户昵称编辑
 var userEditHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-  return UserEditPage();
+  return UserEditPage(params['type']?.first ?? '');
 });
 // 用户管理
 var userManagerHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {

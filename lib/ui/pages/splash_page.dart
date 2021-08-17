@@ -1,14 +1,13 @@
 
-import 'dart:async';
 
 import 'package:flustars/flustars.dart';
 import 'package:flutter/material.dart';
-import 'package:ipfsnets/models/user_entity.dart';
 import 'package:ipfsnets/routes/navigatorUtil.dart';
 import 'package:ipfsnets/routes/routers.dart';
 import 'package:ipfsnets/ui/pages/index_page.dart';
 import 'package:ipfsnets/ui/pages/login_page.dart';
 import 'package:ipfsnets/utils/user_util.dart';
+
 import '../../include.dart';
 import '../../r.dart';
 

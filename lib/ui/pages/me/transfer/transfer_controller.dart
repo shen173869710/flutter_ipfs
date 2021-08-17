@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:ipfsnets/http/sms_api.dart';
 import 'package:ipfsnets/http/transfer_api.dart';
 import 'package:ipfsnets/include.dart';
 import 'package:ipfsnets/models/transfer_entity.dart';
@@ -140,7 +141,7 @@ class TeansferController extends GetxController{
     if(StringUtil.isNotEmpty(money)) {
       valut =  NumUtil.multiplyDec(poundageGas,num.parse(money)).toString();
     }
-    poundage = S.current.wallet_withdraw_out_money + valut;
+    poundage =  valut;
   }
   // 进行转账
   Future<bool> doTransfer() async {
@@ -165,5 +166,21 @@ class TeansferController extends GetxController{
   setItemSel(int index) {
     itemSel = index;
     update();
+  }
+
+
+  void setCode(String str) {
+    code = str;
+  }
+  // 获取验证码
+  Future<bool>  getCode() async {
+    BaseEntity baseEntity  = await SmsApi.sendSms(SmsApi.CODE_TYPE_TRANSFER);
+    if (baseEntity.isOk()) {
+      ToastUtil.show(S.current.send_success);
+    }else{
+      ToastUtil.show(baseEntity.msg);
+      return false;
+    }
+    return true;
   }
 }

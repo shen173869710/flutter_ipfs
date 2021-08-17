@@ -7,7 +7,6 @@ import 'package:ipfsnets/http/sms_api.dart';
 import 'package:ipfsnets/include.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/utils/string_util.dart';
-
 class PasswordController extends GetxController {
 
   // 是否是电话注册

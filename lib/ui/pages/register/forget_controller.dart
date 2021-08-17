@@ -1,6 +1,7 @@
 
 
 import 'package:ipfsnets/http/api_service.dart';
+import 'package:ipfsnets/http/sms_api.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/utils/string_util.dart';
 import 'package:ipfsnets/utils/toast_util.dart';
@@ -11,10 +12,10 @@ class ForgetController extends GetxController {
 
   // 是否是电话注册
   bool isPhone = true;
-  late String account;
-  late String code;
-  late String password;
-  late String paddwordAgain;
+  late String account = "";
+  late String code = "";
+  late String password = "";
+  late String paddwordAgain = "";
 
   bool enableRgister = false;
 
@@ -91,7 +92,19 @@ class ForgetController extends GetxController {
   }
 
   // 获取验证码
-  bool  getCode() {
+  Future<bool>  getCode() async {
+    if(StringUtil.isEmpty(account)) {
+      ToastUtil.show(S.current.not_account);
+      return false;
+    }
+
+    BaseEntity baseEntity  = await SmsApi.sendForgetPawCode(account);
+    if (baseEntity.isOk()) {
+      ToastUtil.show(S.current.send_success);
+    }else {
+      ToastUtil.show(baseEntity.msg);
+      return false;
+    }
     return true;
   }
 }

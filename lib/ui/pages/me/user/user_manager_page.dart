@@ -41,7 +41,7 @@ class _UserManagerState extends State<UserManagerPage> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text(S.current.language_title),
+          title: Text(S.current.me_info_title),
           centerTitle: true,
           // leading: Icon(Icons.arrow_back_ios,color: Colours.text_white),
           backgroundColor: Colours.app_bar_bg,
@@ -76,7 +76,7 @@ class _UserManagerState extends State<UserManagerPage> {
                   var data = await Navigator.of(context).push(
                       MaterialPageRoute(
                           builder: (BuildContext context){
-                            return UserEditPage();//跳转到Detail页面组件
+                            return UserEditPage(userController.user.nickname);//跳转到Detail页面组件
                           }
                       )
                   );
@@ -109,10 +109,11 @@ class _UserManagerState extends State<UserManagerPage> {
                 child: LoginButton(text: S.current.save, endble: true, onPressed: () async {
                   bool isSuc =  await userController.doUpdateUser(_headUrl, _sex, _nickName);
                   if (isSuc) {
-                    ToastUtil.show(S.current.send_success);
                     userController.changeUserNickNam(_nickName);
                     userController.changeUserHead(_headUrl);
                     userController.changeUserGender(_sex);
+                    ToastUtil.show(S.current.option_success);
+
                   }
 
                 }),

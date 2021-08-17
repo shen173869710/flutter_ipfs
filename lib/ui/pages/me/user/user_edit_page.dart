@@ -8,10 +8,18 @@ import 'package:ipfsnets/ui/widget/login_button.dart';
 
 
 class UserEditPage extends StatelessWidget {
+
+  late String type;
+
+  UserEditPage(this.type);
   final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    if (StringUtil.isNotEmpty(type)) {
+      _passwordController.text = type;
+    }
+
     return new Scaffold(
         appBar: AppBar(
           title: new Text(S.current.edit_nick_name),
@@ -46,9 +54,7 @@ class UserEditPage extends StatelessWidget {
       onChanged: (value) {
       },
       controller: _passwordController,
-      style: TextStyle(
-          fontSize: 14
-      ),
+      style: TextStyle(fontSize: 14),
       maxLength: 16,
       inputFormatters: [
         LengthLimitingTextInputFormatter(GlobalEntiy.PWD_MAX_INPUT)

@@ -9,6 +9,7 @@ import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/styles.dart';
 import 'package:ipfsnets/ui/pages/me/transfer/transfer_controller.dart';
 import 'package:ipfsnets/ui/widget/login_button.dart';
+import 'package:ipfsnets/ui/widget/my_text_field.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 
@@ -25,7 +26,7 @@ class TransferPage extends StatefulWidget{
 }
 
 class _TransferState extends State<TransferPage>  with TickerProviderStateMixin{
-
+  final FocusNode _nodeText2 = FocusNode();
   List<String> ITEMS = [
     S.current.transfer_out_item_1,
     S.current.transfer_out_item_2,
@@ -59,6 +60,10 @@ class _TransferState extends State<TransferPage>  with TickerProviderStateMixin{
     this.tabController = TabController(length: 2, vsync: this);
     tabController.addListener(() {
       controller.setItemSel(tabController.index);
+    });
+
+    _item5Controller.addListener(() {
+      controller.setCode(_item5Controller.text);
     });
     controller.init();
     getInfo();
@@ -277,38 +282,45 @@ class _TransferState extends State<TransferPage>  with TickerProviderStateMixin{
   }
 
   /**构建手机验证码**/
-  Padding buildPhoneCode(BuildContext context,String title, String hint,TextEditingController _controller,int index) {
-    return Padding(padding: EdgeInsets.fromLTRB(0.w, 0.h, 0.w, 0),
-      child: Row(
-        children: [
-          Text(title, style: ITextStyles.itemTitle,),
-          Gaps.hGap4,
-          Expanded(child:  TextFormField(
-            onChanged: (value) {
-              controller.setValue(value.toString(), index);
-            },
-            style: ITextStyles.itemTitle,
-            controller: _controller,
-            inputFormatters: [
-              LengthLimitingTextInputFormatter(6),
-              FilteringTextInputFormatter.allow(RegExp("[0-9]")),
-            ],
-            decoration: InputDecoration(
-                focusedBorder: InputBorder.none,
-                enabledBorder: InputBorder.none,
-                border: InputBorder.none,
-                hintText: hint
-            ),
-          )),
+  Row buildPhoneCode(BuildContext context,String title, String hint,TextEditingController _controller,int index) {
+    return  Row(
+      children: [
+        Text(title, style: ITextStyles.itemTitle,),
+        Gaps.hGap4,
+        // Expanded(child:  TextFormField(
+        //   onChanged: (value) {
+        //     controller.setValue(value.toString(), index);
+        //   },
+        //   style: ITextStyles.itemTitle,
+        //   controller: _controller,
+        //   inputFormatters: [
+        //     LengthLimitingTextInputFormatter(6),
+        //   ],
+        //   decoration: InputDecoration(
+        //       focusedBorder: InputBorder.none,
+        //       enabledBorder: InputBorder.none,
+        //       border: InputBorder.none,
+        //       hintText: hint
+        //   ),
+        // )),
+        // Expanded(child: SizedBox()),
+        // GestureDetector(child: Text(S.current.login_forgot_code, style:TextStyle(fontSize:
+        //     Dimens.font_sp14,color:
+        //     Colours.button_sel)),onTap: (){
+        // },),
 
-          Expanded(child: SizedBox()),
-          GestureDetector(child: Text(S.current.login_forgot_code, style:TextStyle(fontSize:
-              Dimens.font_sp14,color:
-              Colours.button_sel)),onTap: (){
-          },),
+        Expanded(child: MyTextField(
+          focusNode: _nodeText2,
+          controller: _item5Controller,
+          maxLength: 6,
+          keyboardType: TextInputType.number,
+          hintText: S.current.login_forgot_code_hint,
+          getVCode: () {
+            return Future<bool>.value(controller.getCode());
+          },
+        ),)
 
-        ],
-      ),
+      ],
     );
   }
   /**内网转出item**/
@@ -370,7 +382,7 @@ class _TransferState extends State<TransferPage>  with TickerProviderStateMixin{
       children: [
         Text(title, style: ITextStyles.itemTitle,),
         Expanded(child: SizedBox()),
-        Text(controller.poundage, style: ITextStyles.itemContent,),
+        Text(S.current.transfer_out_item_4_hint+controller.poundage, style: ITextStyles.itemContent,),
       ],
     );
   }

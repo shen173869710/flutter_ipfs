@@ -38,7 +38,7 @@ class ForgetPage extends StatelessWidget {
         appBar: AppBar(
           title: new Text(S.current.login_forgot_pwd),
           centerTitle: true,
-          backgroundColor: Colours.button_sel,
+          backgroundColor: Colours.app_bar_bg,
         ),
           body: Form(
         child: ListView(
