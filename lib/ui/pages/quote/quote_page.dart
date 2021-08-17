@@ -8,6 +8,8 @@ import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/pages/quote/quote_controller.dart';
 import 'package:ipfsnets/ui/pages/quote/quote_optional_page.dart';
+import 'package:ipfsnets/ui/pages/quote/quote_optional_serach_page.dart';
+import 'package:ipfsnets/ui/pages/quote/quote_search_page.dart';
 import '../../../include.dart';
 
 class QuotePage extends StatefulWidget{
@@ -35,7 +37,7 @@ class _QuoteStatus extends State<QuotePage> with AutomaticKeepAliveClientMixin,T
       MainTabEntiy(S.current.quote_item_1, QuoteOptionalPage(1)),
       MainTabEntiy(S.current.quote_item_2, QuoteOptionalPage(2)),
       MainTabEntiy(S.current.quote_item_3, QuoteOptionalPage(3)),
-      MainTabEntiy(S.current.quote_item_4, QuoteOptionalPage(4)),
+      MainTabEntiy(S.current.quote_item_4, QuoteOptionalSearchPage(4)),
     ];
     GlobalEntiy.history = StringUtil.getList();
     getData();
@@ -68,17 +70,6 @@ class _QuoteStatus extends State<QuotePage> with AutomaticKeepAliveClientMixin,T
               ),
               actions: [
                 IconButton(icon: Icon(Icons.search,color: Colours.text_white,),onPressed: () async{
-                  // var data = await Navigator.of(context).push(
-                  //     MaterialPageRoute(
-                  //         builder: (BuildContext context){
-                  //           return QuoteSearchPage();
-                  //         }
-                  //     )
-                  // );
-                  // LogUtil.e(data.toString());
-                  // if(data != null && data.toString().isNotEmpty) {
-                  //   LogUtil.e(data.toString());
-                  // }
                   String? result = await showSearch<String>(context: context,delegate: SearchBarDelegate());
                   if (StringUtil.isNotEmpty(result!)) {
                     tabController.index = 3;

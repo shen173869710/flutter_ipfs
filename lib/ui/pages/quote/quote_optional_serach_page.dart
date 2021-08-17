@@ -2,26 +2,23 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ipfsnets/http/quote_api.dart';
 import 'package:ipfsnets/include.dart';
-import 'package:ipfsnets/models/quote_optional_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/pages/quote/quote_controller.dart';
-import 'package:ipfsnets/ui/pages/quote/quote_optional_hot_item.dart';
-import 'package:ipfsnets/ui/pages/quote/quote_optional_item.dart';
 import 'package:ipfsnets/ui/pages/quote/quote_optional_rank_item.dart';
 import 'package:ipfsnets/ui/widget/base_list_page.dart';
 
 
-class QuoteOptionalPage extends StatefulWidget {
+class QuoteOptionalSearchPage extends StatefulWidget {
   late num id;
 
 
-  QuoteOptionalPage(this.id);
+  QuoteOptionalSearchPage(this.id);
   @override
   _QuoteOptionalState createState() => _QuoteOptionalState(id);
 }
 
-class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage> with AutomaticKeepAliveClientMixin{
+class _QuoteOptionalState extends BaseListPageState<QuoteOptionalSearchPage> with AutomaticKeepAliveClientMixin{
 
   final QuoteController controller = Get.put(QuoteController());
 
