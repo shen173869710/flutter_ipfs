@@ -52,7 +52,7 @@ class _WalletInfoState extends State<WalletInfoPage> with TickerProviderStateMix
     this.tabController = TabController(length: 3, vsync: this);
     // TODO: implement initState
     super.initState();
-    getData();
+
     controller.initData();
 
   }
@@ -66,9 +66,7 @@ class _WalletInfoState extends State<WalletInfoPage> with TickerProviderStateMix
   @override
   Widget build(BuildContext context) {
     entiy = ModalRoute.of(context)!.settings.arguments as WalletItemEntiy;
-
-
-
+    getData();
     return GetBuilder<WalletInfoController>(builder: (controller){
       return Scaffold(
         backgroundColor: Colours.bg_color,
@@ -132,8 +130,6 @@ class _WalletInfoState extends State<WalletInfoPage> with TickerProviderStateMix
             Visibility(child:buildInfo(S.current.wallet_info_item_3, S.current.wallet_info_item_4,ITextStyles.itemContent),visible: entiy.coinName == "FIL"?true:false,),
             Gaps.vGap4,
             Visibility(child: buildInfo(controller.walletInfoEntity.pledge.toString(), controller.walletInfoEntity.todayEarnings.toString(),ITextStyles.itemTitle),visible: entiy.coinName == "FIL"?true:false,)
-
-
             // buildListItem()
           ],
         )

@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:ipfsnets/dialog/withdrawal_account_dialog.dart';
 import "package:ipfsnets/include.dart";
-import 'package:ipfsnets/ui/pages/me/baseListpage/base_list_factory.dart';
 import 'package:ipfsnets/ui/widget/login_button.dart';
 import 'package:ipfsnets/utils/string_util.dart';
 
@@ -20,11 +19,7 @@ class CnyWithdrawalPage extends StatefulWidget{
 
 
 class _CnyWithdrawalState extends State<CnyWithdrawalPage> {
-
   final _usernameController = TextEditingController();
-
-
-
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -101,7 +96,7 @@ class _CnyWithdrawalState extends State<CnyWithdrawalPage> {
             controller: _usernameController,
             inputFormatters: [
               LengthLimitingTextInputFormatter(20),
-              WhitelistingTextInputFormatter(RegExp("[0-9]")),
+                FilteringTextInputFormatter.allow(RegExp(r'^\d+(\.)?[0-9]{0,10}')),
 
             ],
             decoration: InputDecoration(
@@ -129,7 +124,7 @@ class _CnyWithdrawalState extends State<CnyWithdrawalPage> {
   Padding buildLogin(BuildContext context) {
     return  Padding(padding: EdgeInsets.fromLTRB(30.w, 30.h, 30.w, 0),
       child: LoginButton(text: S.current.sure,
-          endble :StringUtil.isEmpty(_usernameController.text)?false:true,
+          endble :enable(),
           onPressed: () {
             showChoostAccountDialog(context);
           }),
@@ -138,5 +133,16 @@ class _CnyWithdrawalState extends State<CnyWithdrawalPage> {
 
   void showChoostAccountDialog(BuildContext context) {
     showModalBottomSheet(context: context,backgroundColor:Colours.transparent,builder:(BuildContext context) =>WithDrawalAccountDialog(onItemClickListener: (int index) {  },money: _usernameController.text,));
+  }
+
+  bool enable() {
+    String txt = _usernameController.text;
+    if(StringUtil.isEmpty(txt)) {
+      return false;
+    }
+    if(txt.endsWith('0') || txt.endsWith('.')) {
+      return false;
+    }
+    return true;
   }
 }

@@ -20,6 +20,8 @@ class SmsApi {
   static int CODE_TYPE_SURE_PAY = 2001;
   // 转账验证
   static int CODE_TYPE_TRANSFER = 3001;
+  // 提现接口
+  static int CODE_TYPE_CNY_WITHDRAWAL = 4001;
   // 发送验证码
   static const String send_code = "wallet/app/send/code";
 
@@ -53,7 +55,7 @@ class SmsApi {
     params['username'] = username;
     return HttpManager.getInstance().post(send_register,jsonEncode(params));
   }
-
+  // 找回密码
   static const String send_find = "wallet/app/send/findPwd";
   static  Future<BaseEntity> sendForgetPawCode(String username) {
     Map<String, dynamic> params = new Map();

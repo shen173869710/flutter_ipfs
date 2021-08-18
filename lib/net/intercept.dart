@@ -125,6 +125,7 @@ class LoggingInterceptor extends Interceptor{
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) {
     LogUtil.e('----------onError-----------'+err.message);
+    LogUtil.e('----------onError-----------'+err.toString());
     super.onError(err, handler);
   }
 }

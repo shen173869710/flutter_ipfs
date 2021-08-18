@@ -258,7 +258,9 @@ class QrcodeReaderViewState extends State<QrCodeScannerPage> with TickerProvider
     }
 
     if (_animationController != null) {
-      _animationController?.dispose();
+      _animationController!.addListener(() { });
+      _animationController!.addStatusListener((status) { });
+      _animationController!.dispose();
       _animationController = null;
     }
   }
@@ -543,6 +545,11 @@ class QrcodeReaderViewState extends State<QrCodeScannerPage> with TickerProvider
       if (data.contains(GlobalEntiy.qrcode_address)) {
         NavigatorUtil.goBack(context);
         NavigatorUtil.push(context, '${Routes.transferPage}?coinCode=${Uri.encodeComponent(data)}');
+      }else{
+        ToastUtil.show(S.current.qrcode_fail);
+        Future.delayed(const Duration(milliseconds: 2000), () {
+          startScan();
+        });
       }
     } else if (StringUtil.isEmpty(widget.type) && StringUtil.isNotEmpty(data)){
       NavigatorUtil.goBackWithParams(context, data);

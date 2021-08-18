@@ -1,5 +1,6 @@
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:ipfsnets/http/api_service.dart';
+import 'package:ipfsnets/http/sms_api.dart';
 import 'package:ipfsnets/include.dart';
 import 'package:ipfsnets/models/acount_entiy.dart';
 import 'package:ipfsnets/net/base_entity.dart';
@@ -32,6 +33,10 @@ class CnyWithdrawalEndController extends GetxController{
 
   setitem3(String str){
     item3 = str;
+  }
+
+  setCode(String str) {
+    item4 = str;
   }
 
   void setType(String str) {
@@ -69,13 +74,13 @@ class CnyWithdrawalEndController extends GetxController{
   void enableButton() {
     LogUtil.e(isEnable.toString()+"type ="+type + " item1="+item1+ " item2="+item2+ " item3="+item3+ " item4="+item4);
     if (type == "1") {
-      if (StringUtil.isNotEmpty(item1) && StringUtil.isNotEmpty(item2) && StringUtil.isNotEmpty(item4)) {
+      if (StringUtil.isNotEmpty(item1) && StringUtil.isNotEmpty(item2) && StringUtil.isNotEmpty(item4) && StringUtil.equalLenght(item4, 6)) {
         isEnable = true;
       }else{
         isEnable = false;
       }
     }else {
-      if (StringUtil.isNotEmpty(item1) && StringUtil.isNotEmpty(item2) && StringUtil.isNotEmpty(item3) &&StringUtil.isNotEmpty(item4)) {
+      if (StringUtil.isNotEmpty(item1) && StringUtil.isNotEmpty(item2) && StringUtil.isNotEmpty(item3) &&StringUtil.isNotEmpty(item4)&& StringUtil.equalLenght(item4, 6)) {
         isEnable = true;
       }else{
         isEnable = false;
@@ -85,9 +90,13 @@ class CnyWithdrawalEndController extends GetxController{
 
 
   Future<bool> putEnd(String money) async {
-    // String accountBank, String accountName, int accountNumber,String amount,String code, String type
     BaseEntity baseEntity  = await ApiServer.cnyWithdrawal(item3,item1,item2,money,item4,type);
-    ToastUtil.show(S.current.option_success);
+    if (baseEntity.isOk()) {
+      ToastUtil.show(S.current.option_success);
+    }else{
+      ToastUtil.show(baseEntity.msg);
+      return false;
+    }
     return true;
   }
   //
@@ -100,7 +109,17 @@ class CnyWithdrawalEndController extends GetxController{
 
 
 
-
+  // 获取验证码
+  Future<bool>  getCode() async {
+    BaseEntity baseEntity  = await SmsApi.sendSms(SmsApi.CODE_TYPE_CNY_WITHDRAWAL);
+    if (baseEntity.isOk()) {
+      ToastUtil.show(S.current.send_success);
+    }else{
+      ToastUtil.show(baseEntity.msg);
+      return false;
+    }
+    return true;
+  }
 
 
 }

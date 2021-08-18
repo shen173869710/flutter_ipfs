@@ -59,7 +59,7 @@ dependencies:
   # https://github:com/xuelongqy/flutter_easyrefresh:
   flutter_easyrefresh : ^2.2.1
 
-  image_picker: ^0.8.1
+  image_picker: ^0.8.3+2
   fluttertoast: ^8.0.7
   #https://pub.dev/packages/sqflite 数据库管理 相当于sqllite
   sqflite: ^2.0.0+3
@@ -76,6 +76,7 @@ dependencies:
 #  flutter_qr_reader: ^1.0.3
   qr_flutter: ^4.0.0
   flutter_rating_bar: ^4.0.0
+  flutter_xupdate: ^2.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

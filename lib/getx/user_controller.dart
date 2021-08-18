@@ -35,8 +35,8 @@ class UserController extends GetxController {
 
   void changeUserHead(String url){
     if (StringUtil.isNotEmpty(url)) {
-      UserUtil.saveUserAvatarl(url);
       user.avatar = url;
+      UserUtil.saveUserInfo(user);
       LogUtil.e("changeUserHead"+user.avatar.toString());
       update();
     }
@@ -44,8 +44,8 @@ class UserController extends GetxController {
 
   void changeUserNickNam(String nick) {
     if (StringUtil.isNotEmpty(nick)) {
-      UserUtil.saveUserNickName(nick);
       user.nickname = nick;
+      UserUtil.saveUserInfo(user);
       update();
     }
   }
@@ -53,7 +53,7 @@ class UserController extends GetxController {
   void changeUserGender(String gender) {
     if (StringUtil.isNotEmpty(gender)) {
       user.sex = gender;
-      UserUtil.saveUserSex(gender);
+      UserUtil.saveUserInfo(user);
       update();
     }
   }

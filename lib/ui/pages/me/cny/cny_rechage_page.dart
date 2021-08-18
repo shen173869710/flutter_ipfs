@@ -229,10 +229,10 @@ class _CnyRechageStatus extends State<CnyRechagePage> {
   }
 
   void fromCamera() async{
-    final pickedFile = await picker.getImage(source: ImageSource.camera);
+    final pickedFile = await picker.pickImage(source: ImageSource.camera,imageQuality: 50);
     if (pickedFile != null) {
       LogUtil.e("=="+pickedFile.path.toString());
-
+      _image = File(pickedFile.path);
       BaseEntity baseEntity = await ApiServer.uploadFile(_image!);
       if (baseEntity != null && baseEntity.code == 200) {
         ImageEntity entity = baseEntity.data;
@@ -250,19 +250,23 @@ class _CnyRechageStatus extends State<CnyRechagePage> {
   }
 
   void fromPhoteo() async{
-    final pickedFile = await picker.getImage(source: ImageSource.gallery);
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery,maxWidth: 800);
     if (pickedFile != null) {
       LogUtil.e("==" + pickedFile.path.toString());
       // setState(() {
       _image = File(pickedFile.path);
+      if(_image != null  && _image!.lengthSync() > 5000000) {
+        ToastUtil.show(S.current.image_to_big);
+        return;
+      }
       BaseEntity baseEntity = await ApiServer.uploadFile(_image!);
       if (baseEntity != null && baseEntity.code == 200) {
         ImageEntity entity = baseEntity.data;
         if (entity != null) {
           setState(() {
             _headUrl = entity.url;
-            ToastUtil.show(S.current.option_success);
           });
+          ToastUtil.show(S.current.option_success);
         }
         LogUtil.e("fromPhoteo url==" + entity.url);
       }else{

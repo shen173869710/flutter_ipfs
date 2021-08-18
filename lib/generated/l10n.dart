@@ -730,6 +730,16 @@ class S {
     );
   }
 
+  /// `文件过大无法上传`
+  String get image_to_big {
+    return Intl.message(
+      '文件过大无法上传',
+      name: 'image_to_big',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `我的资料`
   String get me_info_title {
     return Intl.message(

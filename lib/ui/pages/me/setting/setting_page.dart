@@ -56,7 +56,10 @@ class _SettingState extends State<SettingPage> {
               ClickItem(
                   title: S.current.setting_version,
                   content: version,
-                  onTap: () {}),
+                  onTap: () {
+                      checkVersion();
+
+                  }),
               buildLogin(context)
             ],
           ),
@@ -83,5 +86,9 @@ class _SettingState extends State<SettingPage> {
         version = packageInfo.version;
       });
     });
+  }
+
+  checkVersion() {
+
   }
 }

@@ -157,10 +157,12 @@ class HttpManager {
 
       print("文件路径=" + path);
       print("文件名=" + name);
-      Map<String, dynamic> map = Map();
-      map["file"] = await MultipartFile.fromFile(path, filename: name);
+
       ///通过FormData
-      FormData formData = FormData.fromMap(map);
+      FormData formData = FormData.fromMap({
+        "file": await MultipartFile.fromFile(path, filename: name,),
+      });
+
       ///发送post
       Response response;
       response = await _dio!.post(api, data: formData,

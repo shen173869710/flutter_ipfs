@@ -186,10 +186,12 @@ class _UserManagerState extends State<UserManagerPage> {
   }
 
   void fromCamera() async {
-    final pickedFile = await picker.getImage(source: ImageSource.camera);
+    final pickedFile = await picker.pickImage(source: ImageSource.camera,imageQuality: 50);
     if (pickedFile != null) {
       LogUtil.e("==" + pickedFile.path.toString());
       _image = File(pickedFile.path);
+
+      LogUtil.e("==" + _image!.lengthSync().toString());
       BaseEntity baseEntity = await ApiServer.uploadFile(_image!);
       if (baseEntity != null && baseEntity.code == 200) {
         ImageEntity entity = baseEntity.data;
@@ -207,11 +209,16 @@ class _UserManagerState extends State<UserManagerPage> {
   }
 
   void fromPhoteo() async {
-    final pickedFile = await picker.getImage(source: ImageSource.gallery,maxWidth: 400);
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery,maxWidth: 800);
     if (pickedFile != null) {
       LogUtil.e("==" + pickedFile.path.toString());
       // setState(() {
       _image = File(pickedFile.path);
+      if(_image != null  && _image!.lengthSync() > 5000000) {
+        ToastUtil.show(S.current.image_to_big);
+        return;
+      }
+      
       BaseEntity baseEntity = await ApiServer.uploadFile(_image!);
       if (baseEntity != null && baseEntity.code == 200) {
         ImageEntity entity = baseEntity.data;

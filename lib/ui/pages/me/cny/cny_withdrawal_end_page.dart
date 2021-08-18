@@ -5,12 +5,13 @@ import "package:ipfsnets/include.dart";
 import 'package:ipfsnets/models/acount_entiy.dart';
 import 'package:ipfsnets/ui/pages/me/cny/cny_withdrawal_end_controller.dart';
 import 'package:ipfsnets/ui/widget/login_button.dart';
+import 'package:ipfsnets/ui/widget/my_text_field.dart';
 import 'package:ipfsnets/utils/toast_util.dart';
 
 class CnyWithdrawalEndPage extends StatelessWidget {
 
   final CnyWithdrawalEndController controller = Get.put(CnyWithdrawalEndController());
-
+  final FocusNode _nodeText2 = FocusNode();
   final _item1 = TextEditingController();
   final _item2 = TextEditingController();
   final _item3 = TextEditingController();
@@ -50,11 +51,14 @@ class CnyWithdrawalEndPage extends StatelessWidget {
       }
 
     }
-    
-    
+
+    _item4.addListener(() {
+      controller.changeItem4(_item4.text);
+    });
     return GetBuilder<CnyWithdrawalEndController>(builder:(controller){
       return   Scaffold(
         backgroundColor: Colours.bg_color,
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: new Text(isBank?S.current.cny_withdrawal_end_bank_title:S.current.cny_withdrawal_end_alipay_title),
           centerTitle: true,
@@ -191,28 +195,16 @@ class CnyWithdrawalEndPage extends StatelessWidget {
     return Padding(padding: EdgeInsets.fromLTRB(0.w, 10.h, 0.w, 0),
       child: Row(
         children: [
-          Expanded(child:
-          TextFormField(
-            onChanged: (value) {
-              controller.changeItem4(value.toString());
-            },
+          Expanded(child: MyTextField(
+            focusNode: _nodeText2,
             controller: _item4,
-            inputFormatters: [
-              LengthLimitingTextInputFormatter(6)
-            ],
-            decoration: InputDecoration(
-                focusedBorder: InputBorder.none,
-                enabledBorder: InputBorder.none,
-                border: InputBorder.none,
-                hintText: S.current.login_forgot_code_hint
-                ),
-          )),
-          Expanded(child: SizedBox()),
-          GestureDetector(child: Text(S.current.login_forgot_code,
-              style:TextStyle(fontSize:
-              Dimens.font_sp14,color:
-              Colours.button_sel)),onTap: (){
-          },),
+            maxLength: 6,
+            keyboardType: TextInputType.number,
+            hintText: S.current.login_forgot_code_hint,
+            getVCode: () {
+              return Future<bool>.value(controller.getCode());
+            },
+          ),)
 
         ],
       ),
@@ -226,7 +218,6 @@ class CnyWithdrawalEndPage extends StatelessWidget {
           onPressed: () async{
            bool ok =  await controller.putEnd(money);
            if (ok) {
-             ToastUtil.show(S.current.option_success);
              Navigator.of(context).pop();
            }
           }),

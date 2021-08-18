@@ -133,6 +133,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "home_monitoring": MessageLookupByLibrary.simpleMessage("数据监控"),
         "home_treasure": MessageLookupByLibrary.simpleMessage("开心夺宝"),
         "home_wallet": MessageLookupByLibrary.simpleMessage("我的钱包"),
+        "image_to_big": MessageLookupByLibrary.simpleMessage("文件过大无法上传"),
         "language_ch": MessageLookupByLibrary.simpleMessage("中文"),
         "language_en": MessageLookupByLibrary.simpleMessage("英语"),
         "language_title": MessageLookupByLibrary.simpleMessage("语言设置"),
