@@ -10,10 +10,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ipfsnets/routes/application.dart';
 import 'package:ipfsnets/routes/routers.dart';
 import 'package:ipfsnets/ui/pages/splash_page.dart';
+import 'package:ipfsnets/utils/user_util.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import 'data/global_entiy.dart';
 import 'generated/l10n.dart';
+import 'include.dart';
 
 Future<void> main() async {
 
@@ -36,7 +38,12 @@ class MyApp extends StatefulWidget {
 
 
 class _MyAppState extends State<MyApp> {
-
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   onDelayed();
+  // }
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(designSize: Size(750, 1334),
@@ -63,8 +70,8 @@ class _MyAppState extends State<MyApp> {
                     ],
                     supportedLocales: S.delegate.supportedLocales,
                     onGenerateRoute: Application.router!.generator,
-                    builder: EasyLoading.init(),
-                    home: new SplashPage()))
+                    builder: EasyLoading.init(),home: SplashPage(),
+                    ))
             );
   }
 
@@ -74,6 +81,25 @@ class _MyAppState extends State<MyApp> {
   //   print("language = "+language);
   //   S.load(Locale(language));
   // }
-
+  // void onDelayed() async {
+  //   print(DateTime
+  //       .now()
+  //       .microsecondsSinceEpoch);
+  //   await Future.delayed(const Duration(milliseconds: 1000), () async {
+  //     await SpUtil.getInstance();
+  //     String language = SpUtil.getString(
+  //         GlobalEntiy.LANGUAGE_KEY, defValue: 'zh').toString();
+  //     print("language = " + language);
+  //     S.load(Locale(language));
+  //     if (UserUtil.hasUserInfo()) {
+  //       NavigatorUtil.jumpRemove(context);
+  //       print(DateTime
+  //           .now()
+  //           .microsecondsSinceEpoch);
+  //     } else {
+  //       NavigatorUtil.jumpLogin(context);
+  //     }
+  //   });
+  // }
 
 }

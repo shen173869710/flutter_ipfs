@@ -73,6 +73,7 @@
   "option_faile": "操作失败",
   "password_no_equal": "两次输入的密码不相同",
   "image_to_big":"文件过大无法上传",
+  "image_not_choose":"请先上传图片",
   "edit_nick_name": "编辑昵称",
   "edit_nick_input": "请输入昵称",
   "me_info_title": "我的资料",

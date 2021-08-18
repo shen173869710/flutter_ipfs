@@ -13,18 +13,20 @@ class SplashPage extends StatefulWidget {
 //启动页面
 class _SplashPageState extends State<SplashPage> {
   void onDelayed() async{
-      // await SpUtil.getInstance();
-      await SpUtil.getInstance();
-      String language = SpUtil.getString(GlobalEntiy.LANGUAGE_KEY, defValue: 'zh').toString();
-      print("language = "+language);
-      S.load(Locale(language));
-      if (UserUtil.hasUserInfo()) {
-        // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => IndexPage()),);
-        NavigatorUtil.jumpRemove(context);
-      }else{
-        NavigatorUtil.jumpLogin(context);
-        // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()),);
-      }
+      print(DateTime.now().microsecondsSinceEpoch);
+      await Future.delayed(const Duration(milliseconds: 1000), () async {
+        await SpUtil.getInstance();
+        String language = SpUtil.getString(GlobalEntiy.LANGUAGE_KEY, defValue: 'zh').toString();
+        print("language = "+language);
+        S.load(Locale(language));
+        if (UserUtil.hasUserInfo()) {
+          NavigatorUtil.jumpRemove(context);
+          print(DateTime.now().microsecondsSinceEpoch);
+        }else{
+          NavigatorUtil.jumpLogin(context);
+        }
+      });
+
   }
 
   @override

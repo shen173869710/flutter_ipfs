@@ -20,6 +20,6 @@ Map<String, dynamic> _$TransferEntityToJson(TransferEntity instance) =>
       'coinCode': instance.coinCode,
       'coinIcon': instance.coinIcon,
       'coinName': instance.coinName,
-      'transferInfoVo': instance.transferInfoVo?.toJson(),
+      'transferInfoVo': instance.transferInfoVo.toJson(),
       'value': instance.value,
     };

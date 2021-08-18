@@ -32,9 +32,16 @@ class CnyRechargeController extends GetxController{
    *  提交凭据
    */
    putEvidence(String pageNum) async{
+    if(StringUtil.isEmpty(pageNum)) {
+      ToastUtil.show(S.current.image_not_choose);
+      return;
+    }
      BaseEntity baseEntity  = await ApiServer.putCnyRecharge(pageNum);
-     ToastUtil.show(S.current.option_success);
-
+    if (baseEntity.isOk()) {
+      ToastUtil.show(S.current.option_success);
+    }else{
+      ToastUtil.show(baseEntity.msg);
+    }
   }
 
   Future<bool> init() async{

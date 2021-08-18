@@ -78,6 +78,7 @@
   "register_success": "注册成功",
   "qrcode_fail": "无法识别账户,请稍后重新扫描",
   "image_to_big":"文件过大无法上传",
+  "image_not_choose":"请先上传图片",
   "me_info_title": "我的资料",
   "me_info_head": "头像",
   "me_info_nick": "昵称",

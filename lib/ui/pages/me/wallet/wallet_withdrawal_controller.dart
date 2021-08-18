@@ -214,7 +214,7 @@ class WalletWithdrawalController extends GetxController{
 
   void enableBSubmit() {
     LogUtil.e("inout = "+inputMoney.toString() +" minBlance "+ minBlance.toString()+"addres"+address);
-    if (inputMoney > minBlance && StringUtil.isNotEmpty(address)) {
+    if (inputMoney >= minBlance && StringUtil.isNotEmpty(address)) {
         enableButton = true;
     }else{
       enableButton = false;

@@ -1,14 +1,14 @@
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:dio/dio.dart';
-import 'package:ipfsnets/data/global_entiy.dart';
+import 'package:dio/src/response.dart';
 import 'package:ipfsnets/http/result_data.dart';
 import 'package:ipfsnets/http/url_config.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/net/error_handle.dart';
 import 'package:ipfsnets/net/intercept.dart';
 import 'package:ipfsnets/utils/LoadingUtils.dart';
-import 'package:dio/src/response.dart';
 import 'package:ipfsnets/utils/log_util.dart';
 
 class HttpManager {

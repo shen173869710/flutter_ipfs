@@ -11,14 +11,12 @@ class WalletWithdrawalRecordItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-
-    return
-
-      Container(
+    return Container(
         margin: EdgeInsets.fromLTRB(20.w, 10.w, 20.w, 10.w),
         padding: ITextStyles.containerMargin,
         decoration: ITextStyles.boxDecoration,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,

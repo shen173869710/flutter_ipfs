@@ -740,6 +740,16 @@ class S {
     );
   }
 
+  /// `请先上传图片`
+  String get image_not_choose {
+    return Intl.message(
+      '请先上传图片',
+      name: 'image_not_choose',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `我的资料`
   String get me_info_title {
     return Intl.message(

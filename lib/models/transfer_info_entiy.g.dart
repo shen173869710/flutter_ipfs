@@ -14,6 +14,6 @@ TransferInfoEntiy _$TransferInfoEntiyFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$TransferInfoEntiyToJson(TransferInfoEntiy instance) =>
     <String, dynamic>{
-      'transferIn': instance.transferIn?.toJson(),
-      'transferOut': instance.transferOut?.toJson(),
+      'transferIn': instance.transferIn.toJson(),
+      'transferOut': instance.transferOut.toJson(),
     };

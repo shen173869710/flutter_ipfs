@@ -5,10 +5,11 @@ part 'app_info_entity.g.dart';
 class AppInfoEntiy {
   late bool hasUpdate;
   late bool isIgnorable;
-  late int versionCode;
+  late num versionCode;
   late String versionName;
-  late String updateLog;
-  late String apkUrl;
+  late String modifyContent;
+  late String downloadUrl;
+  late num updateStatus;
   late int apkSize;
 
   AppInfoEntiy();
