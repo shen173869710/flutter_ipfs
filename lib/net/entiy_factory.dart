@@ -6,6 +6,7 @@ import 'package:ipfsnets/models/cny_acount_record_entity.dart';
 import 'package:ipfsnets/models/cny_recharge_entity.dart';
 import 'package:ipfsnets/models/cny_recharge_record_entity.dart';
 import 'package:ipfsnets/models/cny_withdrawal_record_entity.dart';
+import 'package:ipfsnets/models/cny_withdrawal_setting_entity.dart';
 import 'package:ipfsnets/models/image_entity.dart';
 import 'package:ipfsnets/models/machine_entity.dart';
 import 'package:ipfsnets/models/machine_hosting_entity.dart';
@@ -63,6 +64,8 @@ class EntityFactory {
       return MachineHostingEntity.fromJson(json)as T;
     }else if (name == "MachinePledgeEntity"){
       return MachinePledgeEntity.fromJson(json)as T;
+    }else if (name == "CnyWithdrawalSettingEntity"){
+      return CnyWithdrawalSettingEntity.fromJson(json)as T;
     }else {
       return json as T;
     }

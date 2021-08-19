@@ -12,8 +12,8 @@ AppInfoEntiy _$AppInfoEntiyFromJson(Map<String, dynamic> json) {
     ..isIgnorable = json['isIgnorable'] as bool
     ..versionCode = json['versionCode'] as num
     ..versionName = json['versionName'] as String
-    ..downloadUrl = json['downloadUrl'] as String
     ..modifyContent = json['modifyContent'] as String
+    ..downloadUrl = json['downloadUrl'] as String
     ..updateStatus = json['updateStatus'] as num
     ..apkSize = json['apkSize'] as int;
 }
@@ -24,8 +24,8 @@ Map<String, dynamic> _$AppInfoEntiyToJson(AppInfoEntiy instance) =>
       'isIgnorable': instance.isIgnorable,
       'versionCode': instance.versionCode,
       'versionName': instance.versionName,
-      'downloadUrl': instance.downloadUrl,
       'modifyContent': instance.modifyContent,
+      'downloadUrl': instance.downloadUrl,
       'updateStatus': instance.updateStatus,
       'apkSize': instance.apkSize,
     };

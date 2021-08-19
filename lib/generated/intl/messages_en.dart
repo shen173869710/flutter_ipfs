@@ -60,7 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cny_withdrawal": MessageLookupByLibrary.simpleMessage("提现"),
         "cny_withdrawal_all": MessageLookupByLibrary.simpleMessage("全部"),
         "cny_withdrawal_commission":
-            MessageLookupByLibrary.simpleMessage("手续费每笔5%"),
+            MessageLookupByLibrary.simpleMessage("手续费每笔"),
         "cny_withdrawal_desc": MessageLookupByLibrary.simpleMessage(
             "1.仅支持USDT提现账户收款,手续费每笔5%;\n\n2.提现审核时间为9:00-18:00,T+1个工作日后到账;\n\n3.每次最低提现金额为100元及整数倍才能申请提现;"),
         "cny_withdrawal_end_alipay_account":

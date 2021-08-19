@@ -11,6 +11,7 @@ import 'package:ipfsnets/models/cny_acount_record_entity.dart';
 import 'package:ipfsnets/models/cny_recharge_entity.dart';
 import 'package:ipfsnets/models/cny_recharge_record_entity.dart';
 import 'package:ipfsnets/models/cny_withdrawal_record_entity.dart';
+import 'package:ipfsnets/models/cny_withdrawal_setting_entity.dart';
 import 'package:ipfsnets/models/image_entity.dart';
 import 'package:ipfsnets/models/user_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
@@ -227,8 +228,8 @@ class ApiServer {
   // cny 提现限制
 
   static const String cny_recharge_setting = "cny/app/withdraw/setting";
-  static  Future<BaseEntity> cnyWithdrawalSetting(int pageNum) {
-    return HttpManager.getInstance().get<List<CnyWithdrawalRecordEntity>>(cny_recharge_setting,withLoading: false);
+  static  Future<BaseEntity> cnyWithdrawalSetting() {
+    return HttpManager.getInstance().get<CnyWithdrawalSettingEntity>(cny_recharge_setting,withLoading: false);
   }
 
 }

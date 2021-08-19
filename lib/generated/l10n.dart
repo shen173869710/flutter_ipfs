@@ -1670,10 +1670,10 @@ class S {
     );
   }
 
-  /// `手续费每笔5%`
+  /// `手续费每笔`
   String get cny_withdrawal_commission {
     return Intl.message(
-      '手续费每笔5%',
+      '手续费每笔',
       name: 'cny_withdrawal_commission',
       desc: '',
       args: [],

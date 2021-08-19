@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:ipfsnets/dialog/withdrawal_account_dialog.dart';
+import 'package:ipfsnets/http/api_service.dart';
 import "package:ipfsnets/include.dart";
+import 'package:ipfsnets/models/cny_withdrawal_setting_entity.dart';
+import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/ui/widget/login_button.dart';
 import 'package:ipfsnets/utils/string_util.dart';
 
@@ -20,10 +23,24 @@ class CnyWithdrawalPage extends StatefulWidget{
 
 class _CnyWithdrawalState extends State<CnyWithdrawalPage> {
 
-
-
-
+  CnyWithdrawalSettingEntity  entity = CnyWithdrawalSettingEntity();
   final _usernameController = TextEditingController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    entity.init();
+    getData();
+
+    _usernameController.addListener(() {
+      setState(() {
+
+      });
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -67,7 +84,7 @@ class _CnyWithdrawalState extends State<CnyWithdrawalPage> {
                       buildPhoneCode(context),
                       Gaps.line,
                       Gaps.vGap12,
-                      Text(S.current.cny_withdrawal_commission, style: TextStyle(
+                      Text(getGas(), style: TextStyle(
                           color: Colours.item_title_color,fontSize: 14
                       )),
                     ],
@@ -75,8 +92,14 @@ class _CnyWithdrawalState extends State<CnyWithdrawalPage> {
                 ),
                 buildLogin(context),
                 Gaps.vGap10,
-                Text(S.current.cny_withdrawal_desc, style: TextStyle(color: Colours.item_content_color,fontSize: 14
-                )),
+                Row(
+                  children: [
+                    Gaps.hGap16,
+                    Expanded(child:Text(entity.remarks, style: TextStyle(color: Colours.item_content_color,fontSize: 14),textAlign: TextAlign.left,),)
+                  ],
+                )
+
+
               ],
             )
           ],
@@ -145,6 +168,38 @@ class _CnyWithdrawalState extends State<CnyWithdrawalPage> {
     if(txt.startsWith('0')) {
       return false;
     }
+
+    num money = num.parse(txt);
+    if (money < entity.minAmount) {
+      return false;
+    }
+
     return true;
+  }
+
+
+  getData() async {
+    BaseEntity baseEntity = await ApiServer.cnyWithdrawalSetting();
+    if (baseEntity.isOk()) {
+      entity = baseEntity.data;
+      setState(() {
+
+      });
+    }
+  }
+
+  // 提现手续费
+  getGas() {
+    String txt = _usernameController.text;
+    num gas = 0;
+    if (StringUtil.isEmpty(txt)) {
+      gas = 0;
+      return S.current.cny_withdrawal_commission+gas.toString();
+    }
+    if (entity.serviceChargeType == 0) {
+      return S.current.cny_withdrawal_commission+entity.serviceChargeValue.toString()+" cny";
+    }else if (entity.serviceChargeType == 1) {
+      return S.current.cny_withdrawal_commission+entity.serviceChargeValue.toString()+"%";
+    }
   }
 }
