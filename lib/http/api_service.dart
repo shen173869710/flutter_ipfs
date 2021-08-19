@@ -224,4 +224,11 @@ class ApiServer {
     return HttpManager.getInstance().get<List<CnyWithdrawalRecordEntity>>(cny_withdrawal_list,params: param,withLoading: false);
   }
 
+  // cny 提现限制
+
+  static const String cny_recharge_setting = "cny/app/withdraw/setting";
+  static  Future<BaseEntity> cnyWithdrawalSetting(int pageNum) {
+    return HttpManager.getInstance().get<List<CnyWithdrawalRecordEntity>>(cny_recharge_setting,withLoading: false);
+  }
+
 }

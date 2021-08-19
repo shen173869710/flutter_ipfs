@@ -7,7 +7,6 @@ import 'package:ipfsnets/models/market_bar_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/pages/market/market_list_page.dart';
-
 import '../../../include.dart';
 
 class MarketPage extends StatefulWidget{
@@ -52,7 +51,6 @@ class _MarketStatus extends State<MarketPage> with AutomaticKeepAliveClientMixin
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -63,8 +61,7 @@ class _MarketStatus extends State<MarketPage> with AutomaticKeepAliveClientMixin
           title: Text("IPFSNETS", style: ITextStyles.whiteTitle,
           ),
           bottom: PreferredSize(
-              preferredSize: Size(double.infinity, 55.w),
-
+              preferredSize: Size(double.infinity, 90.w),
               child: Container(
                   decoration: BoxDecoration(
                       color: Colours.layout_bg,
@@ -86,11 +83,5 @@ class _MarketStatus extends State<MarketPage> with AutomaticKeepAliveClientMixin
         children: entiys.isEmpty?[]:entiys.map((item) => item.widget).toList(),
       ),
     );
-
-
-
   }
-
-
-
 }

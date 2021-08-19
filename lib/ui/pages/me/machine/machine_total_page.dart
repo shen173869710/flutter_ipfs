@@ -7,8 +7,6 @@ import 'package:ipfsnets/models/market_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/widget/base_list_page.dart';
-
-import 'machine_earnings_list_item.dart';
 import 'machine_total_list_item.dart';
 
 class MachineTotalPage extends StatefulWidget {
@@ -24,10 +22,13 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
   _MachineTotalState(this.id);
   late MachineEntity entity;
 
+  late String currentTime = DateTime.now()!.year.toString() + "-"+DateTime.now()!.month.toString();
   List<MarketEntity> list = [];
   @override
   Widget build(BuildContext context) {
     entity = ModalRoute.of(context)!.settings.arguments as MachineEntity;
+
+
     setEnableRefresh(false);
     setEnableLoadMore(false);
     return Scaffold(
@@ -137,15 +138,33 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
       child:Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text.rich(TextSpan(children: [
-              TextSpan(text: "2012-03",style: ITextStyles.itemTitle),
-              WidgetSpan(child: Image.asset(R.assetsImgIcDown, height: 35.w, width: 35.w,)),
-            ])),
+          GestureDetector(child:Text.rich(TextSpan(children: [
+            TextSpan(text: currentTime,style: ITextStyles.itemTitle),
+            WidgetSpan(child: Image.asset(R.assetsImgIcDown, height: 35.w, width: 35.w,)),
+          ])),onTap: (){
+            _showCupertinoDatePicker();
+          },),
+
           Expanded(child: SizedBox(),),
           Text(S.current.machine_total_4+"：123 FIL", style: ITextStyles.itemContent),
         ],
       ),
     );
+  }
+
+  showTimeDialog() async {
+    DateTime? time = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(2019),
+        lastDate: DateTime.now());
+    print('$time');
+    print("--"+time!.month.toString());
+    currentTime = time.year.toString() + "-"+time.month.toString();
+    setState(() {
+      print(currentTime);
+    });
+
   }
 
   buildItem3Desc(String title, String dec) {
@@ -161,4 +180,24 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
 
   @override
   bool get wantKeepAlive => true;
+
+  void _showCupertinoDatePicker() {
+    showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+            Container(
+              height: MediaQuery.of(context).copyWith().size.height / 3,
+              child: CupertinoDatePicker(
+                  mode: CupertinoDatePickerMode.date,//这里改模式
+                  maximumYear: DateTime.now().year,
+                  minimumYear: DateTime.now().year - 60,
+                  onDateTimeChanged: (dateTime) {
+                    print( "${dateTime.year}-${dateTime.month}-${dateTime.day}");
+
+                  }),
+            ),
+          ]);
+        });
+  }
 }

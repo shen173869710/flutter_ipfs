@@ -43,7 +43,7 @@ class QuoteOptionalItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           Gaps.hGap16,
-          Image.asset(R.assetsImgIcLike,width: 25.w,height: 25.w,),
+          Image.asset(R.assetsImgIcLike,width: 35.w,height: 35.w,),
           Gaps.hGap12,
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,7 +53,7 @@ class QuoteOptionalItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Container(child:ImageUtil.loadImage(data.logo, 25.w, 25.w),height: 25.w,width: 35.w,alignment: Alignment.center,),
+                  Container(child:ImageUtil.loadImage(data.logo, 35.w, 35.w),height: 35.w,width: 35.w,alignment: Alignment.center,),
                   Gaps.hGap5,
                   Text(data.name,style:ITextStyles.itemTitle),
                 ],

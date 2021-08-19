@@ -19,6 +19,10 @@ class CnyWithdrawalPage extends StatefulWidget{
 
 
 class _CnyWithdrawalState extends State<CnyWithdrawalPage> {
+
+
+
+
   final _usernameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -96,8 +100,7 @@ class _CnyWithdrawalState extends State<CnyWithdrawalPage> {
             controller: _usernameController,
             inputFormatters: [
               LengthLimitingTextInputFormatter(20),
-                FilteringTextInputFormatter.allow(RegExp(r'^\d+(\.)?[0-9]{0,10}')),
-
+              FilteringTextInputFormatter.allow(RegExp("[0-9]")),
             ],
             decoration: InputDecoration(
                 focusedBorder: InputBorder.none,
@@ -107,7 +110,6 @@ class _CnyWithdrawalState extends State<CnyWithdrawalPage> {
                 ),
           )),
 
-          Expanded(child: SizedBox()),
           GestureDetector(child: Text(S.current.cny_withdrawal_all,
               style:TextStyle(fontSize:
               Dimens.font_sp14,color:
@@ -140,7 +142,7 @@ class _CnyWithdrawalState extends State<CnyWithdrawalPage> {
     if(StringUtil.isEmpty(txt)) {
       return false;
     }
-    if(txt.endsWith('0') || txt.endsWith('.')) {
+    if(txt.startsWith('0')) {
       return false;
     }
     return true;

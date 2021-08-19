@@ -81,7 +81,7 @@ class _QuoteStatus extends State<QuotePage> with AutomaticKeepAliveClientMixin,T
                 })
               ],
               bottom: PreferredSize(
-                preferredSize: Size(double.infinity, 55.w),
+                preferredSize: Size(double.infinity, 90.w),
                 child: Material(
                     color: Colours.app_bar_bg,
                     child:Container(

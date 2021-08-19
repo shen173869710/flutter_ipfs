@@ -129,6 +129,10 @@ class DateUtil {
     return formatDate(DateTime.fromMillisecondsSinceEpoch(dateTime),format: 'yyyy MM-dd');
   }
 
+  static String getTimeM(var dateTime) {
+    return formatDate(DateTime.fromMillisecondsSinceEpoch(dateTime),format: 'yyyy MM');
+  }
+
   /// com format.
   static String _comFormat(
       int value, String format, String single, String full) {

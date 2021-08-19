@@ -20,14 +20,14 @@ class TransferRecordItem extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                ImageUtil.loadImage(data.coinIcon, 30.w, 30.w,def:R.assetsImgMyWalletFil),
+                ImageUtil.loadImage(data.coinIcon, 40.w, 40.w,def:R.assetsImgMyWalletFil),
                 Gaps.hGap8,
                 Text(data.coinName,style: ITextStyles.itemTitle),
                 Expanded(child:SizedBox()),
                 Text(data.transferNumber.toString(),style: ITextStyles.itemTitle),
               ],
             ),
-            Gaps.vGap8,
+            Gaps.vGap4,
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
@@ -36,12 +36,18 @@ class TransferRecordItem extends StatelessWidget {
                 Text(getStatus(data.status),style: TextStyle(fontSize: 14, color:getStatusColor(data.status) )),
               ],
             ),
-            Gaps.vGap8,
+            Gaps.vGap4,
             Row(
               children: [
-                Text(getFromAddress(data),maxLines:2,style:ITextStyles.itemContent),
+                Expanded(child:  Text(getFromAddress(data),maxLines:2,style:ITextStyles.itemContent),),
               ],
-            )
+            ),
+            Gaps.vGap4,
+            Row(
+              children: [
+                Expanded(child:  Text(getFromNick(data),maxLines:2,style:ITextStyles.itemContent),),
+              ],
+            ),
           ],
         )
     );;
@@ -52,8 +58,6 @@ class TransferRecordItem extends StatelessWidget {
       return S.current.transfer_success;
     }
     return S.current.transfer_fail;
-
-
   }
 
   Color getStatusColor(num status) {
@@ -68,13 +72,22 @@ class TransferRecordItem extends StatelessWidget {
     // 别人转给我
     String address = "";
     if (data.outStatus == 0) {
-      address = S.current.transfer_record_in +" "+ data.nickname +" " + data.username;
+      address = S.current.transfer_record_in +": "+ data.username;
     }else {
-      address = S.current.transfer_record_out +" "+ data.nickname +" " + data.username;
+      address = S.current.transfer_record_out +": "+ data.username;
     }
     return address;
   }
 
+  String getFromNick(TransferRecordEntity data) {
+    String address = "";
+    if (data.outStatus == 0) {
+      address = S.current.me_info_nick +":     "+ data.username;
+    }else {
+      address = S.current.me_info_nick +":     "+ data.username;
+    }
+    return address;
+  }
 
 
 }

@@ -36,10 +36,9 @@ class _FindStatus extends State<FindPage> with SingleTickerProviderStateMixin{
         appBar: AppBar(
             centerTitle: true,
             backgroundColor: Colours.app_bar_bg,
-            title: Text("IPFSNETS", style: ITextStyles.whiteTitle,
-            ),
+            title: Text("IPFSNETS", style: ITextStyles.whiteTitle,),
             bottom: PreferredSize(
-              preferredSize: Size(double.infinity, 55.w),
+              preferredSize: Size(double.infinity, 90.w),
               child: Material(
                   color: Colours.app_bar_bg,
                   child:Container(

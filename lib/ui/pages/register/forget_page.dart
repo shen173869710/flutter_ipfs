@@ -22,11 +22,7 @@ class ForgetPage extends StatelessWidget {
   final _passwordAgainController = TextEditingController();
   // 获取验证码
   final _codeController = TextEditingController();
-
-
   final FocusNode _nodeText2 = FocusNode();
-
-
   @override
   Widget build(BuildContext context) {
     final ForgetController controller = Get.put(ForgetController());

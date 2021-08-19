@@ -66,11 +66,11 @@ class _HomeStatus extends State<HomePage> {
                   buildNotice(),
                   buildItem1(),
                   buildItem2(),
-                  buildTilte(R.assetsImgHomeItem3,S.current.home_item_3,"",false),
+                  buildTilte(R.assetsImgHomeItem3,S.current.home_item_3,"",false,0),
                   buildItem3(context),
-                  buildTilte(R.assetsImgHomeItem4,S.current.home_item_4,S.current.home_info,true),
+                  buildTilte(R.assetsImgHomeItem4,S.current.home_item_4,S.current.home_info,true,1),
                   buildItem4(context),
-                  buildTilte(R.assetsImgHomeItem5,S.current.home_item_5,"切换CNY",true),
+                  buildTilte(R.assetsImgHomeItem5,S.current.home_item_5,"切换CNY",true,2),
                   buildItem5(context)
                 ],
               ),
@@ -120,16 +120,20 @@ class _HomeStatus extends State<HomePage> {
   }
 
   // 标题
-  buildTilte(String image,String title,String info,bool show) {
+  buildTilte(String image,String title,String info,bool show, int index) {
     return Container(
       margin: EdgeInsets.only(left: 20.w, right: 20.w,top: 10.w,bottom: 10.w),
       child: Row(
         children: [
-          Image.asset(image,width: 30.w,height: 30.w,),
+          Image.asset(image,width: 35.w,height: 35.w,),
           Gaps.hGap4,
           Text(title, style: ITextStyles.itemTitle,),
           Expanded(child: SizedBox()),
-          Visibility(child:Text(info, style: ITextStyles.itemContentSel,),visible: show,)
+          Visibility(child:GestureDetector(child: Text(info, style: ITextStyles.itemContentSel,),onTap: (){
+            if (index == 1) {
+              NavigatorUtil.jump(context, Routes.machineTotalPage);
+            }
+          },),visible: show,)
 
         ],
       ),
@@ -140,7 +144,7 @@ class _HomeStatus extends State<HomePage> {
     return  Container(
         color: Colours.app_bar_bg,
         child: Container(
-          padding: EdgeInsets.fromLTRB(20.w, 20.w, 20.w, 20.w),
+          padding: EdgeInsets.fromLTRB(20.w, 30.w, 30.w, 20.w),
           decoration: BoxDecoration(
               color: Colours.layout_bg,
               borderRadius: BorderRadius.only(topLeft: Radius.circular(30.w), topRight: Radius.circular(30.w))
@@ -307,7 +311,6 @@ class _HomeStatus extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-
               Expanded(child:buildItem3Desc(controller.item5_4, S.current.home_item_5_4),flex: 1,),
               Expanded(child:buildItem3Desc(controller.item5_5, S.current.home_item_5_5),flex: 1,)
             ],
