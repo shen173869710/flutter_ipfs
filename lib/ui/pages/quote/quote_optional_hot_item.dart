@@ -49,7 +49,7 @@ class QuoteOptionalHotItem extends StatelessWidget {
           //   height: 25.w,
           // ),
           // Gaps.hGap2,
-          Container(child:Text((index+1).toString(),style: TextStyle(fontSize: 10, color: Colours.item_content_color)),height: 35.w,width: 45.w,color: Colours.bg_color,alignment: Alignment.center,),
+          Container(child:Text((index+1).toString(),style: TextStyle(fontSize: 10, color: Colours.item_content_color)),height: 30.w,width: 40.w,color: Colours.bg_color,alignment: Alignment.center,),
           Gaps.hGap2,
           Container(
             child: ImageUtil.loadImage(data.logo, 30.w, 30.w),

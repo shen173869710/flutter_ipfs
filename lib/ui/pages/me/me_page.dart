@@ -52,14 +52,28 @@ class MePage extends StatelessWidget {
                     style: TextStyle(fontSize: Dimens.font_sp20, color: Colours.text_white),
                   ),
 
-                  Text.rich(TextSpan(
-                    children: [
-                      WidgetSpan(child:Image.asset(R.assetsImgIcVip, height: 30.w, width: 30.w,)),
-                      TextSpan(text: " "),
-                      TextSpan(text: userController.user.level.toString(), style:ITextStyles.textWhite14),
-                    ]
-                  )),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Color(0xFF0E0677),
+                        borderRadius: new BorderRadius.circular((20.w))
+                    ),
+                    child:Row(
+                      children: [
+                        Gaps.hGap8,
+                        Image.asset(R.assetsImgIcVip,height: 28.w, width: 28.w,),
+                        Gaps.hGap2,
+                        Text(userController.user.level.toString(),style:TextStyle(fontSize: 16,color: Colours.white))
+                      ],
+                    ),width: 150.w,height: 42.w,
+                  )
 
+                  // Container(child:Text.rich(TextSpan(
+                  //     children: [
+                  //       WidgetSpan(child:Image.asset(R.assetsImgIcVip, height: 30.w, width: 30.w,)),
+                  //       TextSpan(text: " "),
+                  //       TextSpan(text: userController.user.level.toString(), style:TextStyle(fontSize: 16,color: Colours.white)),
+                  //     ]
+                  // ),textAlign: TextAlign.center,),alignment: Alignment.center,)
                 ],
               ),
               Expanded(child: SizedBox(),flex: 1,),

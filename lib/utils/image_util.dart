@@ -23,7 +23,7 @@ class ImageUtil{
       fit: BoxFit.cover,
       placeholder: (context, url) =>
           Center(child: CupertinoActivityIndicator()),
-      errorWidget: (context, url, error) => Image.asset(R.assetsImgIcDefHead,height: 60.h,width: 60.h,),
+      errorWidget: (context, url, error) => Image.asset(R.assetsImgIconDefaultHead,height: 60.h,width: 60.h,),
     );
   }
 

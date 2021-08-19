@@ -22,8 +22,10 @@ class QuoteOptionalPage extends StatefulWidget {
 class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage> with AutomaticKeepAliveClientMixin{
 
   final QuoteController controller = Get.put(QuoteController());
-
   late num id;
+
+  int priceType = 0;
+
   _QuoteOptionalState(this.id);
   List<QuoteOptionalEntity> list = [];
   @override
@@ -103,18 +105,18 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage> with Auto
     return Row(
       children: [
         Expanded(child: SizedBox()),
-        Text(id == 4?S.current.quote_gains_today:title,style: TextStyle(fontSize: 14, color: id== 4?Colours.item_red:Colours.item_content_color),),
+        GestureDetector(child: Text(id == 4?S.current.quote_gains_today:title,style: TextStyle(fontSize: 14, color: id== 4?Colours.item_red:Colours.item_content_color),),onTap: (){
+          priceSortUp();
+        },),
         Gaps.hGap4,
         Visibility(child:Column(
           children: [
             GestureDetector(child:Image.asset(R.assetsImgIcQuoteUp, width: 15.w,height: 15.w,),onTap: (){
               priceSortUp();
             },),
-
             GestureDetector(child:Image.asset(R.assetsImgIcQuoteDown, width: 15.w,height: 15.w,),onTap: (){
               priceSortDown();
             },)
-
           ],
         ),visible:id == 4?false:true,),
       ],
@@ -158,7 +160,7 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage> with Auto
     list.clear();
   }
 
-  // 升
+  //  涨幅 升
   void priceSortUp() {
     LogUtil.e("升级");
     list.sort((left,right)=>left.changeRate.compareTo(right.changeRate));
@@ -166,7 +168,7 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage> with Auto
 
     });
   }
-  // 降
+  // 涨幅 降
   void priceSortDown() {
     LogUtil.e("降级");
     list.sort((left,right)=>right.changeRate.compareTo(left.changeRate));
@@ -175,18 +177,18 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage> with Auto
     });
   }
 
-  // 升
+  // 价格升
   void moneySortUp() {
     LogUtil.e("升级");
-    list.sort((left,right)=>left.changeRate.compareTo(right.changeRate));
+    list.sort((left,right)=>left.priceCny.compareTo(right.priceCny));
     setState(() {
 
     });
   }
-  // 降
+  // 价格降
   void moneySortDown() {
     LogUtil.e("降级");
-    list.sort((left,right)=>right.changeRate.compareTo(left.changeRate));
+    list.sort((left,right)=>right.priceCny.compareTo(left.priceCny));
     setState(() {
 
     });

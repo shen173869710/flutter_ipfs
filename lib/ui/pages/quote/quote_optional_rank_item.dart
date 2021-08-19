@@ -42,8 +42,7 @@ class QuoteOptionalRankItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           Gaps.hGap16,
-          Image.asset(
-            R.assetsImgIcUnlike,
+          Image.asset(data.optionalStatus == 1?R.assetsImgIcLike:R.assetsImgIcUnlike,
             width: 30.w,
             height: 30.w,
           ),

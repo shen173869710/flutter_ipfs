@@ -5,6 +5,7 @@ part 'quote_optional_entity.g.dart';
 @JsonSerializable()
 class QuoteOptionalEntity {
 	late num changeRate;
+	late num optionalStatus;
 	late num id;
 	late String logo;
 	late num marketCap;

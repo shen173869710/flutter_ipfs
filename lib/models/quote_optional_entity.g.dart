@@ -12,6 +12,7 @@ QuoteOptionalEntity _$QuoteOptionalEntityFromJson(Map<String, dynamic> json) {
     ..id = json['id'] as num
     ..logo = json['logo'] as String
     ..marketCap = json['marketCap'] as num
+    ..optionalStatus = json['optionalStatus'] as num
     ..name = json['name'] as String
     ..priceCny = json['priceCny'] as num
     ..priceUsd = json['priceUsd'] as num
@@ -22,6 +23,7 @@ Map<String, dynamic> _$QuoteOptionalEntityToJson(
         QuoteOptionalEntity instance) =>
     <String, dynamic>{
       'changeRate': instance.changeRate,
+      'optionalStatus': instance.optionalStatus,
       'id': instance.id,
       'logo': instance.logo,
       'marketCap': instance.marketCap,

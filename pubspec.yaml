@@ -187,6 +187,7 @@ flutter:
     - assets/img/ic_home_get.png
     - assets/img/home_item_3.png
     - assets/img/tab_find_p.png
+    - assets/img/icon_default_head.jpg
     - assets/img/ic_add.png
     - assets/img/ic_white_back.png
     - assets/img/title_bar_head.jpg
@@ -200,6 +201,7 @@ flutter:
     - assets/img/home_item_4.png
     - assets/img/home_item_mining.png
     - assets/img/ic_pay_del1.png
+    - assets/img/ic_quote_up_n.png
     - assets/img/home_item_5.png
     - assets/img/ic_sub.png
     - assets/img/me_item_18.png
@@ -222,6 +224,7 @@ flutter:
     - assets/img/more_item_13.png
     - assets/img/edittext_hide.png
     - assets/img/more_item_5.png
+    - assets/img/ic_quote_down_n.png
     - assets/img/ic_dad.png
     - assets/img/login_pwd.png
     - assets/img/tab_find_n.png

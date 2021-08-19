@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flustars/flustars.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_xupdate/flutter_xupdate.dart';
@@ -80,9 +81,8 @@ class _SettingState extends State<SettingPage> {
           text: S.current.setting_logout,
           endble: true,
           onPressed: () {
-            SpUtil.putString(GlobalEntiy.accessToken, "");
-            UserUtil.loginout();
-            NavigatorUtil.jumpLogin(context);
+
+            showMyCupertinoDialog(context);
           }),
     );
   }
@@ -165,6 +165,34 @@ class _SettingState extends State<SettingPage> {
     }
 
   }
+
+  void showMyCupertinoDialog(BuildContext context) {
+    showCupertinoDialog(
+        context: context,
+        builder: (context) {
+          return new CupertinoAlertDialog(
+            content: new Text(S.current.setting_logout),
+            actions: <Widget>[
+              new FlatButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: new Text(S.current.cancle),
+              ),
+              new FlatButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  SpUtil.putString(GlobalEntiy.accessToken, "");
+                  UserUtil.loginout();
+                  NavigatorUtil.jumpLogin(context);
+                },
+                child: new Text(S.current.sure),
+              ),
+            ],
+          );
+        });
+  }
+
 
 
 }
