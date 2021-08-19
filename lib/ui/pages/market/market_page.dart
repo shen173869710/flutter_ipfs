@@ -58,7 +58,7 @@ class _MarketStatus extends State<MarketPage> with AutomaticKeepAliveClientMixin
       appBar: AppBar(
           centerTitle: true,
           backgroundColor: Colours.app_bar_bg,
-          title: Text("IPFSNETS", style: ITextStyles.whiteTitle,
+          title: Text("INSTAR", style: ITextStyles.whiteTitle,
           ),
           bottom: PreferredSize(
               preferredSize: Size(double.infinity, 90.w),

@@ -43,7 +43,7 @@ class QuoteOptionalItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           Gaps.hGap16,
-          Image.asset(R.assetsImgIcLike,width: 35.w,height: 35.w,),
+          Image.asset(R.assetsImgIcUnlike,width: 35.w,height: 35.w,),
           Gaps.hGap12,
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,

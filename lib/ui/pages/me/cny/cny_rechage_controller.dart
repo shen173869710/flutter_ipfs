@@ -38,7 +38,7 @@ class CnyRechargeController extends GetxController{
     }
      BaseEntity baseEntity  = await ApiServer.putCnyRecharge(pageNum);
     if (baseEntity.isOk()) {
-      ToastUtil.show(S.current.option_success);
+      ToastUtil.show(S.current.upload_success);
     }else{
       ToastUtil.show(baseEntity.msg);
     }

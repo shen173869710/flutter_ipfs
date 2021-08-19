@@ -70,6 +70,7 @@ class PasswordPage extends StatelessWidget {
           Visibility(child: Gaps.line,visible: layoutVisible(3),),
 
           Visibility(child: buildPhoneCode(context, controller),visible: layoutVisible(4),),
+          Visibility(child: Gaps.line,visible: layoutVisible(4),),
         ],
       ),
     );

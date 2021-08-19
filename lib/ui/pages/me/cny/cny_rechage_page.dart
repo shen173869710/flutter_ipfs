@@ -241,7 +241,7 @@ class _CnyRechageStatus extends State<CnyRechagePage> {
           setState(() {
             _headUrl = entity.url;
           });
-          ToastUtil.show(S.current.option_success);
+          // ToastUtil.show(S.current.option_success);
         }
       }else{
         ToastUtil.show(baseEntity.msg);
@@ -266,7 +266,7 @@ class _CnyRechageStatus extends State<CnyRechagePage> {
           setState(() {
             _headUrl = entity.url;
           });
-          ToastUtil.show(S.current.option_success);
+          // ToastUtil.show(S.current.option_success);
         }
         LogUtil.e("fromPhoteo url==" + entity.url);
       }else{

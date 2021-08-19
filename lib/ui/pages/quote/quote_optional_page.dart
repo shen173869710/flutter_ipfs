@@ -63,8 +63,12 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage> with Auto
         Gaps.hGap4,
         Visibility(child:Column(
           children: [
-            Image.asset(R.assetsImgIcQuoteUp, width: 15.w,height: 15.w,),
-            Image.asset(R.assetsImgIcQuoteDown, width: 15.w,height: 15.w,),
+            GestureDetector(child: Image.asset(R.assetsImgIcQuoteUp, width: 15.w,height: 15.w,),onTap: (){
+
+            },),
+            GestureDetector(child: Image.asset(R.assetsImgIcQuoteDown, width: 15.w,height: 15.w,),onTap: (){
+
+            },),
           ],
         ),visible:false,),
         Expanded(child: SizedBox()),
@@ -81,8 +85,13 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage> with Auto
         Gaps.hGap4,
         Visibility(child:Column(
           children: [
-            Image.asset(R.assetsImgIcQuoteUp, width: 15.w,height: 15.w,),
-            Image.asset(R.assetsImgIcQuoteDown, width: 15.w,height: 15.w,),
+            GestureDetector(child:Image.asset(R.assetsImgIcQuoteUp, width: 15.w,height: 15.w,),onTap: (){
+              moneySortUp();
+            },),
+            GestureDetector(child:Image.asset(R.assetsImgIcQuoteDown, width: 15.w,height: 15.w,),onTap: (){
+              moneySortDown();
+            },)
+
           ],
         ),visible: id == 4?false:true,),
         Expanded(child: SizedBox()),
@@ -98,8 +107,14 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage> with Auto
         Gaps.hGap4,
         Visibility(child:Column(
           children: [
-            Image.asset(R.assetsImgIcQuoteUp, width: 15.w,height: 15.w,),
-            Image.asset(R.assetsImgIcQuoteDown, width: 15.w,height: 15.w,),
+            GestureDetector(child:Image.asset(R.assetsImgIcQuoteUp, width: 15.w,height: 15.w,),onTap: (){
+              priceSortUp();
+            },),
+
+            GestureDetector(child:Image.asset(R.assetsImgIcQuoteDown, width: 15.w,height: 15.w,),onTap: (){
+              priceSortDown();
+            },)
+
           ],
         ),visible:id == 4?false:true,),
       ],
@@ -141,6 +156,40 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage> with Auto
   @override
   void clearList() {
     list.clear();
+  }
+
+  // 升
+  void priceSortUp() {
+    LogUtil.e("升级");
+    list.sort((left,right)=>left.changeRate.compareTo(right.changeRate));
+    setState(() {
+
+    });
+  }
+  // 降
+  void priceSortDown() {
+    LogUtil.e("降级");
+    list.sort((left,right)=>right.changeRate.compareTo(left.changeRate));
+    setState(() {
+
+    });
+  }
+
+  // 升
+  void moneySortUp() {
+    LogUtil.e("升级");
+    list.sort((left,right)=>left.changeRate.compareTo(right.changeRate));
+    setState(() {
+
+    });
+  }
+  // 降
+  void moneySortDown() {
+    LogUtil.e("降级");
+    list.sort((left,right)=>right.changeRate.compareTo(left.changeRate));
+    setState(() {
+
+    });
   }
 
 

@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "choose_camera": MessageLookupByLibrary.simpleMessage("拍照"),
         "choose_photo": MessageLookupByLibrary.simpleMessage("从相册选择"),
         "cny_all": MessageLookupByLibrary.simpleMessage("总资产"),
+        "cny_can_recharge": MessageLookupByLibrary.simpleMessage("可提现"),
         "cny_item_1": MessageLookupByLibrary.simpleMessage("来源"),
         "cny_item_2": MessageLookupByLibrary.simpleMessage("收入"),
         "cny_item_3": MessageLookupByLibrary.simpleMessage("时间"),
@@ -74,9 +75,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "cny_withdrawal_end_band_desc":
             MessageLookupByLibrary.simpleMessage("请确认银行卡账号无误再提现"),
         "cny_withdrawal_end_bank_account":
-            MessageLookupByLibrary.simpleMessage("请输入银行卡账户"),
+            MessageLookupByLibrary.simpleMessage("请输入银行卡号"),
         "cny_withdrawal_end_bank_address":
-            MessageLookupByLibrary.simpleMessage("请输入卡号银行"),
+            MessageLookupByLibrary.simpleMessage("请输入银行名称"),
         "cny_withdrawal_end_bank_name":
             MessageLookupByLibrary.simpleMessage("请输入姓名"),
         "cny_withdrawal_end_bank_title":
@@ -151,11 +152,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "login_forgot_pwd_again":
             MessageLookupByLibrary.simpleMessage("请再次输入新密码"),
         "login_login": MessageLookupByLibrary.simpleMessage("登录"),
-        "login_phone": MessageLookupByLibrary.simpleMessage("请输入手机号"),
+        "login_phone": MessageLookupByLibrary.simpleMessage("请输入手机号/邮箱"),
         "login_pwd": MessageLookupByLibrary.simpleMessage("请输入密码"),
         "login_register": MessageLookupByLibrary.simpleMessage("注册"),
         "login_title": MessageLookupByLibrary.simpleMessage("你好,"),
-        "login_title_1": MessageLookupByLibrary.simpleMessage("欢迎来到IPFSNETS"),
+        "login_title_1": MessageLookupByLibrary.simpleMessage("欢迎来到INSTAR"),
         "machine_earnings_atonce": MessageLookupByLibrary.simpleMessage("立即释放"),
         "machine_earnings_item_1":
             MessageLookupByLibrary.simpleMessage("服务器ID"),
@@ -284,7 +285,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "me_info_title": MessageLookupByLibrary.simpleMessage("我的资料"),
         "me_item_1": MessageLookupByLibrary.simpleMessage("全部"),
         "me_item_10": MessageLookupByLibrary.simpleMessage("购物车"),
-        "me_item_11": MessageLookupByLibrary.simpleMessage("CNY账号"),
+        "me_item_11": MessageLookupByLibrary.simpleMessage("CNY账户"),
         "me_item_12": MessageLookupByLibrary.simpleMessage("转账"),
         "me_item_13": MessageLookupByLibrary.simpleMessage("佣金提现"),
         "me_item_14": MessageLookupByLibrary.simpleMessage("我的粉丝"),
@@ -293,7 +294,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "me_item_17": MessageLookupByLibrary.simpleMessage("我的客服"),
         "me_item_18": MessageLookupByLibrary.simpleMessage("设置"),
         "me_item_19": MessageLookupByLibrary.simpleMessage("更多应用"),
-        "me_item_2": MessageLookupByLibrary.simpleMessage("代发货"),
+        "me_item_2": MessageLookupByLibrary.simpleMessage("待发货"),
         "me_item_3": MessageLookupByLibrary.simpleMessage("已发货"),
         "me_item_4": MessageLookupByLibrary.simpleMessage("已完成"),
         "me_item_5": MessageLookupByLibrary.simpleMessage("钱包"),
@@ -301,7 +302,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "me_item_7": MessageLookupByLibrary.simpleMessage("收款"),
         "me_item_8": MessageLookupByLibrary.simpleMessage("扫一扫"),
         "me_item_9": MessageLookupByLibrary.simpleMessage("服务器"),
-        "me_life": MessageLookupByLibrary.simpleMessage("财富生活"),
+        "me_life": MessageLookupByLibrary.simpleMessage("我的钱包"),
         "me_money": MessageLookupByLibrary.simpleMessage("总账户资产折合: (CNY)"),
         "me_order": MessageLookupByLibrary.simpleMessage("我的订单"),
         "me_server": MessageLookupByLibrary.simpleMessage("我的服务"),
@@ -423,6 +424,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "transfer_record_title": MessageLookupByLibrary.simpleMessage("转账记录"),
         "transfer_success": MessageLookupByLibrary.simpleMessage("转账成功"),
         "updateAt": MessageLookupByLibrary.simpleMessage("更新于 %T"),
+        "upload_success": MessageLookupByLibrary.simpleMessage("充值凭证上传成功"),
         "wallet_exchange_has": MessageLookupByLibrary.simpleMessage("可用"),
         "wallet_exchange_hint": MessageLookupByLibrary.simpleMessage("输入兑出数量"),
         "wallet_exchange_max": MessageLookupByLibrary.simpleMessage("可兑换"),

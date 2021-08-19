@@ -23,6 +23,7 @@
   "completeLoad": "完成加载",
   "updateAt": "更新于 %T",
 
+  "cny_can_recharge": "可提现",
   "day": "天",
   "action_settings": "设置",
   "tab_home": "home",
@@ -32,8 +33,8 @@
   "tab_me": "mine",
 
   "login_title": "你好,",
-  "login_title_1": "欢迎来到IPFSNETS",
-  "login_phone": "请输入手机号",
+  "login_title_1": "欢迎来到INSTAR",
+  "login_phone": "请输入手机号/邮箱",
   "login_pwd": "请输入密码",
   "login_login": "登录",
   "login_register": "注册",
@@ -71,6 +72,7 @@
   "option_faile": "操作失败",
   "save_success": "保存成功",
   "option_success": "操作成功",
+  "upload_success": "充值凭证上传成功",
   "copy_success": "复制成功",
   "register_success": "注册成功",
   "qrcode_fail": "无法识别账户,请稍后重新扫描",
@@ -93,11 +95,11 @@
   "edit_nick_input": "请输入昵称",
 
   "me_order": "我的订单",
-  "me_life": "财富生活",
+  "me_life": "我的钱包",
   "me_server": "我的服务",
   "me_money": "总账户资产折合: (CNY)",
   "me_item_1": "全部",
-  "me_item_2": "代发货",
+  "me_item_2": "待发货",
   "me_item_3": "已发货",
   "me_item_4": "已完成",
   "me_item_5": "钱包",
@@ -107,7 +109,7 @@
 
   "me_item_9": "服务器",
   "me_item_10": "购物车",
-  "me_item_11": "CNY账号",
+  "me_item_11": "CNY账户",
   "me_item_12": "转账",
   "me_item_13": "佣金提现",
   "me_item_14": "我的粉丝",
@@ -201,8 +203,8 @@
 
   "cny_withdrawal_end_bank_title": "提现到银行卡",
   "cny_withdrawal_end_bank_name": "请输入姓名",
-  "cny_withdrawal_end_bank_account": "请输入银行卡账户",
-  "cny_withdrawal_end_bank_address": "请输入卡号银行",
+  "cny_withdrawal_end_bank_account": "请输入银行卡号",
+  "cny_withdrawal_end_bank_address": "请输入银行名称",
   "cny_withdrawal_end_sure": "确定提现",
   "cny_withdrawal_end_band_desc": "请确认银行卡账号无误再提现",
 

@@ -66,7 +66,7 @@ class _QuoteStatus extends State<QuotePage> with AutomaticKeepAliveClientMixin,T
           appBar: AppBar(
               centerTitle: true,
               backgroundColor: Colours.app_bar_bg,
-              title: Text("IPFSNETS", style: ITextStyles.whiteTitle,
+              title: Text("INSTAR", style: ITextStyles.whiteTitle,
               ),
               actions: [
                 IconButton(icon: Icon(Icons.search,color: Colours.text_white,),onPressed: () async{

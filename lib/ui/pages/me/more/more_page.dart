@@ -27,11 +27,11 @@ class _FindStatus extends State<MorePage> with SingleTickerProviderStateMixin{
           centerTitle: true,
           backgroundColor: Colours.app_bar_bg,
           title: Text(
-            "IPFSNETS",
+            "INSTAR",
             style: ITextStyles.whiteTitle,
           ),
           bottom: PreferredSize(
-              preferredSize: Size(double.infinity, 55.w),
+              preferredSize: Size(double.infinity, 90.w),
               child: Container(
                   decoration: BoxDecoration(
                       color: Colours.layout_bg,

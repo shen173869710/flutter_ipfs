@@ -129,7 +129,8 @@ class _CnyWithdrawalState extends State<CnyWithdrawalPage> {
                 focusedBorder: InputBorder.none,
                 enabledBorder: InputBorder.none,
                 border: InputBorder.none,
-                hintText: widget.type+"  cny"
+                hintText: S.current.cny_can_recharge+" "+widget.type+"  CNY",
+                hintStyle: TextStyle(color: Colours.item_content_color, fontSize: 16)
                 ),
           )),
 

@@ -260,6 +260,16 @@ class S {
     );
   }
 
+  /// `可提现`
+  String get cny_can_recharge {
+    return Intl.message(
+      '可提现',
+      name: 'cny_can_recharge',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `天`
   String get day {
     return Intl.message(
@@ -340,20 +350,20 @@ class S {
     );
   }
 
-  /// `欢迎来到IPFSNETS`
+  /// `欢迎来到INSTAR`
   String get login_title_1 {
     return Intl.message(
-      '欢迎来到IPFSNETS',
+      '欢迎来到INSTAR',
       name: 'login_title_1',
       desc: '',
       args: [],
     );
   }
 
-  /// `请输入手机号`
+  /// `请输入手机号/邮箱`
   String get login_phone {
     return Intl.message(
-      '请输入手机号',
+      '请输入手机号/邮箱',
       name: 'login_phone',
       desc: '',
       args: [],
@@ -700,6 +710,16 @@ class S {
     );
   }
 
+  /// `充值凭证上传成功`
+  String get upload_success {
+    return Intl.message(
+      '充值凭证上传成功',
+      name: 'upload_success',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `复制成功`
   String get copy_success {
     return Intl.message(
@@ -890,10 +910,10 @@ class S {
     );
   }
 
-  /// `财富生活`
+  /// `我的钱包`
   String get me_life {
     return Intl.message(
-      '财富生活',
+      '我的钱包',
       name: 'me_life',
       desc: '',
       args: [],
@@ -930,10 +950,10 @@ class S {
     );
   }
 
-  /// `代发货`
+  /// `待发货`
   String get me_item_2 {
     return Intl.message(
-      '代发货',
+      '待发货',
       name: 'me_item_2',
       desc: '',
       args: [],
@@ -1020,10 +1040,10 @@ class S {
     );
   }
 
-  /// `CNY账号`
+  /// `CNY账户`
   String get me_item_11 {
     return Intl.message(
-      'CNY账号',
+      'CNY账户',
       name: 'me_item_11',
       desc: '',
       args: [],
@@ -1830,20 +1850,20 @@ class S {
     );
   }
 
-  /// `请输入银行卡账户`
+  /// `请输入银行卡号`
   String get cny_withdrawal_end_bank_account {
     return Intl.message(
-      '请输入银行卡账户',
+      '请输入银行卡号',
       name: 'cny_withdrawal_end_bank_account',
       desc: '',
       args: [],
     );
   }
 
-  /// `请输入卡号银行`
+  /// `请输入银行名称`
   String get cny_withdrawal_end_bank_address {
     return Intl.message(
-      '请输入卡号银行',
+      '请输入银行名称',
       name: 'cny_withdrawal_end_bank_address',
       desc: '',
       args: [],

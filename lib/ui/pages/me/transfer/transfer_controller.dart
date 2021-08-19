@@ -124,6 +124,7 @@ class TeansferController extends GetxController{
   }
 
   enableBtn() {
+    LogUtil.e("account = "+account + "money = "+money+" code = "+code);
     if (StringUtil.isNotEmpty(account)
         // && StringUtil.isNotEmpty(nickname)
         && StringUtil.isNotEmpty(money)
@@ -152,8 +153,6 @@ class TeansferController extends GetxController{
     }
 
     BaseEntity entity = await TransferApi.transferOut(code, coinCode, poundageGas, account, mark,num.parse(money));
-
-    LogUtil.e("zhuant1 == "+entity.code.toString());
     if(entity.isOk()) {
       return true;
     }else{
@@ -171,6 +170,7 @@ class TeansferController extends GetxController{
 
   void setCode(String str) {
     code = str;
+    enableBtn();
   }
   // 获取验证码
   Future<bool>  getCode() async {
