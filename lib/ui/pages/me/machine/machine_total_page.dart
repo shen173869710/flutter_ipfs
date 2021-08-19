@@ -22,7 +22,7 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
   _MachineTotalState(this.id);
   late MachineEntity entity;
 
-  late String currentTime = DateTime.now()!.year.toString() + "-"+DateTime.now()!.month.toString();
+  late String currentTime = DateTime.now().year.toString() + "-"+DateTime.now().month.toString();
   List<MarketEntity> list = [];
   @override
   Widget build(BuildContext context) {

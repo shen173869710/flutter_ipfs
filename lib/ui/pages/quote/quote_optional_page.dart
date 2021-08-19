@@ -8,7 +8,6 @@ import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/pages/quote/quote_controller.dart';
 import 'package:ipfsnets/ui/pages/quote/quote_optional_hot_item.dart';
 import 'package:ipfsnets/ui/pages/quote/quote_optional_item.dart';
-import 'package:ipfsnets/ui/pages/quote/quote_optional_rank_item.dart';
 import 'package:ipfsnets/ui/widget/base_list_page.dart';
 
 
@@ -67,7 +66,7 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage> with Auto
             Image.asset(R.assetsImgIcQuoteUp, width: 15.w,height: 15.w,),
             Image.asset(R.assetsImgIcQuoteDown, width: 15.w,height: 15.w,),
           ],
-        ),visible: id == 2?true:false,),
+        ),visible:false,),
         Expanded(child: SizedBox()),
       ],
     );
