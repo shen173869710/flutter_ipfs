@@ -57,6 +57,7 @@
   "forgot_by_phone": "手机找回",
   "forget_by_email": "邮箱找回",
 
+  "del_address": "是否删除当前提币地址",
   "sure": "确定",
   "save": "保存",
   "cancle": "取消",

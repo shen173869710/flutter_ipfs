@@ -98,7 +98,7 @@ class _SettingState extends State<SettingPage> {
   }
 
   checkVersion() {
-    FlutterXUpdate.checkUpdate(url: "http://124.16.8.140:8081/wallet/app/version",isCustomParse: true);
+    FlutterXUpdate.checkUpdate(url: "http://124.16.8.140:8081/wallet/app/version",isCustomParse: true,themeColor: '#ff516DFF');
   }
 
   ///初始化

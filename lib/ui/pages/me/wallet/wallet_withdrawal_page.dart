@@ -417,7 +417,7 @@ class _WalletWithdrawalState extends State<WalletWithdrawalPage> {
         controller.withdrawalAddress(entiy.address);
       }else  if (option == GlobalEntiy.ADDRESS_DEL) {
         // 删除
-        controller.delAddress(entiy.id);
+        showMyCupertinoDialog(context, entiy.id);
       } if (option == GlobalEntiy.ADDRESS_EDIT) {
         // 编辑
         entiy.coinCode = controller.coinCode;
@@ -435,6 +435,31 @@ class _WalletWithdrawalState extends State<WalletWithdrawalPage> {
       }
 
     },id: controller.coinCode,));
+  }
+
+  void showMyCupertinoDialog(BuildContext context,num id) {
+    showCupertinoDialog(
+        context: context,
+        builder: (context) {
+          return new CupertinoAlertDialog(
+            content: new Text(S.current.del_address),
+            actions: <Widget>[
+              new FlatButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: new Text(S.current.cancle),
+              ),
+              new FlatButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  controller.delAddress(id);
+                },
+                child: new Text(S.current.sure),
+              ),
+            ],
+          );
+        });
   }
 
 }

@@ -58,7 +58,7 @@
   "login_forgot_pwd_again": "请再次输入新密码",
   "edit_nick_name": "编辑昵称",
   "edit_nick_input": "请输入昵称",
-
+  "del_address": "是否删除当前提币地址",
   "sure": "确定",
   "save": "保存",
   "cancle": "取消",

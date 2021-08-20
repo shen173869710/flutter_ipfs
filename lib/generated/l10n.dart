@@ -560,6 +560,16 @@ class S {
     );
   }
 
+  /// `是否删除当前提币地址`
+  String get del_address {
+    return Intl.message(
+      '是否删除当前提币地址',
+      name: 'del_address',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `确定`
   String get sure {
     return Intl.message(

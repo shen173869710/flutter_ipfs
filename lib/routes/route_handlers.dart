@@ -1,6 +1,7 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:ipfsnets/models/market_coupon_entity.dart';
+import 'package:ipfsnets/ui/pages/home/photo_page.dart';
 import 'package:ipfsnets/ui/pages/market/market_buy_page.dart';
 import 'package:ipfsnets/ui/pages/market/market_coupons_page.dart';
 import 'package:ipfsnets/ui/pages/market/market_end_page.dart';
@@ -236,7 +237,9 @@ var fansHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<
 var languageHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   return LanguagePage();
 });
-
+var photoHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return PhotoPage(params['type']?.first ?? '');
+});
 // 历史记录相关页面
 var baseListHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   final String type = params['type']?.first ?? '';

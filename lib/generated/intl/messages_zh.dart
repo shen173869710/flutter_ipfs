@@ -100,6 +100,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "completeRefresh": MessageLookupByLibrary.simpleMessage("完成刷新"),
         "copy_success": MessageLookupByLibrary.simpleMessage("复制成功"),
         "day": MessageLookupByLibrary.simpleMessage("天"),
+        "del_address": MessageLookupByLibrary.simpleMessage("是否删除当前提币地址"),
         "edit_nick_input": MessageLookupByLibrary.simpleMessage("请输入昵称"),
         "edit_nick_name": MessageLookupByLibrary.simpleMessage("编辑昵称"),
         "fans_item_1": MessageLookupByLibrary.simpleMessage("直推业绩"),

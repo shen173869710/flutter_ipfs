@@ -53,6 +53,8 @@
   "login_forgot_code_hint": "请输入验证码",
   "login_forgot_pwd": "请输入新密码",
   "login_forgot_pwd_again": "请再次输入新密码",
+
+  "del_address": "是否删除当前提币地址",
   "sure": "确定",
   "save": "保存",
   "cancle": "取消",

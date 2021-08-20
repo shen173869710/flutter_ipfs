@@ -158,7 +158,9 @@ class _CnyWithdrawalState extends State<CnyWithdrawalPage> {
   }
 
   void showChoostAccountDialog(BuildContext context) {
-    showModalBottomSheet(context: context,backgroundColor:Colours.transparent,builder:(BuildContext context) =>WithDrawalAccountDialog(onItemClickListener: (int index) {  },money: _usernameController.text,));
+    showModalBottomSheet(context: context,backgroundColor:Colours.transparent,builder:(BuildContext context) =>WithDrawalAccountDialog(onItemClickListener: (int index) {
+
+    },money: _usernameController.text,));
   }
 
   bool enable() {

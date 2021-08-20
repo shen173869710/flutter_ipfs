@@ -96,9 +96,7 @@ class PasswordPage extends StatelessWidget {
         controller.setValue1(value.toString());
       },
       controller: _layout1,
-      inputFormatters: [
-        LengthLimitingTextInputFormatter(GlobalEntiy.PHONE_MAX_INPUT)
-      ],
+      inputFormatters:getInputType(),
       style: TextStyle(fontSize: 14),
 
       decoration: InputDecoration(
@@ -121,9 +119,7 @@ class PasswordPage extends StatelessWidget {
       style: TextStyle(
           fontSize: 14
       ),
-      inputFormatters: [
-        LengthLimitingTextInputFormatter(GlobalEntiy.PWD_MAX_INPUT)
-      ],
+      inputFormatters: getInputType(),
       decoration: InputDecoration(
         focusedBorder: InputBorder.none,
         enabledBorder: InputBorder.none,
@@ -144,9 +140,7 @@ class PasswordPage extends StatelessWidget {
       style: TextStyle(
           fontSize: 14
       ),
-      inputFormatters: [
-        LengthLimitingTextInputFormatter(GlobalEntiy.PWD_MAX_INPUT)
-      ],
+      inputFormatters: getInputType(),
       decoration: InputDecoration(
         focusedBorder: InputBorder.none,
         enabledBorder: InputBorder.none,
@@ -251,7 +245,23 @@ class PasswordPage extends StatelessWidget {
     }
     return "";
   }
-  
+
+
+  // 获取支付密码类型
+  getInputType() {
+    if (type == GlobalEntiy.PASSWORD_APLAY) {
+      LogUtil.e("设置支付密码");
+      return [
+        LengthLimitingTextInputFormatter(6),
+        FilteringTextInputFormatter.allow(RegExp("[0-9]")),
+      ];
+    }else{
+      return [
+        LengthLimitingTextInputFormatter(GlobalEntiy.PWD_MAX_INPUT)
+      ];
+    }
+
+  }
   
 
 }
