@@ -8,7 +8,9 @@ import '../../../include.dart';
 class QuoteOptionalRankItem extends StatelessWidget {
   final QuoteOptionalEntity data;
   final int index;
-  QuoteOptionalRankItem(this.data,this.index);
+  final void Function(int postion) onItemClickListener;
+
+  QuoteOptionalRankItem(this.data,this.index,this.onItemClickListener);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,10 +44,13 @@ class QuoteOptionalRankItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           Gaps.hGap16,
-          Image.asset(data.optionalStatus == 1?R.assetsImgIcLike:R.assetsImgIcUnlike,
+          GestureDetector(child:Image.asset(data.optionalStatus == 1?R.assetsImgIcLike:R.assetsImgIcUnlike,
             width: 30.w,
             height: 30.w,
-          ),
+          ),onTap: (){
+            onItemClickListener(index);
+          },),
+
           Gaps.hGap8,
           Container(child:Text((index+1).toString(),style: TextStyle(fontSize: 10, color: Colours.item_content_color)),height: 25.w,width: 38.w,color: Colours.bg_color,alignment: Alignment.center,),
           Gaps.hGap8,

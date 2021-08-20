@@ -12,13 +12,12 @@ import 'package:ipfsnets/ui/widget/base_list_page.dart';
 class QuoteOptionalSearchPage extends StatefulWidget {
   late num id;
 
-
   QuoteOptionalSearchPage(this.id);
   @override
   _QuoteOptionalState createState() => _QuoteOptionalState(id);
 }
 
-class _QuoteOptionalState extends BaseListPageState<QuoteOptionalSearchPage> with AutomaticKeepAliveClientMixin{
+class _QuoteOptionalState extends BaseListPageState<QuoteOptionalSearchPage>{
 
   final QuoteController controller = Get.put(QuoteController());
 
@@ -109,7 +108,9 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalSearchPage> wit
 
   @override
   Widget setListView(int index) {
-    return QuoteOptionalRankItem(controller.list[index],index);
+    return QuoteOptionalRankItem(controller.list[index],index,(postion){
+        controller.addOp(controller.list[index]);
+    });
   }
 
   @override
@@ -136,9 +137,4 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalSearchPage> wit
   void clearList() {
     controller.list.clear();
   }
-
-
-
-  @override
-  bool get wantKeepAlive => true;
 }

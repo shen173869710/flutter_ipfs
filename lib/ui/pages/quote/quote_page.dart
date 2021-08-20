@@ -20,15 +20,11 @@ class QuotePage extends StatefulWidget{
   }
 }
 
-class _QuoteStatus extends State<QuotePage> with AutomaticKeepAliveClientMixin,TickerProviderStateMixin{
+class _QuoteStatus extends State<QuotePage> with TickerProviderStateMixin{
 
   List<MainTabEntiy> entiys = [];
   final QuoteController controller = Get.put(QuoteController());
   late TabController tabController = TabController(length: entiys.length, vsync: this);
-
-  @override
-  bool get wantKeepAlive => true;
-
 
   @override
   void initState() {
@@ -60,7 +56,6 @@ class _QuoteStatus extends State<QuotePage> with AutomaticKeepAliveClientMixin,T
 
   @override
   Widget build(BuildContext context) {
-    super.build(context);
     return GetBuilder<QuoteController>(builder:(userController){
       return  Scaffold(
           appBar: AppBar(
@@ -229,11 +224,4 @@ class SearchBarDelegate extends SearchDelegate<String>{
       ),
     );
   }
-
-  _loadData() async {
-    //网络加载
-
-  }
-
-
 }

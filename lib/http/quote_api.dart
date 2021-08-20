@@ -1,16 +1,16 @@
 
-import 'package:ipfsnets/models/market_bar_entity.dart';
-import 'package:ipfsnets/models/market_coupon_entity.dart';
-import 'package:ipfsnets/models/market_entity.dart';
+import 'dart:convert';
+
 import 'package:ipfsnets/models/quote_optional_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/utils/user_util.dart';
+
 import 'http_manager.dart';
 
 class QuoteApi{
 
   //自选接口
-  static const String quote_home_user = "quote/app/op/list/";
+  static const String quote_home_user = "quote/app/op/query/";
   // 热搜接口
   static const String quote_home_op = "quote/app/pop/query";
   // 市值
@@ -18,12 +18,11 @@ class QuoteApi{
   // 排行榜
   static const String quote_home__leaderBoard = "quote/app/quotes/leaderBoard";
 
+
   static  Future<BaseEntity> getQuoteHome(num type) {
     String url = "";
-    bool show = true;
     if (type == 1) {
       url = quote_home_user+UserUtil.getUserInfo().userId.toString();
-      show = false;
     }else if (type == 2) {
       url = quote_home__cap;
     }else if (type == 3) {
@@ -32,7 +31,20 @@ class QuoteApi{
       url = quote_home__leaderBoard;
     }
 
-    return HttpManager.getInstance().get<List<QuoteOptionalEntity>>(url);
+    return HttpManager.getInstance().get<List<QuoteOptionalEntity>>(url,withLoading: false);
+  }
+
+  //{
+  //   "asc": 0,
+  //   "orderBy": 0,
+  //   "userId": 0
+  // }
+  static  Future<BaseEntity> getQuoteHomeOb(int asc, int orderBy) {
+    Map<String, dynamic> param = new Map();
+    param['asc'] = asc;
+    param['orderBy'] = orderBy;
+    param['userId'] = UserUtil.getUserInfo().userId.toString();
+    return HttpManager.getInstance().post<List<QuoteOptionalEntity>>(quote_home_user,jsonEncode(param));
   }
 
   // 热搜推荐
@@ -46,4 +58,16 @@ class QuoteApi{
     return HttpManager.getInstance().get<List<QuoteOptionalEntity>>(quote_home_search+search,withLoading: false);
   }
 
+  // 币种添加关注
+  static const String quote_op_add = "quote/app/op/add/";
+  static  Future<BaseEntity> quoteAdd(String name) {
+    return HttpManager.getInstance().get(quote_op_add+name);
+  }
+  // 币种取消关注
+  static const String quote_op_del = "quote/app/op/";
+  static  Future<BaseEntity> quoteDel(String name) {
+    // List<String>list = [];
+    // list.add(name);
+    return HttpManager.getInstance().del(quote_op_del+name,"");
+  }
 }

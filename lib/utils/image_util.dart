@@ -27,10 +27,15 @@ class ImageUtil{
     );
   }
 
-  static CachedNetworkImage loadImage(String url, double width, double height,{def}) {
+  static  loadImage(String url, double width, double height,{def}) {
+
       if (StringUtil.isEmpty(url)) {
         url = "";
       }
+      // if (url.contains('webp')) {
+      //   LogUtil.e("加载webp 图片");
+      //   return Image.network(url,height: width,width: height,fit: BoxFit.fill);
+      // }
 
     return CachedNetworkImage(
       width: width,

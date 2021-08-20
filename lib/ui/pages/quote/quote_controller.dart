@@ -35,4 +35,24 @@ class QuoteController extends GetxController{
 
   }
 
+  Future<void> addOp(QuoteOptionalEntity data) async {
+    if (data.optionalStatus == 1) {
+      BaseEntity entity = await QuoteApi.quoteDel(data.name);
+      if (entity.isOk()) {
+        data.optionalStatus = 0;
+        update();
+      }else{
+        ToastUtil.show(entity.msg);
+      }
+    }else{
+      BaseEntity entity = await QuoteApi.quoteAdd(data.name);
+      if (entity.isOk()) {
+        data.optionalStatus = 1;
+        update();
+      }else{
+        ToastUtil.show(entity.msg);
+      }
+    }
+  }
+
 }

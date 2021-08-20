@@ -5,7 +5,6 @@ import 'package:ipfsnets/include.dart';
 import 'package:ipfsnets/models/quote_optional_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
-import 'package:ipfsnets/ui/pages/quote/quote_controller.dart';
 import 'package:ipfsnets/ui/pages/quote/quote_optional_hot_item.dart';
 import 'package:ipfsnets/ui/pages/quote/quote_optional_item.dart';
 import 'package:ipfsnets/ui/widget/base_list_page.dart';
@@ -19,15 +18,33 @@ class QuoteOptionalPage extends StatefulWidget {
   _QuoteOptionalState createState() => _QuoteOptionalState(id);
 }
 
-class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage> with AutomaticKeepAliveClientMixin{
-
-  final QuoteController controller = Get.put(QuoteController());
+class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage>{
+  // final QuoteController controller = Get.put(QuoteController());
   late num id;
-
-  int priceType = 0;
+  // 价格排序   0 默认，1 涨  2 跌
+  int price1 = 0;
+  // 涨幅排序   0 默认，1 涨  2 跌
+  int gains1 = 0;
+  // 价格排序   0 默认，1 涨  2 跌
+  int price2 = 0;
+  // 涨幅排序   0 默认，1 涨  2 跌
+  int gains2 = 0;
 
   _QuoteOptionalState(this.id);
   List<QuoteOptionalEntity> list = [];
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    price1 = 0;
+    // 涨幅排序   0 默认，1 涨  2 跌
+    gains1 = 0;
+    // 价格排序   0 默认，1 涨  2 跌
+    price2 = 0;
+    // 涨幅排序   0 默认，1 涨  2 跌
+    gains2 = 0;
+  }
+
   @override
   Widget build(BuildContext context) {
     LogUtil.e(" num = "+ id.toString());
@@ -83,15 +100,18 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage> with Auto
     return Row(
       children: [
         Gaps.hGap26,
-        Text(id == 4?S.current.quote_price_cny:title,style: ITextStyles.itemContent,),
+        GestureDetector(child:Text(id == 4?S.current.quote_price_cny:title,style: ITextStyles.itemContent,),onTap: (){
+          priceSort();
+        },),
+
         Gaps.hGap4,
         Visibility(child:Column(
           children: [
-            GestureDetector(child:Image.asset(R.assetsImgIcQuoteUp, width: 15.w,height: 15.w,),onTap: (){
-              moneySortUp();
+            GestureDetector(child:Image.asset(getPriceUp(), width: 15.w,height: 15.w,),onTap: (){
+              priceSort();
             },),
-            GestureDetector(child:Image.asset(R.assetsImgIcQuoteDown, width: 15.w,height: 15.w,),onTap: (){
-              moneySortDown();
+            GestureDetector(child:Image.asset(getPriceDown(), width: 15.w,height: 15.w,),onTap: (){
+              priceSort();
             },)
 
           ],
@@ -106,16 +126,16 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage> with Auto
       children: [
         Expanded(child: SizedBox()),
         GestureDetector(child: Text(id == 4?S.current.quote_gains_today:title,style: TextStyle(fontSize: 14, color: id== 4?Colours.item_red:Colours.item_content_color),),onTap: (){
-          priceSortUp();
+          gainsSort();
         },),
         Gaps.hGap4,
         Visibility(child:Column(
           children: [
-            GestureDetector(child:Image.asset(R.assetsImgIcQuoteUp, width: 15.w,height: 15.w,),onTap: (){
-              priceSortUp();
+            GestureDetector(child:Image.asset(getGainsUp(), width: 15.w,height: 15.w,),onTap: (){
+              gainsSort();
             },),
-            GestureDetector(child:Image.asset(R.assetsImgIcQuoteDown, width: 15.w,height: 15.w,),onTap: (){
-              priceSortDown();
+            GestureDetector(child:Image.asset(getGainsDown(), width: 15.w,height: 15.w,),onTap: (){
+              gainsSort();
             },)
           ],
         ),visible:id == 4?false:true,),
@@ -128,9 +148,33 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage> with Auto
     if (id == 3) {
       return QuoteOptionalHotItem(list[index],index);
     } else {
-      return QuoteOptionalItem(list[index],index);
+      return QuoteOptionalItem(list[index],index,(postion){
+        addOp(list[index]);
+      });
     }
 
+  }
+
+  Future<void> addOp(QuoteOptionalEntity data) async {
+    if (data.optionalStatus == 1) {
+      BaseEntity entity = await QuoteApi.quoteDel(data.name);
+      if (entity.isOk()) {
+        data.optionalStatus = 0;
+        setState(() {
+            if (id == 1) {
+              list.remove(data);
+            }
+        });
+      }
+    }else{
+      BaseEntity entity = await QuoteApi.quoteAdd(data.name);
+      if (entity.isOk()) {
+        data.optionalStatus = 1;
+        setState(() {
+
+        });
+      }
+    }
   }
 
   @override
@@ -146,10 +190,25 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage> with Auto
 
   @override
   Future<BaseEntity> getData() async{
-    BaseEntity entity = await QuoteApi.getQuoteHome(widget.id);
+    BaseEntity entity;
+    if (widget.id == 1) {
+      entity = await QuoteApi.getQuoteHomeOb(0, 0);
+    }else{
+      entity = await QuoteApi.getQuoteHome(widget.id);
+    }
+
+    list.clear();
+    list.addAll(entity.data);
+    if (id == 1) {
+      price1 = 0;
+      gains1 = 0;
+    }else if(id == 2) {
+      price2 = 0;
+      gains2 = 0;
+    }
     if (entity.isOk()) {
-      list.addAll(entity.data);
       setState(() {
+
       });
     }
     return entity;
@@ -160,42 +219,154 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage> with Auto
     list.clear();
   }
 
-  //  涨幅 升
-  void priceSortUp() {
-    LogUtil.e("升级");
-    list.sort((left,right)=>left.changeRate.compareTo(right.changeRate));
+  //  价格 升
+  void priceSort() {
+    LogUtil.e("ric升级");
+    if (id == 1) {
+      if (price1 == 0) {
+        price1 =1;
+      }
+      if (price1 == 1) {
+        price1 = 2;
+        list.sort((left,right)=>right.priceCny.compareTo(left.priceCny));
+        LogUtil.e(" 1 价格升级 ");
+      }else{
+        price1 = 1;
+        list.sort((left,right)=>left.priceCny.compareTo(right.priceCny));
+        LogUtil.e(" 1 价格降");
+      }
+      gains1 = 0;
+    }else if (id == 2) {
+      if (price2 == 0) {
+        price2 =1;
+      }
+      if (price2 == 1) {
+        price2 = 2;
+        list.sort((left,right)=>right.priceCny.compareTo(left.priceCny));
+        LogUtil.e(" 2 价格升级");
+      }else{
+        price2 = 1;
+        list.sort((left,right)=>left.priceCny.compareTo(right.priceCny));
+        LogUtil.e(" 2 价格降");
+      }
+      gains2 = 0;
+    }
+    setState(() {
+
+    });
+
+  }
+
+  // 涨幅
+  void gainsSort() {
+    if (id == 1) {
+      if (gains1 == 0) {
+        gains1 =1;
+      }
+      if (gains1 == 1) {
+        gains1 = 2;
+        list.sort((left,right)=>right.changeRate.compareTo(left.changeRate));
+      }else{
+        gains1 = 1;
+        list.sort((left,right)=>left.changeRate.compareTo(right.changeRate));
+        LogUtil.e(" 1 涨幅降");
+      }
+      price1 = 0;
+    }else if (id == 2) {
+      if (gains2 == 0) {
+        gains2 =1;
+      }
+      if (gains2 == 1) {
+        gains2 = 2;
+        LogUtil.e(" 2 涨幅升级");
+        list.sort((left,right)=>right.changeRate.compareTo(left.changeRate));
+      }else{
+        gains2 = 1;
+        list.sort((left,right)=>left.changeRate.compareTo(right.changeRate));
+        LogUtil.e(" 2 涨幅降");
+      }
+      price2 = 0;
+    }
     setState(() {
 
     });
   }
-  // 涨幅 降
-  void priceSortDown() {
-    LogUtil.e("降级");
-    list.sort((left,right)=>right.changeRate.compareTo(left.changeRate));
-    setState(() {
 
-    });
-  }
 
-  // 价格升
-  void moneySortUp() {
-    LogUtil.e("升级");
-    list.sort((left,right)=>left.priceCny.compareTo(right.priceCny));
-    setState(() {
 
-    });
-  }
-  // 价格降
-  void moneySortDown() {
-    LogUtil.e("降级");
-    list.sort((left,right)=>right.priceCny.compareTo(left.priceCny));
-    setState(() {
+  getPriceUp() {
+    if (id == 1) {
+      if (price1 == 1) {
+        return R.assetsImgIcQuoteUpN;
+      }else{
+        return R.assetsImgIcQuoteUp;
+      }
+    }else if(id == 2) {
+      if (price2 == 1) {
+        return R.assetsImgIcQuoteUpN;
+      }else{
+        return R.assetsImgIcQuoteUp;
+      }
+    }else{
+      return R.assetsImgIcQuoteUp;
+    }
 
-    });
   }
 
 
+  getPriceDown() {
+    if (id == 1) {
+      if (price1 == 2) {
+        return R.assetsImgIcQuoteDownN;
+      }else {
+        return R.assetsImgIcQuoteDown;
+      }
+    }else if(id == 2) {
+      if (price2 == 2) {
+        return R.assetsImgIcQuoteDownN;
+      }else{
+        return R.assetsImgIcQuoteDown;
+      }
+    }else {
+      return R.assetsImgIcQuoteDown;
+    }
+  }
+  getGainsUp() {
+    if (id == 1) {
+      if (gains1 == 1) {
+        return R.assetsImgIcQuoteUpN;
+      }else{
+        return R.assetsImgIcQuoteUp;
+      }
+    }else if(id == 2) {
+      if (gains2 == 1) {
+        return R.assetsImgIcQuoteUpN;
+      }else{
+        return R.assetsImgIcQuoteUp;
+      }
+    }else {
+      return R.assetsImgIcQuoteUp;
+    }
+  }
 
-  @override
-  bool get wantKeepAlive => true;
+
+  getGainsDown() {
+    if (id == 1) {
+      if (gains1 == 2) {
+        return R.assetsImgIcQuoteDownN;
+      }else{
+        return R.assetsImgIcQuoteDown;
+      }
+    }else if(id == 2) {
+      if (gains2 == 2) {
+        return R.assetsImgIcQuoteDownN;
+      }else{
+        return R.assetsImgIcQuoteDown;
+      }
+    }else{
+      return R.assetsImgIcQuoteDown;
+    }
+  }
+
+
 }

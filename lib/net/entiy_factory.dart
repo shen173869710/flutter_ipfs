@@ -112,7 +112,7 @@ class EntityFactory {
       LogUtil.e("解析数组对象 MarketCouponEntity");
       return data.map<MarketCouponEntity>((e) => MarketCouponEntity.fromJson(e)).toList() as M;
     }else if(<QuoteOptionalEntity>[] is M){
-      LogUtil.e("解析数组对象 MarketEntity");
+      LogUtil.e("解析数组对象1 QuoteOptionalEntity");
       return data.map<QuoteOptionalEntity>((e) => QuoteOptionalEntity.fromJson(e)).toList() as M;
     }else if(<MachineEntity>[] is M){
       LogUtil.e("解析数组对象 MachineEntity");

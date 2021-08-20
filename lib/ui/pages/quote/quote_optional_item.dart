@@ -1,14 +1,31 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ipfsnets/http/quote_api.dart';
 import 'package:ipfsnets/models/quote_optional_entity.dart';
+import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/styles.dart';
-
 import '../../../include.dart';
+
+
+// class QuoteOptionalItem extends StatefulWidget{
+//
+//   final QuoteOptionalEntity data;
+//   final int index;
+//
+//   QuoteOptionalItem(this.data,this.index);
+//   @override
+//   State<StatefulWidget> createState() {
+//     // TODO: implement createState
+//     return QuoteOptionaState(data, index);
+//   }
+// }
 
 class QuoteOptionalItem extends StatelessWidget {
   final QuoteOptionalEntity data;
   final int index;
-  QuoteOptionalItem(this.data,this.index);
+  final void Function(int postion) onItemClickListener;
+
+  QuoteOptionalItem(this.data,this.index,this.onItemClickListener);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -43,7 +60,9 @@ class QuoteOptionalItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           Gaps.hGap16,
-          Image.asset(data.optionalStatus == 1?R.assetsImgIcLike:R.assetsImgIcUnlike,width: 35.w,height: 35.w,),
+          GestureDetector(child:Image.asset(data.optionalStatus == 1?R.assetsImgIcLike:R.assetsImgIcUnlike,width: 35.w,height: 35.w,),onTap: (){
+            onItemClickListener(index);
+          },),
           Gaps.hGap12,
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,7 +98,6 @@ class QuoteOptionalItem extends StatelessWidget {
 
   buildItem2() {
     return Expanded(
-
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -122,7 +140,10 @@ class QuoteOptionalItem extends StatelessWidget {
       return Color(0xffD8323E);
     }
   }
+  // 添加关注
+  Future<void> addOp(String name) async {
 
 
+  }
 }
 
