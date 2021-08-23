@@ -9,10 +9,10 @@ part of 'quote_optional_entity.dart';
 QuoteOptionalEntity _$QuoteOptionalEntityFromJson(Map<String, dynamic> json) {
   return QuoteOptionalEntity()
     ..changeRate = json['changeRate'] as num
+    ..optionalStatus = json['optionalStatus'] as num
     ..id = json['id'] as num
     ..logo = json['logo'] as String
     ..marketCap = json['marketCap'] as num
-    ..optionalStatus = json['optionalStatus'] as num
     ..name = json['name'] as String
     ..priceCny = json['priceCny'] as num
     ..priceUsd = json['priceUsd'] as num

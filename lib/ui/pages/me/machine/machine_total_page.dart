@@ -192,7 +192,7 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
         lastDate: DateTime(DateTime.now().year, DateTime.now().month),
         initialDate: DateTime(DateTime.now().year, DateTime.now().month),)
         .then((date) => setState(() {
-        currentTime = date!.year.toString() + "-" + date!.month.toString();
+        currentTime = date!.year.toString() + "-" + date.month.toString();
 
     }));
   }

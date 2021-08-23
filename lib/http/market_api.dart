@@ -1,6 +1,7 @@
 
 import 'dart:convert';
 
+import 'package:ipfsnets/models/fans_entity.dart';
 import 'package:ipfsnets/models/machine_hosting_entity.dart';
 import 'package:ipfsnets/models/machine_pledge_entity.dart';
 import 'package:ipfsnets/models/market_bar_entity.dart';
@@ -60,7 +61,14 @@ class MarketApi{
     param['payType'] = payType;
     return HttpManager.getInstance().post<MarketBuyEntity>(machine_buy,jsonEncode(param));
   }
-
-
-
+  // 我的业绩
+  static const String fans_info = "grade/app/user/kpi";
+  static  Future<BaseEntity> getFansInfo() {
+    return HttpManager.getInstance().get<FansEntity>(fans_info);
+  }
+  // 我的我的粉丝
+  static const String fans_list = "grade/app/user/fans";
+  static  Future<BaseEntity> getFansList() {
+    return HttpManager.getInstance().get<List<FansEntity>>(fans_list);
+  }
 }

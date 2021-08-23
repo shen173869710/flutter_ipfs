@@ -275,6 +275,8 @@ class R {
   static final String assetsImgIcCouponCny = 'assets/img/ic_coupon_cny.png';
   /// ![](http://127.0.0.1:11111/assets/img/ic_launcher_round.png)
   static final String assetsImgIcLauncherRound = 'assets/img/ic_launcher_round.png';
+  /// ![](http://127.0.0.1:11111/assets/img/ic_point.png)
+  static final String assetsImgIcPoint = 'assets/img/ic_point.png';
   /// ![](http://127.0.0.1:11111/assets/img/more_item_1.png)
   static final String assetsImgMoreItem1 = 'assets/img/more_item_1.png';
   /// ![](http://127.0.0.1:11111/assets/img/home_treasure.png)

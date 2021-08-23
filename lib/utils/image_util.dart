@@ -27,6 +27,19 @@ class ImageUtil{
     );
   }
 
+  static CachedNetworkImage getFansFormNet(String url) {
+    LogUtil.e("CachedNetworkImage === "+url);
+    return CachedNetworkImage(
+      width: 100.h,
+      height: 100.h,
+      imageUrl: url,
+      fit: BoxFit.cover,
+      placeholder: (context, url) =>
+          Center(child: CupertinoActivityIndicator()),
+      errorWidget: (context, url, error) => Image.asset(R.assetsImgIconDefaultHead,height: 60.h,width: 60.h,),
+    );
+  }
+
   static  loadImage(String url, double width, double height,{def}) {
 
       if (StringUtil.isEmpty(url)) {

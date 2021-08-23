@@ -2,12 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ipfsnets/http/market_api.dart';
 import 'package:ipfsnets/include.dart';
+import 'package:ipfsnets/models/fans_entity.dart';
 import 'package:ipfsnets/models/machine_entity.dart';
 import 'package:ipfsnets/models/market_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/pages/me/machine/machine_total_list_item.dart';
 import 'package:ipfsnets/ui/widget/base_list_page.dart';
+
+import 'fans_list_item.dart';
 
 
 
@@ -18,7 +21,8 @@ class FansPage extends StatefulWidget {
 
 class _FansState extends BaseListPageState<FansPage> {
 
-  List<MarketEntity> list = [];
+  late FansEntity fansEntity;
+  List<FansEntity> list = [];
   @override
   Widget build(BuildContext context) {
 
@@ -55,13 +59,23 @@ class _FansState extends BaseListPageState<FansPage> {
 
   @override
   Widget setListView(int index) {
-    return MachineTotalListItem(list[index]);
+    return FansListItem(list[index]);
   }
 
   @override
   void onItemClick(BuildContext context, int index) {
     // TODO: implement onItemClick
 
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fansEntity = new FansEntity();
+    fansEntity.teamKpi = 0;
+    fansEntity.personalKpi = 0;
+
+    getInfo();
   }
 
 
@@ -74,9 +88,20 @@ class _FansState extends BaseListPageState<FansPage> {
 
   @override
   Future<BaseEntity> getData() async{
-    BaseEntity entity = await MarketApi.getMachineById(1, false);
+    BaseEntity entity = await MarketApi.getFansList();
     if (entity.isOk()) {
       list.addAll(entity.data);
+      setState(() {
+
+      });
+    }
+    return entity;
+  }
+
+  getInfo() async{
+    BaseEntity entity = await MarketApi.getFansInfo();
+    if (entity.isOk()) {
+      fansEntity = entity.data;
       setState(() {
 
       });
@@ -100,32 +125,19 @@ class _FansState extends BaseListPageState<FansPage> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Gaps.hGap16,
-          Expanded(child:buildItemTitle(S.current.fans_item_1, "123"),flex: 1,),
+          Expanded(child:buildItemTitle(S.current.fans_item_1, fansEntity.personalKpi.toString()),flex: 1,),
           SizedBox(
             width: 1.w,
             height: 70.h,
             child: VerticalDivider(),
           ),
           Gaps.hGap16,
-          Expanded(child:buildItemTitle(S.current.fans_item_2, "12356"),flex: 1,)
+          Expanded(child:buildItemTitle(S.current.fans_item_2, fansEntity.teamKpi.toString()),flex: 1,)
         ],
       ),
     );
   }
 
-
-
-
-  buildItem(String title, String dec) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(dec, style: ITextStyles.itemContent),
-        Gaps.vGap4,
-        Text(title, style: ITextStyles.itemTitle,),
-      ],
-    );
-  }
 
   buildItemTitle(String title,String desc) {
     return Column(

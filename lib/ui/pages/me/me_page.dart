@@ -57,7 +57,8 @@ class MePage extends StatelessWidget {
                         color: Color(0xFF0E0677),
                         borderRadius: new BorderRadius.circular((20.w))
                     ),
-                    child:Row(
+                    child:
+                    Row(
                       children: [
                         Gaps.hGap8,
                         Image.asset(R.assetsImgIcVip,height: 28.w, width: 28.w,),

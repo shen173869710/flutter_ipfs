@@ -7,6 +7,7 @@ import 'package:ipfsnets/models/cny_recharge_entity.dart';
 import 'package:ipfsnets/models/cny_recharge_record_entity.dart';
 import 'package:ipfsnets/models/cny_withdrawal_record_entity.dart';
 import 'package:ipfsnets/models/cny_withdrawal_setting_entity.dart';
+import 'package:ipfsnets/models/fans_entity.dart';
 import 'package:ipfsnets/models/image_entity.dart';
 import 'package:ipfsnets/models/machine_entity.dart';
 import 'package:ipfsnets/models/machine_hosting_entity.dart';
@@ -66,6 +67,8 @@ class EntityFactory {
       return MachinePledgeEntity.fromJson(json)as T;
     }else if (name == "CnyWithdrawalSettingEntity"){
       return CnyWithdrawalSettingEntity.fromJson(json)as T;
+    }else if (name == "FansEntity"){
+      return FansEntity.fromJson(json)as T;
     }else {
       return json as T;
     }
@@ -117,6 +120,9 @@ class EntityFactory {
     }else if(<MachineEntity>[] is M){
       LogUtil.e("解析数组对象 MachineEntity");
       return data.map<MachineEntity>((e) => MachineEntity.fromJson(e)).toList() as M;
+    }else if(<FansEntity>[] is M){
+      LogUtil.e("解析数组对象 FansEntity");
+      return data.map<FansEntity>((e) => FansEntity.fromJson(e)).toList() as M;
     }
     throw Exception("-----------------数组子类异常 no fond");
   }
