@@ -16,12 +16,12 @@ class FansPage extends StatefulWidget {
   _FansState createState() => _FansState();
 }
 
-class _FansState extends BaseListPageState<FansPage> with AutomaticKeepAliveClientMixin{
-  late MachineEntity entity;
+class _FansState extends BaseListPageState<FansPage> {
+
   List<MarketEntity> list = [];
   @override
   Widget build(BuildContext context) {
-    entity = ModalRoute.of(context)!.settings.arguments as MachineEntity;
+
     setEnableRefresh(false);
     setEnableLoadMore(false);
     return Scaffold(
@@ -143,7 +143,4 @@ class _FansState extends BaseListPageState<FansPage> with AutomaticKeepAliveClie
   }
 
 
-
-  @override
-  bool get wantKeepAlive => true;
 }

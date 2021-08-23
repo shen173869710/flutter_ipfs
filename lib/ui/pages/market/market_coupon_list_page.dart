@@ -33,7 +33,6 @@ class _MarketCouponListState extends BaseListPageState<MarketCouponListPage> wit
   @override
   Widget setListView(int index) {
     return MarketCouponItem(data: list[index],index: index,onItemSelListener: (sel,postion){
-
         if (couponEntity.type != list[index].type || couponEntity.total < list[index].condition) {
           return ToastUtil.show(S.current.can_not_use);
         }
@@ -46,7 +45,6 @@ class _MarketCouponListState extends BaseListPageState<MarketCouponListPage> wit
         setState(() {
 
         });
-
         NavigatorUtil.goBackWithParams(context, list[index]);
     },);
   }

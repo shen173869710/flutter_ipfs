@@ -243,7 +243,10 @@ class MarketBuyPage extends StatelessWidget{
             height: 120.w,
             color: controller.enableBuy?Colours.button_sel:Colours.button_unsel,
             child: GestureDetector(child:Text(S.current.market_item_buy,style: TextStyle(fontSize: 16,color: Colours.white),),onTap: (){
-              showDialog(context);
+              if (controller.enableBuy) {
+                showDialog(context);
+              }
+
     },)
           ),
           flex: 2,
@@ -285,7 +288,6 @@ class MarketBuyPage extends StatelessWidget{
         return;
       }
     }
-
 
     showModalBottomSheet<void>(
     context: context,

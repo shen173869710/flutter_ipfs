@@ -610,6 +610,16 @@ class S {
     );
   }
 
+  /// `超出可选时间范围`
+  String get not_choose {
+    return Intl.message(
+      '超出可选时间范围',
+      name: 'not_choose',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `不符合使用条件`
   String get can_not_use {
     return Intl.message(

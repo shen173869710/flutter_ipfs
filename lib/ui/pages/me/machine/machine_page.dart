@@ -64,64 +64,68 @@ class _MachineStatus extends State<MachinePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colours.white,
-      body: SingleChildScrollView(
-        reverse: false,
-        padding: EdgeInsets.all(0.0),
-        physics: BouncingScrollPhysics(),
-        child: Column(
-          children: [
-            Container(
-              width:double.infinity,
-              child: Stack(
+      body: Column(
+        children: [
+          Container(
+            width:double.infinity,
+            child: Stack(
               children: [
                 Image.asset(R.assetsImgIcMachineBg,height:470.h,width:double.infinity,fit: BoxFit.cover,),
                 Container(
-                  padding: EdgeInsets.only(left: 20.w, top: 80.w,right: 20.w),
-                  alignment: Alignment.topRight,
-                  child:Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Row(
-                        children: [
-                          GestureDetector(child:Image.asset(R.assetsImgIcWhiteBack,height:50.w,width:50.w),onTap: (){
-                            NavigatorUtil.goBack(context);
-                          },),
-                          Expanded(child: SizedBox()),
-                        ],
-                      ),
-                      buildItem(S.current.machine_item_1,S.current.machine_item_2, entity.onlineNumber,entity.machineNumber,0),
-                      Gaps.vGap10,
-                      buildItemM(S.current.machine_item_3,S.current.machine_item_4, entity.allUseCap,entity.allRealCap,1),
-                      Gaps.vGap12,
-                      buildInfo(),
-                      Gaps.vGap12,
-                      buildButton(),
-                      Gaps.vGap12,
-                      Container(
-                        width: double.infinity,
-                        height: 5.w,
-                        color: Colours.layout_bg,
-                      ),
-                      Gaps.vGap12,
-                      buildRefreshView(context),
-                      // ListView.builder
-                      //   (
-                      //   shrinkWrap: true,
-                      //     itemCount: 25,
-                      //     itemBuilder: (BuildContext ctxt, int index) {
-                      //       return new Text(""+index.toString());
-                      //     }
-                      // )
-                    ],
-                  )
+                    padding: EdgeInsets.only(left: 20.w, top: 80.w,right: 20.w),
+                    alignment: Alignment.topRight,
+                    child:Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Row(
+                          children: [
+                            GestureDetector(child:Image.asset(R.assetsImgIcWhiteBack,height:50.w,width:50.w),onTap: (){
+                              NavigatorUtil.goBack(context);
+                            },),
+                            Expanded(child: SizedBox()),
+                          ],
+                        ),
+                        buildItem(S.current.machine_item_1,S.current.machine_item_2, entity.onlineNumber,entity.machineNumber,0),
+                        Gaps.vGap10,
+                        buildItemM(S.current.machine_item_3,S.current.machine_item_4, entity.allUseCap,entity.allRealCap,1),
+                        Gaps.vGap12,
+                        buildInfo(),
+                        Gaps.vGap12,
+                        buildButton(),
+                        Gaps.vGap12,
+                        Container(
+                          width: double.infinity,
+                          height: 5.w,
+                          color: Colours.layout_bg,
+                        ),
+                        Gaps.vGap12,
+
+
+                        // ListView.builder
+                        //   (
+                        //   shrinkWrap: true,
+                        //     itemCount: 25,
+                        //     itemBuilder: (BuildContext ctxt, int index) {
+                        //       return new Text(""+index.toString());
+                        //     }
+                        // )
+                      ],
+                    )
                 ),
 
               ],
-            ),)
-          ],
-        ),
-      ),
+            ),),
+          Expanded(child:  buildRefreshView(context))
+        ],
+      )
+
+      // SingleChildScrollView(
+      //   reverse: false,
+      //   padding: EdgeInsets.all(0.0),
+      //   physics: BouncingScrollPhysics(),
+      //   child: ,
+      // ),
     );
   }
   // 在线数量

@@ -1,13 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ipfsnets/dialog/month_picker_dialog.dart';
 import 'package:ipfsnets/http/market_api.dart';
 import 'package:ipfsnets/include.dart';
 import 'package:ipfsnets/models/machine_entity.dart';
 import 'package:ipfsnets/models/market_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
+import 'package:ipfsnets/picker/common/date.dart';
+import 'package:ipfsnets/picker/flutter_my_picker.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/widget/base_list_page.dart';
+
 import 'machine_total_list_item.dart';
+
+
 
 class MachineTotalPage extends StatefulWidget {
 
@@ -17,28 +23,34 @@ class MachineTotalPage extends StatefulWidget {
   _MachineTotalState createState() => _MachineTotalState(id);
 }
 
-class _MachineTotalState extends BaseListPageState<MachineTotalPage> with AutomaticKeepAliveClientMixin{
+class _MachineTotalState extends BaseListPageState<MachineTotalPage> with AutomaticKeepAliveClientMixin {
   late num id;
+
   _MachineTotalState(this.id);
+
   late MachineEntity entity;
 
-  late String currentTime = DateTime.now().year.toString() + "-"+DateTime.now().month.toString();
+  late String currentTime = DateTime.now().year.toString() + "-" + DateTime.now().month.toString();
   List<MarketEntity> list = [];
+
   @override
   Widget build(BuildContext context) {
-    entity = ModalRoute.of(context)!.settings.arguments as MachineEntity;
+    entity = ModalRoute
+        .of(context)!
+        .settings
+        .arguments as MachineEntity;
 
 
     setEnableRefresh(false);
     setEnableLoadMore(false);
     return Scaffold(
-        backgroundColor: Colours.bg_color,
-        appBar: AppBar(
-          title: new Text(S.current.machine_total_title),
-          centerTitle: true,
-          backgroundColor: Colours.app_bar_bg,
-        ),
-      body:ConstrainedBox(
+      backgroundColor: Colours.bg_color,
+      appBar: AppBar(
+        title: new Text(S.current.machine_total_title),
+        centerTitle: true,
+        backgroundColor: Colours.app_bar_bg,
+      ),
+      body: ConstrainedBox(
         constraints: BoxConstraints.expand(),
         child: Stack(
           children: [
@@ -81,7 +93,7 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
 
 
   @override
-  Future<BaseEntity> getData() async{
+  Future<BaseEntity> getData() async {
     BaseEntity entity = await MarketApi.getMachineById(id, false);
     if (entity.isOk()) {
       list.addAll(entity.data);
@@ -99,12 +111,12 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
 
 
   // 矿区收益
-  buildItem4(BuildContext context){
+  buildItem4(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(20.w),
       padding: EdgeInsets.all(30.w),
       decoration: ITextStyles.boxDecoration,
-      child:Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Column(
@@ -113,7 +125,8 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
             children: [
               Text(S.current.machine_total_1, style: ITextStyles.itemContent),
               Gaps.vGap8,
-              Text("123456", style: TextStyle(fontSize: 20,color: Color(0xffF23E2A)),),
+              Text("123456",
+                style: TextStyle(fontSize: 20, color: Color(0xffF23E2A)),),
             ],
           ),
           Gaps.vGap8,
@@ -121,8 +134,12 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Expanded(child:buildItem3Desc(S.current.machine_total_2, S.current.machine_total_2),flex: 1,),
-              Expanded(child:buildItem3Desc(S.current.machine_total_3, S.current.machine_total_3),flex: 1,)
+              Expanded(child: buildItem3Desc(
+                  S.current.machine_total_2, S.current.machine_total_2),
+                flex: 1,),
+              Expanded(child: buildItem3Desc(
+                  S.current.machine_total_3, S.current.machine_total_3),
+                flex: 1,)
             ],
           ),
         ],
@@ -132,40 +149,56 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
 
 
   // 矿区收益
-  buildItem2(BuildContext context){
+  buildItem2(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(20.w),
-      child:Row(
+      child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          GestureDetector(child:Text.rich(TextSpan(children: [
-            TextSpan(text: currentTime,style: ITextStyles.itemTitle),
-            WidgetSpan(child: Image.asset(R.assetsImgIcDown, height: 35.w, width: 35.w,)),
-          ])),onTap: (){
-            _showCupertinoDatePicker();
+          GestureDetector(child: Text.rich(TextSpan(children: [
+            TextSpan(text: currentTime, style: ITextStyles.itemTitle),
+            WidgetSpan(child: Image.asset(
+              R.assetsImgIcDown, height: 35.w, width: 35.w,)),
+          ])), onTap: () {
+            // _showCupertinoDatePicker();
+            showTimeDialog();
           },),
 
           Expanded(child: SizedBox(),),
-          Text(S.current.machine_total_4+"：123 FIL", style: ITextStyles.itemContent),
+          Text(S.current.machine_total_4 + "：123 FIL",
+              style: ITextStyles.itemContent),
         ],
       ),
     );
   }
 
   showTimeDialog() async {
-    DateTime? time = await showDatePicker(
-        context: context,
-        initialDate: DateTime.now(),
-        firstDate: DateTime(2019),
-        lastDate: DateTime.now());
-    print('$time');
-    print("--"+time!.month.toString());
-    currentTime = time.year.toString() + "-"+time.month.toString();
-    setState(() {
-      print(currentTime);
-    });
+    // DateTime? time = await showDatePicker(
+    //     context: context,
+    //     initialDate: DateTime.now(),
+    //     firstDate: DateTime(2019),
+    //     lastDate: DateTime.now());
+    // print('$time');
+    // print("--"+time!.month.toString());
+    // currentTime = time.year.toString() + "-"+time.month.toString();
+    // setState(() {
+    //   print(currentTime);
+    // });
 
+
+    showMonthPicker(
+        context: context,
+        firstDate: DateTime(DateTime.now().year - 3, 1),
+        lastDate: DateTime(DateTime.now().year, DateTime.now().month),
+        initialDate: DateTime(DateTime.now().year, DateTime.now().month),)
+        .then((date) => setState(() {
+        currentTime = date!.year.toString() + "-" + date!.month.toString();
+
+    }));
   }
+
+
+
 
   buildItem3Desc(String title, String dec) {
     return Column(
@@ -181,23 +214,53 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
   @override
   bool get wantKeepAlive => true;
 
-  void _showCupertinoDatePicker() {
-    showModalBottomSheet(
-        context: context,
-        builder: (context) {
-          return Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-            Container(
-              height: MediaQuery.of(context).copyWith().size.height / 3,
-              child: CupertinoDatePicker(
-                  mode: CupertinoDatePickerMode.date,//这里改模式
-                  maximumYear: DateTime.now().year,
-                  minimumYear: DateTime.now().year - 60,
-                  onDateTimeChanged: (dateTime) {
-                    print( "${dateTime.year}-${dateTime.month}-${dateTime.day}");
+  Future<void> _showCupertinoDatePicker() async {
+    print("_showCupertinoDatePicker");
+    DateTime _selectedDate = DateTime.now();
 
-                  }),
-            ),
-          ]);
+    // DayPicker(
+    //   selectedDate: _selectedDate,
+    //   currentDate: DateTime.now(),
+    //   onChanged: (date) {
+    //     setState(() {
+    //       _selectedDate = date;
+    //     });
+    //   },
+    //   firstDate: DateTime(2020, 5, 1),
+    //   lastDate: DateTime(2020, 5, 31),
+    //   displayedMonth: DateTime(2020, 5),
+    // );
+    // var date =await YearPicker(
+    //   selectedDate: _selectedDate,
+    //   onChanged: (date) {
+    //     setState(() {
+    //       _selectedDate = date;
+    //     });
+    //   },
+    //   firstDate: DateTime(2000, 1),
+    //   lastDate: DateTime(2020, 12),
+    // );
+    DateTime selectedDate = DateTime.now();
+    MonthPicker(
+      selectedDate: _selectedDate,
+      onChanged: (date) {
+        setState(() {
+          selectedDate = date;
         });
+      },
+      firstDate: DateTime(2020, 1),
+      lastDate: DateTime(2020, 12),
+    );
+
   }
+  _change(formatString) {
+    return (_date) {
+      print(MyDate.format(formatString, _date));
+      setState(() {
+
+      });
+    };
+  }
+
 }
+
