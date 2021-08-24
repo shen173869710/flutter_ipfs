@@ -124,7 +124,7 @@ class _LoginPageState extends StatelessWidget {
         BlocProvider.of<LoginBloc>(context).add(PhoneChangeEvent(state.repository));
     },
       controller: _usernameController,
-      style: TextStyle(fontSize: 14),
+      style: TextStyle(fontSize: 16),
       inputFormatters: [LengthLimitingTextInputFormatter(GlobalEntiy.PHONE_MAX_INPUT)],
       decoration: InputDecoration(
           focusedBorder: InputBorder.none,
@@ -178,7 +178,7 @@ class _LoginPageState extends StatelessWidget {
     },
       controller: _passwordController,
       inputFormatters: [LengthLimitingTextInputFormatter(GlobalEntiy.PWD_MAX_INPUT)],
-      style: TextStyle(fontSize: 14),
+      style: TextStyle(fontSize: 16),
       obscureText: state.repository.isObscure,
       decoration: InputDecoration(
           focusedBorder: InputBorder.none,

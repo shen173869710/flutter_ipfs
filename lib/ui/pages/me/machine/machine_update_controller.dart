@@ -49,6 +49,7 @@ class MachineUpdateController extends GetxController {
   // 点击增加服务器
   void addCount() {
     count++;
+
     LogUtil.e(count.toString());
     setTotal();
     update();
@@ -57,6 +58,7 @@ class MachineUpdateController extends GetxController {
   void subCount() {
     count--;
     LogUtil.e(count.toString());
+    entity = new MarketCouponEntity();
     if (count <= 1) {
       count = 1;
     }

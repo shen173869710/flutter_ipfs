@@ -46,6 +46,7 @@ class MarketBuyController extends GetxController {
   // 点击增加服务器
   void addCount() {
     count++;
+
     LogUtil.e(count.toString());
     if (count >= data.stock - data.selled) {
       count = data.stock - data.selled;
@@ -56,6 +57,7 @@ class MarketBuyController extends GetxController {
 
   void subCount() {
     count--;
+    entity = new MarketCouponEntity();
     LogUtil.e(count.toString());
     if (count <= 1) {
       count = 1;
@@ -107,8 +109,6 @@ class MarketBuyController extends GetxController {
     }else {
       enableBuy = false;
     }
-
-
   }
 
   // 设置优惠券
@@ -126,8 +126,5 @@ class MarketBuyController extends GetxController {
     setTotal();
     update();
   }
-
-
-
 
 }

@@ -99,11 +99,11 @@ class _UserManagerState extends State<UserManagerPage> {
                 title: S.current.me_info_phone,
                 content: userController.user.username,
               ),
-              Gaps.vGap16,
-              ClickItem(
-                title: S.current.me_info_address,
-                onTap: () {},
-              ),
+              // Gaps.vGap16,
+              // ClickItem(
+              //   title: S.current.me_info_address,
+              //   onTap: () {},
+              // ),
               Padding(
                 padding: EdgeInsets.fromLTRB(30.w, 50.h, 30.w, 0),
                 child: LoginButton(text: S.current.save, endble: true, onPressed: () async {

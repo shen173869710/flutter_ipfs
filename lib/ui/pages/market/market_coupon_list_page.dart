@@ -24,6 +24,7 @@ class _MarketCouponListState extends BaseListPageState<MarketCouponListPage> wit
   List<MarketCouponEntity> list = [];
   @override
   Widget build(BuildContext context) {
+    setEnableLoadMore(false);
     return Scaffold(
       backgroundColor: Colours.bg_color,
       body: buildRefreshView(context)

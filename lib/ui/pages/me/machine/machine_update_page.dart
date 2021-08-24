@@ -112,11 +112,11 @@ class MachineUpdatePage extends StatelessWidget{
         Text(S.current.market_buy_num, style: ITextStyles.itemTitle,textAlign: TextAlign.start,),
         Expanded(child: SizedBox(),),
         Text.rich(TextSpan(children: [
-          WidgetSpan(child:GestureDetector(child: Image.asset(R.assetsImgIcAdd, height: 40.w, width: 40.w,),onTap: (){addNumber(true);},)),
+          WidgetSpan(child:GestureDetector(child: Image.asset(R.assetsImgIcSub, height: 35.w, width: 35.w,),onTap: (){addNumber(false);},)),
           TextSpan(text: "  "),
           TextSpan(text: controller.count.toString(), style:ITextStyles.itemTitle),
           TextSpan(text: "  "),
-          WidgetSpan(child: GestureDetector(child: Image.asset(R.assetsImgIcSub, height: 40.w, width: 40.w,),onTap: (){addNumber(false);},)),
+          WidgetSpan(child: GestureDetector(child: Image.asset(R.assetsImgIcAdd, height: 35.w, width: 35.w,),onTap: (){addNumber(true);},)),
         ]),textAlign: TextAlign.left,),
       ],
     );
