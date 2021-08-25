@@ -11,7 +11,7 @@ import 'package:ipfsnets/ui/pages/me/setting/password_page.dart';
 import 'package:ipfsnets/ui/pages/webview_page.dart';
 
 class Routes {
-
+  static GlobalKey<NavigatorState> navigatorKey = GlobalKey();
   static String root = "/";
   static String index = "/index";
   static String login = "/login";

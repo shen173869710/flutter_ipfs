@@ -34,6 +34,8 @@ class TeansferController extends GetxController{
   // String nickname = "";
   // 转账数量
   String money = "";
+  // 转账类型
+  num transferGasType = 0;
   // 转出的手续费
   String poundage = "";
   // 验证码
@@ -58,7 +60,7 @@ class TeansferController extends GetxController{
     // 对方账号
     account = "";
     // // 对方昵称
-    // nickname = "";
+    transferGasType = 0;
     // 转账数量
     money = "";
     // 转出的手续费
@@ -98,6 +100,7 @@ class TeansferController extends GetxController{
       value = entity.value;
       type = entity.coinName;
       poundageGas = outEntiy.gas;
+      transferGasType = outEntiy.transferGasType;
       inAccount = inEntiy.username;
       update();
     }
@@ -140,7 +143,11 @@ class TeansferController extends GetxController{
    setPoundage() {
     String valut = "0";
     if(StringUtil.isNotEmpty(money)) {
-      valut =  NumUtil.multiplyDec(poundageGas,num.parse(money)).toString();
+      if (transferGasType == 0) {
+        valut =  NumUtil.multiplyDec(poundageGas,num.parse(money)).toString();
+      }else{
+        valut =  poundageGas.toString();
+      }
     }
     poundage =  valut;
   }

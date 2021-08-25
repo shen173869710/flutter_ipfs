@@ -20,6 +20,8 @@ class UserEntity {
 	late String refname;
 	late String refs;
 	late num refLevels;
+	late String levelName;
+
 
 	UserEntity();
 

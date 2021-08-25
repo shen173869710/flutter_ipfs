@@ -74,7 +74,7 @@ class QuoteOptionalItem extends StatelessWidget {
                 children: [
                   Container(child:ImageUtil.loadImage(data.logo, 35.w, 35.w),height: 35.w,width: 35.w,alignment: Alignment.center,),
                   Gaps.hGap5,
-                  Text(data.name,style:ITextStyles.itemTitle),
+                  Text(data.name.toUpperCase(),style:ITextStyles.itemTitle),
                 ],
               ),
               Gaps.vGap4,
@@ -101,9 +101,9 @@ class QuoteOptionalItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(data.priceCny.toString(),style: ITextStyles.itemTitle,),
+          Text(data.priceUsd.toString(),style: ITextStyles.itemTitle,),
           Gaps.vGap4,
-          Text(StringUtil.addCoin(data.priceUsd.toString()),style: ITextStyles.itemContent,),
+          Text(StringUtil.addCoin(data.priceCny.toStringAsFixed(2)),style: ITextStyles.itemContent,),
         ],
       ),
       flex: 4,

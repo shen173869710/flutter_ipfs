@@ -18,6 +18,7 @@ UserEntity _$UserEntityFromJson(Map<String, dynamic> json) {
     ..sex = json['sex'] as String
     ..status = json['status'] as String
     ..username = json['username'] as String
+    ..levelName = json['levelName'] as String
     ..code = json['code'] as String
     ..ref = json['ref'] as num
     ..refname = json['refname'] as String
@@ -40,6 +41,7 @@ Map<String, dynamic> _$UserEntityToJson(UserEntity instance) =>
       'code': instance.code,
       'ref': instance.ref,
       'refname': instance.refname,
+      'levelName': instance.levelName,
       'refs': instance.refs,
       'refLevels': instance.refLevels,
     };

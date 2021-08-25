@@ -105,6 +105,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit_nick_name": MessageLookupByLibrary.simpleMessage("编辑昵称"),
         "fans_item_1": MessageLookupByLibrary.simpleMessage("个人业绩(CNY)"),
         "fans_item_2": MessageLookupByLibrary.simpleMessage("团队业绩(CNY)"),
+        "fans_item_3": MessageLookupByLibrary.simpleMessage("个人业绩"),
+        "fans_item_4": MessageLookupByLibrary.simpleMessage("团队业绩"),
         "fans_title": MessageLookupByLibrary.simpleMessage("我的粉丝"),
         "find_tab_1": MessageLookupByLibrary.simpleMessage("热门推荐"),
         "find_tab_2": MessageLookupByLibrary.simpleMessage("企业公告"),
@@ -279,6 +281,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "me_info_image_camera": MessageLookupByLibrary.simpleMessage("拍照"),
         "me_info_image_choose": MessageLookupByLibrary.simpleMessage("选择头像"),
         "me_info_image_man": MessageLookupByLibrary.simpleMessage("男"),
+        "me_info_image_no": MessageLookupByLibrary.simpleMessage("未设置"),
         "me_info_image_woman": MessageLookupByLibrary.simpleMessage("女"),
         "me_info_nick": MessageLookupByLibrary.simpleMessage("昵称"),
         "me_info_phone": MessageLookupByLibrary.simpleMessage("手机号码"),
@@ -377,7 +380,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "register_phone": MessageLookupByLibrary.simpleMessage("手机注册"),
         "register_pwd": MessageLookupByLibrary.simpleMessage("请输入登录密码"),
         "register_pwd_again": MessageLookupByLibrary.simpleMessage("请再次输入登录密码"),
-        "register_share_hint": MessageLookupByLibrary.simpleMessage("请输邀请码"),
+        "register_share_hint": MessageLookupByLibrary.simpleMessage("请输入邀请码"),
         "register_success": MessageLookupByLibrary.simpleMessage("注册成功"),
         "releaseToLoad": MessageLookupByLibrary.simpleMessage("释放加载"),
         "releaseToRefresh": MessageLookupByLibrary.simpleMessage("释放刷新"),
@@ -455,22 +458,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "wallet_item_3": MessageLookupByLibrary.simpleMessage("充币"),
         "wallet_item_4": MessageLookupByLibrary.simpleMessage("兑换"),
         "wallet_recharge_address":
-            MessageLookupByLibrary.simpleMessage("冲币钱包地址"),
+            MessageLookupByLibrary.simpleMessage("充币钱包地址"),
         "wallet_recharge_copy": MessageLookupByLibrary.simpleMessage("复制地址"),
         "wallet_recharge_item_address":
-            MessageLookupByLibrary.simpleMessage("冲币地址"),
+            MessageLookupByLibrary.simpleMessage("充币地址"),
         "wallet_recharge_item_fail":
-            MessageLookupByLibrary.simpleMessage("冲币失败"),
+            MessageLookupByLibrary.simpleMessage("充币失败"),
         "wallet_recharge_item_ing": MessageLookupByLibrary.simpleMessage("等待中"),
         "wallet_recharge_item_suc":
-            MessageLookupByLibrary.simpleMessage("冲币成功"),
+            MessageLookupByLibrary.simpleMessage("充币成功"),
         "wallet_recharge_item_sure":
             MessageLookupByLibrary.simpleMessage("区块确认中"),
         "wallet_recharge_record_title":
-            MessageLookupByLibrary.simpleMessage("冲币记录"),
+            MessageLookupByLibrary.simpleMessage("充币记录"),
         "wallet_recharge_scan":
             MessageLookupByLibrary.simpleMessage("扫描二维码,获取地址"),
-        "wallet_recharge_title": MessageLookupByLibrary.simpleMessage("冲币"),
+        "wallet_recharge_title": MessageLookupByLibrary.simpleMessage("充币"),
         "wallet_title": MessageLookupByLibrary.simpleMessage("我的钱包"),
         "wallet_total": MessageLookupByLibrary.simpleMessage("总账户资产折合"),
         "wallet_withdraw_address": MessageLookupByLibrary.simpleMessage("提币地址"),

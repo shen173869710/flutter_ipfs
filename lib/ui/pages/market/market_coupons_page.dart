@@ -32,8 +32,8 @@ class _MarketCouponsStatus extends State<MarketCouponsPage> with AutomaticKeepAl
   void initState() {
     entiys = [
       MainTabEntiy(S.current.market_coupons_item_1, MarketCouponListPage("unused",entity)),
-      MainTabEntiy(S.current.market_coupons_item_2, MarketCouponListPage("dated",entity)),
-      MainTabEntiy(S.current.market_coupons_item_3, MarketCouponListPage("used",entity)),
+      MainTabEntiy(S.current.market_coupons_item_2, MarketCouponListPage("used",entity)),
+      MainTabEntiy(S.current.market_coupons_item_3, MarketCouponListPage("dated",entity)),
     ];
     tabController  = TabController(length: entiys.length, vsync: this);
     super.initState();

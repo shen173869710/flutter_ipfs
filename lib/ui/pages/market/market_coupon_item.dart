@@ -66,9 +66,9 @@ class MarketCouponItem extends StatelessWidget {
           shape: CircleBorder());
 
     }else if (data.status == 1) {
-      return Image.asset(R.assetsImgIcCouponDated, width: 90.w,height: 90.w,fit: BoxFit.cover,);
-    }else if (data.status == 2) {
       return Image.asset(R.assetsImgIcCouponUsed, width: 90.w,height: 90.w,fit: BoxFit.cover,);
+    }else if (data.status == 2) {
+      return Image.asset(R.assetsImgIcCouponDated, width: 90.w,height: 90.w,fit: BoxFit.cover,);
     }
   }
 

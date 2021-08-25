@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -12,6 +11,7 @@ import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/utils/LoadingUtils.dart';
 import 'package:ipfsnets/utils/toast_util.dart';
 import 'package:ipfsnets/utils/user_util.dart';
+
 import 'login_repository.dart';
 
 part 'login_event.dart';
@@ -68,8 +68,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   Stream<LoginState> _mapLoginButtonPressToState(LoginButtonPressEvent event) async* {
-
-
     LoadingUtils.show();
     BaseEntity baseEntity  = await ApiServer.login(event.repository.userName!,event.repository.password!);
     // event.repository.state = 200;
@@ -98,7 +96,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       }
     }
-
     LoadingUtils.dismiss();
   }
 

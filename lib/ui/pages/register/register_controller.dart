@@ -58,6 +58,8 @@ class RegisterController extends GetxController {
   //  输入邀请码
   void setShareCode (String str) {
     this.shareCode = str;
+    enableRegister ();
+    update();
   }
 
   //  密码输入

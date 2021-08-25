@@ -63,9 +63,9 @@ class MePage extends StatelessWidget {
                         Gaps.hGap8,
                         Image.asset(R.assetsImgIcVip,height: 28.w, width: 28.w,),
                         Gaps.hGap2,
-                        Text(userController.user.level.toString(),style:TextStyle(fontSize: 16,color: Colours.white))
+                        Text(userController.user.levelName == null?"":userController.user.levelName,style:TextStyle(fontSize: 14,color: Colours.white))
                       ],
-                    ),width: 150.w,height: 42.w,
+                    ),width: 180.w,height: 42.w,
                   )
 
                   // Container(child:Text.rich(TextSpan(

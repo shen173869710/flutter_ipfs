@@ -58,7 +58,7 @@ class QuoteOptionalHotItem extends StatelessWidget {
             alignment: Alignment.center,
           ),
           Gaps.hGap2,
-          Text(data.name, style: ITextStyles.itemTitle),
+          Text(data.name.toUpperCase(), style: ITextStyles.itemTitle),
         ],
       ),
       flex: 1,
@@ -91,7 +91,7 @@ class QuoteOptionalHotItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Text(StringUtil.addCoin(data.priceCny.toString()),style: TextStyle(color: Colours.item_title_color,fontSize: 12)),
+          Text(StringUtil.addCoin(data.priceCny.toStringAsFixed(2)),style: TextStyle(color: Colours.item_title_color,fontSize: 12)),
           Text(data.changeRate.toString()+"%",style: TextStyle(color: getItem3Bg(data),fontSize: 12)),
         ],
       ),

@@ -1,6 +1,7 @@
 
 import 'package:ipfsnets/data/global_entiy.dart';
 import 'package:ipfsnets/include.dart';
+import 'package:ipfsnets/ui/pages/login_page.dart';
 
 import 'entiy_factory.dart';
 
@@ -15,8 +16,11 @@ class BaseEntity <T> {
     code = json[GlobalEntiy.CODE] as int;
     LogUtil.e("BaseEntity---------- =="+code.toString());
     msg = json[GlobalEntiy.MSG] as String;
-    if (code != 200) {
-      LogUtil.e("BaseEntity---------- 停止解析");
+
+    if (code == 503) {
+      toLogin();
+      return;
+    }else if (code != 200) {
       return;
     }
     if (json.containsKey("total")) {
@@ -35,6 +39,13 @@ class BaseEntity <T> {
       return true;
     }
     return false;
+  }
+
+  toLogin() async {
+    ToastUtil.show(msg);
+    await   Future.delayed(const Duration(milliseconds: 1000), () async {
+      Routes.navigatorKey.currentState!.pushAndRemoveUntil(MaterialPageRoute(builder: (context) => LoginPage(),), (route) => route == null);
+    });
   }
 
 }

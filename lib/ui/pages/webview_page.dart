@@ -63,6 +63,7 @@ class _WebViewPageState extends State<WebViewPage> {
                   initialUrl: widget.url,
                   javascriptMode: JavascriptMode.unrestricted,
                   allowsInlineMediaPlayback: true,
+
                   onWebViewCreated: (WebViewController webViewController) {
                     _controller.complete(webViewController);
                   },

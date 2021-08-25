@@ -36,31 +36,32 @@ class FansListItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Gaps.vGap4,
-                    Text(data.nickname+"",style:TextStyle(fontSize: 20,color: Colours.item_title_color)),
                     Row(
                       children: [
+
+                        Text(getUserName(data.nickname),style:TextStyle(fontSize: 20,color: Colours.item_title_color),maxLines: 1,overflow: TextOverflow.ellipsis,),
+                        Gaps.hGap2,
                         Image.asset(R.assetsImgIcVip,height: 28.w, width: 28.w,),
                         Gaps.hGap2,
                         Text(data.levelName == null?"":data.levelName,style:TextStyle(fontSize: 14,color: Color(0xfff4CB0B)))
                       ],
                     ),
+                    Gaps.vGap8,
                     Row(
                       children: [
-                        Text(S.current.fans_item_1,style:TextStyle(fontSize: 14,color: Colours.item_content_color)),
+                        Text(S.current.fans_item_3,style:TextStyle(fontSize: 14,color: Colours.item_content_color)),
                         Gaps.hGap4,
-                        Text(data.personalKpi.toString(),style:TextStyle(fontSize: 14,color: Color(0xffEF4033))),
-                        Gaps.hGap4,
+                        Container(
+                          width: 140.w,
+                          child:Text(data.personalKpi.toString(),style:TextStyle(fontSize: 14,color: Color(0xffEF4033)),maxLines: 1,overflow: TextOverflow.ellipsis,),
+                        ),
 
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Text(S.current.fans_item_2,style:TextStyle(fontSize: 14,color: Colours.item_content_color)),
+                        Gaps.hGap4,
+                        Text(S.current.fans_item_4,style:TextStyle(fontSize: 14,color: Colours.item_content_color)),
                         Gaps.hGap4,
                         Text(data.teamKpi.toString(),style:TextStyle(fontSize: 14,color: Color(0xffEF4033))),
                       ],
                     ),
-
                   ],
                 ),
 
@@ -73,9 +74,19 @@ class FansListItem extends StatelessWidget {
 
 
     );
+  }
 
+
+  getUserName(String data) {
+    if (data.length > 16) {
+      return data.substring(0,16)+"..";
+    }
+    return data;
   }
 }
+
+
+
 class _MyClipper extends CustomClipper<Rect>{
   @override
   Rect getClip(Size size) {

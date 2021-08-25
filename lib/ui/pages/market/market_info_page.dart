@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:ipfsnets/http/market_api.dart';
 import 'package:ipfsnets/models/market_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
@@ -253,7 +254,9 @@ class _MarketInfoStatus extends State<MarketInfoPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Center(child: Text(S.current.market_info_know,style: ITextStyles.itemTitle,)),
-        Text(data.details == null?"":data.details, style: ITextStyles.itemContent,),
+        Image.network(data.details,fit: BoxFit.fitWidth,)
+        // ImageUtil.getDesc(data.details),
+        //Text(data.details == null?"":data.details, style: ITextStyles.itemContent,),
       ],
     ));
   }

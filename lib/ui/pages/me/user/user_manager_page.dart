@@ -26,7 +26,11 @@ class UserManagerPage extends StatefulWidget {
     return _UserManagerState();
   }
 }
-
+/**
+ *    0  男
+ *    1  女
+ *    2  未知
+ */
 class _UserManagerState extends State<UserManagerPage> {
   final UserController userController = Get.put(UserController());
   File? _image;
@@ -130,17 +134,21 @@ class _UserManagerState extends State<UserManagerPage> {
   // 获取性别
   String getSex() {
     String str = "";
-    if (_sex == null || _sex.isEmpty) {
-      if (userController.user.sex != null && userController.user.sex == "2"){
-        str = S.current.me_info_image_woman;
-      }else{
+    if (StringUtil.isEmpty(_sex)) {
+      if (userController.user.sex == "0"){
         str = S.current.me_info_image_man;
+      }else if (userController.user.sex == "1"){
+        str = S.current.me_info_image_woman;
+      }else {
+        str = S.current.me_info_image_no;
       }
     }else{
-      if (_sex == "2") {
+      if (_sex == "0") {
+        str = S.current.me_info_image_man;
+      }else if (_sex == "1"){
         str  = S.current.me_info_image_woman;
       }else{
-        str = S.current.me_info_image_man;
+        str = S.current.me_info_image_no;
       }
     }
     return str;
@@ -156,9 +164,9 @@ class _UserManagerState extends State<UserManagerPage> {
         onItemClickListener: (index) {
           setState(() {
             if (index == 1) {
-              _sex = "1";
+              _sex = "0";
             } else if (index == 2) {
-              _sex = "2";
+              _sex = "1";
             }
           });
         },

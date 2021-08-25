@@ -171,7 +171,7 @@ class QrcodeReaderViewState extends State<QrCodeScannerPage> with TickerProvider
   QrReaderViewController? _controller;
   AnimationController? _animationController;
   bool openFlashlight = false;
-  late Timer _timer;
+  late Timer _timer = Timer(Duration(seconds: 1), (){});
   bool _init = false;
   bool _showScanView = false;
   bool _showPermission = true;
@@ -253,9 +253,11 @@ class QrcodeReaderViewState extends State<QrCodeScannerPage> with TickerProvider
   }
 
   void _clearAnimation() {
-    if (_timer != null) {
-      _timer.cancel();
-    }
+    print("==========================================");
+    print(_timer);
+      if (_timer != null) {
+        _timer.cancel();
+      }
 
     if (_animationController != null) {
       _animationController!.addListener(() { });
@@ -552,6 +554,7 @@ class QrcodeReaderViewState extends State<QrCodeScannerPage> with TickerProvider
         });
       }
     } else if (StringUtil.isEmpty(widget.type) && StringUtil.isNotEmpty(data)){
+      LogUtil.e("返回上一个页面"+data);
       NavigatorUtil.goBackWithParams(context, data);
     }else{
       ToastUtil.show(S.current.qrcode_fail);
@@ -559,8 +562,9 @@ class QrcodeReaderViewState extends State<QrCodeScannerPage> with TickerProvider
         startScan();
       });
     }
-    
   }
+
+
 }
 
 class QrScanBoxPainter extends CustomPainter {
@@ -649,4 +653,7 @@ class QrScanBoxPainter extends CustomPainter {
 
   @override
   bool shouldRebuildSemantics(QrScanBoxPainter oldDelegate) => animationValue != oldDelegate.animationValue;
+
+
+
 }

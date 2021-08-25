@@ -490,10 +490,10 @@ class S {
     );
   }
 
-  /// `请输邀请码`
+  /// `请输入邀请码`
   String get register_share_hint {
     return Intl.message(
-      '请输邀请码',
+      '请输入邀请码',
       name: 'register_share_hint',
       desc: '',
       args: [],
@@ -895,6 +895,16 @@ class S {
     return Intl.message(
       '男',
       name: 'me_info_image_man',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `未设置`
+  String get me_info_image_no {
+    return Intl.message(
+      '未设置',
+      name: 'me_info_image_no',
       desc: '',
       args: [],
     );
@@ -2490,40 +2500,40 @@ class S {
     );
   }
 
-  /// `冲币记录`
+  /// `充币记录`
   String get wallet_recharge_record_title {
     return Intl.message(
-      '冲币记录',
+      '充币记录',
       name: 'wallet_recharge_record_title',
       desc: '',
       args: [],
     );
   }
 
-  /// `冲币地址`
+  /// `充币地址`
   String get wallet_recharge_item_address {
     return Intl.message(
-      '冲币地址',
+      '充币地址',
       name: 'wallet_recharge_item_address',
       desc: '',
       args: [],
     );
   }
 
-  /// `冲币成功`
+  /// `充币成功`
   String get wallet_recharge_item_suc {
     return Intl.message(
-      '冲币成功',
+      '充币成功',
       name: 'wallet_recharge_item_suc',
       desc: '',
       args: [],
     );
   }
 
-  /// `冲币失败`
+  /// `充币失败`
   String get wallet_recharge_item_fail {
     return Intl.message(
-      '冲币失败',
+      '充币失败',
       name: 'wallet_recharge_item_fail',
       desc: '',
       args: [],
@@ -2550,20 +2560,20 @@ class S {
     );
   }
 
-  /// `冲币`
+  /// `充币`
   String get wallet_recharge_title {
     return Intl.message(
-      '冲币',
+      '充币',
       name: 'wallet_recharge_title',
       desc: '',
       args: [],
     );
   }
 
-  /// `冲币地址`
+  /// `充币地址`
   String get wallet_recharge_address {
     return Intl.message(
-      '冲币地址',
+      '充币地址',
       name: 'wallet_recharge_address',
       desc: '',
       args: [],
@@ -4165,6 +4175,26 @@ class S {
     return Intl.message(
       '团队业绩(CNY)',
       name: 'fans_item_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `个人业绩`
+  String get fans_item_3 {
+    return Intl.message(
+      '个人业绩',
+      name: 'fans_item_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `团队业绩`
+  String get fans_item_4 {
+    return Intl.message(
+      '团队业绩',
+      name: 'fans_item_4',
       desc: '',
       args: [],
     );

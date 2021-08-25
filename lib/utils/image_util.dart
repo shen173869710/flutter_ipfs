@@ -27,6 +27,18 @@ class ImageUtil{
     );
   }
 
+  static CachedNetworkImage getDesc(String url) {
+    LogUtil.e("CachedNetworkImage === "+url);
+    return CachedNetworkImage(
+      width: double.infinity,
+      imageUrl: url,
+      fit: BoxFit.fitWidth,
+      placeholder: (context, url) =>
+          Center(child: CupertinoActivityIndicator()),
+      errorWidget: (context, url, error) => Image.asset(R.assetsImgIconDefaultHead,height: 60.h,width: double.infinity,),
+    );
+  }
+
   static CachedNetworkImage getFansFormNet(String url) {
     LogUtil.e("CachedNetworkImage === "+url);
     return CachedNetworkImage(

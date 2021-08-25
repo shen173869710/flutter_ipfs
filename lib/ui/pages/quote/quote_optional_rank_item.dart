@@ -61,7 +61,7 @@ class QuoteOptionalRankItem extends StatelessWidget {
             alignment: Alignment.center,
           ),
           Gaps.hGap5,
-          Text(data.name, style: ITextStyles.itemTitle),
+          Text(data.name.toUpperCase(), style: ITextStyles.itemTitle),
         ],
       ),
       flex: 5,

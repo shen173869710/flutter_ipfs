@@ -60,6 +60,7 @@ class _MyAppState extends State<MyApp> {
                 enableBallisticLoad: true, // 可以通过惯性滑动触发加载更多
                 child:MaterialApp(
                     locale: Locale('zh'),
+                    navigatorKey: Routes.navigatorKey,
                     debugShowCheckedModeBanner: false,
                     localizationsDelegates: [
                       S.delegate,
