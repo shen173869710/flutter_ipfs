@@ -19,7 +19,7 @@ MarketEntity _$MarketEntityFromJson(Map<String, dynamic> json) {
     ..selled = json['selled'] as num
     ..shopStatus = json['shopStatus'] as String
     ..stock = json['stock'] as num
-    ..tag = (json['tag'] as List).map((e) => e as String).toList();
+    ..tag = json['tag'] == null?[]:(json['tag'] as List).map((e) => e as String).toList();
 }
 
 Map<String, dynamic> _$MarketEntityToJson(MarketEntity instance) =>
