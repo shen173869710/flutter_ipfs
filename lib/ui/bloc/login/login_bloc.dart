@@ -72,6 +72,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     BaseEntity baseEntity  = await ApiServer.login(event.repository.userName!,event.repository.password!);
     // event.repository.state = 200;
     // yield LoginButtonPressState(copyObject(event.repository));
+    LogUtil.e("code == "+baseEntity.code.toString());
     if (baseEntity.code != 200) {
       ToastUtil.show(""+baseEntity.msg);
       LoadingUtils.dismiss();

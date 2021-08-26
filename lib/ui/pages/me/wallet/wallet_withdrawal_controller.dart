@@ -43,6 +43,8 @@ class WalletWithdrawalController extends GetxController{
   num inputMoney = 0;
   // 转换的费率
   num poundageGas = 0;
+  // 转账类型
+  num withdrawCoinGasType = 0;
   // 提币地址
   String address = "";
   String mark = "";
@@ -183,6 +185,7 @@ class WalletWithdrawalController extends GetxController{
     chain = entity.chain;
     minBlance = entity.withdrawCoinLowNumber;
     poundageGas = entity.withdrawCoinGasPrice;
+    withdrawCoinGasType = entity.withdrawCoinGasType;
     LogUtil.e(poundageGas.toString());
     poundage = NumUtil.multiplyDec(poundageGas,inputMoney).toDouble();
     desc = entity.outDes;
@@ -196,7 +199,12 @@ class WalletWithdrawalController extends GetxController{
     }
 
     LogUtil.e(inputMoney.toString());
-    poundage =  NumUtil.multiplyDec(poundageGas,inputMoney).toDouble();
+    if(withdrawCoinGasType == 0) {
+      poundage =  NumUtil.multiplyDec(poundageGas,inputMoney).toDouble();
+    }else{
+      poundage = poundageGas;
+    }
+
     enableBSubmit();
     update();
   }

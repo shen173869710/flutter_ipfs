@@ -26,7 +26,7 @@ class _WalletPageState extends State<WalletPage> {
   }
 
   getAccountInfo() async {
-    BaseEntity baseEntity  = await WalletApi.getWalletHome();
+    BaseEntity baseEntity  = await WalletApi.getWalletHome(true);
     setState(() {
       if (baseEntity.isOk()) {
         WalletHomeEntity entity = baseEntity.data;

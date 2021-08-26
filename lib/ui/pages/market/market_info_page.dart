@@ -254,7 +254,8 @@ class _MarketInfoStatus extends State<MarketInfoPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Center(child: Text(S.current.market_info_know,style: ITextStyles.itemTitle,)),
-        Image.network(data.details,fit: BoxFit.fitWidth,)
+        Visibility(child: Image.network(data.details == null?"":data.details,fit: BoxFit.fitWidth,),visible: data.details == null?false:true,)
+
         // ImageUtil.getDesc(data.details),
         //Text(data.details == null?"":data.details, style: ITextStyles.itemContent,),
       ],

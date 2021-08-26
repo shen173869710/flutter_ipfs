@@ -26,8 +26,8 @@ class WalletApi{
   static const String wallet_money_tyoe = "wallets/app/wallet/user/list";
 
   ///提交cny 提现首页
-  static  Future<BaseEntity> getWalletHome() {
-    return HttpManager.getInstance().get<WalletHomeEntity>(wallet_home,withLoading: true);
+  static  Future<BaseEntity> getWalletHome(bool show) {
+    return HttpManager.getInstance().get<WalletHomeEntity>(wallet_home,withLoading: show);
   }
 
 

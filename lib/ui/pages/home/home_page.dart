@@ -14,6 +14,15 @@ class HomePage extends StatefulWidget {
 
 class _HomeStatus extends State<HomePage> {
 
+  var hotSearchTag = [
+    "网曝杨紫邓伦热恋 | 元宵节诗词 | 身份证异地能补办吗",
+    "两限房是什么意思 | 公务员可以考研吗 | 一元等于多少日元",
+    "喻恩泰喊话王景春 | 云南结婚吹唢呐视频 | 汉服下裙穿法",
+    "网曝杨紫邓伦热恋 | 元宵节诗词 | 身份证异地能补办吗",
+    "两限房是什么意思 | 公务员可以考研吗 | 一元等于多少日元",
+    "喻恩泰喊话王景春 | 云南结婚吹唢呐视频 | 汉服下裙穿法"
+  ];
+
 
   HomeController controller = Get.put(HomeController());
   Future<void> getData() async {
@@ -154,7 +163,7 @@ class _HomeStatus extends State<HomePage> {
             children: [
               Image.asset(R.assetsImgHomeNotice, height: 35.w, width: 35.w,),
               Gaps.hGap4,
-              Flexible(child:Text(controller.notice, style:ITextStyles.itemContent,textAlign: TextAlign.left,overflow: TextOverflow.ellipsis,maxLines:1),),
+              // Flexible(child:MyNoticeVecAnimation(duration: const Duration(milliseconds: 5000),messages: hotSearchTag),),
               SizedBox(),
             ],),
         )
@@ -198,11 +207,11 @@ class _HomeStatus extends State<HomePage> {
         children: [
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               buildItem3Title(0),
-              // buildItem3Title(1),
-              // buildItem3Title(2),
+              buildItem3Title(1),
+              buildItem3Title(2),
             ],
           ),
           Gaps.vGap4,
@@ -355,5 +364,10 @@ class _HomeStatus extends State<HomePage> {
         }
       },
     );
+  }
+
+
+  requestPermiss() async{
+
   }
 }

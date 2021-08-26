@@ -560,6 +560,16 @@ class S {
     );
   }
 
+  /// `网络不可用,请稍后重试`
+  String get no_network {
+    return Intl.message(
+      '网络不可用,请稍后重试',
+      name: 'no_network',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `是否删除当前提币地址`
   String get del_address {
     return Intl.message(

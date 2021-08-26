@@ -30,6 +30,7 @@
   "tab_find": "发现",
   "tab_quotes": "行情",
   "tab_me": "我的",
+  "no_network": "网络不可用,请稍后重试",
 
   "login_title": "你好,",
   "login_title_1": "欢迎来到INSTAR",

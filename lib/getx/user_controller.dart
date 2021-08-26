@@ -29,6 +29,10 @@ class UserController extends GetxController {
     // print('UserController--onInit'+showAccount.toString());
     showAccount = show;
     // user.username = "111111111111";
+    if(showAccount) {
+      getAccountInfo();
+    }
+
     update();
   }
 
@@ -101,7 +105,7 @@ class UserController extends GetxController {
   }
 
   getAccountInfo() async {
-    BaseEntity baseEntity  = await WalletApi.getWalletHome();
+    BaseEntity baseEntity  = await WalletApi.getWalletHome(false);
     if (baseEntity.isOk()) {
       walletHomeEntity = baseEntity.data;
     }

@@ -44,20 +44,20 @@ class _WalletExchangeRecordState extends BaseListPageState<WalletExchangeRecordP
 
   @override
   int getListLength() {
-    return 30;
+    return 0;
   }
 
   @override
   Future<BaseEntity> getData() async {
     BaseEntity baseEntity  = await WalletApi.getWithdrawalRecordList(page);
-    List<WalletWithdrawalRecordEntity> entity = baseEntity.data;
-    if (entity != null) {
-        setState(() {
-        list.addAll(entity);
-      });
-    }
-    int len = list.length;
-    LogUtil.e("list "+len.toString());
+    // List<WalletWithdrawalRecordEntity> entity = baseEntity.data;
+    // if (entity != null) {
+    //     setState(() {
+    //     list.addAll(entity);
+    //   });
+    // }
+    // int len = list.length;
+    // LogUtil.e("list "+len.toString());
     return baseEntity;
   }
 

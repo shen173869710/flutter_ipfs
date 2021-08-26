@@ -3,14 +3,15 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:dio/src/response.dart';
-import 'package:ipfsnets/http/result_data.dart';
+import 'package:ipfsnets/generated/l10n.dart';
+
 import 'package:ipfsnets/http/url_config.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/net/error_handle.dart';
 import 'package:ipfsnets/net/intercept.dart';
 import 'package:ipfsnets/utils/LoadingUtils.dart';
 import 'package:ipfsnets/utils/log_util.dart';
-
+export '../../../r.dart';
 class HttpManager {
   static HttpManager _instance = HttpManager._internal();
   Dio? _dio;
@@ -60,7 +61,6 @@ class HttpManager {
       LoadingUtils.show();
     }
     Response response;
-    int code = 0;
     try {
       if (params != null) {
         response = await _dio!.get(api,queryParameters: params);
@@ -70,25 +70,18 @@ class HttpManager {
       if (withLoading) {
         LoadingUtils.dismiss();
       }
-
-      code = response.statusCode!;
-      if(code == 200) {
-        final String data = response.data.toString();
+      final String data = response.data.toString();
         // LogUtil.e("请求结束"+data);
-        final Map<String, dynamic> _map = parseData(data);
-        return BaseEntity<T>.fromJson(_map);
-      }
-
-    }  catch (e) {
+      final Map<String, dynamic> _map = parseData(data);
+      return BaseEntity<T>.fromJson(_map);
+    } on Exception  catch (e) {
       if (withLoading) {
         LoadingUtils.dismiss();
       }
-      LogUtil.e("异常"+e.toString());
-      code = -1;
-      return BaseEntity(code, e.toString(), null);
-      // return resultError(e);
+      LogUtil.e("get 异常"+e.toString());
+      return parseException(e);
     }
-    return BaseEntity(code, '数据解析错误！', null);
+
   }
 
   ///通用的POST请求
@@ -96,28 +89,25 @@ class HttpManager {
     if (withLoading) {
       LoadingUtils.show();
     }
-    int code = 0;
+
     Response response;
     try {
       response = await _dio!.post(api, data: json);
       if (withLoading) {
         LoadingUtils.dismiss();
       }
-      code = response.statusCode!;
       final String data = response.data.toString();
       LogUtil.e("请求结束---------"+data);
       final Map<String, dynamic> _map = parseData(data);
-
       return BaseEntity<T>.fromJson(_map);
-    } catch (e) {
+    } on Exception catch (e) {
       if (withLoading) {
         LoadingUtils.dismiss();
       }
       LogUtil.e("解析异常"+e.toString());
-      code = -1;
-      return BaseEntity(code, e.toString(), null);
+      return parseException(e);
     }
-    return BaseEntity(ExceptionHandle.parse_error, '数据解析错误！', null);
+
   }
 
 
@@ -125,24 +115,21 @@ class HttpManager {
     if (withLoading) {
       LoadingUtils.show();
     }
-    int code = 0;
     Response response;
     try {
       response = await _dio!.request(api, data: json,options:new Options(method: 'delete') );
       if (withLoading) {
         LoadingUtils.dismiss();
       }
-      code = response.statusCode!;
       final String data = response.data.toString();
       LogUtil.e("请求结束"+data);
       final Map<String, dynamic> _map = parseData(data);
       return BaseEntity<T>.fromJson(_map);
-    } catch (e) {
+    } on Exception catch (e) {
       if (withLoading) {
         LoadingUtils.dismiss();
       }
-      code = -1;
-      return BaseEntity(code, e.toString(), null);
+      return parseException(e);
     }
 
   }
@@ -154,15 +141,12 @@ class HttpManager {
     try {
       String path = file.path;
       var name = path.substring(path.lastIndexOf("/") + 1, path.length);
-
       print("文件路径=" + path);
       print("文件名=" + name);
-
       ///通过FormData
       FormData formData = FormData.fromMap({
         "file": await MultipartFile.fromFile(path, filename: name,),
       });
-
       ///发送post
       Response response;
       response = await _dio!.post(api, data: formData,
@@ -190,17 +174,56 @@ class HttpManager {
 Map<String, dynamic> parseData(String data) {
   return json.decode(data) as Map<String, dynamic>;
 }
-ResultData resultError(DioError e) {
-  Response errorResponse;
-  int code = 200;
-  if (e.response != null) {
-    errorResponse = e.response!;
-  } else {
-    code = 404;
+parseException(Exception error) {
+  int? errCode = -1;
+  String message = "";
+  if (error is DioError) {
+    switch (error.type) {
+      case DioErrorType.connectTimeout:
+      case DioErrorType.receiveTimeout:
+      case DioErrorType.sendTimeout:
+        message = S.current.no_network;
+        break;
+      // // case DioErrorType.cancel:
+      // //   return CancelException(error.error.message);
+      // case DioErrorType.response:
+      //   try {
+      //     errCode = error.response?.statusCode;
+      //     switch (errCode) {
+      //       case 400:
+      //         return BadRequestException(message: "请求语法错误", code: errCode);
+      //       case 401:
+      //         return UnauthorisedException(message: "没有权限", code: errCode);
+      //       case 403:
+      //         return BadRequestException(message: "服务器拒绝执行", code: errCode);
+      //       case 404:
+      //         return BadRequestException(message: "无法连接服务器", code: errCode);
+      //       case 405:
+      //         return BadRequestException(message: "请求方法被禁止", code: errCode);
+      //       case 500:
+      //         return BadServiceException(message: "服务器内部错误", code: errCode);
+      //       case 502:
+      //         return BadServiceException(message: "无效的请求", code: errCode);
+      //       case 503:
+      //         return BadServiceException(message: "服务器挂了", code: errCode);
+      //       case 505:
+      //         return UnauthorisedException(
+      //             message: "不支持HTTP协议请求", code: errCode);
+      //       default:
+      //         return UnknownException(error.error.message);
+      //     }
+      //   } on Exception catch (_) {
+      //     return UnknownException(error.error.message);
+      //   }
+
+      case DioErrorType.other:
+        message = S.current.no_network;
+        break;
+      default:
+      message = S.current.no_network;
+       break;
+    }
   }
-  if (e.type == DioErrorType.connectTimeout ||
-      e.type == DioErrorType.receiveTimeout) {
-    code = 444;
-  }
-  return new ResultData("error", false, code);
+  return BaseEntity(errCode, message, null);
 }
+

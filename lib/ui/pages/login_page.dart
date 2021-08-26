@@ -15,6 +15,8 @@ import 'package:ipfsnets/ui/bloc/login/login_bloc.dart';
 import 'package:ipfsnets/ui/bloc/login/login_repository.dart';
 import 'package:ipfsnets/ui/widget/login_button.dart';
 import 'package:ipfsnets/utils/log_util.dart';
+import 'package:ipfsnets/utils/permission_utils.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import '../../r.dart';
 
@@ -32,6 +34,7 @@ class _LoginPageState extends StatelessWidget {
   final TapGestureRecognizer _registProtocolRecognizer = new TapGestureRecognizer();
   @override
   Widget build(BuildContext context) {
+    PermissionUtils.requestAllPermission();
     return BlocConsumer<LoginBloc, LoginState>(
         listener: (context, state) {
           if (state.repository.state == 200) {
@@ -116,7 +119,6 @@ class _LoginPageState extends StatelessWidget {
       ),
     );
   }
-
   /**构建用户名**/
   TextFormField buildPhoneTextField(BuildContext context,LoginState state) {
     return new TextFormField(onChanged: (value){
@@ -136,7 +138,6 @@ class _LoginPageState extends StatelessWidget {
   }
   // 用户协议
   Padding buildpro(BuildContext context,LoginState state) {
-
     return Padding(
       padding: EdgeInsets.fromLTRB(30.w, 0, 50.w, 0),
       child: Row(
@@ -194,5 +195,11 @@ class _LoginPageState extends StatelessWidget {
       ),
     );
   }
+
+
+  Future requestPermission() async {
+    PermissionUtils.requestAllPermission();
+  }
+
 
 }

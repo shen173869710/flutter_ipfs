@@ -330,6 +330,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "more_tab_4": MessageLookupByLibrary.simpleMessage("生活服务"),
         "more_title": MessageLookupByLibrary.simpleMessage("更多应用"),
         "noMore": MessageLookupByLibrary.simpleMessage("没有更多数据"),
+        "no_network": MessageLookupByLibrary.simpleMessage("网络不可用,请稍后重试"),
         "not_account": MessageLookupByLibrary.simpleMessage("账户不能为空"),
         "not_choose": MessageLookupByLibrary.simpleMessage("超出可选时间范围"),
         "not_enough": MessageLookupByLibrary.simpleMessage("余额不足"),
