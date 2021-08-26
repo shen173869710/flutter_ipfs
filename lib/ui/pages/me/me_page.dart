@@ -2,6 +2,7 @@ import 'package:ipfsnets/getx/user_controller.dart';
 import 'package:ipfsnets/include.dart';
 import 'package:ipfsnets/models/user_entity.dart';
 import 'package:ipfsnets/utils/image_util.dart';
+import 'package:ipfsnets/utils/permission_utils.dart';
 import 'package:ipfsnets/utils/user_util.dart';
 
 class MePage extends StatelessWidget {
@@ -10,6 +11,7 @@ class MePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    PermissionUtils.requestAllPermission();
     userController.inti();
     return GetBuilder<UserController>(builder:(userController){
       return Scaffold(backgroundColor: Colours.bg_color,body: SingleChildScrollView(

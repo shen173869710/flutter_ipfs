@@ -87,15 +87,7 @@ class _IndexPageState extends State<IndexPage> {
             children: pages,
           ),
           )
-
-
       );
-
     });
-
-
   }
-
-
-
 }
