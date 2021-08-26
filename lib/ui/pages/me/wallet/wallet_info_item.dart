@@ -22,9 +22,9 @@ class WalletInfoItem extends StatelessWidget {
               children: <Widget>[
                 Image.asset(R.assetsImgMyWalletFil,width: 30.w,height: 30.w,),
                 Gaps.hGap8,
-                Text(data.flowType.toString(),style: ITextStyles.itemTitle),
+                Text(getStatus(data.transactionType),style: ITextStyles.itemTitle),
                 Expanded(child:SizedBox()),
-                Text(data.value.toString(),style: ITextStyles.itemTitle),
+                Text(data.value.toString(),style: TextStyle(fontSize: 14, color: getStatusColor(data.value))),
               ],
             ),
             Gaps.vGap8,
@@ -41,37 +41,84 @@ class WalletInfoItem extends StatelessWidget {
     );
   }
 
-  String getStatus(num status, String from) {
-    if (StringUtil.isNotEmpty(from)) {
-      if (status == 0) {
-        return S.current.wallet_recharge_item_suc;
-      }else if (status == 1) {
-        return S.current.wallet_recharge_item_fail;
-      }else if (status == 2) {
-        return S.current.wallet_recharge_item_ing;
-      }
-      return S.current.wallet_recharge_item_sure;
-    }else{
-      if (status == 0) {
-        return S.current.wallet_withdraw_item_suc;
-      }else if (status == 1) {
-        return S.current.wallet_withdraw_item_fail;
-      }else if (status == 2) {
-        return S.current.wallet_withdraw_item_ing;
-      }
-      return S.current.wallet_withdraw_item_sure;
+  getStatus(num status) {
+    String message = "";
+    switch (status) {
+      case 1:
+        message = S.current.wallet_type_1;
+        break;
+      case 2:
+        message = S.current.wallet_type_2;
+        break;
+      case 3:
+        message = S.current.wallet_type_3;
+        break;
+      case 4:
+        message = S.current.wallet_type_4;
+        break;
+      case 5:
+        message = S.current.wallet_type_5;
+        break;
+      case 6:
+        message = S.current.wallet_type_6;
+        break;
+      case 7:
+        message = S.current.wallet_type_7;
+        break;
+      case 8:
+        message = S.current.wallet_type_8;
+        break;
+      case 9:
+        message = S.current.wallet_type_9;
+        break;
+      case 10:
+        message = S.current.wallet_type_10;
+        break;
+      case 11:
+        message = S.current.wallet_type_11;
+        break;
+      case 12:
+        message = S.current.wallet_type_12;
+        break;
+      case 13:
+        message = S.current.wallet_type_13;
+        break;
+      case 14:
+        message = S.current.wallet_type_14;
+        break;
+      case 15:
+        message = S.current.wallet_type_15;
+        break;
+      case 16:
+        message = S.current.wallet_type_16;
+        break;
+      case 17:
+        message = S.current.wallet_type_17;
+        break;
+      case 18:
+        message = S.current.wallet_type_18;
+        break;
+      case 19:
+        message = S.current.wallet_type_19;
+        break;
+      case 20:
+        message = S.current.wallet_type_20;
+        break;
+      case 21:
+        message = S.current.wallet_type_21;
+        break;
     }
+
+    return message;
   }
 
-  Color getStatusColor(String status) {
-    if (status == 0) {
+  Color getStatusColor(num status) {
+    if (status > 0) {
       return Colours.item_green;
-    }else if (status == 1) {
+    }else{
       return Colours.item_red;
     }
-    return Colours.item_content_color;
   }
-
 
 }
 

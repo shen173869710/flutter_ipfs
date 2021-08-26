@@ -2490,21 +2490,31 @@ class S {
     );
   }
 
-  /// `等待中`
+  /// `区块确认中`
   String get wallet_withdraw_item_ing {
     return Intl.message(
-      '等待中',
+      '区块确认中',
       name: 'wallet_withdraw_item_ing',
       desc: '',
       args: [],
     );
   }
 
-  /// `区块确认中`
-  String get wallet_withdraw_item_sure {
+  /// `待审核`
+  String get wallet_withdraw_item_wait {
     return Intl.message(
-      '区块确认中',
-      name: 'wallet_withdraw_item_sure',
+      '待审核',
+      name: 'wallet_withdraw_item_wait',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `已拒绝`
+  String get wallet_withdraw_item_ref {
+    return Intl.message(
+      '已拒绝',
+      name: 'wallet_withdraw_item_ref',
       desc: '',
       args: [],
     );
@@ -4415,6 +4425,216 @@ class S {
     return Intl.message(
       '中文',
       name: 'language_ch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `冲币`
+  String get wallet_type_1 {
+    return Intl.message(
+      '冲币',
+      name: 'wallet_type_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `提币`
+  String get wallet_type_2 {
+    return Intl.message(
+      '提币',
+      name: 'wallet_type_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `收入`
+  String get wallet_type_3 {
+    return Intl.message(
+      '收入',
+      name: 'wallet_type_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `收入冻结`
+  String get wallet_type_4 {
+    return Intl.message(
+      '收入冻结',
+      name: 'wallet_type_4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `冻结释放`
+  String get wallet_type_5 {
+    return Intl.message(
+      '冻结释放',
+      name: 'wallet_type_5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `质押`
+  String get wallet_type_6 {
+    return Intl.message(
+      '质押',
+      name: 'wallet_type_6',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `质押释放`
+  String get wallet_type_7 {
+    return Intl.message(
+      '质押释放',
+      name: 'wallet_type_7',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `服务器收益`
+  String get wallet_type_8 {
+    return Intl.message(
+      '服务器收益',
+      name: 'wallet_type_8',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `服务器收益冻结`
+  String get wallet_type_9 {
+    return Intl.message(
+      '服务器收益冻结',
+      name: 'wallet_type_9',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `冻结线性释放`
+  String get wallet_type_10 {
+    return Intl.message(
+      '冻结线性释放',
+      name: 'wallet_type_10',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `系统充值到账`
+  String get wallet_type_11 {
+    return Intl.message(
+      '系统充值到账',
+      name: 'wallet_type_11',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `系统充值释放`
+  String get wallet_type_12 {
+    return Intl.message(
+      '系统充值释放',
+      name: 'wallet_type_12',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `购买服务器奖励`
+  String get wallet_type_13 {
+    return Intl.message(
+      '购买服务器奖励',
+      name: 'wallet_type_13',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `购买服务器`
+  String get wallet_type_14 {
+    return Intl.message(
+      '购买服务器',
+      name: 'wallet_type_14',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `购买服务器失败，解冻账户`
+  String get wallet_type_15 {
+    return Intl.message(
+      '购买服务器失败，解冻账户',
+      name: 'wallet_type_15',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `注册赠送`
+  String get wallet_type_16 {
+    return Intl.message(
+      '注册赠送',
+      name: 'wallet_type_16',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `CNY提现加积分`
+  String get wallet_type_17 {
+    return Intl.message(
+      'CNY提现加积分',
+      name: 'wallet_type_17',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `销售奖励`
+  String get wallet_type_18 {
+    return Intl.message(
+      '销售奖励',
+      name: 'wallet_type_18',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `赠送奖励`
+  String get wallet_type_19 {
+    return Intl.message(
+      '赠送奖励',
+      name: 'wallet_type_19',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `质押GAS`
+  String get wallet_type_20 {
+    return Intl.message(
+      '质押GAS',
+      name: 'wallet_type_20',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `转出`
+  String get wallet_type_21 {
+    return Intl.message(
+      '转出',
+      name: 'wallet_type_21',
       desc: '',
       args: [],
     );

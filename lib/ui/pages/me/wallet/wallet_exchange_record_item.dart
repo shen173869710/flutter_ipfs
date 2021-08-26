@@ -44,7 +44,7 @@ class WalletWithdrawalRecordItem extends StatelessWidget {
       }else if (status == 2) {
         return S.current.wallet_withdraw_item_ing;
       }
-      return S.current.wallet_withdraw_item_sure;
+      return S.current.wallet_withdraw_item_suc;
     }
   }
 

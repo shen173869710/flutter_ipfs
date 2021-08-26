@@ -44,16 +44,21 @@ class WalletWithdrawalRecordItem extends StatelessWidget {
     );
   }
 
+  /**
+   *   AGREE(0, "成功"),
+       FAIL(1, "失败"),
+       CONFIRM(2, "确认中"),
+       WAIT_AUDIT(3, "待审核"),
+       REJECTED(4, "已拒绝")
+   */
   String getStatus(num status, String from) {
     if (StringUtil.isNotEmpty(from)) {
       if (status == 0) {
         return S.current.wallet_recharge_item_suc;
-      }else if (status == 1) {
+      }else {
         return S.current.wallet_recharge_item_fail;
-      }else if (status == 2) {
-        return S.current.wallet_recharge_item_ing;
       }
-      return S.current.wallet_recharge_item_sure;
+
     }else{
       if (status == 0) {
         return S.current.wallet_withdraw_item_suc;
@@ -61,8 +66,13 @@ class WalletWithdrawalRecordItem extends StatelessWidget {
         return S.current.wallet_withdraw_item_fail;
       }else if (status == 2) {
         return S.current.wallet_withdraw_item_ing;
+      }else if (status == 3) {
+        return S.current.wallet_withdraw_item_wait;
+      }else if (status == 4) {
+        return S.current.wallet_withdraw_item_ref;
+      }else {
+        return S.current.wallet_withdraw_item_fail;
       }
-      return S.current.wallet_withdraw_item_sure;
     }
   }
 

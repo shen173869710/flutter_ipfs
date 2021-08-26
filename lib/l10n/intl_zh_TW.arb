@@ -267,10 +267,12 @@
 
   "wallet_withdraw_record_title": "提币记录",
   "wallet_withdraw_item_address": "提币地址",
+
   "wallet_withdraw_item_suc": "提币成功",
   "wallet_withdraw_item_fail": "提币失败",
-  "wallet_withdraw_item_ing": "等待中",
-  "wallet_withdraw_item_sure": "区块确认中",
+  "wallet_withdraw_item_ing": "区块确认中",
+  "wallet_withdraw_item_wait": "待审核",
+  "wallet_withdraw_item_ref": "已拒绝",
 
   "wallet_recharge_record_title": "充币记录",
   "wallet_recharge_item_address": "充币地址",
@@ -483,6 +485,28 @@
 
   "language_title": "台湾",
   "language_en": "English",
-  "language_ch": "Chinease"
+  "language_ch": "Chinease",
+
+  "wallet_type_1": "冲币",
+  "wallet_type_2": "提币",
+  "wallet_type_3": "收入",
+  "wallet_type_4": "收入冻结",
+  "wallet_type_5": "冻结释放",
+  "wallet_type_6": "质押",
+  "wallet_type_7": "质押释放",
+  "wallet_type_8": "服务器收益",
+  "wallet_type_9": "服务器收益冻结",
+  "wallet_type_10": "冻结线性释放",
+  "wallet_type_11": "系统充值到账",
+  "wallet_type_12": "系统充值释放",
+  "wallet_type_13": "购买服务器奖励",
+  "wallet_type_14": "购买服务器",
+  "wallet_type_15": "购买服务器失败，解冻账户",
+  "wallet_type_16": "注册赠送",
+  "wallet_type_17": "CNY提现加积分",
+  "wallet_type_18": "销售奖励",
+  "wallet_type_19": "赠送奖励",
+  "wallet_type_20": "质押GAS",
+  "wallet_type_21": "转出"
 
 }

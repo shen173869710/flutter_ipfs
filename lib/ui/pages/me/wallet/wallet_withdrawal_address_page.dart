@@ -162,6 +162,7 @@ class _WalletWithdrawalAddressState extends State<WalletWithdrawalAddressPage> {
     if (entity.isOk()) {
       ToastUtil.show(S.current.option_success);
     }
+    NavigatorUtil.goBack(context);
 
   }
 
