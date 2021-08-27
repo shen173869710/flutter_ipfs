@@ -81,7 +81,8 @@ class PasswordController extends GetxController {
       // 修改账户
       BaseEntity baseEntity  = await ApiServer.changeUsername(value1, value2);
       if (baseEntity.isOk()) {
-        ToastUtil.show(S.current.option_success);
+        ToastUtil.show(S.current.pwd_change_account);
+        NavigatorUtil.goToLogin(context);
         return true;
       }else{
         ToastUtil.show(baseEntity.msg);
@@ -96,8 +97,7 @@ class PasswordController extends GetxController {
       }
       BaseEntity baseEntity  = await ApiServer.changePassword(value1, value2);
       if (baseEntity.isOk()) {
-        ToastUtil.show(S.current.option_success);
-
+        ToastUtil.show(S.current.pwd_change_sucess);
         NavigatorUtil.goToLogin(context);
         return true;
       }else{
@@ -114,8 +114,9 @@ class PasswordController extends GetxController {
       }
       BaseEntity baseEntity  = await ApiServer.setPayPassword(value2,code);
       if (baseEntity.isOk()) {
-        ToastUtil.show(S.current.option_success);
-        return false;
+        ToastUtil.show(S.current.pwd_change_pay);
+        NavigatorUtil.goBack(context);
+        return true;
       }else {
         ToastUtil.show(baseEntity.msg);
         return false;

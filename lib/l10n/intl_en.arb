@@ -57,6 +57,13 @@
   "forgot_by_phone": "手机找回",
   "forget_by_email": "邮箱找回",
 
+  "machine_pledge_sucess": "服务器质押成功",
+  "machine_update_sucess": "服务器升级成功",
+  "machine_hosting_sucess": "服务器托管成功",
+  "machine_pay_sucess": "服务器续期成功",
+  "pwd_change_account": "修改账号成功",
+  "pwd_change_sucess": "修改登录密码成功",
+  "pwd_change_pay": "支付密码设置成功",
   "no_network": "网络不可用,请稍后重试",
   "del_address": "是否删除当前提币地址",
   "sure": "确定",

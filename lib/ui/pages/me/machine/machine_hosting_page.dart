@@ -303,7 +303,7 @@ class MachineHostingPage extends StatelessWidget{
     isScrollControlled: true,
     builder: (_) =>  PasswordDiaglog(onItemClickListener: (code){
       LogUtil.e("showDialog()");
-      machinehostingPay(code);
+      machinehostingPay(code, context);
     },));
   }
 
@@ -359,10 +359,15 @@ class MachineHostingPage extends StatelessWidget{
     },));
   }
 
-  Future<void> machinehostingPay(String pwd) async {
+  Future<void> machinehostingPay(String pwd,BuildContext context) async {
     BaseEntity baseEntity = await MachineApi.machineHostingPay(controller.count, controller.entity.couponId,controller.data.machineId,pwd,controller.selCny);
     if (baseEntity.isOk()) {
-      ToastUtil.show(S.current.option_success);
+      if (controller.data.hostingStatus == 1) {
+        ToastUtil.show(S.current.machine_pay_sucess);
+      }else{
+        ToastUtil.show(S.current.machine_hosting_sucess);
+      }
+      NavigatorUtil.goBack(context);
     }else{
       ToastUtil.show(baseEntity.msg);
     }

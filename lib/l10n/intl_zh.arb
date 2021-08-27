@@ -53,6 +53,14 @@
   "forgot_by_phone": "手机找回",
   "forget_by_email": "邮箱找回",
 
+  "machine_pledge_sucess": "服务器质押成功",
+  "machine_pay_sucess": "服务器续期成功",
+  "machine_hosting_sucess": "服务器托管成功",
+  "machine_pay_sucess": "服务器续费成功",
+
+  "pwd_change_account": "修改账号成功",
+  "pwd_change_sucess": "修改登录密码成功",
+  "pwd_change_pay": "支付密码设置成功",
   "login_forgot_code": "获取验证码",
   "login_forgot_code_hint": "请输入验证码",
   "login_forgot_pwd": "请输入新密码",

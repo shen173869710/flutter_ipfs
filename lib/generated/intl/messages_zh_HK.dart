@@ -177,6 +177,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "machine_hosting_submit": MessageLookupByLibrary.simpleMessage("立即托管"),
         "machine_hosting_submit_s":
             MessageLookupByLibrary.simpleMessage("立即续期"),
+        "machine_hosting_sucess":
+            MessageLookupByLibrary.simpleMessage("服务器托管成功"),
         "machine_hosting_time": MessageLookupByLibrary.simpleMessage("托管时间"),
         "machine_hosting_title": MessageLookupByLibrary.simpleMessage("托管续期"),
         "machine_hosting_title_s": MessageLookupByLibrary.simpleMessage("托管续期"),
@@ -216,6 +218,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "machine_list_4": MessageLookupByLibrary.simpleMessage("到期时间"),
         "machine_list_offline": MessageLookupByLibrary.simpleMessage("离线"),
         "machine_list_online": MessageLookupByLibrary.simpleMessage("在线"),
+        "machine_pay_sucess": MessageLookupByLibrary.simpleMessage("服务器续期成功"),
         "machine_pledge_1": MessageLookupByLibrary.simpleMessage("设备编号"),
         "machine_pledge_2": MessageLookupByLibrary.simpleMessage("有效容量"),
         "machine_pledge_3": MessageLookupByLibrary.simpleMessage("所需质押"),
@@ -224,6 +227,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "machine_pledge_6": MessageLookupByLibrary.simpleMessage("当前质押总量"),
         "machine_pledge_7": MessageLookupByLibrary.simpleMessage("仍需质押"),
         "machine_pledge_8": MessageLookupByLibrary.simpleMessage("立即质押"),
+        "machine_pledge_sucess":
+            MessageLookupByLibrary.simpleMessage("服务器质押成功"),
         "machine_pledge_title": MessageLookupByLibrary.simpleMessage("质押FIL"),
         "machine_tai": MessageLookupByLibrary.simpleMessage("台"),
         "machine_total_1": MessageLookupByLibrary.simpleMessage("区块总收益 (FIL)"),
@@ -240,6 +245,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "machine_update_number": MessageLookupByLibrary.simpleMessage("设备编号"),
         "machine_update_price": MessageLookupByLibrary.simpleMessage("单价"),
         "machine_update_size": MessageLookupByLibrary.simpleMessage("存储容量"),
+        "machine_update_sucess":
+            MessageLookupByLibrary.simpleMessage("服务器升级成功"),
         "machine_update_title": MessageLookupByLibrary.simpleMessage("升级服务器"),
         "market_buy_coupons": MessageLookupByLibrary.simpleMessage("优惠券"),
         "market_buy_coupons_hint":
@@ -345,6 +352,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pwd_account_code": MessageLookupByLibrary.simpleMessage("请输入验证码"),
         "pwd_account_hint": MessageLookupByLibrary.simpleMessage("请输入手机号或者邮箱"),
         "pwd_account_title": MessageLookupByLibrary.simpleMessage("修改账号"),
+        "pwd_change_account": MessageLookupByLibrary.simpleMessage("修改账号成功"),
+        "pwd_change_pay": MessageLookupByLibrary.simpleMessage("支付密码设置成功"),
+        "pwd_change_sucess": MessageLookupByLibrary.simpleMessage("修改登录密码成功"),
         "pwd_login_again": MessageLookupByLibrary.simpleMessage("请再次输入新密码"),
         "pwd_login_new": MessageLookupByLibrary.simpleMessage("请输入新密码"),
         "pwd_login_old": MessageLookupByLibrary.simpleMessage("请输入旧密码"),

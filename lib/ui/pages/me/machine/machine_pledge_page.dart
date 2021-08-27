@@ -193,7 +193,8 @@ class MachinePledgeState extends State<MachinePledgePage>{
   Future<void> machineUpgradePay(String pwd) async {
     BaseEntity baseEntity = await MachineApi.machinePledgePay(data.machineId,pwd);
     if (baseEntity.isOk()) {
-      ToastUtil.show(S.current.option_success);
+      ToastUtil.show(S.current.machine_pledge_sucess);
+      NavigatorUtil.goBack(context);
     }else{
       ToastUtil.show(baseEntity.msg);
     }

@@ -290,7 +290,7 @@ class MachineUpdatePage extends StatelessWidget{
     isScrollControlled: true,
     builder: (_) =>  PasswordDiaglog(onItemClickListener: (code){
       LogUtil.e("showDialog()");
-      machineUpgradePay(code);
+      machineUpgradePay(code,context);
 
     },));
   }
@@ -352,10 +352,11 @@ class MachineUpdatePage extends StatelessWidget{
   }
 
 
-  Future<void> machineUpgradePay(String pwd) async {
+  Future<void> machineUpgradePay(String pwd,BuildContext context) async {
     BaseEntity baseEntity = await MachineApi.machineUpgradePay(controller.count, controller.entity.couponId,controller.data.machineId,pwd,controller.selCny);
     if (baseEntity.isOk()) {
      ToastUtil.show(S.current.option_success);
+     NavigatorUtil.goBack(context);
     }else{
       ToastUtil.show(baseEntity.msg);
     }

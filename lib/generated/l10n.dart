@@ -560,6 +560,76 @@ class S {
     );
   }
 
+  /// `服务器质押成功`
+  String get machine_pledge_sucess {
+    return Intl.message(
+      '服务器质押成功',
+      name: 'machine_pledge_sucess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `服务器升级成功`
+  String get machine_update_sucess {
+    return Intl.message(
+      '服务器升级成功',
+      name: 'machine_update_sucess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `服务器托管成功`
+  String get machine_hosting_sucess {
+    return Intl.message(
+      '服务器托管成功',
+      name: 'machine_hosting_sucess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `服务器续期成功`
+  String get machine_pay_sucess {
+    return Intl.message(
+      '服务器续期成功',
+      name: 'machine_pay_sucess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `修改账号成功`
+  String get pwd_change_account {
+    return Intl.message(
+      '修改账号成功',
+      name: 'pwd_change_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `修改登录密码成功`
+  String get pwd_change_sucess {
+    return Intl.message(
+      '修改登录密码成功',
+      name: 'pwd_change_sucess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `支付密码设置成功`
+  String get pwd_change_pay {
+    return Intl.message(
+      '支付密码设置成功',
+      name: 'pwd_change_pay',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `网络不可用,请稍后重试`
   String get no_network {
     return Intl.message(

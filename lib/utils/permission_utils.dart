@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:permission_handler/permission_handler.dart';
 
 class PermissionUtils {
@@ -6,6 +8,10 @@ class PermissionUtils {
    * 所有
    */
   static Future requestAllPermission() async {
+    if (Platform.isIOS) {
+      return;
+    }
+
     Map<Permission, PermissionStatus> permission = await [
       Permission.camera,
       Permission.photos,
