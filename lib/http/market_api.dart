@@ -8,6 +8,8 @@ import 'package:ipfsnets/models/market_bar_entity.dart';
 import 'package:ipfsnets/models/market_buy_entity.dart';
 import 'package:ipfsnets/models/market_coupon_entity.dart';
 import 'package:ipfsnets/models/market_entity.dart';
+import 'package:ipfsnets/models/share_cion_entity.dart';
+import 'package:ipfsnets/models/share_day_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'http_manager.dart';
 
@@ -72,11 +74,24 @@ class MarketApi{
     return HttpManager.getInstance().get<List<FansEntity>>(fans_list);
   }
 
+  // 区块总收益
+  static const String share_coin_total = "share/app/sharecoin/area/total-earnings/";
+  static  Future<BaseEntity> shareCoinTotal() {
+    return HttpManager.getInstance().get<ShareCionEntity>(share_coin_total);
+  }
+
   // 区块收益
-  static const String share_coin_list = "share/app/sharecoin/serv-earnings/";
-  static  Future<BaseEntity> shareCoinList(String time) {
+  static const String share_coin_month = "share/app/sharecoin/area/earnings/";
+  static  Future<BaseEntity> shareCoinTime(String time) {
     Map<String, dynamic> param = new Map();
     param['time'] = time;
-    return HttpManager.getInstance().post<List<FansEntity>>(share_coin_list,jsonEncode(param));
+    return HttpManager.getInstance().post<List<ShareCionEntity>>(share_coin_month,jsonEncode(param));
+  }
+  // 区块收益每天
+  static const String share_coin_day = "share/app/sharecoin/serv-earnings/";
+  static  Future<BaseEntity> shareCoinDay(String time) {
+    Map<String, dynamic> param = new Map();
+    param['time'] = time;
+    return HttpManager.getInstance().post<List<ShareDayEntity>>(share_coin_day,jsonEncode(param));
   }
 }

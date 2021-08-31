@@ -670,6 +670,16 @@ class S {
     );
   }
 
+  /// `保存图片`
+  String get save_photo {
+    return Intl.message(
+      '保存图片',
+      name: 'save_photo',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `取消`
   String get cancle {
     return Intl.message(

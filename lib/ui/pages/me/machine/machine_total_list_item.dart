@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ipfsnets/models/market_entity.dart';
+import 'package:ipfsnets/models/share_cion_entity.dart';
 
 import '../../../../include.dart';
 
 class MachineTotalListItem extends StatelessWidget {
-  final MarketEntity data;
+  final ShareCionEntity data;
   MachineTotalListItem(this.data);
   @override
   Widget build(BuildContext context) {

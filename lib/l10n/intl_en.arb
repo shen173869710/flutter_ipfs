@@ -68,6 +68,7 @@
   "del_address": "是否删除当前提币地址",
   "sure": "确定",
   "save": "保存",
+  "save_photo": "保存图片",
   "cancle": "取消",
   "not_enough": "余额不足",
   "not_choose": "超出可选时间范围",

@@ -68,6 +68,7 @@ class Routes {
   static String languagePage = "/me/setting/languagePage";
   static String baseListPage = "/me/baselistpage/baselistpage";
   static String photoPage = "/me/photopage";
+  static String recomondPage = "/ui/recomondPage";
 // 路由管理
   static final FluroRouter router = FluroRouter();
 
@@ -139,6 +140,7 @@ class Routes {
     router.define(quoteSearchPage, handler:quoteSearchHandler);
     router.define(fansPage, handler:fansHandler);
     router.define(photoPage, handler:photoHandler);
+    router.define(recomondPage, handler:recomondHandler);
   }
 }
 

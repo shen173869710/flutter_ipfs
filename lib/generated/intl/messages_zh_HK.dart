@@ -397,6 +397,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "releaseToRefresh": MessageLookupByLibrary.simpleMessage("释放刷新"),
         "save": MessageLookupByLibrary.simpleMessage("保存"),
         "save_faile": MessageLookupByLibrary.simpleMessage("保存失败"),
+        "save_photo": MessageLookupByLibrary.simpleMessage("保存图片"),
         "save_success": MessageLookupByLibrary.simpleMessage("保存成功"),
         "send_faile": MessageLookupByLibrary.simpleMessage("发送失败"),
         "send_success": MessageLookupByLibrary.simpleMessage("发送成功"),

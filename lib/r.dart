@@ -323,6 +323,8 @@ class R {
   static final String assetsImgMeItem8 = 'assets/img/me_item_8.png';
   /// ![](http://127.0.0.1:1111/assets/img/tab_quotes_n.png)
   static final String assetsImgTabQuotesN = 'assets/img/tab_quotes_n.png';
+  /// ![](http://127.0.0.1:1111/assets/img/ic_recmmond_bg.jpeg)
+  static final String assetsImgIcRecmmondBg = 'assets/img/ic_recmmond_bg.jpeg';
   /// ![](http://127.0.0.1:1111/assets/img/ic_bnbb.png)
   static final String assetsImgIcBnbb = 'assets/img/ic_bnbb.png';
   /// ![](http://127.0.0.1:1111/assets/img/me_item_9.png)

@@ -3,15 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:ipfsnets/dialog/month_picker_dialog.dart';
 import 'package:ipfsnets/http/market_api.dart';
 import 'package:ipfsnets/include.dart';
-import 'package:ipfsnets/models/machine_entity.dart';
-import 'package:ipfsnets/models/market_entity.dart';
+import 'package:ipfsnets/models/share_cion_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/picker/common/date.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/widget/base_list_page.dart';
-
 import 'machine_total_list_item.dart';
-
 
 
 class MachineTotalPage extends StatefulWidget {
@@ -24,22 +21,21 @@ class MachineTotalPage extends StatefulWidget {
 
 class _MachineTotalState extends BaseListPageState<MachineTotalPage> with AutomaticKeepAliveClientMixin {
   late num id;
-
   _MachineTotalState(this.id);
-
-  late MachineEntity entity;
-
   late String currentTime = DateTime.now().year.toString() + "-" + DateTime.now().month.toString();
-  List<MarketEntity> list = [];
+  List<ShareCionEntity> list = [];
+  late ShareCionEntity shareCionEntity = ShareCionEntity();
+
+
+  @override
+  void initState() {
+    super.initState();
+    getToale();
+    shareCionEntity.init();
+  }
 
   @override
   Widget build(BuildContext context) {
-    entity = ModalRoute
-        .of(context)!
-        .settings
-        .arguments as MachineEntity;
-
-
     setEnableRefresh(false);
     setEnableLoadMore(false);
     return Scaffold(
@@ -56,9 +52,7 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
             SizedBox(
                 width: double.infinity,
                 height: 70.h,
-                child: Container(
-                  color: Colours.app_bar_bg,
-                )),
+                child: Container(color: Colours.app_bar_bg,)),
             Column(
               children: [
                 buildItem4(context),
@@ -93,15 +87,24 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
 
   @override
   Future<BaseEntity> getData() async {
-    BaseEntity entity = await MarketApi.getMachineById(id, false);
-    if (entity.isOk()) {
-      list.addAll(entity.data);
-      setState(() {
+    // BaseEntity listEntiry = await MarketApi.shareCoinTime(currentTime);
+    // if (listEntiry.isOk()) {
+    //   list.addAll(listEntiry.data);
+    //   // setState(() {
+    //   //
+    //   // });
+    // }
+    return BaseEntity(200, "", []);
+  }
 
+  getToale() async {
+    BaseEntity entity = await MarketApi.shareCoinTotal();
+    if (entity.isOk()) {
+      setState(() {
+        shareCionEntity = entity.data;
       });
     }
-    return entity;
-  }
+ }
 
   @override
   void clearList() {
@@ -124,7 +127,7 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
             children: [
               Text(S.current.machine_total_1, style: ITextStyles.itemContent),
               Gaps.vGap8,
-              Text("123456",
+              Text(" CNY",
                 style: TextStyle(fontSize: 20, color: Color(0xffF23E2A)),),
             ],
           ),
@@ -133,11 +136,10 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Expanded(child: buildItem3Desc(
-                  S.current.machine_total_2, S.current.machine_total_2),
+              Expanded(child: buildItem3Desc(S.current.machine_total_2, " CNY"),
                 flex: 1,),
               Expanded(child: buildItem3Desc(
-                  S.current.machine_total_3, S.current.machine_total_3),
+                  S.current.machine_total_3, " CNY"),
                 flex: 1,)
             ],
           ),
@@ -172,19 +174,6 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
   }
 
   showTimeDialog() async {
-    // DateTime? time = await showDatePicker(
-    //     context: context,
-    //     initialDate: DateTime.now(),
-    //     firstDate: DateTime(2019),
-    //     lastDate: DateTime.now());
-    // print('$time');
-    // print("--"+time!.month.toString());
-    // currentTime = time.year.toString() + "-"+time.month.toString();
-    // setState(() {
-    //   print(currentTime);
-    // });
-
-
     showMonthPicker(
         context: context,
         firstDate: DateTime(DateTime.now().year - 3, 1),

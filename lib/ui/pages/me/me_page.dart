@@ -338,7 +338,8 @@ class MePage extends StatelessWidget {
       case 12:
       //推广二维码
         UserEntity userEntity = UserUtil.getUserInfo();
-        NavigatorUtil.goWebViewPage(context, S.current.me_item_15, GlobalEntiy.web_qrcode+userEntity.code);
+        // NavigatorUtil.goWebViewPage(context, S.current.me_item_15, GlobalEntiy.web_qrcode+userEntity.code);
+        NavigatorUtil.push(context, '${Routes.recomondPage}?title=${Uri.encodeComponent(userEntity.code)}');
         break;
       case 13:
       //我的客服

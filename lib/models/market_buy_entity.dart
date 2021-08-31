@@ -11,12 +11,7 @@ class MarketBuyEntity {
 	late num usdtPrice = 0;
 
 	MarketBuyEntity();
-
-
-
-
   factory MarketBuyEntity.fromJson(Map<String, dynamic> json) => _$MarketBuyEntityFromJson(json);
-
 Map<String, dynamic> toJson() => _$MarketBuyEntityToJson(this);
 }
 

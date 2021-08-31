@@ -292,6 +292,7 @@ flutter:
     - assets/img/my_wallet_eos.png
     - assets/img/me_item_8.png
     - assets/img/tab_quotes_n.png
+    - assets/img/ic_recmmond_bg.jpeg
     - assets/img/ic_bnbb.png
     - assets/img/me_item_9.png
   # assets-generator-end

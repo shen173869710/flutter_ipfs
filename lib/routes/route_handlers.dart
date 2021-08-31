@@ -40,6 +40,7 @@ import 'package:ipfsnets/ui/pages/me/wallet/wallet_withdrawal_address_page.dart'
 import 'package:ipfsnets/ui/pages/me/wallet/wallet_withdrawal_page.dart';
 import 'package:ipfsnets/ui/pages/me/wallet/wallet_withdrawal_record_page.dart';
 import 'package:ipfsnets/ui/pages/quote/quote_search_page.dart';
+import 'package:ipfsnets/ui/pages/recomond_page.dart';
 import 'package:ipfsnets/ui/pages/register/forget_page.dart';
 import 'package:ipfsnets/ui/pages/register/register_page.dart';
 import 'package:ipfsnets/ui/pages/me/cny/cny_account_page.dart';
@@ -239,6 +240,10 @@ var languageHandler = Handler(handlerFunc: (BuildContext? context, Map<String, L
 });
 var photoHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   return PhotoPage(params['type']?.first ?? '');
+});
+
+var recomondHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return RecomondPage(params['title']?.first ?? '');
 });
 // 历史记录相关页面
 var baseListHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {

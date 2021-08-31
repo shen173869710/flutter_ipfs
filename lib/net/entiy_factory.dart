@@ -18,6 +18,8 @@ import 'package:ipfsnets/models/market_buy_entity.dart';
 import 'package:ipfsnets/models/market_coupon_entity.dart';
 import 'package:ipfsnets/models/market_entity.dart';
 import 'package:ipfsnets/models/quote_optional_entity.dart';
+import 'package:ipfsnets/models/share_cion_entity.dart';
+import 'package:ipfsnets/models/share_day_entity.dart';
 import 'package:ipfsnets/models/transfer_entity.dart';
 import 'package:ipfsnets/models/transfer_record_entity.dart';
 import 'package:ipfsnets/models/user_entity.dart';
@@ -69,6 +71,10 @@ class EntityFactory {
       return CnyWithdrawalSettingEntity.fromJson(json)as T;
     }else if (name == "FansEntity"){
       return FansEntity.fromJson(json)as T;
+    }else if (name == "ShareDayEntity"){
+      return ShareDayEntity.fromJson(json)as T;
+    }else if (name == "ShareCionEntity"){
+      return ShareCionEntity.fromJson(json)as T;
     }else {
       return json as T;
     }
@@ -123,6 +129,12 @@ class EntityFactory {
     }else if(<FansEntity>[] is M){
       LogUtil.e("解析数组对象 FansEntity");
       return data.map<FansEntity>((e) => FansEntity.fromJson(e)).toList() as M;
+    }else if(<ShareDayEntity>[] is M){
+      LogUtil.e("解析数组对象 ShareDayEntity");
+      return data.map<ShareDayEntity>((e) => ShareDayEntity.fromJson(e)).toList() as M;
+    } else if(<ShareCionEntity>[] is M){
+      LogUtil.e("解析数组对象 ShareCionEntity");
+      return data.map<ShareCionEntity>((e) => ShareCionEntity.fromJson(e)).toList() as M;
     }
     throw Exception("-----------------数组子类异常 no fond");
   }
