@@ -53,13 +53,13 @@ class FansListItem extends StatelessWidget {
                         Gaps.hGap4,
                         Container(
                           width: 140.w,
-                          child:Text(data.personalKpi.toString(),style:TextStyle(fontSize: 14,color: Color(0xffEF4033)),maxLines: 1,overflow: TextOverflow.ellipsis,),
+                          child:Text(data.personalKpi.toStringAsFixed(0),style:TextStyle(fontSize: 14,color: Color(0xffEF4033)),maxLines: 1,overflow: TextOverflow.ellipsis,),
                         ),
 
                         Gaps.hGap4,
                         Text(S.current.fans_item_4,style:TextStyle(fontSize: 14,color: Colours.item_content_color)),
                         Gaps.hGap4,
-                        Text(data.teamKpi.toString(),style:TextStyle(fontSize: 14,color: Color(0xffEF4033))),
+                        Text(data.teamKpi.toStringAsFixed(0),style:TextStyle(fontSize: 14,color: Color(0xffEF4033))),
                       ],
                     ),
                   ],

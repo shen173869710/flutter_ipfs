@@ -4270,20 +4270,20 @@ class S {
     );
   }
 
-  /// `个人业绩(CNY)`
+  /// `个人业绩`
   String get fans_item_1 {
     return Intl.message(
-      '个人业绩(CNY)',
+      '个人业绩',
       name: 'fans_item_1',
       desc: '',
       args: [],
     );
   }
 
-  /// `团队业绩(CNY)`
+  /// `团队业绩`
   String get fans_item_2 {
     return Intl.message(
-      '团队业绩(CNY)',
+      '团队业绩',
       name: 'fans_item_2',
       desc: '',
       args: [],

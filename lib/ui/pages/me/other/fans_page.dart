@@ -125,14 +125,14 @@ class _FansState extends BaseListPageState<FansPage> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Gaps.hGap16,
-          Expanded(child:buildItemTitle(S.current.fans_item_1, fansEntity.personalKpi.toString()),flex: 1,),
+          Expanded(child:buildItemTitle(S.current.fans_item_1, fansEntity.personalKpi.toStringAsFixed(0)),flex: 1,),
           SizedBox(
             width: 1.w,
             height: 70.h,
             child: VerticalDivider(),
           ),
           Gaps.hGap16,
-          Expanded(child:buildItemTitle(S.current.fans_item_2, fansEntity.teamKpi.toString()),flex: 1,)
+          Expanded(child:buildItemTitle(S.current.fans_item_2, fansEntity.teamKpi.toStringAsFixed(0)),flex: 1,)
         ],
       ),
     );
@@ -144,8 +144,6 @@ class _FansState extends BaseListPageState<FansPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text.rich(TextSpan(children: [
-          WidgetSpan(child: Image.asset(R.assetsImgIconCny, height: 30.w, width: 30.w,)),
-          TextSpan(text: " "),
           TextSpan(text: title,style: ITextStyles.itemContent),
         ])),
         Gaps.vGap8,
