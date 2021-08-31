@@ -1,19 +1,15 @@
 import 'dart:async';
-import 'dart:io';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:ipfsnets/include.dart';
 import 'package:ipfsnets/res/styles.dart';
 import 'package:ipfsnets/utils/LoadingUtils.dart';
-import 'package:ipfsnets/utils/device_utils.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-import 'package:image_gallery_saver/image_gallery_saver.dart';
 
 class RecomondPage extends StatefulWidget {
   final String title;
@@ -66,6 +62,11 @@ class _RecomondState extends State<RecomondPage> {
     return Stack(
       children: [
         Image.asset(R.assetsImgIcRecmmondBg,width: double.infinity,height: double.infinity,fit: BoxFit.fill,),
+        Positioned(
+          bottom: 50.w,
+          left: 20.w,
+          child: Text(widget.title, style: ITextStyles.textWhite14,),
+        ),
         Positioned(
           bottom: 5.w,
           right: 15.w,

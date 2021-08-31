@@ -76,6 +76,8 @@
   "not_account": "账户不能为空",
   "password_no_equal": "两次输入的密码不相同",
   "transfer_success": "转账成功",
+  "transfer_in_success": "收款成功",
+  "transfer_in_fail": "收款失败",
   "transfer_fail": "转账失败",
   "send_success": "发送成功",
   "send_faile": "发送失败",

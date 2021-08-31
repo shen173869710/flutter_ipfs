@@ -73,6 +73,8 @@
   "can_not_use": "不符合使用条件",
   "not_account": "账户不能为空",
   "transfer_success": "转账成功",
+  "transfer_in_success": "收款成功",
+  "transfer_in_fail": "收款失败",
   "transfer_fail": "转账失败",
   "send_success": "发送成功",
   "save_success": "保存成功",

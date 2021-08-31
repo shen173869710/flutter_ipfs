@@ -750,6 +750,26 @@ class S {
     );
   }
 
+  /// `收款成功`
+  String get transfer_in_success {
+    return Intl.message(
+      '收款成功',
+      name: 'transfer_in_success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `收款失败`
+  String get transfer_in_fail {
+    return Intl.message(
+      '收款失败',
+      name: 'transfer_in_fail',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `转账失败`
   String get transfer_fail {
     return Intl.message(

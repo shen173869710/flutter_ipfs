@@ -33,12 +33,12 @@ class TransferRecordItem extends StatelessWidget {
               children: <Widget>[
                 Text(DateUtil.getTime(data.createTime),style: ITextStyles.itemContent),
                 Expanded(child:SizedBox()),
-                Text(getStatus(data.status),style: TextStyle(fontSize: 14, color:getStatusColor(data.status) )),
+                Text(getStatus(data.status,data.outStatus),style: TextStyle(fontSize: 14, color:getStatusColor(data.status) )),
               ],
             ),
             Gaps.vGap4,
             Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(getFromAddress(data),maxLines:2,style:ITextStyles.itemContent12),
@@ -51,9 +51,17 @@ class TransferRecordItem extends StatelessWidget {
     );;
   }
 
-  String getStatus(num status) {
+  String getStatus(num status, num outStatus) {
     if (status == 0) {
-      return S.current.transfer_success;
+      if (outStatus == 0) {
+        return S.current.transfer_in_success;
+      }else{
+        return S.current.transfer_success;
+      }
+    }
+
+    if (outStatus == 0) {
+      return S.current.transfer_in_fail;
     }
     return S.current.transfer_fail;
   }
@@ -78,7 +86,7 @@ class TransferRecordItem extends StatelessWidget {
   }
 
   String getFromNick(TransferRecordEntity data) {
-    return "("+data.nickname+")";
+    return "   ("+data.nickname+")";
   }
 }
 

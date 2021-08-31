@@ -415,6 +415,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "tab_quotes": MessageLookupByLibrary.simpleMessage("行情"),
         "title": MessageLookupByLibrary.simpleMessage("Flutter 中国"),
         "transfer_fail": MessageLookupByLibrary.simpleMessage("转账失败"),
+        "transfer_in_fail": MessageLookupByLibrary.simpleMessage("收款失败"),
+        "transfer_in_success": MessageLookupByLibrary.simpleMessage("收款成功"),
         "transfer_out_item_1": MessageLookupByLibrary.simpleMessage("对方账号"),
         "transfer_out_item_1_hint": MessageLookupByLibrary.simpleMessage("请输入"),
         "transfer_out_item_2": MessageLookupByLibrary.simpleMessage("对方昵称"),
