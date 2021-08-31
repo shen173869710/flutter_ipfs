@@ -7,7 +7,6 @@ import 'package:ipfsnets/models/machine_entity.dart';
 import 'package:ipfsnets/models/market_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/picker/common/date.dart';
-import 'package:ipfsnets/picker/flutter_my_picker.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/widget/base_list_page.dart';
 

@@ -16,7 +16,6 @@ class PermissionUtils {
       Permission.camera,
       Permission.photos,
       Permission.storage,
-      Permission.requestInstallPackages
     ].request();
 
     if (await Permission.camera.isGranted) {
@@ -126,8 +125,7 @@ class PermissionUtils {
   }
 
   static Future requestInstallPackages() async {
-    Map<Permission, PermissionStatus> permission = await [
-      Permission.requestInstallPackages,
+    Map<Permission, PermissionStatus> permission = await [Permission.requestInstallPackages,
     ].request();
     if (await Permission.requestInstallPackages.isGranted) {
       print("安装app申请通过");

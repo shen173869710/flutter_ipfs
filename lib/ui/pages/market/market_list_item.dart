@@ -20,7 +20,7 @@ class MarketListItem extends StatelessWidget {
           bulidTop(context),
           Gaps.line,
           Gaps.vGap8,
-          buildItem(S.current.market_item_1,data.price.toString(),ITextStyles.itemTitleRed),
+          buildItem(S.current.market_item_1,data.price.toString()+" CNY",ITextStyles.itemTitleRed),
           Gaps.vGap8,
           buildItem(S.current.market_item_2,data.nodeName,ITextStyles.itemTitle),
           Gaps.vGap8,

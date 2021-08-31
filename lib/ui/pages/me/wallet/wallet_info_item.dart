@@ -20,7 +20,7 @@ class WalletInfoItem extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Image.asset(R.assetsImgMyWalletFil,width: 30.w,height: 30.w,),
+                Image.asset(getStatusImage(data.value),width: 30.w,height: 30.w,),
                 Gaps.hGap8,
                 Text(getStatus(data.transactionType),style: ITextStyles.itemTitle),
                 Expanded(child:SizedBox()),
@@ -117,6 +117,14 @@ class WalletInfoItem extends StatelessWidget {
       return Colours.item_green;
     }else{
       return Colours.item_red;
+    }
+  }
+
+   getStatusImage(num status) {
+    if (status > 0) {
+      return R.assetsImgTransferIn;
+    }else{
+      return R.assetsImgTransferOut;
     }
   }
 

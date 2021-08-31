@@ -31,6 +31,7 @@
   "tab_quotes": "行情",
   "tab_me": "我的",
   "no_network": "网络不可用,请稍后重试",
+  "not_open":"暂未开放",
 
   "login_title": "你好,",
   "login_title_1": "欢迎来到INSTAR",
@@ -109,8 +110,8 @@
   "me_item_3": "已发货",
   "me_item_4": "已完成",
   "me_item_5": "钱包",
-  "me_item_6": "付款",
-  "me_item_7": "收款",
+  "me_item_6": "提币",
+  "me_item_7": "充币",
   "me_item_8": "扫一扫",
   "me_item_9": "服务器",
   "me_item_10": "购物车",
@@ -469,7 +470,7 @@
   "fans_item_4": "团队业绩",
 
   "setting_title": "设置",
-  "setting_change_phone": "修改账户",
+  "setting_change_phone": "修改账号",
   "setting_change_logig_pwd": "修改登录密码",
   "setting_change_pay_pwd": "设置支付密码",
   "setting_language": "语言设置",

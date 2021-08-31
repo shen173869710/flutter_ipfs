@@ -17,4 +17,5 @@ class IndexController extends GetxController{
       update();
     }
   }
+
 }

@@ -870,6 +870,16 @@ class S {
     );
   }
 
+  /// `暂未开放`
+  String get not_open {
+    return Intl.message(
+      '暂未开放',
+      name: 'not_open',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `我的资料`
   String get me_info_title {
     return Intl.message(
@@ -1100,20 +1110,20 @@ class S {
     );
   }
 
-  /// `付款`
+  /// `提币`
   String get me_item_6 {
     return Intl.message(
-      '付款',
+      '提币',
       name: 'me_item_6',
       desc: '',
       args: [],
     );
   }
 
-  /// `收款`
+  /// `充币`
   String get me_item_7 {
     return Intl.message(
-      '收款',
+      '充币',
       name: 'me_item_7',
       desc: '',
       args: [],
@@ -4300,10 +4310,10 @@ class S {
     );
   }
 
-  /// `修改账户`
+  /// `修改账号`
   String get setting_change_phone {
     return Intl.message(
-      '修改账户',
+      '修改账号',
       name: 'setting_change_phone',
       desc: '',
       args: [],
@@ -4470,30 +4480,30 @@ class S {
     );
   }
 
-  /// `语言设置`
+  /// `language setting`
   String get language_title {
     return Intl.message(
-      '语言设置',
+      'language setting',
       name: 'language_title',
       desc: '',
       args: [],
     );
   }
 
-  /// `英语`
+  /// `English`
   String get language_en {
     return Intl.message(
-      '英语',
+      'English',
       name: 'language_en',
       desc: '',
       args: [],
     );
   }
 
-  /// `中文`
+  /// `Chinease`
   String get language_ch {
     return Intl.message(
-      '中文',
+      'Chinease',
       name: 'language_ch',
       desc: '',
       args: [],

@@ -88,6 +88,7 @@
   "qrcode_fail": "无法识别账户,请稍后重新扫描",
   "image_to_big":"文件过大无法上传",
   "image_not_choose":"请先上传图片",
+  "not_open":"暂未开放",
 
   "me_info_title": "我的资料",
   "me_info_head": "头像",
@@ -114,8 +115,8 @@
   "me_item_3": "已发货",
   "me_item_4": "已完成",
   "me_item_5": "钱包",
-  "me_item_6": "付款",
-  "me_item_7": "收款",
+  "me_item_6": "提币",
+  "me_item_7": "充币",
   "me_item_8": "扫一扫",
 
   "me_item_9": "服务器",
@@ -484,7 +485,7 @@
   "fans_item_4": "团队业绩",
 
   "setting_title": "设置",
-  "setting_change_phone": "修改账户",
+  "setting_change_phone": "修改账号",
   "setting_change_logig_pwd": "修改登录密码",
   "setting_change_pay_pwd": "设置支付密码",
   "setting_language": "语言设置",
@@ -505,9 +506,9 @@
   "pwd_pay_new_again": "请再次输入密码",
   "pwd_pay_code": "请输入手机验证码",
 
-  "language_title": "语言设置",
-  "language_en": "英语",
-  "language_ch": "中文",
+  "language_title": "language setting",
+  "language_en": "English",
+  "language_ch": "Chinease",
 
   "wallet_type_1": "冲币",
   "wallet_type_2": "提币",

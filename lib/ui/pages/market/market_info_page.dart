@@ -83,7 +83,7 @@ class _MarketInfoStatus extends State<MarketInfoPage> {
           Gaps.vGap8,
           Gaps.line,
           Gaps.vGap8,
-          buildItem(S.current.market_item_1,data.price.toString(),ITextStyles.itemTitleRed),
+          buildItem(S.current.market_item_1,data.price.toString()+" CNY",ITextStyles.itemTitleRed),
           Gaps.vGap8,
           buildItem(S.current.market_item_2,data.nodeName,ITextStyles.itemTitle),
           Gaps.vGap8,
@@ -254,8 +254,8 @@ class _MarketInfoStatus extends State<MarketInfoPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Center(child: Text(S.current.market_info_know,style: ITextStyles.itemTitle,)),
-        Visibility(child: Image.network(data.details == null?"":data.details,fit: BoxFit.fitWidth,),visible: data.details == null?false:true,)
-
+        // Visibility(child: Image.network(data.details == null?"":data.details,fit: BoxFit.fitWidth,),visible: data.details == null?false:true,)
+        getNotice(),
         // ImageUtil.getDesc(data.details),
         //Text(data.details == null?"":data.details, style: ITextStyles.itemContent,),
       ],
@@ -303,6 +303,15 @@ class _MarketInfoStatus extends State<MarketInfoPage> {
         });
       }
     }
+  }
+
+  getNotice() {
+    if (StringUtil.isEmpty(data.details)) {
+      return Text("");
+    }else{
+      return Visibility(child: Image.network(data.details,fit: BoxFit.fitWidth,));
+    }
+
   }
 
 }

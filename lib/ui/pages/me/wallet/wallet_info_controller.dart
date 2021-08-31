@@ -41,7 +41,7 @@ class WalletInfoController extends GetxController{
 
 
   getList1More(int pageNum) async{
-    BaseEntity baseEntity  = await WalletApi.wallerInfForeeze(pageNum);
+    BaseEntity baseEntity  = await WalletApi.wallerInfNormal(pageNum);
     total1 = baseEntity.total;
     list1.addAll(baseEntity.data);
     update();
@@ -54,7 +54,7 @@ class WalletInfoController extends GetxController{
 
 
   getList2More(int pageNum) async{
-    BaseEntity baseEntity  = await WalletApi.wallerInfNormal(pageNum);
+    BaseEntity baseEntity  = await WalletApi.wallerInfForeeze(pageNum);
     total2 = baseEntity.total;
     list2.addAll(baseEntity.data);
     update();

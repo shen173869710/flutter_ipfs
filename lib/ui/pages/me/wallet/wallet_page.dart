@@ -33,6 +33,7 @@ class _WalletPageState extends State<WalletPage> {
         cnySum = entity.cnySum;
         usdtSum = entity.usdtSum;
         if (entity.rows != null) {
+          list.clear();
           list.addAll(entity.rows);
         }
       }
@@ -117,7 +118,7 @@ class _WalletPageState extends State<WalletPage> {
             text: "≈ ",
             style: ITextStyles.itemTitle),
         TextSpan(text: usdtSum.toString(), style: ITextStyles.itemContent),
-        TextSpan(text: "  USDT", style: ITextStyles.itemTitle),
+        TextSpan(text: "  USDT", style: ITextStyles.itemContent),
       ],
     ));
   }
@@ -142,13 +143,35 @@ class _WalletPageState extends State<WalletPage> {
         GestureDetector(
           child:  Image.asset(image,width: 60.w,height: 60.w,),
           onTap: (){
-            NavigatorUtil.jump(context, rouser);
+            if(Routes.walletExchangePage == rouser) {
+              ToastUtil.show(S.current.not_open);
+            }else{
+              NavigatorUtil.jump(context, rouser);
+            }
           },
         ),
         Gaps.vGap4,
         Text(title,style: ITextStyles.itemTitle,),
       ],
     );
+  }
+
+  Future onRefresh() async {
+    BaseEntity baseEntity  = await WalletApi.getWalletHome(true);
+    _refreshController.finishRefresh(success: true);
+    setState(() {
+      if (baseEntity.isOk()) {
+        WalletHomeEntity entity = baseEntity.data;
+        cnySum = entity.cnySum;
+        usdtSum = entity.usdtSum;
+        if (entity.rows != null) {
+          list.clear();
+          list.addAll(entity.rows);
+        }
+      }
+    });
+
+    // _refreshController.finishRefresh(success: true);
   }
   // 创建充值和提现记录
   Expanded bulidRecordList() {
@@ -158,12 +181,12 @@ class _WalletPageState extends State<WalletPage> {
           margin: EdgeInsets.fromLTRB(20.w, 0.w, 20.w, 30.w),
           decoration:ITextStyles.boxDecoration,
           child:EasyRefresh.custom(
-              enableControlFinishRefresh: false,
+              enableControlFinishRefresh: true,
               enableControlFinishLoad: false,
               controller: _refreshController,
-              header:  null,
+              header:  Refresh.head,
               footer: null,
-              onRefresh: null,
+              onRefresh: onRefresh,
               onLoad: null,
               slivers: [
                 SliverList(delegate: SliverChildBuilderDelegate((context, index) {
@@ -185,5 +208,7 @@ class _WalletPageState extends State<WalletPage> {
     LogUtil.e(index.toString());
     NavigatorUtil.push(context,'${Routes.walletInfoPage}',arguments: list[index]);
   }
+
+
 
 }

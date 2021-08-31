@@ -163,8 +163,8 @@ class MachineUpdatePage extends StatelessWidget{
         alignment: Alignment.topLeft,
         child:Column(
           children: [
-            buildChooseMoneyItem(R.assetsImgIconCny,"CNY", controller.data.cnyBalance.toString(), 0),
-            buildChooseMoneyItemn(R.assetsImgIconUsdt,"USDT", controller.data.usdtBalance.toString(), 1),
+            buildChooseMoneyItem(R.assetsImgIconCny,"CNY",   S.current.wallet_withdraw_money_has+" "+controller.data.cnyBalance.toString()+" USDT", 0),
+            buildChooseMoneyItemn(R.assetsImgIconUsdt,"USDT",S.current.wallet_withdraw_money_has+" "+controller.data.usdtBalance.toString()+" USDT", 1),
             buildRegisterAndForget(context, controller),
           ],
         ));

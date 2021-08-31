@@ -280,6 +280,7 @@ class _TransferState extends State<TransferPage>  with TickerProviderStateMixin{
                    bool ok =  await controller.doTransfer();
                    if(ok) {
                      ToastUtil.show(S.current.option_success);
+                     NavigatorUtil.jump(context, Routes.transferRecordPage);
                    }
                 })));
   }

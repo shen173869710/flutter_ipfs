@@ -87,7 +87,7 @@ class MarketBuyPage extends StatelessWidget{
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Gaps.vGap12,
-          buildItem(S.current.market_item_1,data.price.toString(),ITextStyles.itemTitleRed),
+          buildItem(S.current.market_item_1,data.price.toString()+" CNY",ITextStyles.itemTitleRed),
           Gaps.vGap12,
           buildItem(S.current.market_item_2,data.nodeName,ITextStyles.itemTitle),
           Gaps.vGap12,
@@ -169,8 +169,8 @@ class MarketBuyPage extends StatelessWidget{
         alignment: Alignment.topLeft,
         child:Column(
           children: [
-            buildChooseMoneyItem(R.assetsImgIconCny,"CNY", controller.buyEntity.cnyBalance.toString(), 0),
-            buildChooseMoneyItemn(R.assetsImgIconUsdt,"USDT", controller.buyEntity.usdtBalance.toString(), 1),
+            buildChooseMoneyItem(R.assetsImgIconCny,"CNY", S.current.wallet_withdraw_money_has+" "+controller.buyEntity.cnyBalance.toString()+" CNY", 0),
+            buildChooseMoneyItemn(R.assetsImgIconUsdt,"USDT", S.current.wallet_withdraw_money_has+" "+controller.buyEntity.usdtBalance.toString()+" USDT", 1),
             buildRegisterAndForget(context, controller),
           ],
         ));

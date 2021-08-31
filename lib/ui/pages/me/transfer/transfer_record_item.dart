@@ -38,16 +38,14 @@ class TransferRecordItem extends StatelessWidget {
             ),
             Gaps.vGap4,
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Expanded(child:  Text(getFromAddress(data),maxLines:2,style:ITextStyles.itemContent),),
+                Text(getFromAddress(data),maxLines:2,style:ITextStyles.itemContent12),
+                Text(getFromNick(data),maxLines:2,style:ITextStyles.itemContent12),
               ],
             ),
             Gaps.vGap4,
-            Row(
-              children: [
-                Expanded(child:  Text(getFromNick(data),maxLines:2,style:ITextStyles.itemContent),),
-              ],
-            ),
           ],
         )
     );;
@@ -80,15 +78,7 @@ class TransferRecordItem extends StatelessWidget {
   }
 
   String getFromNick(TransferRecordEntity data) {
-    String address = "";
-    if (data.outStatus == 0) {
-      address = S.current.me_info_nick +":     "+ data.username;
-    }else {
-      address = S.current.me_info_nick +":     "+ data.username;
-    }
-    return address;
+    return "("+data.nickname+")";
   }
-
-
 }
 

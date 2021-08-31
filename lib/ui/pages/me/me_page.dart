@@ -1,16 +1,26 @@
+import 'dart:io';
+
 import 'package:ipfsnets/getx/user_controller.dart';
 import 'package:ipfsnets/include.dart';
 import 'package:ipfsnets/models/user_entity.dart';
+import 'package:ipfsnets/ui/pages/me/cny/cny_account_page.dart';
+import 'package:ipfsnets/ui/pages/me/machine/machine_page.dart';
+import 'package:ipfsnets/ui/pages/me/transfer/transfer_page.dart';
+import 'package:ipfsnets/ui/pages/me/wallet/wallet_page.dart';
+import 'package:ipfsnets/ui/pages/me/wallet/wallet_rechage_page.dart';
+import 'package:ipfsnets/ui/pages/me/wallet/wallet_withdrawal_page.dart';
 import 'package:ipfsnets/utils/image_util.dart';
+import 'package:ipfsnets/utils/permission_utils.dart';
 import 'package:ipfsnets/utils/user_util.dart';
 
 class MePage extends StatelessWidget {
   final UserController userController = Get.put(UserController());
 
-
   @override
   Widget build(BuildContext context) {
-    // PermissionUtils.requestAllPermission();
+    if (Platform.isAndroid) {
+      PermissionUtils.requestAllPermission();
+    }
     userController.inti();
     return GetBuilder<UserController>(builder:(userController){
       return Scaffold(backgroundColor: Colours.bg_color,body: SingleChildScrollView(
@@ -271,7 +281,7 @@ class MePage extends StatelessWidget {
     );
   }
   // 点击事件
-  void onItemClickListen(BuildContext context, int index) {
+  Future<void> onItemClickListen(BuildContext context, int index) async {
     LogUtil.e("index = "+index.toString());
     switch (index) {
       case 0:
@@ -288,15 +298,17 @@ class MePage extends StatelessWidget {
         break;
       case 4:
       //钱包
-        NavigatorUtil.jump(context, Routes.walletPage);
+        refresh(context,WalletPage());
         break;
       case 5:
       //付款
-        NavigatorUtil.jump(context, Routes.walletWithdrawalPage);
+      //   NavigatorUtil.jump(context, Routes.walletWithdrawalPage);
+        refresh(context,WalletWithdrawalPage(coinCode: "",));
         break;
       case 6:
-        NavigatorUtil.jump(context, Routes.walletRechagePage);
       //收款
+      //   var data = await NavigatorUtil.jump(context, Routes.walletRechagePage);
+        refresh(context,WalletRechagePage(coinCode: ""));
         break;
       case 7:
         // NavigatorUtil.jump(context, Routes.qrcodeScannerPage);
@@ -305,19 +317,23 @@ class MePage extends StatelessWidget {
         break;
       case 8:
       //服务器
-        NavigatorUtil.jump(context, Routes.machinePage);
+      //   NavigatorUtil.jump(context, Routes.machinePage);
+        refresh(context,MachinePage());
         break;
       case 9:
       //CNY账号
-        NavigatorUtil.jump(context, Routes.cnyAccount);
+      //   NavigatorUtil.jump(context, Routes.cnyAccount);
+        refresh(context,CnyAccountPage());
         break;
       case 10:
       //转账
-        NavigatorUtil.jump(context, Routes.transferPage);
+      //   NavigatorUtil.jump(context, Routes.transferPage);
+        refresh(context,TransferPage(coinCode: ""));
         break;
       case 11:
       //我的粉丝
         NavigatorUtil.jump(context, Routes.fansPage);
+
         break;
       case 12:
       //推广二维码
@@ -346,6 +362,14 @@ class MePage extends StatelessWidget {
 
         break;
     }
+  }
+
+
+  Future<void> refresh(BuildContext context,Widget widget) async {
+    var data = await Navigator.of(context).push(
+        MaterialPageRoute(builder: (BuildContext context){return widget;})
+    );
+    userController.getAccountInfo();
   }
 }
 class _MyClipper extends CustomClipper<Rect>{

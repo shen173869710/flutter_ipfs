@@ -71,4 +71,12 @@ class MarketApi{
   static  Future<BaseEntity> getFansList() {
     return HttpManager.getInstance().get<List<FansEntity>>(fans_list);
   }
+
+  // 区块收益
+  static const String share_coin_list = "share/app/sharecoin/serv-earnings/";
+  static  Future<BaseEntity> shareCoinList(String time) {
+    Map<String, dynamic> param = new Map();
+    param['time'] = time;
+    return HttpManager.getInstance().post<List<FansEntity>>(share_coin_list,jsonEncode(param));
+  }
 }
