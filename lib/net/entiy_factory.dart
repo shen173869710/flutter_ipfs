@@ -20,6 +20,7 @@ import 'package:ipfsnets/models/market_entity.dart';
 import 'package:ipfsnets/models/quote_optional_entity.dart';
 import 'package:ipfsnets/models/share_cion_entity.dart';
 import 'package:ipfsnets/models/share_day_entity.dart';
+import 'package:ipfsnets/models/share_month_entity.dart';
 import 'package:ipfsnets/models/transfer_entity.dart';
 import 'package:ipfsnets/models/transfer_record_entity.dart';
 import 'package:ipfsnets/models/user_entity.dart';
@@ -75,6 +76,8 @@ class EntityFactory {
       return ShareDayEntity.fromJson(json)as T;
     }else if (name == "ShareCionEntity"){
       return ShareCionEntity.fromJson(json)as T;
+    }else if (name == "ShareMonthEntity"){
+      return ShareMonthEntity.fromJson(json)as T;
     }else {
       return json as T;
     }

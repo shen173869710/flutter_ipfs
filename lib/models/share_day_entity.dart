@@ -10,7 +10,13 @@ class ShareDayEntity {
 	late num totalNum;
 	ShareDayEntity();
 
-
+	init(){
+		freezeNum = 0;
+		releaseNow = 0;
+		servEarnings = [];
+		todayEarning = 0;
+		totalNum = 0;
+	}
 factory ShareDayEntity.fromJson(Map<String, dynamic> json) => _$ShareDayEntityFromJson(json);
 
 Map<String, dynamic> toJson() => _$ShareDayEntityToJson(this);

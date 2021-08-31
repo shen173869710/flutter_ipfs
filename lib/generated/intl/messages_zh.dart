@@ -164,10 +164,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "machine_earnings_item_1":
             MessageLookupByLibrary.simpleMessage("服务器ID"),
         "machine_earnings_item_2": MessageLookupByLibrary.simpleMessage("产币收益"),
-        "machine_earnings_item_3":
-            MessageLookupByLibrary.simpleMessage("立即释放 25%"),
-        "machine_earnings_item_4":
-            MessageLookupByLibrary.simpleMessage("线性释放 180天"),
+        "machine_earnings_item_3": MessageLookupByLibrary.simpleMessage("立即释放"),
+        "machine_earnings_item_4": MessageLookupByLibrary.simpleMessage("线性释放"),
         "machine_earnings_linear": MessageLookupByLibrary.simpleMessage("线性释放"),
         "machine_earnings_title": MessageLookupByLibrary.simpleMessage("服务器收益"),
         "machine_earnings_today": MessageLookupByLibrary.simpleMessage("今日收益"),
@@ -237,8 +235,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "machine_total_4": MessageLookupByLibrary.simpleMessage("月收益"),
         "machine_total_list_1":
             MessageLookupByLibrary.simpleMessage("区块收益 (FIL)"),
-        "machine_total_list_2":
-            MessageLookupByLibrary.simpleMessage("立即释放 25%"),
+        "machine_total_list_2": MessageLookupByLibrary.simpleMessage("立即释放"),
         "machine_total_list_3": MessageLookupByLibrary.simpleMessage("线性释放"),
         "machine_total_title": MessageLookupByLibrary.simpleMessage("区块收益"),
         "machine_update_buy": MessageLookupByLibrary.simpleMessage("单价"),

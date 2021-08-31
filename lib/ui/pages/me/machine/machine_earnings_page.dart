@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ipfsnets/http/market_api.dart';
 import 'package:ipfsnets/include.dart';
-import 'package:ipfsnets/models/market_entity.dart';
+import 'package:ipfsnets/models/share_day_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/widget/base_list_page.dart';
@@ -11,16 +11,22 @@ import 'machine_earnings_list_item.dart';
 
 class MachineEarningsPage extends StatefulWidget {
 
-  late num id;
-  MachineEarningsPage(this.id);
+  late String time;
+  MachineEarningsPage(this.time);
   @override
-  _MachineEarningsState createState() => _MachineEarningsState(id);
+  _MachineEarningsState createState() => _MachineEarningsState();
 }
 
 class _MachineEarningsState extends BaseListPageState<MachineEarningsPage> with AutomaticKeepAliveClientMixin{
-  late num id;
-  _MachineEarningsState(this.id);
-  List<MarketEntity> list = [];
+  ShareDayEntity shareDayEntity = ShareDayEntity();
+
+  @override
+  void initState() {
+    print(widget.time);
+    shareDayEntity.init();
+    super.initState();
+
+  }
   @override
   Widget build(BuildContext context) {
     setEnableRefresh(false);
@@ -57,7 +63,7 @@ class _MachineEarningsState extends BaseListPageState<MachineEarningsPage> with 
 
   @override
   Widget setListView(int index) {
-    return MachineEraningsListItem(list[index]);
+    return MachineEraningsListItem(shareDayEntity.servEarnings[index]!);
   }
 
   @override
@@ -75,17 +81,19 @@ class _MachineEarningsState extends BaseListPageState<MachineEarningsPage> with 
   @override
   int getListLength() {
     // TODO: implement getListSize
-    return list.length;
+    return shareDayEntity.servEarnings == null?0:shareDayEntity.servEarnings.length;
   }
 
 
   @override
   Future<BaseEntity> getData() async{
-    BaseEntity entity = await MarketApi.getMachineById(id, false);
+    BaseEntity entity = await MarketApi.shareCoinDay(widget.time);
     if (entity.isOk()) {
-      list.addAll(entity.data);
-      setState(() {
 
+      setState(() {
+          if (entity != null) {
+            shareDayEntity = entity.data;
+          }
       });
     }
     return entity;
@@ -93,7 +101,10 @@ class _MachineEarningsState extends BaseListPageState<MachineEarningsPage> with 
 
   @override
   void clearList() {
-    list.clear();
+    if (shareDayEntity.servEarnings != null) {
+      shareDayEntity.servEarnings.clear();
+    }
+
   }
 
 
@@ -110,9 +121,9 @@ class _MachineEarningsState extends BaseListPageState<MachineEarningsPage> with 
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text(S.current.machine_earnings_today+"("+DateUtil.getTimeY(new DateTime.now().millisecondsSinceEpoch)+")", style: ITextStyles.itemContent),
+              Text(S.current.machine_earnings_today+"("+widget.time+")", style: ITextStyles.itemContent),
               Gaps.vGap8,
-              Text("123456", style: TextStyle(fontSize: 20,color: Color(0xffF23E2A)),),
+              Text(shareDayEntity.todayEarning.toString()+" FIL", style: TextStyle(fontSize: 20,color: Color(0xffF23E2A)),),
             ],
           ),
           Gaps.vGap8,
@@ -120,8 +131,8 @@ class _MachineEarningsState extends BaseListPageState<MachineEarningsPage> with 
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Expanded(child:buildItem3Desc(S.current.machine_earnings_atonce, S.current.machine_earnings_atonce),flex: 1,),
-              Expanded(child:buildItem3Desc(S.current.machine_earnings_linear, S.current.machine_earnings_linear),flex: 1,)
+              Expanded(child:buildItem3Desc(shareDayEntity.releaseNow.toString()+" FIL", S.current.machine_earnings_atonce),flex: 1,),
+              Expanded(child:buildItem3Desc(shareDayEntity.freezeNum.toString()+" FIL", S.current.machine_earnings_linear),flex: 1,)
             ],
           ),
         ],

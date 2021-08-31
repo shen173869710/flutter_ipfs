@@ -10,6 +10,7 @@ import 'package:ipfsnets/models/market_coupon_entity.dart';
 import 'package:ipfsnets/models/market_entity.dart';
 import 'package:ipfsnets/models/share_cion_entity.dart';
 import 'package:ipfsnets/models/share_day_entity.dart';
+import 'package:ipfsnets/models/share_month_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'http_manager.dart';
 
@@ -85,13 +86,13 @@ class MarketApi{
   static  Future<BaseEntity> shareCoinTime(String time) {
     Map<String, dynamic> param = new Map();
     param['time'] = time;
-    return HttpManager.getInstance().post<List<ShareCionEntity>>(share_coin_month,jsonEncode(param));
+    return HttpManager.getInstance().post<ShareMonthEntity>(share_coin_month,jsonEncode(param));
   }
   // 区块收益每天
   static const String share_coin_day = "share/app/sharecoin/serv-earnings/";
   static  Future<BaseEntity> shareCoinDay(String time) {
     Map<String, dynamic> param = new Map();
     param['time'] = time;
-    return HttpManager.getInstance().post<List<ShareDayEntity>>(share_coin_day,jsonEncode(param));
+    return HttpManager.getInstance().post<ShareDayEntity>(share_coin_day,jsonEncode(param));
   }
 }

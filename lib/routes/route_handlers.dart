@@ -210,7 +210,7 @@ var machineTotalHandler = Handler(handlerFunc: (BuildContext? context, Map<Strin
 });
 // 我的服务器天收益
 var machineEarningsHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-  return MachineEarningsPage(1);
+  return MachineEarningsPage(params['time']?.first ?? '');
 });
 // 我的服务器托管
 var machineHostingHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {

@@ -12,8 +12,6 @@ class ShareCionEntity {
 	late num sid;
 	late num total;
 	ShareCionEntity();
-
-
 	init() {
 		createTime = "";
 		extraCut = 0;

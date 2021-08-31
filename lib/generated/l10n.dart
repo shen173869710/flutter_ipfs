@@ -3790,10 +3790,10 @@ class S {
     );
   }
 
-  /// `立即释放 25%`
+  /// `立即释放`
   String get machine_total_list_2 {
     return Intl.message(
-      '立即释放 25%',
+      '立即释放',
       name: 'machine_total_list_2',
       desc: '',
       args: [],
@@ -3870,20 +3870,20 @@ class S {
     );
   }
 
-  /// `立即释放 25%`
+  /// `立即释放`
   String get machine_earnings_item_3 {
     return Intl.message(
-      '立即释放 25%',
+      '立即释放',
       name: 'machine_earnings_item_3',
       desc: '',
       args: [],
     );
   }
 
-  /// `线性释放 180天`
+  /// `线性释放`
   String get machine_earnings_item_4 {
     return Intl.message(
-      '线性释放 180天',
+      '线性释放',
       name: 'machine_earnings_item_4',
       desc: '',
       args: [],

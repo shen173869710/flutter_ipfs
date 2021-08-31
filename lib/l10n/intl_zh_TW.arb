@@ -403,7 +403,7 @@
   "machine_total_3": "当前冻结",
   "machine_total_4": "月收益",
   "machine_total_list_1": "区块收益 (FIL)",
-  "machine_total_list_2": "立即释放 25%",
+  "machine_total_list_2": "立即释放",
   "machine_total_list_3": "线性释放",
 
   "machine_earnings_title": "服务器收益",
@@ -412,8 +412,8 @@
   "machine_earnings_linear": "线性释放",
   "machine_earnings_item_1": "服务器ID",
   "machine_earnings_item_2": "产币收益",
-  "machine_earnings_item_3": "立即释放 25%",
-  "machine_earnings_item_4": "线性释放 180天",
+  "machine_earnings_item_3": "立即释放",
+  "machine_earnings_item_4": "线性释放",
 
   "machine_hosting_title": "服务器托管",
   "machine_hosting_number": "设备编号",

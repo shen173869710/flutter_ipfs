@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ipfsnets/models/market_entity.dart';
 import 'package:ipfsnets/models/share_cion_entity.dart';
 
 import '../../../../include.dart';
@@ -18,15 +17,15 @@ class MachineTotalListItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          buildTopItem(context,S.current.machine_total_list_1, "123"),
+          buildTopItem(context,S.current.machine_total_list_1, ""),
           Gaps.vGap4,
-          buildItem1("123F", "2020-10"),
+          buildItem1(data.total.toString()+" FIL", data.createTime),
           Gaps.vGap8,
           Gaps.line,
           Gaps.vGap8,
-          buildItem(S.current.machine_total_list_2,"456",ITextStyles.itemTitle),
+          buildItem(S.current.machine_total_list_2+data.extraCut.toString()+"%",data.releaseNow.toString()+" FIL",ITextStyles.itemTitle),
           Gaps.vGap8,
-          buildItem(S.current.machine_total_list_3+"200天","789",ITextStyles.itemTitle),
+          buildItem(S.current.machine_total_list_3+data.releaseDay.toString()+S.current.day,data.freezeNum.toString()+" FIL",ITextStyles.itemTitle),
         ],
       ),
     );
@@ -49,7 +48,7 @@ class MachineTotalListItem extends StatelessWidget {
         Text(title, style: ITextStyles.itemTitle),
         Expanded(child: SizedBox(),),
         GestureDetector(child:Image.asset(R.assetsImgMore, width: 35.w,height: 35.w,),onTap: (){
-          NavigatorUtil.jump(context, Routes.machineEarningsPage);
+          NavigatorUtil.push(context, '${Routes.machineEarningsPage}?time=${Uri.encodeComponent(data.createTime)}');
         },)
 
       ],
@@ -65,6 +64,5 @@ class MachineTotalListItem extends StatelessWidget {
       ],
     );
   }
-
 }
 
