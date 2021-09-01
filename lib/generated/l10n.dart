@@ -650,6 +650,36 @@ class S {
     );
   }
 
+  /// `未托管`
+  String get not_hosting {
+    return Intl.message(
+      '未托管',
+      name: 'not_hosting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `满`
+  String get coupon_man {
+    return Intl.message(
+      '满',
+      name: 'coupon_man',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `可用`
+  String get coupon_use {
+    return Intl.message(
+      '可用',
+      name: 'coupon_use',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `确定`
   String get sure {
     return Intl.message(
@@ -3920,10 +3950,10 @@ class S {
     );
   }
 
-  /// `服务器托管`
+  /// `托管服务器`
   String get machine_hosting_title {
     return Intl.message(
-      '服务器托管',
+      '托管服务器',
       name: 'machine_hosting_title',
       desc: '',
       args: [],

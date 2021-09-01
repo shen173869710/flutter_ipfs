@@ -378,7 +378,7 @@ class _MachineStatus extends State<MachinePage> {
                       Text(data.useCap.toString()+" TB",style: ITextStyles.itemTitle),
                       Gaps.vGap4,
                       Text(S.current.machine_list_4,style: ITextStyles.itemContent),
-                      Text(data.hostingExpTime == null?"--":DateUtil.getTime(data.hostingExpTime),style: ITextStyles.itemTitle),
+                      Text(data.hostingExpTime == null?S.current.not_hosting:DateUtil.getTime(data.hostingExpTime),style: ITextStyles.itemTitle),
                     ],
                   ),
                   flex: 3)

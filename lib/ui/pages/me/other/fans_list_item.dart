@@ -39,7 +39,7 @@ class FansListItem extends StatelessWidget {
                     Row(
                       children: [
 
-                        Text(getUserName(data.nickname),style:TextStyle(fontSize: 20,color: Colours.item_title_color),maxLines: 1,overflow: TextOverflow.ellipsis,),
+                        Text(getUserName(data.nickname),style:TextStyle(fontSize: 18,color: Colours.item_title_color),maxLines: 1,overflow: TextOverflow.ellipsis,),
                         Gaps.hGap2,
                         Image.asset(R.assetsImgIcVip,height: 28.w, width: 28.w,),
                         Gaps.hGap2,
@@ -78,8 +78,8 @@ class FansListItem extends StatelessWidget {
 
 
   getUserName(String data) {
-    if (data.length > 16) {
-      return data.substring(0,16)+"..";
+    if (data.length > 14) {
+      return data.substring(0,14)+"..";
     }
     return data;
   }

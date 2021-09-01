@@ -6,15 +6,7 @@ import 'package:ipfsnets/models/machine_entity.dart';
 import 'package:ipfsnets/models/machine_hosting_entity.dart';
 import 'package:ipfsnets/models/machine_pledge_entity.dart';
 import 'package:ipfsnets/models/machine_top_entity.dart';
-import 'package:ipfsnets/models/transfer_record_entity.dart';
-import 'package:ipfsnets/models/wallet_account_entity.dart';
-import 'package:ipfsnets/models/wallet_address_entity.dart';
-import 'package:ipfsnets/models/wallet_home_entity.dart';
 import 'package:ipfsnets/models/wallet_info_entity.dart';
-import 'package:ipfsnets/models/wallet_info_list_entity.dart';
-import 'package:ipfsnets/models/wallet_rechage_entity.dart';
-import 'package:ipfsnets/models/wallet_withdrawal_entity.dart';
-import 'package:ipfsnets/models/wallet_withdrawal_record_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 
 import 'http_manager.dart';

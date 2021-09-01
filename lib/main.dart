@@ -29,10 +29,10 @@ Future<void> main() async {
       SystemUiOverlayStyle(
         systemNavigationBarColor: Color(0xFF000000),
         systemNavigationBarDividerColor: null,
-        statusBarColor: null,
+        statusBarColor: Colours.app_bar_bg,
         systemNavigationBarIconBrightness: Brightness.light,
         statusBarIconBrightness: Brightness.light,
-        statusBarBrightness: Brightness.dark,
+        statusBarBrightness: Brightness.light,
       );
       SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
     }

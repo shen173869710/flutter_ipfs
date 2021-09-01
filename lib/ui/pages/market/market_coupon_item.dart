@@ -44,11 +44,11 @@ class MarketCouponItem extends StatelessWidget {
 
   // 使用条件
   String getAbout(MarketCouponEntity entity) {
-    return S.current.market_coupons_about+" "+ entity.condition.toString();
+    return S.current.market_coupons_about+" "+ S.current.coupon_man +entity.condition.toString()+S.current.coupon_use;
   }
 
   String getTime(MarketCouponEntity entity) {
-    return S.current.market_coupons_time+" "+ DateUtil.getTime(entity.pastTime);
+    return S.current.market_coupons_time+" "+ DateUtil.getTimeY(entity.pastTime);
   }
 
   //0 未使用

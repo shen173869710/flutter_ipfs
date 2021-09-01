@@ -76,7 +76,7 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalSearchPage>{
   buildQuoteItem(String title, bool show, int index) {
     return Row(
       children: [
-        Gaps.hGap26,
+        SizedBox(width: 41),
         Text(id == 4?S.current.quote_price_cny:title,style: ITextStyles.itemContent,),
         Gaps.hGap4,
         Visibility(child:Column(

@@ -99,6 +99,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "completeLoad": MessageLookupByLibrary.simpleMessage("完成加载"),
         "completeRefresh": MessageLookupByLibrary.simpleMessage("完成刷新"),
         "copy_success": MessageLookupByLibrary.simpleMessage("复制成功"),
+        "coupon_man": MessageLookupByLibrary.simpleMessage("满"),
+        "coupon_use": MessageLookupByLibrary.simpleMessage("可用"),
         "day": MessageLookupByLibrary.simpleMessage("天"),
         "del_address": MessageLookupByLibrary.simpleMessage("是否删除当前提币地址"),
         "edit_nick_input": MessageLookupByLibrary.simpleMessage("请输入昵称"),
@@ -178,7 +180,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "machine_hosting_sucess":
             MessageLookupByLibrary.simpleMessage("服务器托管成功"),
         "machine_hosting_time": MessageLookupByLibrary.simpleMessage("托管时间"),
-        "machine_hosting_title": MessageLookupByLibrary.simpleMessage("服务器托管"),
+        "machine_hosting_title": MessageLookupByLibrary.simpleMessage("托管服务器"),
         "machine_hosting_title_s": MessageLookupByLibrary.simpleMessage("托管续期"),
         "machine_hosting_unsubmit":
             MessageLookupByLibrary.simpleMessage("天后可托管"),
@@ -336,6 +338,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "not_account": MessageLookupByLibrary.simpleMessage("账户不能为空"),
         "not_choose": MessageLookupByLibrary.simpleMessage("超出可选时间范围"),
         "not_enough": MessageLookupByLibrary.simpleMessage("余额不足"),
+        "not_hosting": MessageLookupByLibrary.simpleMessage("未托管"),
         "not_open": MessageLookupByLibrary.simpleMessage("暂未开放"),
         "option_faile": MessageLookupByLibrary.simpleMessage("操作失败"),
         "option_success": MessageLookupByLibrary.simpleMessage("操作成功"),

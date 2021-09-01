@@ -68,6 +68,9 @@
   "edit_nick_name": "编辑昵称",
   "edit_nick_input": "请输入昵称",
   "del_address": "是否删除当前提币地址",
+  "not_hosting": "未托管",
+  "coupon_man": "满",
+  "coupon_use": "可用",
   "sure": "确定",
   "share_code": "邀请码",
   "save_photo": "保存图片",
@@ -422,7 +425,7 @@
   "machine_earnings_item_3": "立即释放",
   "machine_earnings_item_4": "线性释放",
 
-  "machine_hosting_title": "服务器托管",
+  "machine_hosting_title": "托管服务器",
   "machine_hosting_number": "设备编号",
   "machine_hosting_time": "托管时间",
   "machine_hosting_price": "单价",

@@ -76,7 +76,7 @@ class QuoteOptionalRankItem extends StatelessWidget {
           Text(StringUtil.addCoin(data.priceCny.toString()),style: ITextStyles.itemTitle,),
         ],
       ),
-      flex: 4,
+      flex: 3,
     );
   }
 

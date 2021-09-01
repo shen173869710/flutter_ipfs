@@ -257,7 +257,7 @@ class PasswordPage extends StatelessWidget {
       ];
     }else{
       return [
-        LengthLimitingTextInputFormatter(GlobalEntiy.PWD_MAX_INPUT)
+        LengthLimitingTextInputFormatter(GlobalEntiy.PHONE_MAX_INPUT)
       ];
     }
 
