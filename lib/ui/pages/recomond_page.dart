@@ -63,9 +63,9 @@ class _RecomondState extends State<RecomondPage> {
       children: [
         Image.asset(R.assetsImgIcRecmmondBg,width: double.infinity,height: double.infinity,fit: BoxFit.fill,),
         Positioned(
-          bottom: 50.w,
-          left: 20.w,
-          child: Text(widget.title, style: ITextStyles.textWhite14,),
+          bottom: 200.w,
+          left: 40.w,
+          child: Text(S.current.share_code+" "+widget.title, style: TextStyle(fontSize: 28, color: Colors.white),),
         ),
         Positioned(
           bottom: 5.w,

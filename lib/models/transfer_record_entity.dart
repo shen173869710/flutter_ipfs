@@ -10,10 +10,14 @@ class TransferRecordEntity{
 	late String coinIcon;
 	late String coinName;
 	late num createTime;
-	late String nickname;
+	late String fromNickname;
+	late String fromUsername;
+	late String toNickname;
+	late String toUsername;
+	// 状态 0 成功  其他失败
 	late num status;
 	late num transferNumber;
-	late String username;
+	// 0 收款， 1 转出
 	late num outStatus;
 
 	factory TransferRecordEntity.fromJson(Map<String, dynamic> json) => _$TransferRecordEntityFromJson(json);

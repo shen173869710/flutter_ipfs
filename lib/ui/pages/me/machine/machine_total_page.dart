@@ -94,10 +94,12 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
     if (listEntiry.isOk()) {
       shareMonthEntity = listEntiry.data;
       setState(() {
+        list.clear();
         if (shareMonthEntity != null) {
-          list.clear();
           list.addAll(shareMonthEntity.earningList);
           total = shareMonthEntity.total;
+        }else{
+          total = 0;
         }
       });
     }
@@ -188,7 +190,7 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
         initialDate: DateTime(DateTime.now().year, DateTime.now().month),)
         .then((date) => setState(() {
         currentTime = date!.year.toString() + "-" + date.month.toString();
-
+        getData();
     }));
   }
 

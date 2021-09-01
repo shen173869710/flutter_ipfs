@@ -670,6 +670,16 @@ class S {
     );
   }
 
+  /// `邀请码`
+  String get share_code {
+    return Intl.message(
+      '邀请码',
+      name: 'share_code',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `保存图片`
   String get save_photo {
     return Intl.message(

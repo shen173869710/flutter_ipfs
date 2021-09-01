@@ -407,6 +407,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "setting_logout": MessageLookupByLibrary.simpleMessage("退出登录"),
         "setting_title": MessageLookupByLibrary.simpleMessage("设置"),
         "setting_version": MessageLookupByLibrary.simpleMessage("版本"),
+        "share_code": MessageLookupByLibrary.simpleMessage("邀请码"),
         "sure": MessageLookupByLibrary.simpleMessage("确定"),
         "tab_find": MessageLookupByLibrary.simpleMessage("发现"),
         "tab_home": MessageLookupByLibrary.simpleMessage("主页"),

@@ -12,10 +12,12 @@ TransferRecordEntity _$TransferRecordEntityFromJson(Map<String, dynamic> json) {
     ..coinIcon = json['coinIcon'] as String
     ..coinName = json['coinName'] as String
     ..createTime = json['createTime'] as num
-    ..nickname = json['nickname'] as String
+    ..fromNickname = json['fromNickname'] as String
+    ..fromUsername = json['fromUsername'] as String
     ..status = json['status'] as num
     ..transferNumber = json['transferNumber'] as num
-    ..username = json['username'] as String
+    ..toNickname = json['toNickname'] as String
+    ..toUsername = json['toUsername'] as String
     ..outStatus = json['outStatus'] as num;
 }
 
@@ -26,9 +28,11 @@ Map<String, dynamic> _$TransferRecordEntityToJson(
       'coinIcon': instance.coinIcon,
       'coinName': instance.coinName,
       'createTime': instance.createTime,
-      'nickname': instance.nickname,
+      'fromNickname': instance.fromNickname,
+      'fromUsername': instance.fromUsername,
+      'toNickname': instance.toNickname,
+      'toUsername': instance.toUsername,
       'status': instance.status,
       'transferNumber': instance.transferNumber,
-      'username': instance.username,
       'outStatus': instance.outStatus,
     };

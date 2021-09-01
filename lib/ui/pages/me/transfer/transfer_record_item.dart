@@ -24,7 +24,7 @@ class TransferRecordItem extends StatelessWidget {
                 Gaps.hGap8,
                 Text(data.coinName,style: ITextStyles.itemTitle),
                 Expanded(child:SizedBox()),
-                Text(data.transferNumber.toString(),style: ITextStyles.itemTitle),
+                Text(getMoney(data.outStatus, data.transferNumber),style:TextStyle(fontSize: 14, color:getMoneyColor(data.outStatus))),
               ],
             ),
             Gaps.vGap4,
@@ -42,7 +42,7 @@ class TransferRecordItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(getFromAddress(data),maxLines:2,style:ITextStyles.itemContent12),
-                Text(getFromNick(data),maxLines:2,style:ITextStyles.itemContent12),
+                // Text(getFromNick(data),maxLines:2,style:ITextStyles.itemContent12),
               ],
             ),
             Gaps.vGap4,
@@ -71,22 +71,32 @@ class TransferRecordItem extends StatelessWidget {
       return Colours.item_green;
     }
     return Colours.item_red;
-
   }
-
+  //	// 0 收款， 1 转出
   String getFromAddress(TransferRecordEntity data) {
     // 别人转给我
     String address = "";
     if (data.outStatus == 0) {
-      address = S.current.transfer_record_in +": "+ data.username;
+      address = S.current.transfer_record_out+": "+ data.fromUsername +" ("+data.fromNickname+")";
     }else {
-      address = S.current.transfer_record_out +": "+ data.username;
+      address = S.current.transfer_record_in +": "+ data.toUsername +" ("+data.toNickname+")";
     }
     return address;
   }
 
-  String getFromNick(TransferRecordEntity data) {
-    return "   ("+data.nickname+")";
+
+  Color getMoneyColor(num outStatus) {
+    if (outStatus == 0) {
+      return Colours.item_green;
+    }
+    return Colours.item_red;
+  }
+
+   getMoney(num outStatus,num transferNumber) {
+    if (outStatus == 0) {
+      return "+"+transferNumber.toString();
+    }
+    return "-"+transferNumber.toString();
   }
 }
 

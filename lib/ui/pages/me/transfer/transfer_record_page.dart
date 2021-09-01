@@ -22,7 +22,6 @@ class TransferRecordPage extends StatefulWidget {
 class _TransferRecordState extends BaseListPageState<TransferRecordPage> {
   List<TransferRecordEntity> list = [];
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
