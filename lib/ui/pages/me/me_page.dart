@@ -125,20 +125,18 @@ class MePage extends StatelessWidget {
                 color: Colours.item_content_color, fontSize: Dimens.font_sp18),
           ),
           Gaps.vGap4,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                userController.walletHomeEntity.cnySum.toString(),
-                style: TextStyle(
-                    color: Colours.item_red, fontSize: Dimens.font_sp22),
-              ),
-              Gaps.hGap2,
-              Text(" ≈ "+userController.walletHomeEntity.usdtSum.toString()+" USDT",
-                style: ITextStyles.itemContent,
-              ),
-            ],
+          Container(
+            height: 45.w,
+            child:
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(userController.walletHomeEntity.cnySum.toString(), style: TextStyle(color: Colours.item_red, fontSize: Dimens.font_sp22),),
+                Gaps.hGap2,
+                Text(" ≈ "+userController.walletHomeEntity.usdtSum.toString()+" USDT", style: ITextStyles.itemContent,textAlign: TextAlign.end,)
+              ],
+            ),
           ),
           Visibility(
             visible: !userController.showAccount,

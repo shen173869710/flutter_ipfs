@@ -2,6 +2,7 @@
 import 'package:ipfsnets/data/global_entiy.dart';
 import 'package:ipfsnets/include.dart';
 import 'package:ipfsnets/ui/pages/login_page.dart';
+import 'package:ipfsnets/utils/user_util.dart';
 
 import 'entiy_factory.dart';
 
@@ -42,10 +43,13 @@ class BaseEntity <T> {
   }
 
   toLogin() async {
-    ToastUtil.show(msg);
-    await   Future.delayed(const Duration(milliseconds: 1000), () async {
-      Routes.navigatorKey.currentState!.pushAndRemoveUntil(MaterialPageRoute(builder: (context) => LoginPage(),), (route) => route == null);
-    });
+    if (UserUtil.isLogin()) {
+      ToastUtil.show(msg);
+      await   Future.delayed(const Duration(milliseconds: 1000), () async {
+        UserUtil.loginout();
+        Routes.navigatorKey.currentState!.pushAndRemoveUntil(MaterialPageRoute(builder: (context) => LoginPage(),), (route) => route == null);
+      });
+    }
   }
 
 }

@@ -28,7 +28,7 @@ class GlobalEntiy{
   // 服务器托管协议
   static String web_machine_hosting = "http://124.16.8.140:84/deposit-protocol";
   // 服务器升级协议
-  static String web_machine_updete = "http://124.16.8.140:84/upgrade-protocol";
+  static String web_machine_updete = "http://124.16.8.140:84/deposit-protocol";
   // 推广二维码
   static String web_qrcode = "http://124.16.8.140:84/promo?code=";
   // 我的客服

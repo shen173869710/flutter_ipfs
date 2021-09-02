@@ -7,6 +7,7 @@ import 'package:ipfsnets/models/share_cion_entity.dart';
 import 'package:ipfsnets/models/share_month_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
+import 'package:ipfsnets/res/styles.dart';
 import 'package:ipfsnets/ui/widget/base_list_page.dart';
 
 import 'machine_total_list_item.dart';
@@ -136,7 +137,13 @@ class _MachineTotalState extends BaseListPageState<MachineTotalPage> with Automa
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text(S.current.machine_total_1, style: ITextStyles.itemContent),
+              Row(
+                children: [
+                  Image.asset(R.assetsImgIcFil,width: 30.w,height: 30.w,),
+                  Gaps.hGap4,
+                  Text(S.current.machine_total_1, style: ITextStyles.itemContent),
+                ],
+              ),
               Gaps.vGap8,
               Text(shareCionEntity.total.toString()+" FIL",
                 style: TextStyle(fontSize: 20, color: Color(0xffF23E2A)),),
