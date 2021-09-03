@@ -59,7 +59,7 @@ class _MarketInfoStatus extends State<MarketInfoPage> {
             children: [
               buildTitle(),
               buildInfo(),
-              buildDesc(),
+              Visibility(child:  buildDesc(),visible: StringUtil.isEmpty(data.details)?false:true,),
               buildNotice(),
               buildLogin(context),
             ],
@@ -250,16 +250,7 @@ class _MarketInfoStatus extends State<MarketInfoPage> {
     padding: ITextStyles.containerMargin,
     decoration: ITextStyles.boxDecoration,
     alignment: Alignment.topLeft,
-    child:Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Center(child: Text(S.current.market_info_know,style: ITextStyles.itemTitle,)),
-        // Visibility(child: Image.network(data.details == null?"":data.details,fit: BoxFit.fitWidth,),visible: data.details == null?false:true,)
-        getNotice(),
-        // ImageUtil.getDesc(data.details),
-        //Text(data.details == null?"":data.details, style: ITextStyles.itemContent,),
-      ],
-    ));
+    child:   getNotice(),);
   }
 
   Container buildNotice() {

@@ -505,6 +505,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "wallet_type_2": MessageLookupByLibrary.simpleMessage("提币"),
         "wallet_type_20": MessageLookupByLibrary.simpleMessage("质押GAS"),
         "wallet_type_21": MessageLookupByLibrary.simpleMessage("转出"),
+        "wallet_type_22": MessageLookupByLibrary.simpleMessage("系统扣减"),
         "wallet_type_3": MessageLookupByLibrary.simpleMessage("收入"),
         "wallet_type_4": MessageLookupByLibrary.simpleMessage("收入冻结"),
         "wallet_type_5": MessageLookupByLibrary.simpleMessage("冻结释放"),

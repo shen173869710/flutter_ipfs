@@ -24,7 +24,7 @@ class WalletInfoItem extends StatelessWidget {
                 Gaps.hGap8,
                 Text(getStatus(data.transactionType),style: ITextStyles.itemTitle),
                 Expanded(child:SizedBox()),
-                Text(data.value.toString(),style: TextStyle(fontSize: 14, color: getStatusColor(data.value))),
+                Text(data.value.toStringAsFixed(8),style: TextStyle(fontSize: 14, color: getStatusColor(data.value))),
               ],
             ),
             Gaps.vGap8,
@@ -107,10 +107,15 @@ class WalletInfoItem extends StatelessWidget {
       case 21:
         message = S.current.wallet_type_21;
         break;
+      case 22:
+        message = S.current.wallet_type_22;
+        break;
     }
-
     return message;
   }
+
+
+
 
   Color getStatusColor(num status) {
     if (status > 0) {

@@ -254,9 +254,9 @@ class MachineHostingPage extends StatelessWidget{
       }
     }else{
       if (controller.data.hostingStatus == 0) {
-        str = controller.data.hostingDay.toString()+S.current.machine_hosting_unsubmit_s;
-      }else{
         str = controller.data.hostingDay.toString()+S.current.machine_hosting_unsubmit;
+      }else{
+        str = controller.data.hostingDay.toString()+S.current.machine_hosting_unsubmit_s;
       }
     }
     return str;

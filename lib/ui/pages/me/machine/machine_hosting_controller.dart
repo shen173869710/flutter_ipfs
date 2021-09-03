@@ -100,8 +100,16 @@ class MachineHostingController extends GetxController {
   // 是否可以点击登录
   void enableRegister () {
     LogUtil.e("enableRegister()");
+
     if (agreeMent) {
-      enableBuy = true;
+
+      // 托管续期 时间到呢
+      if (data.hostingStatus == 1 && data.hostingDay == 0) {
+        enableBuy = true;
+      }else if(data.hostingStatus == 0){
+        enableBuy = true;
+      }
+
     }else {
       enableBuy = false;
     }

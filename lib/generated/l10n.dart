@@ -4789,6 +4789,16 @@ class S {
       args: [],
     );
   }
+
+  /// `系统扣减`
+  String get wallet_type_22 {
+    return Intl.message(
+      '系统扣减',
+      name: 'wallet_type_22',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -31,19 +31,19 @@ class _WalletInfoState extends State<WalletInfoPage> with TickerProviderStateMix
 
   Future _onLoading1() async {
     controller.page1++;
-    bool next = await controller.getList1More(controller.page1++);
+    bool next = await controller.getList1More(controller.page1++,entiy.coinCode);
     _refreshController1.finishLoad(noMore: next);
   }
 
   Future _onLoading2() async {
     controller.page2++;
-    bool next = await controller.getList2More(controller.page2++);
+    bool next = await controller.getList2More(controller.page2++,entiy.coinCode);
     _refreshController2.finishLoad(noMore: next);
   }
 
   Future _onLoading3() async {
     controller.page3++;
-    bool next = await controller.getList3More(controller.page3++);
+    bool next = await controller.getList3More(controller.page3++,entiy.coinCode);
     _refreshController3.finishLoad(noMore: next);
   }
 
@@ -61,6 +61,10 @@ class _WalletInfoState extends State<WalletInfoPage> with TickerProviderStateMix
     BaseEntity baseEntity  = await WalletApi.getWalletInfo(entiy.coinCode);
     WalletInfoEntity info = baseEntity.data;
     controller.setWalletInfoEntity(info);
+
+    controller.getList1More(1, entiy.coinCode);
+    controller.getList2More(1, entiy.coinCode);
+    controller.getList2More(1, entiy.coinCode);
   }
 
   @override

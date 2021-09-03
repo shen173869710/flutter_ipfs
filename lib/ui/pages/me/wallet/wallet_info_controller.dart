@@ -25,23 +25,18 @@ class WalletInfoController extends GetxController{
     list1.clear();
     list2.clear();
     list3.clear();
-
     page1 = 1;
     page2 = 1;
     page3 = 1;
-
     total1 = 0;
     total2 = 0;
     total3 = 0;
 
-    getList1More(1);
-    getList2More(1);
-    getList3More(1);
   }
 
 
-  getList1More(int pageNum) async{
-    BaseEntity baseEntity  = await WalletApi.wallerInfNormal(pageNum);
+  getList1More(int pageNum, num coinCode) async{
+    BaseEntity baseEntity  = await WalletApi.wallerInfNormal(pageNum,coinCode);
     total1 = baseEntity.total;
     list1.addAll(baseEntity.data);
     update();
@@ -53,8 +48,8 @@ class WalletInfoController extends GetxController{
   }
 
 
-  getList2More(int pageNum) async{
-    BaseEntity baseEntity  = await WalletApi.wallerInfForeeze(pageNum);
+  getList2More(int pageNum,num coinCode) async{
+    BaseEntity baseEntity  = await WalletApi.wallerInfForeeze(pageNum,coinCode);
     total2 = baseEntity.total;
     list2.addAll(baseEntity.data);
     update();
@@ -65,8 +60,8 @@ class WalletInfoController extends GetxController{
     return true;
   }
 
-  getList3More(int pageNum) async{
-    BaseEntity baseEntity  = await WalletApi.wallerInfPledge(pageNum);
+  getList3More(int pageNum,num coinCode) async{
+    BaseEntity baseEntity  = await WalletApi.wallerInfPledge(pageNum,coinCode);
     total3 = baseEntity.total;
     list3.addAll(baseEntity.data);
     update();

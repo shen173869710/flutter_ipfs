@@ -125,27 +125,27 @@ class WalletApi{
     return HttpManager.getInstance().get<WalletInfoEntity>(waller_info+coinCode.toString(),withLoading: true);
   }
   // 冻结流水
-  static const String waller_info_freeze = "wallets/app/wallet/flow/freeze";
-  static  Future<BaseEntity> wallerInfForeeze(int pageNum) {
+  static const String waller_info_freeze = "wallets/app/wallet/flow/freeze/";
+  static  Future<BaseEntity> wallerInfForeeze(int pageNum,num coinCode) {
     Map<String, dynamic> param = new Map();
     param['pageNum'] = pageNum;
     param['pageSize'] = 10;
-    return HttpManager.getInstance().get<List<WalletInfoListEntity>>(waller_info_freeze,params: param,withLoading: false);
+    return HttpManager.getInstance().get<List<WalletInfoListEntity>>(waller_info_freeze+coinCode.toString(),params: param,withLoading: false);
   }
   // 可用流水
-  static const String waller_info_normal = "wallets/app/wallet/flow/normal";
-  static  Future<BaseEntity> wallerInfNormal(int pageNum) {
+  static const String waller_info_normal = "wallets/app/wallet/flow/normal/";
+  static  Future<BaseEntity> wallerInfNormal(int pageNum,num coinCode) {
     Map<String, dynamic> param = new Map();
     param['pageNum'] = pageNum;
     param['pageSize'] = 10;
-    return HttpManager.getInstance().get<List<WalletInfoListEntity>>(waller_info_normal,params: param,withLoading: false);
+    return HttpManager.getInstance().get<List<WalletInfoListEntity>>(waller_info_normal+coinCode.toString(),params: param,withLoading: false);
   }
   // 质押流水
-  static const String waller_info_pledge = "wallets/app/wallet/flow/pledge";
-  static  Future<BaseEntity> wallerInfPledge(int pageNum) {
+  static const String waller_info_pledge = "wallets/app/wallet/flow/pledge/";
+  static  Future<BaseEntity> wallerInfPledge(int pageNum,num coinCode) {
     Map<String, dynamic> param = new Map();
     param['pageNum'] = pageNum;
     param['pageSize'] = 10;
-    return HttpManager.getInstance().get<List<WalletInfoListEntity>>(waller_info_pledge,params: param,withLoading: false);
+    return HttpManager.getInstance().get<List<WalletInfoListEntity>>(waller_info_pledge+coinCode.toString(),params: param,withLoading: false);
   }
 }
