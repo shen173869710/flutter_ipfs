@@ -10,6 +10,7 @@ import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/res/styles.dart';
 import 'package:ipfsnets/ui/pages/me/wallet/wallet_info_controller.dart';
 import 'package:ipfsnets/ui/pages/me/wallet/wallet_info_item.dart';
+import 'package:ipfsnets/utils/num_util.dart';
 
 class WalletInfoPage extends StatefulWidget {
   @override
@@ -133,7 +134,7 @@ class _WalletInfoState extends State<WalletInfoPage> with TickerProviderStateMix
             Visibility(child:  Gaps.vGap12,visible: entiy.coinName == "FIL"?true:false),
             Visibility(child:buildInfo(S.current.wallet_info_item_3, S.current.wallet_info_item_4,ITextStyles.itemContent),visible: entiy.coinName == "FIL"?true:false,),
             Gaps.vGap4,
-            Visibility(child: buildInfo(controller.walletInfoEntity.pledge.toString(), controller.walletInfoEntity.todayEarnings.toStringAsFixed(7),ITextStyles.itemTitle),visible: entiy.coinName == "FIL"?true:false,)
+            Visibility(child: buildInfo(controller.walletInfoEntity.pledge.toString(), NumUtil.prseeZero(controller.walletInfoEntity.todayEarnings.toStringAsFixed(7)),ITextStyles.itemTitle),visible: entiy.coinName == "FIL"?true:false,)
             // buildListItem()
           ],
         )

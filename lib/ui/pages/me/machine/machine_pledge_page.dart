@@ -156,6 +156,8 @@ class MachinePledgeState extends State<MachinePledgePage>{
               height: 120.w,
               color: Colours.button_sel,
               child: GestureDetector(child:Text(S.current.machine_pledge_8,style: TextStyle(fontSize: 16,color: Colours.white),),onTap: (){
+
+
                 showDialog(context);
               },)
           ),

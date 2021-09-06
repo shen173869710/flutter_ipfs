@@ -1,6 +1,6 @@
 import "package:ipfsnets/include.dart";
 import 'package:ipfsnets/models/wallet_info_list_entity.dart';
-import 'package:ipfsnets/utils/string_util.dart';
+import 'package:ipfsnets/utils/num_util.dart';
 /**
  *  wall 提现记录
  */
@@ -24,7 +24,8 @@ class WalletInfoItem extends StatelessWidget {
                 Gaps.hGap8,
                 Text(getStatus(data.transactionType),style: ITextStyles.itemTitle),
                 Expanded(child:SizedBox()),
-                Text(data.value.toStringAsFixed(8),style: TextStyle(fontSize: 14, color: getStatusColor(data.value))),
+
+                Text(NumUtil.prseeZero(data.value.toStringAsFixed(8)),style: TextStyle(fontSize: 14, color: getStatusColor(data.value))),
               ],
             ),
             Gaps.vGap8,

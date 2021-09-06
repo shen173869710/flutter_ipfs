@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ipfsnets/http/quote_api.dart';
 import 'package:ipfsnets/models/quote_optional_entity.dart';
-import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/styles.dart';
+
 import '../../../include.dart';
 
 

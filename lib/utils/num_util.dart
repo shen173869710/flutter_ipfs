@@ -159,4 +159,8 @@ class NumUtil {
     return Decimal.parse(a) >= Decimal.parse(b);
   }
 
+  static String prseeZero(String value) {
+    return Decimal.parse(value).toString();
+  }
+
 }

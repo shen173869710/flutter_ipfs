@@ -109,7 +109,11 @@ class NavigatorUtil {
     //fluro 不支持传中文,需转换
     push(context, '${Routes.webViewPage}?title=${Uri.encodeComponent(title)}&url=${Uri.encodeComponent(url)}');
   }
-
+  /// 跳到WebView页
+  static void goWebViewNewPage(BuildContext context, String title, String url) {
+    //fluro 不支持传中文,需转换
+    push(context, '${Routes.webViewNewPage}?title=${Uri.encodeComponent(title)}&url=${Uri.encodeComponent(url)}');
+  }
 
   /// 跳到WebView页
   static void goPasswordPage(BuildContext context, String type) {

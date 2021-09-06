@@ -44,7 +44,7 @@ class QuoteApi{
     param['asc'] = asc;
     param['orderBy'] = orderBy;
     param['userId'] = UserUtil.getUserInfo().userId.toString();
-    return HttpManager.getInstance().post<List<QuoteOptionalEntity>>(quote_home_user,jsonEncode(param));
+    return HttpManager.getInstance().post<List<QuoteOptionalEntity>>(quote_home_user,jsonEncode(param),withLoading: false);
   }
 
   // 热搜推荐

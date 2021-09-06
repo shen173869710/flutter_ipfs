@@ -8,6 +8,7 @@ import 'package:ipfsnets/ui/pages/me/cny/cny_withdrawal_end_page.dart';
 import 'package:ipfsnets/ui/pages/me/cny/cny_withdrawal_page.dart';
 import 'package:ipfsnets/ui/pages/me/more/more_page.dart';
 import 'package:ipfsnets/ui/pages/me/setting/password_page.dart';
+import 'package:ipfsnets/ui/pages/webview_new_page.dart';
 import 'package:ipfsnets/ui/pages/webview_page.dart';
 
 class Routes {
@@ -18,6 +19,7 @@ class Routes {
   static String register = "/register";
   static String forget = "/register/forget";
   static String webViewPage = '/webView';
+  static String webViewNewPage = '/webViewnew';
   static String userManager = "/me/usermanager";
   static String userEdit = "/me/useredit";
   //cny
@@ -89,6 +91,11 @@ class Routes {
       final String title = params['title']?.first ?? '';
       final String url = params['url']?.first ?? '';
       return WebViewPage(title: title, url: url);
+    }));
+    router.define(webViewNewPage, handler: Handler(handlerFunc: (_, params) {
+      final String title = params['title']?.first ?? '';
+      final String url = params['url']?.first ?? '';
+      return WebViewNewPage(title: title, url: url);
     }));
     // cny充值
     router.define(cnyRechage, handler:cnyRechageHandler);

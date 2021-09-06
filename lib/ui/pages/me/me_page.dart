@@ -341,7 +341,7 @@ class MePage extends StatelessWidget {
         break;
       case 13:
       //我的客服
-        NavigatorUtil.goWebViewPage(context, S.current.me_item_17, GlobalEntiy.web_my_server);
+        NavigatorUtil.goWebViewNewPage(context, S.current.me_item_17, GlobalEntiy.web_my_server);
         break;
       case 14:
       //设置
