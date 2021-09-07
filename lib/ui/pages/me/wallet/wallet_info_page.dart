@@ -65,7 +65,7 @@ class _WalletInfoState extends State<WalletInfoPage> with TickerProviderStateMix
 
     controller.getList1More(1, entiy.coinCode);
     controller.getList2More(1, entiy.coinCode);
-    controller.getList2More(1, entiy.coinCode);
+    controller.getList3More(1, entiy.coinCode);
   }
 
   @override
