@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ipfsnets/models/market_entity.dart';
+import 'package:ipfsnets/utils/num_util.dart';
 
 import '../../../include.dart';
 import '../../../r.dart';
@@ -20,7 +21,7 @@ class MarketListItem extends StatelessWidget {
           bulidTop(context),
           Gaps.line,
           Gaps.vGap8,
-          buildItem(S.current.market_item_1,data.price.toString()+" CNY",ITextStyles.itemTitleRed),
+          buildItem(S.current.market_item_1,NumUtil.prseeZero(data.price.toString())+" CNY",ITextStyles.itemTitleRed),
           Gaps.vGap8,
           buildItem(S.current.market_item_2,data.nodeName,ITextStyles.itemTitle),
           Gaps.vGap8,

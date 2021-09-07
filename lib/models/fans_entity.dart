@@ -9,6 +9,7 @@ class FansEntity {
 	late String nickname;
 	late num personalKpi;
 	late num teamKpi;
+	late String unit;
 	FansEntity();
 
 

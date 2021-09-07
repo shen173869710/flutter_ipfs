@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ipfsnets/models/machine_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
+import 'package:ipfsnets/utils/num_util.dart';
 
 import '../../../../include.dart';
 
@@ -36,7 +37,7 @@ class MachineInfoPage extends StatelessWidget {
                   decoration: ITextStyles.boxDecoration,
                   child: Column(
                     children: [
-                      bulidItem1(S.current.machine_info_1,entity.symbol.toString()),
+                      bulidItem1(S.current.machine_info_1,NumUtil.prseeZero(entity.symbol.toString())),
                       Gaps.vGap12,
                       bulidItem2(S.current.machine_info_2,entity.online),
                       Gaps.vGap12,

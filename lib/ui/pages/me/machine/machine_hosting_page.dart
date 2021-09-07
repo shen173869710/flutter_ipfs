@@ -11,6 +11,7 @@ import 'package:ipfsnets/models/market_coupon_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/pages/market/market_coupons_page.dart';
+import 'package:ipfsnets/utils/num_util.dart';
 
 import '../../../../include.dart';
 import 'machine_hosting_controller.dart';
@@ -83,7 +84,7 @@ class MachineHostingPage extends StatelessWidget{
           Gaps.vGap4,
           buildAddItem(context),
           Gaps.vGap12,
-          buildItem(S.current.market_item_1,controller.data.cnyPrice.toString()+" CNY",ITextStyles.itemTitleRed),
+          buildItem(S.current.market_item_1,NumUtil.prseeZero(controller.data.cnyPrice.toString())+" CNY",ITextStyles.itemTitleRed),
           Gaps.vGap12,
           buildItem(S.current.market_item_2,controller.data.nodeName,ITextStyles.itemTitle),
           Gaps.vGap4,
@@ -158,8 +159,8 @@ class MachineHostingPage extends StatelessWidget{
         child:Column(
           children: [
 
-            buildChooseMoneyItem(R.assetsImgIconCny,"CNY",   S.current.wallet_withdraw_money_has+" "+controller.data.cnyBalance.toString(), 0),
-            buildChooseMoneyItemn(R.assetsImgIconUsdt,"USDT",S.current.wallet_withdraw_money_has+" "+controller.data.usdtBalance.toString(), 1),
+            buildChooseMoneyItem(R.assetsImgIconCny,"CNY",   S.current.wallet_withdraw_money_has+" "+NumUtil.prseeZero(controller.data.cnyBalance.toString()), 0),
+            buildChooseMoneyItemn(R.assetsImgIconUsdt,"USDT",S.current.wallet_withdraw_money_has+" "+NumUtil.prseeZero(controller.data.usdtBalance.toString()), 1),
             buildRegisterAndForget(context, controller),
           ],
         ));

@@ -9,6 +9,7 @@ import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/pages/register/index_controller.dart';
 import 'package:ipfsnets/utils/LoadingUtils.dart';
+import 'package:ipfsnets/utils/num_util.dart';
 import '../../../../include.dart';
 
 
@@ -197,9 +198,9 @@ class _MachineStatus extends State<MachinePage> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Text(number.toString()+" TB",style: ITextStyles.textWhite14,),
+              Text(NumUtil.prseeZero(number.toString())+" TB",style: ITextStyles.textWhite14,),
               Gaps.vGap4,
-              Text(all.toString()+" TB",style: ITextStyles.textWhite14,),
+              Text(NumUtil.prseeZero(all.toString())+" TB",style: ITextStyles.textWhite14,),
             ],
           ),
         ],
@@ -360,11 +361,11 @@ class _MachineStatus extends State<MachinePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(S.current.machine_list_1,style: ITextStyles.itemContent),
-                    Text(data.realCap.toString()+" TB",style: ITextStyles.itemTitle),
+                    Text(NumUtil.prseeZero(data.realCap.toString())+" TB",style: ITextStyles.itemTitle),
 
                     Gaps.vGap4,
                     Text(S.current.machine_list_3,style: ITextStyles.itemContent),
-                    Text(data.pledge.toString()+" FIL",style: ITextStyles.itemTitle),
+                    Text(NumUtil.prseeZero(data.pledge.toString())+" FIL",style: ITextStyles.itemTitle),
 
                   ],
                 ),
@@ -375,7 +376,7 @@ class _MachineStatus extends State<MachinePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(S.current.machine_list_2,style: ITextStyles.itemContent),
-                      Text(data.useCap.toString()+" TB",style: ITextStyles.itemTitle),
+                      Text(NumUtil.prseeZero(data.useCap.toString())+" TB",style: ITextStyles.itemTitle),
                       Gaps.vGap4,
                       Text(S.current.machine_list_4,style: ITextStyles.itemContent),
                       Text(data.hostingExpTime == null?S.current.not_hosting:DateUtil.getTime(data.hostingExpTime),style: ITextStyles.itemTitle),

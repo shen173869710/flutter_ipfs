@@ -14,6 +14,7 @@ import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/pages/market/market_buy_controller.dart';
 import 'package:ipfsnets/ui/pages/market/market_coupons_page.dart';
+import 'package:ipfsnets/utils/num_util.dart';
 
 import '../../../../include.dart';
 
@@ -145,7 +146,7 @@ class MachinePledgeState extends State<MachinePledgePage>{
             alignment: Alignment.centerLeft,
             child: Text.rich(TextSpan(children: [
               TextSpan(text: S.current.market_buy_total, style: ITextStyles.itemContent12),
-              TextSpan(text: data.needAmount.toString() + " FIL", style: TextStyle(fontSize: 16,color: Colours.item_red)),
+              TextSpan(text: NumUtil.prseeZero(data.needAmount.toString()) + " FIL", style: TextStyle(fontSize: 16,color: Colours.item_red)),
             ])),
           ),
           flex: 3,

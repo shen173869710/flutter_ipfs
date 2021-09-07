@@ -2,6 +2,7 @@ import "package:ipfsnets/include.dart";
 import 'package:ipfsnets/models/cny_acount_record_entity.dart';
 import 'package:ipfsnets/models/cny_record_entiy.dart';
 import 'package:ipfsnets/utils/date_util.dart';
+import 'package:ipfsnets/utils/num_util.dart';
 /**
  *  CNY 充值提现记录
  */
@@ -24,7 +25,7 @@ class CnyRecordItem extends StatelessWidget {
             flex: 1,
           ),
           Expanded(
-            child: Text((data.amount!>0?"+"+data.amount!.toString():data.amount!.toString()),
+            child: Text((data.amount!>0?"+"+NumUtil.prseeZero(data.amount!.toString()):NumUtil.prseeZero(data.amount!.toString())),
                 style: TextStyle(
                     fontSize: Dimens.font_sp16,
                   color: data.amount!>0?Colours.item_red:Colours.item_green)),

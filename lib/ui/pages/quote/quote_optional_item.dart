@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ipfsnets/models/quote_optional_entity.dart';
 import 'package:ipfsnets/res/styles.dart';
+import 'package:ipfsnets/utils/num_util.dart';
 
 import '../../../include.dart';
 
@@ -100,9 +101,9 @@ class QuoteOptionalItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(data.priceUsd.toString(),style: ITextStyles.itemTitle,),
+          Text(NumUtil.prseeZero(data.priceUsd.toString()),style: ITextStyles.itemTitle,),
           Gaps.vGap4,
-          Text(StringUtil.addCoin(data.priceCny.toStringAsFixed(2)),style: ITextStyles.itemContent,),
+          Text(StringUtil.addCoin(NumUtil.prseeZero(data.priceCny.toStringAsFixed(2))),style: ITextStyles.itemContent,),
         ],
       ),
       flex: 4,

@@ -1,12 +1,13 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:ipfsnets/http/market_api.dart';
 import 'package:ipfsnets/models/market_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/widget/login_button.dart';
+import 'package:ipfsnets/utils/num_util.dart';
+
 
 import '../../../include.dart';
 
@@ -83,7 +84,7 @@ class _MarketInfoStatus extends State<MarketInfoPage> {
           Gaps.vGap8,
           Gaps.line,
           Gaps.vGap8,
-          buildItem(S.current.market_item_1,data.price.toString()+" CNY",ITextStyles.itemTitleRed),
+          buildItem(S.current.market_item_1,NumUtil.prseeZero(data.price.toString())+" CNY",ITextStyles.itemTitleRed),
           Gaps.vGap8,
           buildItem(S.current.market_item_2,data.nodeName,ITextStyles.itemTitle),
           Gaps.vGap8,

@@ -10,6 +10,7 @@ import 'package:ipfsnets/models/market_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/pages/market/market_coupons_page.dart';
+import 'package:ipfsnets/utils/num_util.dart';
 
 import '../../../include.dart';
 import 'market_buy_controller.dart';
@@ -89,7 +90,7 @@ class MarketBuyPage extends StatelessWidget{
           Gaps.vGap12,
           buildItem(S.current.market_item_4,data.initial.toString()+"TB",ITextStyles.itemTitle),
           Gaps.vGap12,
-          buildItem(S.current.market_item_1,data.price.toString()+" CNY",ITextStyles.itemTitleRed),
+          buildItem(S.current.market_item_1,NumUtil.prseeZero(data.price.toString())+" CNY",ITextStyles.itemTitleRed),
           Gaps.vGap12,
           buildItem(S.current.market_item_2,data.nodeName,ITextStyles.itemTitle),
           // Gaps.vGap12,

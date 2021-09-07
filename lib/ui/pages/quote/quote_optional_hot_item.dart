@@ -3,6 +3,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ipfsnets/models/quote_optional_entity.dart';
 import 'package:ipfsnets/res/styles.dart';
+import 'package:ipfsnets/utils/num_util.dart';
 
 import '../../../include.dart';
 
@@ -91,8 +92,8 @@ class QuoteOptionalHotItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Text(StringUtil.addCoin(data.priceCny.toStringAsFixed(2)),style: TextStyle(color: Colours.item_title_color,fontSize: 12)),
-          Text(data.changeRate.toString()+"%",style: TextStyle(color: getItem3Bg(data),fontSize: 12)),
+          Text(StringUtil.addCoin(NumUtil.prseeZero(data.priceCny.toStringAsFixed(2))),style: TextStyle(color: Colours.item_title_color,fontSize: 12)),
+          Text(NumUtil.prseeZero(data.changeRate.toString())+"%",style: TextStyle(color: getItem3Bg(data),fontSize: 12)),
         ],
       ),
       flex: 1,

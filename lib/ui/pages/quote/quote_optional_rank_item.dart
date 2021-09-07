@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ipfsnets/models/quote_optional_entity.dart';
 import 'package:ipfsnets/res/styles.dart';
+import 'package:ipfsnets/utils/num_util.dart';
 
 import '../../../include.dart';
 
@@ -73,7 +74,7 @@ class QuoteOptionalRankItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(StringUtil.addCoin(data.priceCny.toString()),style: ITextStyles.itemTitle,),
+          Text(StringUtil.addCoin(NumUtil.prseeZero(data.priceCny.toString())),style: ITextStyles.itemTitle,),
         ],
       ),
       flex: 3,

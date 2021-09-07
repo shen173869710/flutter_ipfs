@@ -36,6 +36,7 @@ class CnyRechageRecordItem extends StatelessWidget {
           Visibility(child: Text(StringUtil.isEmpty(data.remarks!)?"":data.remarks!,style: ITextStyles.itemTitle,),visible: StringUtil.isEmpty(data.remarks!)?false:true,),
           // Visibility(child:Text(data.remarks!,style: ITextStyles.itemTitle,),visible:
           // data.status==0?false:true,),
+          Gaps.vGap8,
           GestureDetector(child:ImageUtil.loadImage(data.evidence!,100.w, 100.w, def: ''),onTap: (){
                 NavigatorUtil.push(context, '${Routes.photoPage}?type=${Uri.encodeComponent(data.evidence!)}');
           },)
