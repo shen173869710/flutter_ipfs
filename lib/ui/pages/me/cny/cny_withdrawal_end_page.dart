@@ -38,11 +38,11 @@ class CnyWithdrawalEndPage extends StatelessWidget {
     if (entiy != null) {
       if(isBank) {
         _item1.text = entiy.accountName;
-        _item2.text = entiy.accountBank;
-        _item3.text = entiy.accountNumber;
+        _item2.text = entiy.accountNumber;
+        _item3.text = entiy.accountBank;
         controller.setitem1(entiy.accountName);
-        controller.setitem2(entiy.accountBank);
-        controller.setitem3(entiy.accountNumber);
+        controller.setitem2(entiy.accountNumber);
+        controller.setitem3(entiy.accountBank);
       }else{
         _item1.text = entiy.accountName;
         _item2.text = entiy.accountNumber;
@@ -142,7 +142,7 @@ class CnyWithdrawalEndPage extends StatelessWidget {
             },
             controller: _item1,
             inputFormatters: [
-              LengthLimitingTextInputFormatter(20)
+              LengthLimitingTextInputFormatter(9)
             ],
             decoration: InputDecoration(
                 focusedBorder: InputBorder.none,
@@ -219,6 +219,7 @@ class CnyWithdrawalEndPage extends StatelessWidget {
            bool ok =  await controller.putEnd(money);
            if (ok) {
              Navigator.of(context).pop();
+             NavigatorUtil.jump(context, Routes.cnyWithdrawalRecord);
            }
           }),
     );

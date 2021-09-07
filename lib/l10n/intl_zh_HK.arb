@@ -148,6 +148,7 @@
   "home_item_3_3_desc": "封装扇区Gas费",
 
   "home_item_4": "矿池区块收益",
+  "home_item_4_0": "区块总收益",
   "home_item_4_1": "累计解锁",
   "home_item_4_2": "可提现余额",
   "home_item_4_3": "当前冻结",

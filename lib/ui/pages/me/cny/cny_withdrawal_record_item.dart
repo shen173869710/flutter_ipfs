@@ -46,7 +46,7 @@ class CnyWithdrawalRecordItem extends StatelessWidget {
             ],
           ),
           Gaps.vGap8,
-          Text("收款账户:"+data.accountName.toString() +" " +data.accountBank.toString(),style: ITextStyles.itemContent,),
+          Text("收款账户:"+data.accountName.toString() +" " +data.accountNumber!+" "+data.accountBank!,style: ITextStyles.itemContent,),
         ],
       ),
     );
@@ -68,6 +68,11 @@ class CnyWithdrawalRecordItem extends StatelessWidget {
       return Colours.item_red;
     }
     return Colours.item_content_color;
+  }
+
+
+  getAddress() {
+
   }
 
 }

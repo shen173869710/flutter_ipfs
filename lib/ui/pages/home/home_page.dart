@@ -258,7 +258,7 @@ class _HomeStatus extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text(S.current.home_item_4, style: ITextStyles.itemContent12),
+              Text(S.current.home_item_4_0, style: ITextStyles.itemContent12),
               Gaps.vGap4,
               Text(controller.item4_1, style: TextStyle(fontSize: 16,color: Color(0xffF23E2A)),),
             ],

@@ -1450,6 +1450,16 @@ class S {
     );
   }
 
+  /// `区块总收益`
+  String get home_item_4_0 {
+    return Intl.message(
+      '区块总收益',
+      name: 'home_item_4_0',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `累计解锁`
   String get home_item_4_1 {
     return Intl.message(

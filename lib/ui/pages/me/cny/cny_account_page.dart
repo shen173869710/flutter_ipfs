@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import "package:ipfsnets/include.dart";
 import 'package:ipfsnets/ui/pages/me/cny/cny_record_item.dart';
+import 'package:ipfsnets/utils/num_util.dart';
 
 import 'cny_account_controller.dart';
 
@@ -165,8 +166,8 @@ class CnyAccountPage extends StatelessWidget {
     return Text.rich(TextSpan(
       children: [
         TextSpan(
-            text: controller.balance == null ?"11":controller.balance.toString(),
-            style: TextStyle(color: Colours.item_red, fontSize: 32)),
+            text: controller.balance == null ?"0":NumUtil.prseeZero(controller.balance.toString()),
+            style: TextStyle(color: Colours.item_red, fontSize: 30)),
         TextSpan(text: " ", style: ITextStyles.itemContent),
         TextSpan(text: "CNY", style: ITextStyles.itemTitle),
       ],

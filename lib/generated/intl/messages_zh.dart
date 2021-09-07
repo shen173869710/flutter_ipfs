@@ -125,6 +125,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "home_item_3_3": MessageLookupByLibrary.simpleMessage("每1PB扇区"),
         "home_item_3_3_desc": MessageLookupByLibrary.simpleMessage("封装扇区Gas费"),
         "home_item_4": MessageLookupByLibrary.simpleMessage("矿池区块收益"),
+        "home_item_4_0": MessageLookupByLibrary.simpleMessage("区块总收益"),
         "home_item_4_1": MessageLookupByLibrary.simpleMessage("累计解锁"),
         "home_item_4_2": MessageLookupByLibrary.simpleMessage("可提现余额"),
         "home_item_4_3": MessageLookupByLibrary.simpleMessage("当前冻结"),
