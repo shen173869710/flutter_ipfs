@@ -990,10 +990,10 @@ class S {
     );
   }
 
-  /// `手机号码`
+  /// `手机账号`
   String get me_info_phone {
     return Intl.message(
-      '手机号码',
+      '手机账号',
       name: 'me_info_phone',
       desc: '',
       args: [],
@@ -4600,10 +4600,10 @@ class S {
     );
   }
 
-  /// `收入`
+  /// `转入`
   String get wallet_type_3 {
     return Intl.message(
-      '收入',
+      '转入',
       name: 'wallet_type_3',
       desc: '',
       args: [],

@@ -141,7 +141,7 @@ class _WalletPageState extends State<WalletPage> {
     return Column(
       children: [
         GestureDetector(
-          child:  Image.asset(image,width: 60.w,height: 60.w,),
+          child:  Image.asset(image,width: 50.w,height: 50.w,fit: BoxFit.cover,),
           onTap: (){
             if(Routes.walletExchangePage == rouser) {
               ToastUtil.show(S.current.not_open);

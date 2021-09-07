@@ -62,14 +62,13 @@ class MePage extends StatelessWidget {
                     maxLines: 1,
                     style: TextStyle(fontSize: Dimens.font_sp20, color: Colours.text_white),
                   ),
-
+                  Gaps.vGap4,
                   Container(
                     decoration: BoxDecoration(
                         color: Color(0xFF0E0677),
                         borderRadius: new BorderRadius.circular((20.w))
                     ),
-                    child:
-                    Row(
+                    child: Row(
                       children: [
                         Gaps.hGap8,
                         Image.asset(R.assetsImgIcVip,height: 28.w, width: 28.w,),

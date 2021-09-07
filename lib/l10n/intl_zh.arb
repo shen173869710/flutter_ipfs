@@ -103,7 +103,7 @@
   "me_info_head": "头像",
   "me_info_nick": "昵称",
   "me_info_sex": "性别",
-  "me_info_phone": "手机号码",
+  "me_info_phone": "手机账号",
   "me_info_address": "我的收货地址",
   "me_info_save": "保存",
   "me_info_image_camera": "拍照",
@@ -508,7 +508,7 @@
 
   "wallet_type_1": "冲币",
   "wallet_type_2": "提币",
-  "wallet_type_3": "收入",
+  "wallet_type_3": "转入",
   "wallet_type_4": "收入冻结",
   "wallet_type_5": "冻结释放",
   "wallet_type_6": "质押",

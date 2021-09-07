@@ -30,7 +30,7 @@ class MeGridItem extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Image.asset(image[index],width: 50.w,height: 50.w,fit: BoxFit.cover,),
+              Image.asset(image[index],width: 50.w,height: 50.w,fit: BoxFit.fill,),
               Gaps.vGap4,
               Text(data[index], style: ITextStyles.textSize12,)
             ],
