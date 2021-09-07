@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ipfsnets/http/market_api.dart';
+import 'package:ipfsnets/models/home_entity.dart';
+import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
-
 import '../../../include.dart';
 import 'home_controller.dart';
 
@@ -26,23 +28,19 @@ class _HomeStatus extends State<HomePage> {
 
   HomeController controller = Get.put(HomeController());
   Future<void> getData() async {
-    // BaseEntity baseEntity = await MarketApi.getMachineHome();
-    // if (baseEntity.isOk()) {
-    //   List<MarketBarEntity> barEntity = baseEntity.data;
-    //   if (barEntity != null && barEntity.length > 0) {
-    //     int length = barEntity.length;
-    //     List<MainTabEntiy> temp = [];
-    //     for (int i = 0; i < length; i++) {
-    //       MainTabEntiy entiy = new MainTabEntiy(barEntity[i].name, MarketListPage(barEntity[i].typeId));
-    //       temp.add(entiy);
-    //     }
-    //     entiys = temp;
-    //     tabController  = TabController(length: entiys.length, vsync: this);
-    //     setState(() {
-    //     });
-    //   }
-    // }
+    BaseEntity baseEntity = await MarketApi.homeInfo();
+    if (baseEntity.isOk()) {
+      controller.setHomeEntity(baseEntity.data);
+    }
   }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    controller.init();
+    getData();
+  }
+
   var top = 0.0;
   @override
   Widget build(BuildContext context) {
@@ -79,7 +77,7 @@ class _HomeStatus extends State<HomePage> {
                   buildItem3(context),
                   buildTilte(R.assetsImgHomeItem4,S.current.home_item_4,S.current.home_info,true,1),
                   buildItem4(context),
-                  buildTilte(R.assetsImgHomeItem5,S.current.home_item_5,"切换CNY",true,2),
+                  buildTilte(R.assetsImgHomeItem5,S.current.home_item_5,controller.item5_title,true,2),
                   buildItem5(context)
                 ],
               ),
@@ -102,7 +100,6 @@ class _HomeStatus extends State<HomePage> {
           ));
     });
   }
-
   // 背景
   buildBackground() {
     return Stack(children: [
@@ -127,7 +124,6 @@ class _HomeStatus extends State<HomePage> {
       ],
     );
   }
-
   // 标题
   buildTilte(String image,String title,String info,bool show, int index) {
     return Container(
@@ -141,6 +137,8 @@ class _HomeStatus extends State<HomePage> {
           Visibility(child:GestureDetector(child: Text(info, style: ITextStyles.itemContentSel,),onTap: (){
             if (index == 1) {
               NavigatorUtil.jump(context, Routes.machineTotalPage);
+            }else if (index == 2) {
+              controller.onCnyChange(info);
             }
           },),visible: show,)
 
@@ -178,7 +176,6 @@ class _HomeStatus extends State<HomePage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-
           buildItm(R.assetsImgHomeItemWallet,  S.current.home_wallet),
           buildItm(R.assetsImgHomeItemTreasure,  S.current.home_treasure),
           buildItm(R.assetsImgHomeItemMonitoring,  S.current.home_monitoring),
@@ -209,9 +206,9 @@ class _HomeStatus extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              buildItem3Title(0),
-              buildItem3Title(1),
-              buildItem3Title(2),
+              buildItem3Title(S.current.home_item_3_1,0),
+              buildItem3Title(S.current.home_item_3_2,1),
+              buildItem3Title(S.current.home_item_3_3,2),
             ],
           ),
           Gaps.vGap4,
@@ -219,11 +216,11 @@ class _HomeStatus extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              buildItem1Desc(controller.item3_1, S.current.home_item_3_1_desc,Color(0xff516DFF)),
+              buildItem1Desc(controller.item3_1+" FIL", S.current.home_item_3_1_desc,Color(0xff516DFF)),
               Gaps.vLine,
-              buildItem1Desc(controller.item3_3, S.current.home_item_3_2_desc,Color(0xff00E253)),
+              buildItem1Desc(controller.item3_2+" FIL", S.current.home_item_3_2_desc,Color(0xff00E253)),
               Gaps.vLine,
-              buildItem1Desc(controller.item3_3, S.current.home_item_3_3_desc,Color(0xffF23E2A)),
+              buildItem1Desc(controller.item3_3+" FIL", S.current.home_item_3_3_desc,Color(0xffF23E2A)),
             ],
           ),
           Gaps.vGap8
@@ -231,10 +228,10 @@ class _HomeStatus extends State<HomePage> {
       ),
     );
   }
-  buildItem3Title(int index){
+  buildItem3Title(String title,int index){
     return SizedBox(width: 180.w,child:TextButton(onPressed:(){
       controller.onBtnClick(index);
-    }, child: Text(S.current.home_item_3_1,style: TextStyle(fontSize: 12,color:controller.btnSel == index?Colours.item_title_color:Colours.item_content_color),),
+    }, child: Text(title,style: TextStyle(fontSize: 12,color:controller.btnSel == index?Colours.item_title_color:Colours.item_content_color),),
         style:  controller.btnSel == index?IButtonStyle.chainButtonSel:IButtonStyle.chainButtonUnsel));
   }
   buildItem1Desc(String title, String dec,Color textColor) {
@@ -268,7 +265,7 @@ class _HomeStatus extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Expanded(child:buildItem3Desc(controller.item4_1, S.current.home_item_4_1),flex: 1,),
+              Expanded(child:buildItem3Desc(controller.item4_2, S.current.home_item_4_1),flex: 1,),
               Expanded(child:buildItem3Desc(controller.item4_3, S.current.home_item_4_3),flex: 1,)
             ],
           ),
@@ -304,7 +301,6 @@ class _HomeStatus extends State<HomePage> {
       child:Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -328,7 +324,6 @@ class _HomeStatus extends State<HomePage> {
       ),
     );
   }
-
   buildItem5Desc(String title, String dec,Color textColor) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -339,7 +334,6 @@ class _HomeStatus extends State<HomePage> {
       ],
     );
   }
-  
   buildItm(String image, String title) {
     return InkWell(
       child: Column(
@@ -366,8 +360,4 @@ class _HomeStatus extends State<HomePage> {
     );
   }
 
-
-  requestPermiss() async{
-
-  }
 }

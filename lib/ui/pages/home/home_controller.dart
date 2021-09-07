@@ -1,7 +1,9 @@
 
 
 
+import 'package:ipfsnets/models/home_entity.dart';
 import 'package:ipfsnets/models/market_entity.dart';
+import 'package:ipfsnets/utils/num_util.dart';
 
 import '../../../include.dart';
 
@@ -9,26 +11,120 @@ class HomeController extends GetxController {
 
   String notice = "noticenoticenoticenoticenoticenoticenotice";
 
-  String item3_1 = "3_1 FIl";
-  String item3_2 = "3_2 FIl";
-  String item3_3 = "3_3 FIl";
+  String item3_1 = "";
+  String item3_2 = "";
+  String item3_3 = "";
 
-  String item4_1 = "4_1 FIl";
-  String item4_2 = "4_2 FIl";
-  String item4_3 = "4_3 FIl";
-  String item4_4 = "4_4 FIl";
-  String item4_5 = "4_5 FIl";
-
-  String item5_1 = "5_1 CNY";
-  String item5_2 = "5_2 CNY";
-  String item5_3 = "5_3 CNY";
-  String item5_4 = "5_4 TB";
-  String item5_5 = "5_5 TB";
+  String item4_1 = "";
+  String item4_2 = "";
+  String item4_3 = "";
+  String item4_4 = "";
+  String item4_5 = "";
+  String item5_title = "";
+  String item5_1 = "";
+  String item5_2 = "";
+  String item5_3 = "";
+  String item5_4 = "";
+  String item5_5 = "";
   //
   int btnSel = 0;
 
-  onBtnClick(int index) {
-    btnSel = 0;
+  HomeEntity? entity;
+
+
+
+  init(){
+    item3_1 = "";
+    item3_2 = "";
+    item3_3 = "";
+
+    item4_1 = "";
+    item4_2 = "";
+    item4_3 = "";
+    item4_4 = "";
+    item4_5 = "";
+    item5_title = S.current.home_item_5_cny;
+    item5_1 = "";
+    item5_2 = "";
+    item5_3 = "";
+    item5_4 = "";
+    item5_5 = "";
+  }
+
+  setHomeEntity(HomeEntity homeEntity) {
+    entity = homeEntity;
+    btnSel= 0;
+    onBtnChange();
+    setItem4();
+    onCnyChange(S.current.home_item_5_usdt);
     update();
   }
+
+  onBtnClick(int index) {
+    btnSel = index;
+    onBtnChange();
+    update();
+  }
+  // 24小时封装成本
+  onBtnChange() {
+    if (btnSel == 0) {
+      if (entity!.oneDayCost != null){
+        if (entity!.oneDayCost!.costTB != null) {
+          item3_1 = NumUtil.prseeZero(entity!.oneDayCost!.cost32!.totalCost.toStringAsFixed(5));
+          item3_2 = NumUtil.prseeZero(entity!.oneDayCost!.cost32!.pledgeDay.toStringAsFixed(5));
+          item3_3 = NumUtil.prseeZero(entity!.oneDayCost!.cost32!.gasDay.toStringAsFixed(5));
+        }
+      }
+    }else if (btnSel == 1) {
+      if (entity!.oneDayCost != null){
+        if (entity!.oneDayCost!.cost32 != null) {
+          item3_1 = NumUtil.prseeZero(entity!.oneDayCost!.costTB!.totalCost.toStringAsFixed(5));
+          item3_2 = NumUtil.prseeZero(entity!.oneDayCost!.costTB!.pledgeDay.toStringAsFixed(5));
+          item3_3 = NumUtil.prseeZero(entity!.oneDayCost!.costTB!.gasDay.toStringAsFixed(5));
+        }
+      }
+    }else if (btnSel == 2) {
+      if (entity!.oneDayCost != null){
+        if (entity!.oneDayCost!.costPB != null) {
+          item3_1 = NumUtil.prseeZero(entity!.oneDayCost!.costPB!.totalCost.toStringAsFixed(5));
+          item3_2 = NumUtil.prseeZero(entity!.oneDayCost!.costPB!.pledgeDay.toStringAsFixed(5));
+          item3_3 = NumUtil.prseeZero(entity!.oneDayCost!.costPB!.gasDay.toStringAsFixed(5));
+        }
+      }
+    }
+  }
+  // 矿池总收益
+  setItem4() {
+    if (entity!.totalEarnings != null) {
+      item4_1 = NumUtil.prseeZero(entity!.totalEarnings!.total.toStringAsFixed(5));
+      item4_2 = NumUtil.prseeZero(entity!.totalEarnings!.releaseNow.toStringAsFixed(5));
+      item4_3 = NumUtil.prseeZero(entity!.totalEarnings!.freezeNum.toStringAsFixed(5));
+    }
+  }
+
+  onCnyChange(String title) {
+
+    print("onCnyChange"+title);
+    if (title.contains(S.current.home_item_5_cny)) {
+      print("onCny   cny");
+      item5_title = S.current.home_item_5_usdt;
+      if (entity!.earningsView != null && entity!.earningsView!.USDT != null)  {
+        item5_1 = NumUtil.prseeZero(entity!.earningsView!.USDT!.total.toStringAsFixed(5));
+        item5_3 = NumUtil.prseeZero(entity!.earningsView!.USDT!.today.toStringAsFixed(5));
+        item5_4 = NumUtil.prseeZero(entity!.earningsView!.USDT!.userRealCap.toStringAsFixed(5));
+        item5_5 = NumUtil.prseeZero(entity!.earningsView!.USDT!.teamRealCap.toStringAsFixed(5));
+      }
+    }else {
+      print("onCny   usdt");
+      item5_title = S.current.home_item_5_cny;
+      if (entity!.earningsView != null && entity!.earningsView!.CNY != null) {
+        item5_1 = NumUtil.prseeZero(entity!.earningsView!.CNY!.total.toStringAsFixed(5));
+        item5_3 = NumUtil.prseeZero(entity!.earningsView!.CNY!.today.toStringAsFixed(5));
+        item5_4 = NumUtil.prseeZero(entity!.earningsView!.CNY!.userRealCap.toStringAsFixed(5));
+        item5_5 = NumUtil.prseeZero(entity!.earningsView!.CNY!.teamRealCap.toStringAsFixed(5));
+      }
+    }
+    update();
+  }
+
 }

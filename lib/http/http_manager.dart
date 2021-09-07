@@ -74,14 +74,12 @@ class HttpManager {
         // LogUtil.e("请求结束"+data);
       final Map<String, dynamic> _map = parseData(data);
       return BaseEntity<T>.fromJson(_map);
-    } on Exception  catch (e) {
-      if (withLoading) {
-        LoadingUtils.dismiss();
-      }
+    } on Exception catch (e) {
       LogUtil.e("get 异常"+e.toString());
       return parseException(e);
+    }catch (error,stack) {
+      return BaseEntity(-1,"服务器异常",null);
     }
-
   }
 
   ///通用的POST请求
@@ -106,6 +104,8 @@ class HttpManager {
       }
       LogUtil.e("解析异常"+e.toString());
       return parseException(e);
+    }catch (error,stack) {
+      return BaseEntity(-1,"服务器异常",null);
     }
 
   }
@@ -130,6 +130,11 @@ class HttpManager {
         LoadingUtils.dismiss();
       }
       return parseException(e);
+    }catch (error,stack) {
+      if (withLoading) {
+        LoadingUtils.dismiss();
+      }
+      return BaseEntity(-1,"服务器异常",null);
     }
 
   }
@@ -166,6 +171,8 @@ class HttpManager {
       if (withLoading) {
         LoadingUtils.dismiss();
       }
+    }catch (error,stack) {
+      return BaseEntity(-1,"服务器异常",null);
     }
     return BaseEntity(ExceptionHandle.parse_error, '请求异常', null);
   }

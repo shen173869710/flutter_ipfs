@@ -81,7 +81,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
     if (baseEntity != null && baseEntity.data != null) {
       AccessTokenEntity entity = baseEntity.data;
-
       if (entity.accessToken!.isNotEmpty) {
         SpUtil.putString(GlobalEntiy.accessToken, entity.accessToken!);
         final String? accessToken = SpUtil.getString(GlobalEntiy.accessToken);
@@ -93,6 +92,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           UserUtil.saveUserInfo(userEntity);
           event.repository.state = 200;
           yield LoginButtonPressState(copyObject(event.repository));
+        }else{
+          ToastUtil.show(""+baseEntity.msg);
         }
 
       }

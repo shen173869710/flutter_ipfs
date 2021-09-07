@@ -136,6 +136,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "home_item_5_3": MessageLookupByLibrary.simpleMessage("今日收入"),
         "home_item_5_4": MessageLookupByLibrary.simpleMessage("我的有效算力"),
         "home_item_5_5": MessageLookupByLibrary.simpleMessage("团队有效算力"),
+        "home_item_5_cny": MessageLookupByLibrary.simpleMessage("切换CNY"),
+        "home_item_5_usdt": MessageLookupByLibrary.simpleMessage("切换USDT"),
         "home_mining": MessageLookupByLibrary.simpleMessage("质押挖矿"),
         "home_monitoring": MessageLookupByLibrary.simpleMessage("数据监控"),
         "home_treasure": MessageLookupByLibrary.simpleMessage("开心夺宝"),

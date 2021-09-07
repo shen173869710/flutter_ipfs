@@ -8,6 +8,7 @@ import 'package:ipfsnets/models/cny_recharge_record_entity.dart';
 import 'package:ipfsnets/models/cny_withdrawal_record_entity.dart';
 import 'package:ipfsnets/models/cny_withdrawal_setting_entity.dart';
 import 'package:ipfsnets/models/fans_entity.dart';
+import 'package:ipfsnets/models/home_entity.dart';
 import 'package:ipfsnets/models/image_entity.dart';
 import 'package:ipfsnets/models/machine_entity.dart';
 import 'package:ipfsnets/models/machine_hosting_entity.dart';
@@ -78,6 +79,8 @@ class EntityFactory {
       return ShareCionEntity.fromJson(json)as T;
     }else if (name == "ShareMonthEntity"){
       return ShareMonthEntity.fromJson(json)as T;
+    }else if (name == "HomeEntity"){
+      return HomeEntity.fromJson(json)as T;
     }else {
       return json as T;
     }

@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:ipfsnets/models/fans_entity.dart';
+import 'package:ipfsnets/models/home_entity.dart';
 import 'package:ipfsnets/models/machine_hosting_entity.dart';
 import 'package:ipfsnets/models/machine_pledge_entity.dart';
 import 'package:ipfsnets/models/market_bar_entity.dart';
@@ -94,5 +95,12 @@ class MarketApi{
     Map<String, dynamic> param = new Map();
     param['time'] = time;
     return HttpManager.getInstance().post<ShareDayEntity>(share_coin_day,jsonEncode(param));
+  }
+
+
+  // 区块首页
+  static const String home_info = "machine/app/index";
+  static  Future<BaseEntity> homeInfo() {
+    return HttpManager.getInstance().get<HomeEntity>(home_info);
   }
 }

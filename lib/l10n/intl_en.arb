@@ -157,7 +157,8 @@
   "home_item_4_2": "可提现余额",
   "home_item_4_3": "当前冻结",
   "home_item_4_4": "已提现",
-
+  "home_item_5_cny": "切换CNY",
+  "home_item_5_usdt": "切换USDT",
   "home_item_5": "矿池销售概览",
   "home_item_5_1": "总收入",
   "home_item_5_2": "可提现余额",

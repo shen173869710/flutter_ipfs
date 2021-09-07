@@ -1500,6 +1500,26 @@ class S {
     );
   }
 
+  /// `切换CNY`
+  String get home_item_5_cny {
+    return Intl.message(
+      '切换CNY',
+      name: 'home_item_5_cny',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `切换USDT`
+  String get home_item_5_usdt {
+    return Intl.message(
+      '切换USDT',
+      name: 'home_item_5_usdt',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `矿池销售概览`
   String get home_item_5 {
     return Intl.message(
