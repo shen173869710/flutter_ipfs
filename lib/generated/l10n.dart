@@ -4829,6 +4829,86 @@ class S {
       args: [],
     );
   }
+
+  /// `挖矿奖励-直接奖`
+  String get wallet_type_23 {
+    return Intl.message(
+      '挖矿奖励-直接奖',
+      name: 'wallet_type_23',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `挖矿奖励-间接奖`
+  String get wallet_type_24 {
+    return Intl.message(
+      '挖矿奖励-间接奖',
+      name: 'wallet_type_24',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `挖矿奖励-代理奖`
+  String get wallet_type_25 {
+    return Intl.message(
+      '挖矿奖励-代理奖',
+      name: 'wallet_type_25',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `挖矿奖励-培育奖`
+  String get wallet_type_26 {
+    return Intl.message(
+      '挖矿奖励-培育奖',
+      name: 'wallet_type_26',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `销售奖励-直接奖`
+  String get wallet_type_31 {
+    return Intl.message(
+      '销售奖励-直接奖',
+      name: 'wallet_type_31',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `销售奖励-间接奖`
+  String get wallet_type_32 {
+    return Intl.message(
+      '销售奖励-间接奖',
+      name: 'wallet_type_32',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `销售奖励-代理奖`
+  String get wallet_type_33 {
+    return Intl.message(
+      '销售奖励-代理奖',
+      name: 'wallet_type_33',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `销售奖励-培育奖`
+  String get wallet_type_34 {
+    return Intl.message(
+      '销售奖励-培育奖',
+      name: 'wallet_type_34',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

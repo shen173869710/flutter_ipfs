@@ -1,6 +1,6 @@
 
 import 'dart:io';
-import 'package:flustars/flustars.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
 import 'package:flutter/services.dart';
@@ -10,10 +10,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ipfsnets/routes/application.dart';
 import 'package:ipfsnets/routes/routers.dart';
 import 'package:ipfsnets/ui/pages/splash_page.dart';
-import 'package:ipfsnets/utils/user_util.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import 'data/global_entiy.dart';
 import 'generated/l10n.dart';
 import 'include.dart';
 

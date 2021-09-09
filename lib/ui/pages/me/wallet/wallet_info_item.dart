@@ -111,6 +111,30 @@ class WalletInfoItem extends StatelessWidget {
       case 22:
         message = S.current.wallet_type_22;
         break;
+      case 23:
+        message = S.current.wallet_type_23;
+        break;
+      case 24:
+        message = S.current.wallet_type_24;
+        break;
+      case 25:
+        message = S.current.wallet_type_25;
+        break;
+      case 26:
+        message = S.current.wallet_type_26;
+        break;
+      case 31:
+        message = S.current.wallet_type_31;
+        break;
+      case 32:
+        message = S.current.wallet_type_32;
+        break;
+      case 33:
+        message = S.current.wallet_type_33;
+        break;
+      case 34:
+        message = S.current.wallet_type_34;
+        break;
     }
     return message;
   }

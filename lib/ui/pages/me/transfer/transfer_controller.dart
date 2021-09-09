@@ -158,8 +158,15 @@ class TeansferController extends GetxController{
       ToastUtil.show(S.current.not_enough);
       return false;
     }
-
-    BaseEntity entity = await TransferApi.transferOut(code, coinCode, poundageGas, account, mark,num.parse(money));
+    num total = 0;
+    if(StringUtil.isNotEmpty(money)) {
+      if (transferGasType == 0) {
+        total =  NumUtil.multiplyDec(poundageGas,outMoney).toDouble();
+      }else{
+        total =  poundageGas;
+      }
+    }
+    BaseEntity entity = await TransferApi.transferOut(code, coinCode, total, account, mark,num.parse(money));
     if(entity.isOk()) {
       return true;
     }else{

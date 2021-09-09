@@ -113,7 +113,7 @@ class _WalletWithdrawalState extends State<WalletWithdrawalPage> {
 
                         ])),
                       ],
-                      ), visible: controller.showMainAddress),
+                      ), visible: true),
                       //
                       bulidInfo(context),
                       bulidAddress(context),
