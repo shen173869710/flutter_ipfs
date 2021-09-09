@@ -10,6 +10,7 @@ import 'package:ipfsnets/ui/pages/me/wallet/wallet_page.dart';
 import 'package:ipfsnets/ui/pages/me/wallet/wallet_rechage_page.dart';
 import 'package:ipfsnets/ui/pages/me/wallet/wallet_withdrawal_page.dart';
 import 'package:ipfsnets/utils/image_util.dart';
+import 'package:ipfsnets/utils/num_util.dart';
 import 'package:ipfsnets/utils/permission_utils.dart';
 import 'package:ipfsnets/utils/user_util.dart';
 
@@ -131,9 +132,9 @@ class MePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Text(userController.walletHomeEntity.cnySum.toString(), style: TextStyle(color: Colours.item_red, fontSize: Dimens.font_sp22),),
+                Text(userController.walletHomeEntity.cnySum.toString(), style: TextStyle(color: Colours.item_red, fontSize: Dimens.font_sp20),),
                 Gaps.hGap2,
-                Text(" ≈ "+userController.walletHomeEntity.usdtSum.toString()+" USDT", style: ITextStyles.itemContent,textAlign: TextAlign.end,)
+                Text(" ≈ "+NumUtil.prseeZero(userController.walletHomeEntity.usdtSum.toStringAsFixed(8))+" USDT", style: ITextStyles.itemContent,textAlign: TextAlign.end,)
               ],
             ),
           ),
@@ -218,7 +219,7 @@ class MePage extends StatelessWidget {
 
   String getTitleValue(int index) {
     if (userController.walletHomeEntity.rows.length > index) {
-      return userController.walletHomeEntity.rows[index]!.value.toString();
+      return NumUtil.prseeZero(userController.walletHomeEntity.rows[index]!.value.toStringAsFixed(8));
     }
     return "";
   }
@@ -244,7 +245,7 @@ class MePage extends StatelessWidget {
         Text(value,
           style: TextStyle(
               color: Colours.item_title_color,
-              fontSize: Dimens.font_sp18),
+              fontSize: Dimens.font_sp16),
         ),
       ],
     );

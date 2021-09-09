@@ -4870,6 +4870,16 @@ class S {
     );
   }
 
+  /// `服务器挖矿收益`
+  String get wallet_type_27 {
+    return Intl.message(
+      '服务器挖矿收益',
+      name: 'wallet_type_27',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `销售奖励-直接奖`
   String get wallet_type_31 {
     return Intl.message(

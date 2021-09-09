@@ -213,7 +213,7 @@ class _WalletRechageState extends State<WalletRechagePage> {
         margin: ITextStyles.containerMargin,
         child: Column(
           children: [
-            Text(controller.desc,style:ITextStyles.itemContent12)
+            Text(StringUtil.lineFeed(controller.desc),style:ITextStyles.itemContent12)
           ],
 
         ));

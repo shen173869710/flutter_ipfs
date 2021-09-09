@@ -100,4 +100,12 @@ class StringUtil{
     return stringToList(str);
   }
 
+  // 添加换行问题
+  static lineFeed(String str) {
+    if (isEmpty(str)) {
+      return "";
+    }
+    return str.replaceAll('n', '\n');
+  }
+
 }

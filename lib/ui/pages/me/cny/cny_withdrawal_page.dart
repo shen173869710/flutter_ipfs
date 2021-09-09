@@ -95,7 +95,7 @@ class _CnyWithdrawalState extends State<CnyWithdrawalPage> {
                 Row(
                   children: [
                     Gaps.hGap16,
-                    Expanded(child:Text(entity.remarks, style: TextStyle(color: Colours.item_content_color,fontSize: 14),textAlign: TextAlign.left,),)
+                    Expanded(child:Text(StringUtil.lineFeed(entity.remarks), style: TextStyle(color: Colours.item_content_color,fontSize: 14),textAlign: TextAlign.left,),)
                   ],
                 )
 

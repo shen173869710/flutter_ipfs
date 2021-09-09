@@ -291,7 +291,7 @@ class _WalletWithdrawalState extends State<WalletWithdrawalPage> {
               controller.doWithdrawalSubmit();
             }),
             Gaps.vGap8,
-            Text(controller.desc,style:ITextStyles.itemContent12)
+            Text(StringUtil.lineFeed(controller.desc),style:ITextStyles.itemContent12)
           ],
 
         ));

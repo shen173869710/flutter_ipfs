@@ -1,5 +1,6 @@
 import 'package:ipfsnets/models/machine_hosting_entity.dart';
 import 'package:ipfsnets/models/market_coupon_entity.dart';
+import 'package:ipfsnets/utils/num_util.dart';
 
 import '../../../../include.dart';
 
@@ -80,7 +81,7 @@ class MachineHostingController extends GetxController {
     }
 
     entity.total = all;
-    total = all.toString();
+    total = NumUtil.prseeZero(all.toStringAsFixed(8));
 
     if (selCny) {
       total = total + "CNY";

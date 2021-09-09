@@ -108,11 +108,14 @@ class MachineHostingPage extends StatelessWidget{
       children: [
         Text(S.current.machine_hosting_time, style: ITextStyles.itemTitle),
         Expanded(child: SizedBox(),),
-        Text.rich(TextSpan(children: [
+        GestureDetector(child:Text.rich(TextSpan(children: [
           TextSpan(text: controller.count.toString()+" "+S.current.day, style:ITextStyles.itemTitle),
           TextSpan(text: " "),
-          WidgetSpan(child: GestureDetector(child: Image.asset(R.assetsImgIcArrow, height: 30.w, width: 30.w,),onTap: (){showChooseDay(context);},)),
-        ]),textAlign: TextAlign.left,),
+          WidgetSpan(child: Image.asset(R.assetsImgIcArrow, height: 30.w, width: 30.w,)),
+        ]),textAlign: TextAlign.left,),onTap: (){
+          showChooseDay(context);
+        },)
+
       ],
     );
   }

@@ -511,6 +511,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "wallet_type_24": MessageLookupByLibrary.simpleMessage("挖矿奖励-间接奖"),
         "wallet_type_25": MessageLookupByLibrary.simpleMessage("挖矿奖励-代理奖"),
         "wallet_type_26": MessageLookupByLibrary.simpleMessage("挖矿奖励-培育奖"),
+        "wallet_type_27": MessageLookupByLibrary.simpleMessage("服务器挖矿收益"),
         "wallet_type_3": MessageLookupByLibrary.simpleMessage("转入"),
         "wallet_type_31": MessageLookupByLibrary.simpleMessage("销售奖励-直接奖"),
         "wallet_type_32": MessageLookupByLibrary.simpleMessage("销售奖励-间接奖"),
