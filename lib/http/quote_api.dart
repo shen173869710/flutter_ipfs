@@ -1,6 +1,7 @@
 
 import 'dart:convert';
 
+import 'package:ipfsnets/models/find__entity.dart';
 import 'package:ipfsnets/models/quote_optional_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/utils/user_util.dart';
@@ -74,6 +75,6 @@ class QuoteApi{
   // 公告
   static const String find_list = "quote/app/notice/availableNoticeList";
   static  Future<BaseEntity> findList() {
-    return HttpManager.getInstance().get<List<QuoteOptionalEntity>>(find_list);
+    return HttpManager.getInstance().get<List<FindEntity>>(find_list);
   }
 }

@@ -83,7 +83,7 @@ class MachineUpdateController extends GetxController {
     }
 
     entity.total = all;
-    total = NumUtil.prseeZero(all.toString());
+    total = NumUtil.prseeZero(all.toStringAsFixed(2));
 
     if (selCny) {
       total = total + "CNY";

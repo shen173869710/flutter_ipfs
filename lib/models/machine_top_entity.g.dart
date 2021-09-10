@@ -8,12 +8,12 @@ part of 'machine_top_entity.dart';
 
 MachineTopEntity _$MachineTopEntityFromJson(Map<String, dynamic> json) {
   return MachineTopEntity()
-    ..allRealCap = json['allRealCap'] as num
-    ..allUseCap = json['allUseCap'] as num
-    ..allYield = json['allYield'] as num
-    ..machineNumber = json['machineNumber'] as num
-    ..onlineNumber = json['onlineNumber'] as num
-    ..todayYield = json['todayYield'] as num;
+    ..allRealCap = json['allRealCap'] as double
+    ..allUseCap = json['allUseCap'] as double
+    ..allYield = json['allYield'] as double
+    ..machineNumber = json['machineNumber'] as double
+    ..onlineNumber = json['onlineNumber'] as double
+    ..todayYield = json['todayYield'] as double;
 }
 
 Map<String, dynamic> _$MachineTopEntityToJson(MachineTopEntity instance) =>

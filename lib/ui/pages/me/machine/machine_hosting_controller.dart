@@ -81,7 +81,7 @@ class MachineHostingController extends GetxController {
     }
 
     entity.total = all;
-    total = NumUtil.prseeZero(all.toStringAsFixed(8));
+    total = NumUtil.prseeZero(all.toStringAsFixed(2));
 
     if (selCny) {
       total = total + "CNY";

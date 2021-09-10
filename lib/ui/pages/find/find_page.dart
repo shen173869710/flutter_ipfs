@@ -8,7 +8,6 @@ import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/pages/find/find_controller.dart';
 import 'package:ipfsnets/ui/pages/find/find_recommend_page.dart';
 import 'package:ipfsnets/ui/pages/find/find_status_page.dart';
-import 'package:ipfsnets/ui/widget/main_tabs.dart';
 
 import '../../../include.dart';
 

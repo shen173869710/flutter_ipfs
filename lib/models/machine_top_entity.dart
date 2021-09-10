@@ -4,12 +4,12 @@ import 'package:json_annotation/json_annotation.dart';
 part 'machine_top_entity.g.dart';
 @JsonSerializable()
 class MachineTopEntity {
-	late num allRealCap;
-	late num allUseCap;
-	late num allYield;
-	late num machineNumber;
-	late num onlineNumber;
-	late num todayYield;
+	late double allRealCap;
+	late double allUseCap;
+	late double allYield;
+	late double machineNumber;
+	late double onlineNumber;
+	late double todayYield;
 	MachineTopEntity();
 factory MachineTopEntity.fromJson(Map<String, dynamic> json) => _$MachineTopEntityFromJson(json);
 

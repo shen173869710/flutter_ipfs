@@ -31,6 +31,7 @@ class _HomeStatus extends State<HomePage> {
     BaseEntity baseEntity = await MarketApi.homeInfo();
     if (baseEntity.isOk() && baseEntity.data != null) {
       controller.setHomeEntity(baseEntity.data);
+
     }
   }
   @override

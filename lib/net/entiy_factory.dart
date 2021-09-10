@@ -8,6 +8,7 @@ import 'package:ipfsnets/models/cny_recharge_record_entity.dart';
 import 'package:ipfsnets/models/cny_withdrawal_record_entity.dart';
 import 'package:ipfsnets/models/cny_withdrawal_setting_entity.dart';
 import 'package:ipfsnets/models/fans_entity.dart';
+import 'package:ipfsnets/models/find__entity.dart';
 import 'package:ipfsnets/models/home_entity.dart';
 import 'package:ipfsnets/models/image_entity.dart';
 import 'package:ipfsnets/models/machine_entity.dart';
@@ -81,6 +82,8 @@ class EntityFactory {
       return ShareMonthEntity.fromJson(json)as T;
     }else if (name == "HomeEntity"){
       return HomeEntity.fromJson(json)as T;
+    }else if (name == "FindEntity"){
+      return FindEntity.fromJson(json)as T;
     }else {
       return json as T;
     }
@@ -141,6 +144,9 @@ class EntityFactory {
     } else if(<ShareCionEntity>[] is M){
       LogUtil.e("解析数组对象 ShareCionEntity");
       return data.map<ShareCionEntity>((e) => ShareCionEntity.fromJson(e)).toList() as M;
+    } else if(<FindEntity>[] is M){
+      LogUtil.e("解析数组对象 FindEntity");
+      return data.map<FindEntity>((e) => FindEntity.fromJson(e)).toList() as M;
     }
     throw Exception("-----------------数组子类异常 no fond");
   }
