@@ -25,9 +25,7 @@ class _FindStatus extends State<FindPage> with SingleTickerProviderStateMixin{
   final FindController findController = Get.put(FindController());
   List<MainTabEntiy> entiys = [
     MainTabEntiy(S.current.find_tab_1, FindRecommend()),
-    MainTabEntiy(S.current.find_tab_2, FindRecommend()),
-    MainTabEntiy(S.current.find_tab_3, FindRecommend()),
-    MainTabEntiy(S.current.find_tab_4, FindStatusPage()),
+    MainTabEntiy(S.current.find_tab_3, FindStatusPage()),
   ];
 
   @override

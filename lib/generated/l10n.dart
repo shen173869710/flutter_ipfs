@@ -1580,10 +1580,10 @@ class S {
     );
   }
 
-  /// `热门推荐`
+  /// `官方公告`
   String get find_tab_1 {
     return Intl.message(
-      '热门推荐',
+      '官方公告',
       name: 'find_tab_1',
       desc: '',
       args: [],

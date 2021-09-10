@@ -110,7 +110,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "fans_item_3": MessageLookupByLibrary.simpleMessage("个人业绩"),
         "fans_item_4": MessageLookupByLibrary.simpleMessage("团队业绩"),
         "fans_title": MessageLookupByLibrary.simpleMessage("我的粉丝"),
-        "find_tab_1": MessageLookupByLibrary.simpleMessage("热门推荐"),
+        "find_tab_1": MessageLookupByLibrary.simpleMessage("官方公告"),
         "find_tab_2": MessageLookupByLibrary.simpleMessage("企业公告"),
         "find_tab_3": MessageLookupByLibrary.simpleMessage("新闻资讯"),
         "find_tab_4": MessageLookupByLibrary.simpleMessage("企业动态"),

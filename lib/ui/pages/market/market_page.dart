@@ -7,6 +7,7 @@ import 'package:ipfsnets/models/market_bar_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/ui/pages/market/market_list_page.dart';
+
 import '../../../include.dart';
 
 class MarketPage extends StatefulWidget{

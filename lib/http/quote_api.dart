@@ -70,4 +70,10 @@ class QuoteApi{
     // list.add(name);
     return HttpManager.getInstance().del(quote_op_del+name,"");
   }
+
+  // 公告
+  static const String find_list = "quote/app/notice/availableNoticeList";
+  static  Future<BaseEntity> findList() {
+    return HttpManager.getInstance().get<List<QuoteOptionalEntity>>(find_list);
+  }
 }

@@ -83,7 +83,6 @@ class _FindRecommendState extends BaseListPageState<FindRecommend> {
   int getListLength() {
     // TODO: implement getListSize
     LogUtil.e("----"+list.length.toString());
-
     return list.length;
   }
 
