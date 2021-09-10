@@ -29,7 +29,7 @@ class _HomeStatus extends State<HomePage> {
   HomeController controller = Get.put(HomeController());
   Future<void> getData() async {
     BaseEntity baseEntity = await MarketApi.homeInfo();
-    if (baseEntity.isOk()) {
+    if (baseEntity.isOk() && baseEntity.data != null) {
       controller.setHomeEntity(baseEntity.data);
     }
   }
@@ -216,11 +216,11 @@ class _HomeStatus extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              buildItem1Desc(controller.item3_1+" FIL", S.current.home_item_3_1_desc,Color(0xff516DFF)),
+              buildItem1Desc(controller.item3_1, S.current.home_item_3_1_desc,Color(0xff516DFF)),
               Gaps.vLine,
-              buildItem1Desc(controller.item3_2+" FIL", S.current.home_item_3_2_desc,Color(0xff00E253)),
+              buildItem1Desc(controller.item3_2, S.current.home_item_3_2_desc,Color(0xff00E253)),
               Gaps.vLine,
-              buildItem1Desc(controller.item3_3+" FIL", S.current.home_item_3_3_desc,Color(0xffF23E2A)),
+              buildItem1Desc(controller.item3_3, S.current.home_item_3_3_desc,Color(0xffF23E2A)),
             ],
           ),
           Gaps.vGap8

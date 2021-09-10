@@ -116,7 +116,7 @@ class WalletWithdrawalController extends GetxController{
       showMainAddress = true;
       showItem();
     }
-
+    inputMoney = 0;
     showOther(walletListEntiy[addressIndex]);
 
     update();
@@ -186,7 +186,7 @@ class WalletWithdrawalController extends GetxController{
     minBlance = entity.withdrawCoinLowNumber;
     poundageGas = entity.withdrawCoinGasPrice;
     withdrawCoinGasType = entity.withdrawCoinGasType;
-    LogUtil.e(poundageGas.toString());
+    LogUtil.e("ggggggg------------"+poundageGas.toString()+"   inputMoney = "+inputMoney.toString());
     poundage = NumUtil.multiplyDec(poundageGas,inputMoney).toDouble();
     desc = entity.outDes;
   }
@@ -249,6 +249,7 @@ class WalletWithdrawalController extends GetxController{
       selItem3 = true;
     }
     inputMoney = 0;
+
     showOther(walletListEntiy[addressIndex]);
     update();
   }

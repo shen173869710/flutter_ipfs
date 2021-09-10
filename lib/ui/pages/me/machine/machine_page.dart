@@ -365,7 +365,7 @@ class _MachineStatus extends State<MachinePage> {
 
                     Gaps.vGap4,
                     Text(S.current.machine_list_3,style: ITextStyles.itemContent),
-                    Text(NumUtil.prseeZero(data.pledge.toString())+" FIL",style: ITextStyles.itemTitle),
+                    Text(NumUtil.prseeZero(data.alreadyPledge.toStringAsFixed(2))+"/"+NumUtil.prseeZero(data.pledge.toStringAsFixed(2))+" FIL",style: ITextStyles.itemTitle),
 
                   ],
                 ),

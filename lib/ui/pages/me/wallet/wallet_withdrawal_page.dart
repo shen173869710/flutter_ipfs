@@ -405,6 +405,7 @@ class _WalletWithdrawalState extends State<WalletWithdrawalPage> {
   setNewData(int index) async {
     BaseEntity baseEntity = await WalletApi.getWalletWithdrawalHome(controller.listEntiy[index].coinCode.toString(),true);
     if (baseEntity.isOk()) {
+      _inputMoneyController.text = "";
       controller.initData(controller.listEntiy, baseEntity.data, index);
     }
   }
