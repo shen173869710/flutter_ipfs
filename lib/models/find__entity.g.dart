@@ -10,7 +10,7 @@ FindEntity _$FindEntityFromJson(Map<String, dynamic> json) {
   return FindEntity()
     ..createBy = json['createBy'] as String
     ..createTime = json['createTime'] as String
-    ..noticeContent = json['noticeContent'] as String
+    // ..noticeContent = json['noticeContent'] as String
     ..noticeId = json['noticeId'] as int
     ..noticeTitle = json['noticeTitle'] as String
     ..noticeType = json['noticeType'] as String
@@ -25,7 +25,7 @@ Map<String, dynamic> _$FindEntityToJson(FindEntity instance) =>
     <String, dynamic>{
       'createBy': instance.createBy,
       'createTime': instance.createTime,
-      'noticeContent': instance.noticeContent,
+      // 'noticeContent': instance.noticeContent,
       'noticeId': instance.noticeId,
       'noticeTitle': instance.noticeTitle,
       'noticeType': instance.noticeType,

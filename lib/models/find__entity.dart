@@ -6,7 +6,7 @@ part 'find__entity.g.dart';
 class FindEntity {
 	late String createBy;
 	late String createTime;
-	late String noticeContent;
+	// late String noticeContent;
 	late int noticeId;
 	late String noticeTitle;
 	late String noticeType;

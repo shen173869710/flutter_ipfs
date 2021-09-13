@@ -1,3 +1,4 @@
+import 'package:flustars/flustars.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ipfsnets/http/quote_api.dart';
@@ -30,14 +31,16 @@ class _FindRecommendState extends BaseListPageState<FindRecommend> {
   }
 
   @override
-  void onItemClick(BuildContext context, int index) {
+  Future<void> onItemClick(BuildContext context, int index) async {
     // TODO: implement onItemClick
 
-    String url = list[index].noticeContent;
-    if (StringUtil.isNotEmpty(url)) {
-      url = url.replaceAll('<p>', '');
-      url = url.replaceAll('</p>', '');
-    }
+    // String url = list[index].noticeContent;
+    // if (StringUtil.isNotEmpty(url)) {
+    //   url = url.replaceAll('<p>', '');
+    //   url = url.replaceAll('</p>', '');
+    // }
+    String? token = await SpUtil.getString(GlobalEntiy.accessToken);
+    String url = "http://124.16.8.140:84/notice?noticeId="+list[index].noticeId.toString()+"&token="+token!;
     print("-----------"+url);
     NavigatorUtil.goWebViewPage(context, list[index].noticeTitle, url);
   }
