@@ -163,6 +163,8 @@ class R {
   static final String assetsImgIcDot = 'assets/img/ic_dot.png';
   /// ![](http://127.0.0.1:1111/assets/img/ic_worring.png)
   static final String assetsImgIcWorring = 'assets/img/ic_worring.png';
+  /// ![](http://127.0.0.1:1111/assets/img/ic_home_item_image.png)
+  static final String assetsImgIcHomeItemImage = 'assets/img/ic_home_item_image.png';
   /// ![](http://127.0.0.1:1111/assets/img/ic_str.png)
   static final String assetsImgIcStr = 'assets/img/ic_str.png';
   /// ![](http://127.0.0.1:1111/assets/img/more_item_8.png)

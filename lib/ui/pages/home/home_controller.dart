@@ -1,6 +1,7 @@
 
 
 
+import 'package:ipfsnets/models/find__entity.dart';
 import 'package:ipfsnets/models/home_entity.dart';
 import 'package:ipfsnets/utils/num_util.dart';
 
@@ -8,7 +9,6 @@ import '../../../include.dart';
 
 class HomeController extends GetxController {
 
-  String notice = "noticenoticenoticenoticenoticenoticenotice";
 
   String item3_1 = "";
   String item3_2 = "";
@@ -30,7 +30,7 @@ class HomeController extends GetxController {
 
   HomeEntity? entity;
 
-
+  List<String> noticeTag = [];
 
   init(){
     item3_1 = "";
@@ -49,6 +49,7 @@ class HomeController extends GetxController {
     item5_4 = "";
     item5_5 = "";
     entity = HomeEntity();
+    noticeTag = [];
   }
 
   setHomeEntity(HomeEntity homeEntity) {
@@ -124,4 +125,18 @@ class HomeController extends GetxController {
     update();
   }
 
+  /**
+   *   设置消息通知
+   */
+  setNoticeTag(List<FindEntity> find) {
+
+    int size = find.length;
+    if(size > 0) {
+      noticeTag.clear();
+    }
+    for(int i = 0; i < size; i++) {
+      noticeTag.add(find[i].noticeTitle);
+    }
+    update();
+  }
 }

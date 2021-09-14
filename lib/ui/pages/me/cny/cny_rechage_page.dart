@@ -278,8 +278,14 @@ class _CnyRechageStatus extends State<CnyRechagePage> {
     }
   }
 
-  void _onButtonPressed(BuildContext _context) {
-    controller.putEvidence(_headUrl!);
+  Future<void> _onButtonPressed(BuildContext _context) async {
+    bool isok = await controller.putEvidence(_headUrl!);
+    if (isok) {
+      await Future.delayed(const Duration(milliseconds: 500), () async {
+        NavigatorUtil.jump(context, Routes.cnyRechageRecord);
+      });
+
+    }
   }
 
 

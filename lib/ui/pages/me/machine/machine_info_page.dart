@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:ipfsnets/models/machine_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:ipfsnets/utils/num_util.dart';
-
 import '../../../../include.dart';
 
 class MachineInfoPage extends StatelessWidget {

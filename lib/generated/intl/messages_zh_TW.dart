@@ -292,7 +292,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "me_info_image_no": MessageLookupByLibrary.simpleMessage("未设置"),
         "me_info_image_woman": MessageLookupByLibrary.simpleMessage("女"),
         "me_info_nick": MessageLookupByLibrary.simpleMessage("昵称"),
-        "me_info_phone": MessageLookupByLibrary.simpleMessage("手机账号"),
+        "me_info_phone": MessageLookupByLibrary.simpleMessage("账号"),
         "me_info_save": MessageLookupByLibrary.simpleMessage("保存"),
         "me_info_sex": MessageLookupByLibrary.simpleMessage("性别"),
         "me_info_title": MessageLookupByLibrary.simpleMessage("我的资料"),

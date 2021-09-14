@@ -990,10 +990,10 @@ class S {
     );
   }
 
-  /// `手机账号`
+  /// `账号`
   String get me_info_phone {
     return Intl.message(
-      '手机账号',
+      '账号',
       name: 'me_info_phone',
       desc: '',
       args: [],

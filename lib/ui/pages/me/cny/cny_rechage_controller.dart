@@ -31,17 +31,19 @@ class CnyRechargeController extends GetxController{
   /**
    *  提交凭据
    */
-   putEvidence(String pageNum) async{
+   Future<bool> putEvidence(String pageNum) async{
     if(StringUtil.isEmpty(pageNum)) {
       ToastUtil.show(S.current.image_not_choose);
-      return;
+      return false;
     }
      BaseEntity baseEntity  = await ApiServer.putCnyRecharge(pageNum);
     if (baseEntity.isOk()) {
       ToastUtil.show(S.current.upload_success);
+      return true;
     }else{
       ToastUtil.show(baseEntity.msg);
     }
+    return false;
   }
 
   Future<bool> init() async{

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ipfsnets/http/market_api.dart';
+import 'package:ipfsnets/http/quote_api.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 
@@ -16,21 +17,16 @@ class HomePage extends StatefulWidget {
 
 class _HomeStatus extends State<HomePage> {
 
-  var hotSearchTag = [
-    "网曝杨紫邓伦热恋 | 元宵节诗词 | 身份证异地能补办吗",
-    "两限房是什么意思 | 公务员可以考研吗 | 一元等于多少日元",
-    "喻恩泰喊话王景春 | 云南结婚吹唢呐视频 | 汉服下裙穿法",
-    "网曝杨紫邓伦热恋 | 元宵节诗词 | 身份证异地能补办吗",
-    "两限房是什么意思 | 公务员可以考研吗 | 一元等于多少日元",
-    "喻恩泰喊话王景春 | 云南结婚吹唢呐视频 | 汉服下裙穿法"
-  ];
-
-
   HomeController controller = Get.put(HomeController());
   Future<void> getData() async {
     BaseEntity baseEntity = await MarketApi.homeInfo();
     if (baseEntity.isOk() && baseEntity.data != null) {
       controller.setHomeEntity(baseEntity.data);
+    }
+
+    BaseEntity entity = await QuoteApi.findList();
+    if(entity.isOk() && entity.data != null) {
+      controller.setNoticeTag(entity.data);
 
     }
   }
@@ -60,7 +56,7 @@ class _HomeStatus extends State<HomePage> {
                         return FlexibleSpaceBar(
                             centerTitle: true,
                             title: Visibility(
-                              child: Text("IPFSNETS",
+                              child: Text("INSTAR",
                                   style: TextStyle(color: Colours.white, fontSize: 20)), visible: top > 164 ? false : true,
                             ),
                             background: buildBackground());
@@ -162,8 +158,17 @@ class _HomeStatus extends State<HomePage> {
             children: [
               Image.asset(R.assetsImgHomeNotice, height: 35.w, width: 35.w,),
               Gaps.hGap4,
-              // Flexible(child:MyNoticeVecAnimation(duration: const Duration(milliseconds: 5000),messages: hotSearchTag),),
-              SizedBox(),
+              // Container(child: FontMarquee(),height: 50.w,)
+              // Switcher.vertical(children: [
+              //   Text("11111"),
+              //   Text("222222"),
+              //   Text("333333"),
+              //   Text("44444"),
+              //   Text("555555"),
+              //   Text("666666"),
+              // ], placeholder: SizedBox.shrink())
+              // Flexible(child:MyNoticeVecAnimation(duration: const Duration(milliseconds: 5000),messages: controller.noticeTag),),
+
             ],),
         )
 
@@ -191,7 +196,7 @@ class _HomeStatus extends State<HomePage> {
       margin: ITextStyles.containerMargin,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(15.w),
-        child: Image.asset(R.assetsImgIcHomeGet,fit: BoxFit.cover,width: double.infinity,height: 150.w,),
+        child: Image.asset(R.assetsImgIcHomeItemImage,fit: BoxFit.cover,width: double.infinity,height: 150.w,),
       )
     );
   }

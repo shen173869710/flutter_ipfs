@@ -14,10 +14,11 @@ class CnyAccountController extends GetxController{
   /**获取账户信息**/
    getAccount() async{
      BaseEntity baseEntity  = await ApiServer.getCny();
-     CnyAccountEntity entity = baseEntity.data;
-     balance = entity.balance;
-     LogUtil.e("balance"+entity.balance.toString());
-
+     if (baseEntity.isOk()) {
+       CnyAccountEntity entity = baseEntity.data;
+       balance = entity.balance;
+       LogUtil.e("balance"+entity.balance.toString());
+     }
   }
 
    getList(int pageNum) async{

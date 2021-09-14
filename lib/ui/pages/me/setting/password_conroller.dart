@@ -79,7 +79,8 @@ class PasswordController extends GetxController {
 
     if (type == GlobalEntiy.PASSWORD_ACCOUNT) {
       // 修改账户
-      BaseEntity baseEntity  = await ApiServer.changeUsername(value1, value2);
+      LogUtil.e(value1+" "+value2 + " " + value3);
+      BaseEntity baseEntity  = await ApiServer.changeUsername(value1, code);
       if (baseEntity.isOk()) {
         ToastUtil.show(S.current.pwd_change_account);
         NavigatorUtil.goToLogin(context);
@@ -130,9 +131,21 @@ class PasswordController extends GetxController {
   // 获取验证码
   Future<bool> getCode() async{
     if (type == GlobalEntiy.PASSWORD_ACCOUNT) {
-
+      BaseEntity baseEntity  = await SmsApi.sendSms(SmsApi.CODE_TYPE_CHANGE_ACCOUNT);
+      if (baseEntity.isOk()) {
+        ToastUtil.show(S.current.send_success);
+      }else{
+        ToastUtil.show(baseEntity.msg);
+        return false;
+      }
     }else if (type == GlobalEntiy.PASSWORD_CHANGE) {
-
+      BaseEntity baseEntity  = await SmsApi.sendSms(SmsApi.CODE_TYPE_CHANGE_PWD);
+      if (baseEntity.isOk()) {
+        ToastUtil.show(S.current.send_success);
+      }else{
+        ToastUtil.show(baseEntity.msg);
+        return false;
+      }
     }else if (type == GlobalEntiy.PASSWORD_APLAY) {
       BaseEntity baseEntity  = await SmsApi.sendSms(SmsApi.CODE_TYPE_SET_PAY_PWD);
       if (baseEntity.isOk()) {

@@ -5,6 +5,8 @@ import 'package:ipfsnets/ui/pages/me/cny/cny_record_item.dart';
 import 'package:ipfsnets/utils/num_util.dart';
 
 import 'cny_account_controller.dart';
+import 'cny_rechage_page.dart';
+import 'cny_withdrawal_page.dart';
 
 
 // class CnyAccountPage extends StatefulWidget{
@@ -187,16 +189,21 @@ class CnyAccountPage extends StatelessWidget {
         TextSpan(text: "  ", style: ITextStyles.itemContent,recognizer: TapGestureRecognizer()..onTap=(){
           // 充值
           if (type == 1) {
-            NavigatorUtil.jump(context, Routes.cnyRechage);
+            // NavigatorUtil.jump(context, Routes.cnyRechage);
+            refresh(context, CnyRechagePage());
           }else{
-            NavigatorUtil.goWithdrawal(context, controller.balance.toString());
+            // NavigatorUtil.goWithdrawal(context, controller.balance.toString());
+            refresh(context, CnyWithdrawalPage(controller.balance.toString()));
           }
         }),
         TextSpan(text: name, style: TextStyle(fontSize: 20, color: Colours.tab_sel),recognizer: TapGestureRecognizer()..onTap=(){
           if (type == 1) {
-            NavigatorUtil.jump(context, Routes.cnyRechage);
+            // NavigatorUtil.jump(context, Routes.cnyRechage);
+            refresh(context, CnyRechagePage());
           }else{
-            NavigatorUtil.goWithdrawal(context, controller.balance.toString());
+
+            refresh(context, CnyWithdrawalPage(controller.balance.toString()));
+            // NavigatorUtil.goWithdrawal(context, controller.balance.toString());
           }
           // 提现
         }),
@@ -232,6 +239,14 @@ class CnyAccountPage extends StatelessWidget {
                 ))
               ])),
     );
+  }
+
+  Future<void> refresh(BuildContext context,Widget widget) async {
+    var data = await Navigator.of(context).push(
+        MaterialPageRoute(builder: (BuildContext context){
+          return widget;})
+    );
+    controller.init();
   }
 
 
