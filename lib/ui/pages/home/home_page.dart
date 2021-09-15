@@ -111,7 +111,7 @@ class _HomeStatus extends State<HomePage> {
           ));
     });
   }
-  // 背景
+  // 顶部背景
   buildBackground() {
     return Stack(children: [
       Image.asset(R.assetsImgIcHomeGet, fit: BoxFit.cover,height: double.infinity,width: double.infinity,),
@@ -179,7 +179,7 @@ class _HomeStatus extends State<HomePage> {
     // );
     return  Container(
         width: double.infinity,
-        height: 75.w,
+        height: 90.w,
         color: Colours.app_bar_bg,
         child: Container(
           padding: EdgeInsets.fromLTRB(20.w, 0.w, 20.w, 0.w),
@@ -193,8 +193,8 @@ class _HomeStatus extends State<HomePage> {
               Swiper(
                 itemCount: controller.noticeTag.length,
                 itemBuilder:_swiperBuilderText,
-                autoplayDelay: 5000,
-                duration: 5000,
+                autoplayDelay: 4000,
+                duration: 500,
                 controller: SwiperController(),
                 scrollDirection: Axis.vertical,
                 autoplay: true,
