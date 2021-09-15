@@ -130,11 +130,11 @@ class _WalletInfoState extends State<WalletInfoPage> with TickerProviderStateMix
             Gaps.vGap8,
             buildInfo(S.current.wallet_info_item_1, S.current.wallet_info_item_2, ITextStyles.itemContent),
             Gaps.vGap4,
-            buildInfo(controller.walletInfoEntity.txValue.toString(), controller.walletInfoEntity.freeze.toString(),ITextStyles.itemTitle),
+            buildInfo(NumUtil.prseeZero8(controller.walletInfoEntity.txValue), NumUtil.prseeZero8(controller.walletInfoEntity.freeze),ITextStyles.itemTitle),
             Visibility(child:  Gaps.vGap12,visible: entiy.coinName == "FIL"?true:false),
             Visibility(child:buildInfo(S.current.wallet_info_item_3, S.current.wallet_info_item_4,ITextStyles.itemContent),visible: entiy.coinName == "FIL"?true:false,),
             Gaps.vGap4,
-            Visibility(child: buildInfo(controller.walletInfoEntity.pledge.toString(), NumUtil.prseeZero(controller.walletInfoEntity.todayEarnings.toStringAsFixed(7)),ITextStyles.itemTitle),visible: entiy.coinName == "FIL"?true:false,)
+            Visibility(child: buildInfo(NumUtil.prseeZero8(controller.walletInfoEntity.pledge), NumUtil.prseeZero8(controller.walletInfoEntity.todayEarnings),ITextStyles.itemTitle),visible: entiy.coinName == "FIL"?true:false,)
             // buildListItem()
           ],
         )
@@ -147,7 +147,7 @@ class _WalletInfoState extends State<WalletInfoPage> with TickerProviderStateMix
       children: [
         WidgetSpan(child: ImageUtil.loadImage(entiy.coinIcon, 45.w, 45.w)),
         TextSpan(text: " ", style: ITextStyles.itemContent),
-        TextSpan(text: controller.walletInfoEntity.sum.toString(), style: TextStyle(fontSize: 22,color: Colours.item_red)),
+        TextSpan(text: NumUtil.prseeZero8(controller.walletInfoEntity.sum), style: TextStyle(fontSize: 22,color: Colours.item_red)),
       ],
     ));
   }

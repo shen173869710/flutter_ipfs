@@ -1,9 +1,11 @@
+import 'package:flustars/flustars.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ipfsnets/http/market_api.dart';
 import 'package:ipfsnets/http/quote_api.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
+import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 
 import '../../../include.dart';
 import 'home_controller.dart';
@@ -18,6 +20,11 @@ class HomePage extends StatefulWidget {
 class _HomeStatus extends State<HomePage> {
 
   HomeController controller = Get.put(HomeController());
+
+
+  List<Widget> imageList = [];
+
+
   Future<void> getData() async {
     BaseEntity baseEntity = await MarketApi.homeInfo();
     if (baseEntity.isOk() && baseEntity.data != null) {
@@ -33,6 +40,24 @@ class _HomeStatus extends State<HomePage> {
   @override
   void initState() {
     // TODO: implement initState
+    imageList
+      ..add(Image.network(
+        'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2726034926,4129010873&fm=26&gp=0.jpg',
+        fit: BoxFit.fill,
+      ))
+      ..add(Image.network(
+        'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485348007,2192172119&fm=26&gp=0.jpg',
+        fit: BoxFit.fill,
+      ))
+      ..add(Image.network(
+        'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2594792439,969125047&fm=26&gp=0.jpg',
+        fit: BoxFit.fill,
+      ))
+      ..add(Image.network(
+        'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=190488632,3936347730&fm=26&gp=0.jpg',
+        fit: BoxFit.fill,
+      ));
+
     super.initState();
     controller.init();
     getData();
@@ -145,31 +170,61 @@ class _HomeStatus extends State<HomePage> {
   }
   // 顶部notice
   buildNotice() {
+    // return  Container(
+    //     color: Colours.app_bar_bg,
+    //     child: Container(
+    //       padding: EdgeInsets.fromLTRB(20.w, 30.w, 30.w, 20.w),
+    //       decoration: BoxDecoration(
+    //           color: Colours.layout_bg,
+    //           borderRadius: BorderRadius.only(topLeft: Radius.circular(30.w), topRight: Radius.circular(30.w))
+    //       ),
+    //       child: Row(
+    //         mainAxisAlignment: MainAxisAlignment.start,
+    //         children: [
+    //           Image.asset(R.assetsImgHomeNotice, height: 35.w, width: 35.w,),
+    //           Gaps.hGap4,
+    //
+    //         ],),
+    //     )
+    //
+    // );
     return  Container(
+        width: double.infinity,
+        height: 75.w,
         color: Colours.app_bar_bg,
         child: Container(
-          padding: EdgeInsets.fromLTRB(20.w, 30.w, 30.w, 20.w),
+          padding: EdgeInsets.fromLTRB(20.w, 0.w, 20.w, 0.w),
           decoration: BoxDecoration(
               color: Colours.layout_bg,
               borderRadius: BorderRadius.only(topLeft: Radius.circular(30.w), topRight: Radius.circular(30.w))
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+          child: Stack(
+            alignment: Alignment.centerLeft,
             children: [
+              Swiper(
+                itemCount: controller.noticeTag.length,
+                itemBuilder:_swiperBuilderText,
+                autoplayDelay: 5000,
+                duration: 5000,
+                controller: SwiperController(),
+                scrollDirection: Axis.vertical,
+                autoplay: true,
+                onTap: (index) async {
+                  String? token = await SpUtil.getString(GlobalEntiy.accessToken);
+                  String url = GlobalEntiy.web_my_notice+controller.noticeTag[index].noticeId.toString()+"&token="+token!;
+                  NavigatorUtil.goWebViewPage(context, controller.noticeTag[index].noticeTitle, url);
+                },
+              ),
               Image.asset(R.assetsImgHomeNotice, height: 35.w, width: 35.w,),
-              Gaps.hGap4,
-              // Container(child: FontMarquee(),height: 50.w,)
-              // Switcher.vertical(children: [
-              //   Text("11111"),
-              //   Text("222222"),
-              //   Text("333333"),
-              //   Text("44444"),
-              //   Text("555555"),
-              //   Text("666666"),
-              // ], placeholder: SizedBox.shrink())
-              // Flexible(child:MyNoticeVecAnimation(duration: const Duration(milliseconds: 5000),messages: controller.noticeTag),),
-
-            ],),
+            ],
+          )
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.start,
+          //   children: [
+          //
+          //     Gaps.hGap4,
+          //
+          //   ],),
         )
 
     );
@@ -192,14 +247,46 @@ class _HomeStatus extends State<HomePage> {
   }
   // 图片
   buildItem2() {
+    // return Container(
+    //   height: 150.w,
+    //   margin: ITextStyles.containerMargin,
+    //   child: ClipRRect(
+    //     borderRadius: BorderRadius.circular(15.w),
+    //     child: Image.asset(R.assetsImgIcHomeItemImage,fit: BoxFit.cover,width: double.infinity,height: 150.w,),
+    //   )
+    // );
     return Container(
-      margin: ITextStyles.containerMargin,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(15.w),
-        child: Image.asset(R.assetsImgIcHomeItemImage,fit: BoxFit.cover,width: double.infinity,height: 150.w,),
-      )
+      padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+      width: double.infinity,
+      height: 150.w,
+      child:
+      Swiper(
+        itemCount: 4,
+        itemBuilder:_swiperBuilder,
+        pagination: SwiperPagination(
+            alignment: Alignment.bottomRight,
+            margin: const EdgeInsets.fromLTRB(0, 0, 20, 10),
+            builder: DotSwiperPaginationBuilder(
+                color: Colors.black54,
+                activeColor: Colors.white
+            )
+        ),
+        controller: SwiperController(),
+        scrollDirection: Axis.horizontal,
+        autoplay: true,
+        onTap: (index) => print('点击了第$index'),
+      ),
     );
   }
+
+  Widget _swiperBuilder(BuildContext context, int index) {
+    return (imageList[index]);
+  }
+
+  Widget _swiperBuilderText(BuildContext context, int index) {
+    return Container(child: Text("       "+controller.noticeTag[index].noticeTitle,style: ITextStyles.itemTitle,maxLines: 1,),alignment: Alignment.centerLeft,);
+  }
+
   // 24小时封装成本
   buildItem3(BuildContext context){
     return Container(
@@ -365,5 +452,4 @@ class _HomeStatus extends State<HomePage> {
       },
     );
   }
-
 }

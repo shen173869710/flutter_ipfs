@@ -25,7 +25,7 @@ class WalletInfoItem extends StatelessWidget {
                 Text(getStatus(data.transactionType),style: ITextStyles.itemTitle),
                 Expanded(child:SizedBox()),
 
-                Text(NumUtil.prseeZero(data.value.toStringAsFixed(8)),style: TextStyle(fontSize: 14, color: getStatusColor(data.value))),
+                Text(NumUtil.prseeZero8(data.value),style: TextStyle(fontSize: 14, color: getStatusColor(data.value))),
               ],
             ),
             Gaps.vGap8,

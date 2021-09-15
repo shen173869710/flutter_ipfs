@@ -33,6 +33,8 @@ class GlobalEntiy{
   static String web_qrcode = "http://124.16.8.140:84/register?code=";
   // 我的客服
   static String web_my_server= "http://chat.ahcdialogchat.com/chat/h5/chatLink.html?channelId=1NfXw7";
+  // 首页公告
+  static String web_my_notice = "http://124.16.8.140:84/notice?noticeId=";
 
 
   static Future init(VoidCallback callback) async {

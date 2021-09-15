@@ -163,4 +163,8 @@ class NumUtil {
     return Decimal.parse(value).toString();
   }
 
+
+  static String prseeZero8(num value) {
+    return Decimal.parse(value.toStringAsFixed(8)).toString();
+  }
 }

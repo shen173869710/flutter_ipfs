@@ -5,6 +5,7 @@ import 'package:ipfsnets/models/wallet_home_entity.dart';
 import 'package:ipfsnets/models/wallet_item_entiy.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/ui/pages/me/wallet/wallet_item.dart';
+import 'package:ipfsnets/utils/num_util.dart';
 
 class WalletPage extends StatefulWidget{
   @override
@@ -116,8 +117,8 @@ class _WalletPageState extends State<WalletPage> {
       children: [
         TextSpan(
             text: "≈ ",
-            style: ITextStyles.itemTitle),
-        TextSpan(text: usdtSum.toString(), style: ITextStyles.itemContent),
+            style: ITextStyles.itemContent),
+        TextSpan(text: NumUtil.prseeZero(usdtSum.toStringAsFixed(8)), style: ITextStyles.itemContent),
         TextSpan(text: "  USDT", style: ITextStyles.itemContent),
       ],
     ));
@@ -128,7 +129,7 @@ class _WalletPageState extends State<WalletPage> {
     return Text.rich(TextSpan(
       children: [
         TextSpan(
-            text: cnySum.toString(),
+            text: NumUtil.prseeZero(cnySum.toStringAsFixed(8)),
             style: TextStyle(color: Colours.item_red, fontSize: 32)),
         TextSpan(text: " ", style: ITextStyles.itemContent),
         TextSpan(text: "CNY", style: ITextStyles.itemTitle),

@@ -1440,10 +1440,10 @@ class S {
     );
   }
 
-  /// `矿池区块收益`
+  /// `Pool区块收益`
   String get home_item_4 {
     return Intl.message(
-      '矿池区块收益',
+      'Pool区块收益',
       name: 'home_item_4',
       desc: '',
       args: [],
@@ -1520,10 +1520,10 @@ class S {
     );
   }
 
-  /// `矿池销售概览`
+  /// `Pool销售概览`
   String get home_item_5 {
     return Intl.message(
-      '矿池销售概览',
+      'Pool销售概览',
       name: 'home_item_5',
       desc: '',
       args: [],
@@ -3500,20 +3500,20 @@ class S {
     );
   }
 
-  /// `矿机数量`
+  /// `设备数量`
   String get machine_item_2 {
     return Intl.message(
-      '矿机数量',
+      '设备数量',
       name: 'machine_item_2',
       desc: '',
       args: [],
     );
   }
 
-  /// `当前算力`
+  /// `当前容量`
   String get machine_item_3 {
     return Intl.message(
-      '当前算力',
+      '当前容量',
       name: 'machine_item_3',
       desc: '',
       args: [],
@@ -3530,20 +3530,20 @@ class S {
     );
   }
 
-  /// `今日产币`
+  /// `今日产量`
   String get machine_item_5 {
     return Intl.message(
-      '今日产币',
+      '今日产量',
       name: 'machine_item_5',
       desc: '',
       args: [],
     );
   }
 
-  /// `累计产币`
+  /// `累积产量`
   String get machine_item_6 {
     return Intl.message(
-      '累计产币',
+      '累积产量',
       name: 'machine_item_6',
       desc: '',
       args: [],
@@ -3590,10 +3590,10 @@ class S {
     );
   }
 
-  /// `有效容量`
+  /// `当前容量`
   String get machine_list_1 {
     return Intl.message(
-      '有效容量',
+      '当前容量',
       name: 'machine_list_1',
       desc: '',
       args: [],

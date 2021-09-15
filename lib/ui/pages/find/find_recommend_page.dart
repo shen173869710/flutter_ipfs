@@ -40,7 +40,7 @@ class _FindRecommendState extends BaseListPageState<FindRecommend> {
     //   url = url.replaceAll('</p>', '');
     // }
     String? token = await SpUtil.getString(GlobalEntiy.accessToken);
-    String url = "http://124.16.8.140:84/notice?noticeId="+list[index].noticeId.toString()+"&token="+token!;
+    String url = GlobalEntiy.web_my_notice+list[index].noticeId.toString()+"&token="+token!;
     print("-----------"+url);
     NavigatorUtil.goWebViewPage(context, list[index].noticeTitle, url);
   }

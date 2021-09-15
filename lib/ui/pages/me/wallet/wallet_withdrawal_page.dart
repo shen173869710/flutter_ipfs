@@ -11,6 +11,7 @@ import 'package:ipfsnets/res/styles.dart';
 import 'package:ipfsnets/ui/pages/me/wallet/wallet_withdrawal_controller.dart';
 import 'package:ipfsnets/ui/widget/login_button.dart';
 import 'package:ipfsnets/utils/LoadingUtils.dart';
+import 'package:ipfsnets/utils/num_util.dart';
 
 class WalletWithdrawalPage extends StatefulWidget{
 
@@ -171,7 +172,7 @@ class _WalletWithdrawalState extends State<WalletWithdrawalPage> {
             Row(children: [
                 Text(S.current.wallet_withdraw_num, style: ITextStyles.itemTitle16),
                 Expanded(child: SizedBox()),
-                Text(S.current.wallet_withdraw_out_hint+" "+controller.blance.toString()+" "+controller.type, style: ITextStyles.itemContent),
+                Text(S.current.wallet_withdraw_out_hint+" "+NumUtil.prseeZero8(controller.blance)+" "+controller.type, style: ITextStyles.itemContent),
               ],
             ),
             Gaps.vGap12,

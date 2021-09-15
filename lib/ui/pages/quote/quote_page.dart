@@ -30,8 +30,8 @@ class _QuoteStatus extends State<QuotePage> with TickerProviderStateMixin{
   void initState() {
     super.initState();
     entiys = [
-      MainTabEntiy(S.current.quote_item_1, QuoteOptionalPage(1)),
       MainTabEntiy(S.current.quote_item_2, QuoteOptionalPage(2)),
+      MainTabEntiy(S.current.quote_item_1, QuoteOptionalPage(1)),
       MainTabEntiy(S.current.quote_item_3, QuoteOptionalPage(3)),
       MainTabEntiy(S.current.quote_item_4, QuoteOptionalSearchPage(4)),
     ];

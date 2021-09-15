@@ -30,7 +30,7 @@ class HomeController extends GetxController {
 
   HomeEntity? entity;
 
-  List<String> noticeTag = [];
+  List<FindEntity> noticeTag = [];
 
   init(){
     item3_1 = "";
@@ -116,7 +116,7 @@ class HomeController extends GetxController {
     }else {
       item5_title = S.current.home_item_5_usdt;
       if (entity!.earningsView != null && entity!.earningsView!.CNY != null) {
-        item5_1 = NumUtil.prseeZero(entity!.earningsView!.CNY!.total.toStringAsFixed(5))+" FIL";
+        item5_1 = NumUtil.prseeZero(entity!.earningsView!.CNY!.total.toStringAsFixed(5))+" CNY";
         item5_3 = NumUtil.prseeZero(entity!.earningsView!.CNY!.today.toStringAsFixed(5))+" FIL";
         item5_4 = NumUtil.prseeZero(entity!.earningsView!.CNY!.userRealCap.toStringAsFixed(5))+" TB";
         item5_5 = NumUtil.prseeZero(entity!.earningsView!.CNY!.teamRealCap.toStringAsFixed(5))+" TB";
@@ -133,10 +133,9 @@ class HomeController extends GetxController {
     int size = find.length;
     if(size > 0) {
       noticeTag.clear();
+      noticeTag.addAll(find);
     }
-    for(int i = 0; i < size; i++) {
-      noticeTag.add(find[i].noticeTitle);
-    }
+
     update();
   }
 }

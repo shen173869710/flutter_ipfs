@@ -38,6 +38,9 @@ class WalletInfoController extends GetxController{
   getList1More(int pageNum, num coinCode) async{
     BaseEntity baseEntity  = await WalletApi.wallerInfNormal(pageNum,coinCode);
     total1 = baseEntity.total;
+    if (pageNum <= 1) {
+      list1.clear();
+    }
     list1.addAll(baseEntity.data);
     update();
     int max = (pageNum-1) * 10;
@@ -51,6 +54,9 @@ class WalletInfoController extends GetxController{
   getList2More(int pageNum,num coinCode) async{
     BaseEntity baseEntity  = await WalletApi.wallerInfForeeze(pageNum,coinCode);
     total2 = baseEntity.total;
+    if (pageNum <= 1) {
+      list2.clear();
+    }
     list2.addAll(baseEntity.data);
     update();
     int max = (pageNum-1) * 10;
@@ -63,6 +69,9 @@ class WalletInfoController extends GetxController{
   getList3More(int pageNum,num coinCode) async{
     BaseEntity baseEntity  = await WalletApi.wallerInfPledge(pageNum,coinCode);
     total3 = baseEntity.total;
+    if (pageNum <= 1) {
+      list3.clear();
+    }
     list3.addAll(baseEntity.data);
     update();
     int max = (pageNum-1) * 10;

@@ -3,6 +3,7 @@ import 'package:ipfsnets/models/cny_record_entiy.dart';
 import 'package:ipfsnets/models/wallet_entiy.dart';
 import 'package:ipfsnets/models/wallet_home_entity.dart';
 import 'package:ipfsnets/models/wallet_item_entiy.dart';
+import 'package:ipfsnets/utils/num_util.dart';
 /**
  *  CNY 充值提现记录
  */
@@ -26,12 +27,12 @@ class WalletItem extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text(data.value.toString(),style: TextStyle(
+                  Text(NumUtil.prseeZero(data.value.toStringAsFixed(8)),style: TextStyle(
                       fontSize: 14,
                       color: Colours.item_title_color
                   ),),
                   Gaps.vGap4,
-                  Text("≈"+data.cny.toString(),style: TextStyle(
+                  Text("≈"+NumUtil.prseeZero(data.cny.toStringAsFixed(8)),style: TextStyle(
                       fontSize: 14,
                       color: Colours.item_content_color
                   ),),
