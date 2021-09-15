@@ -495,7 +495,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "wallet_title": MessageLookupByLibrary.simpleMessage("我的钱包"),
         "wallet_total": MessageLookupByLibrary.simpleMessage("总账户资产折合"),
         "wallet_type_1": MessageLookupByLibrary.simpleMessage("冲币"),
-        "wallet_type_10": MessageLookupByLibrary.simpleMessage("冻结线性释放"),
+        "wallet_type_10": MessageLookupByLibrary.simpleMessage("线性释放"),
         "wallet_type_11": MessageLookupByLibrary.simpleMessage("系统充值到账"),
         "wallet_type_12": MessageLookupByLibrary.simpleMessage("系统充值释放"),
         "wallet_type_13": MessageLookupByLibrary.simpleMessage("购买服务器奖励"),

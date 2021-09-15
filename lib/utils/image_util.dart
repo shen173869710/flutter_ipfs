@@ -59,7 +59,6 @@ class ImageUtil{
   }
 
   static  loadImage(String url, double width, double height,{def}) {
-
       if (StringUtil.isEmpty(url)) {
         url = "";
       }

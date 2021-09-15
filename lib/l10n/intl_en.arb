@@ -528,7 +528,7 @@
   "wallet_type_7": "质押释放",
   "wallet_type_8": "服务器收益",
   "wallet_type_9": "服务器收益冻结",
-  "wallet_type_10": "冻结线性释放",
+  "wallet_type_10": "线性释放",
   "wallet_type_11": "系统充值到账",
   "wallet_type_12": "系统充值释放",
   "wallet_type_13": "购买服务器奖励",

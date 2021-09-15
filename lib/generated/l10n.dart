@@ -4700,10 +4700,10 @@ class S {
     );
   }
 
-  /// `冻结线性释放`
+  /// `线性释放`
   String get wallet_type_10 {
     return Intl.message(
-      '冻结线性释放',
+      '线性释放',
       name: 'wallet_type_10',
       desc: '',
       args: [],

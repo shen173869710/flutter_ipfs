@@ -1,3 +1,5 @@
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flustars/flustars.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +8,6 @@ import 'package:ipfsnets/http/quote_api.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
-
 import '../../../include.dart';
 import 'home_controller.dart';
 
@@ -31,33 +32,21 @@ class _HomeStatus extends State<HomePage> {
       controller.setHomeEntity(baseEntity.data);
     }
 
-    BaseEntity entity = await QuoteApi.findList();
-    if(entity.isOk() && entity.data != null) {
-      controller.setNoticeTag(entity.data);
+    Future.delayed(const Duration(milliseconds: 2000), () async {
+      BaseEntity entity = await QuoteApi.findList();
+      if(entity.isOk() && entity.data != null) {
+        controller.setNoticeTag(entity.data);
+      }
+    });
 
-    }
   }
   @override
   void initState() {
     // TODO: implement initState
     imageList
-      ..add(Image.network(
-        'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2726034926,4129010873&fm=26&gp=0.jpg',
-        fit: BoxFit.fill,
-      ))
-      ..add(Image.network(
-        'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485348007,2192172119&fm=26&gp=0.jpg',
-        fit: BoxFit.fill,
-      ))
-      ..add(Image.network(
-        'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2594792439,969125047&fm=26&gp=0.jpg',
-        fit: BoxFit.fill,
-      ))
-      ..add(Image.network(
-        'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=190488632,3936347730&fm=26&gp=0.jpg',
-        fit: BoxFit.fill,
-      ));
-
+      ..add(loadImage('http://124.16.8.140:82/group1/M00/00/00/rBAADGFBvd6AGgBNAAHxid5TndE274.png'))
+      ..add(loadImage('http://124.16.8.140:82/group1/M00/00/00/rBAADGFBvgCAVRxUAAE2P_yd06w195.png'))
+      ..add(loadImage('http://124.16.8.140:82/group1/M00/00/00/rBAADGFBvhyAYOuVAAOFi19O1p4579.png'));
     super.initState();
     controller.init();
     getData();
@@ -247,36 +236,53 @@ class _HomeStatus extends State<HomePage> {
   }
   // 图片
   buildItem2() {
-    // return Container(
-    //   height: 150.w,
-    //   margin: ITextStyles.containerMargin,
-    //   child: ClipRRect(
-    //     borderRadius: BorderRadius.circular(15.w),
-    //     child: Image.asset(R.assetsImgIcHomeItemImage,fit: BoxFit.cover,width: double.infinity,height: 150.w,),
-    //   )
-    // );
     return Container(
-      padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+      height: 170.w,
       width: double.infinity,
-      height: 150.w,
-      child:
-      Swiper(
-        itemCount: 4,
-        itemBuilder:_swiperBuilder,
-        pagination: SwiperPagination(
-            alignment: Alignment.bottomRight,
-            margin: const EdgeInsets.fromLTRB(0, 0, 20, 10),
-            builder: DotSwiperPaginationBuilder(
-                color: Colors.black54,
-                activeColor: Colors.white
-            )
+      margin: ITextStyles.containerMargin,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(15.w),
+        child: Swiper(
+          itemCount: imageList.length,
+          itemBuilder:_swiperBuilder,
+          pagination: SwiperPagination(
+              alignment: Alignment.bottomRight,
+              margin: const EdgeInsets.fromLTRB(0, 0, 20, 10),
+              builder: DotSwiperPaginationBuilder(
+                  color: Colors.black54,
+                  activeColor: Colors.white
+              )
+          ),
+          controller: SwiperController(),
+          scrollDirection: Axis.horizontal,
+          autoplay: true,
+          onTap: (index) => print('点击了第$index'),
         ),
-        controller: SwiperController(),
-        scrollDirection: Axis.horizontal,
-        autoplay: true,
-        onTap: (index) => print('点击了第$index'),
-      ),
+      )
     );
+    // return Container(
+    //   padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+    //   margin: ITextStyles.containerMargin,
+    //   width: double.infinity,
+    //   height: 200.w,
+    //   child:
+    //   Swiper(
+    //     itemCount: imageList.length,
+    //     itemBuilder:_swiperBuilder,
+    //     pagination: SwiperPagination(
+    //         alignment: Alignment.bottomRight,
+    //         margin: const EdgeInsets.fromLTRB(0, 0, 20, 10),
+    //         builder: DotSwiperPaginationBuilder(
+    //             color: Colors.black54,
+    //             activeColor: Colors.white
+    //         )
+    //     ),
+    //     controller: SwiperController(),
+    //     scrollDirection: Axis.horizontal,
+    //     autoplay: true,
+    //     onTap: (index) => print('点击了第$index'),
+    //   ),
+    // );
   }
 
   Widget _swiperBuilder(BuildContext context, int index) {
@@ -450,6 +456,20 @@ class _HomeStatus extends State<HomePage> {
           NavigatorUtil.jump(context, Routes.walletPage);
         }
       },
+    );
+  }
+
+  static  loadImage(String url) {
+    if (StringUtil.isEmpty(url)) {
+      url = "";
+    }
+    return CachedNetworkImage(
+      width: double.infinity,
+      height: double.infinity,
+      imageUrl: url,
+      fit: BoxFit.fill,
+      placeholder: (context, url) => Center(child: CupertinoActivityIndicator()),
+      errorWidget: (context, url, error) => Image.asset(R.assetsImgIcHomeItemImage,height: double.infinity,width: double.infinity,fit:BoxFit.fill ,),
     );
   }
 }
