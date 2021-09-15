@@ -1,6 +1,5 @@
 import 'package:ipfsnets/models/main_tab_entiy.dart';
 import 'package:ipfsnets/ui/pages/find/more_child_page.dart';
-
 import '../../../../include.dart';
 
 class MorePage extends StatefulWidget{

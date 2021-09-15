@@ -126,6 +126,12 @@ class WalletInfoItem extends StatelessWidget {
       case 27:
         message = S.current.wallet_type_27;
         break;
+      case 28:
+        message = S.current.wallet_type_28;
+        break;
+      case 29:
+        message = S.current.wallet_type_29;
+        break;
       case 31:
         message = S.current.wallet_type_31;
         break;

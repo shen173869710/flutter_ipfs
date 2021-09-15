@@ -4830,20 +4830,20 @@ class S {
     );
   }
 
-  /// `挖矿奖励-直接奖`
+  /// `挖矿奖励-分享奖`
   String get wallet_type_23 {
     return Intl.message(
-      '挖矿奖励-直接奖',
+      '挖矿奖励-分享奖',
       name: 'wallet_type_23',
       desc: '',
       args: [],
     );
   }
 
-  /// `挖矿奖励-间接奖`
+  /// `挖矿奖励-间推奖`
   String get wallet_type_24 {
     return Intl.message(
-      '挖矿奖励-间接奖',
+      '挖矿奖励-间推奖',
       name: 'wallet_type_24',
       desc: '',
       args: [],
@@ -4880,20 +4880,40 @@ class S {
     );
   }
 
-  /// `销售奖励-直接奖`
+  /// `线性释放扣除`
+  String get wallet_type_28 {
+    return Intl.message(
+      '线性释放扣除',
+      name: 'wallet_type_28',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `服务器收益扣除`
+  String get wallet_type_29 {
+    return Intl.message(
+      '服务器收益扣除',
+      name: 'wallet_type_29',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `销售奖励-分享奖`
   String get wallet_type_31 {
     return Intl.message(
-      '销售奖励-直接奖',
+      '销售奖励-分享奖',
       name: 'wallet_type_31',
       desc: '',
       args: [],
     );
   }
 
-  /// `销售奖励-间接奖`
+  /// `销售奖励-间推奖`
   String get wallet_type_32 {
     return Intl.message(
-      '销售奖励-间接奖',
+      '销售奖励-间推奖',
       name: 'wallet_type_32',
       desc: '',
       args: [],
