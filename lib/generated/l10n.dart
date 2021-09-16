@@ -3540,10 +3540,10 @@ class S {
     );
   }
 
-  /// `累积产量`
+  /// `累计产量`
   String get machine_item_6 {
     return Intl.message(
-      '累积产量',
+      '累计产量',
       name: 'machine_item_6',
       desc: '',
       args: [],
@@ -3590,20 +3590,20 @@ class S {
     );
   }
 
-  /// `当前容量`
+  /// `有效容量`
   String get machine_list_1 {
     return Intl.message(
-      '当前容量',
+      '有效容量',
       name: 'machine_list_1',
       desc: '',
       args: [],
     );
   }
 
-  /// `当前算力`
+  /// `当前容量`
   String get machine_list_2 {
     return Intl.message(
-      '当前算力',
+      '当前容量',
       name: 'machine_list_2',
       desc: '',
       args: [],

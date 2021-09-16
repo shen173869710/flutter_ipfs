@@ -133,11 +133,10 @@ class _MachineStatus extends State<MachinePage> {
   buildItem(String title, String dec,num number, num all,int index) {
     return Container(
       padding: EdgeInsets.all(30.w),
-      width: 460.w,
+      width: 470.w,
       decoration: BoxDecoration(
           color: Color(0x9F828DF6),
           borderRadius: new BorderRadius.circular((10.w)),
-
       ),
       child: Row(
         children: [
@@ -172,11 +171,10 @@ class _MachineStatus extends State<MachinePage> {
   buildItemM(String title, String dec,num number, num all,int index) {
     return Container(
       padding: EdgeInsets.all(30.w),
-      width: 460.w,
+      width: 470.w,
       decoration: BoxDecoration(
         color: Color(0x9F828DF6),
         borderRadius: new BorderRadius.circular((10.w)),
-
       ),
       child: Row(
         children: [
@@ -198,9 +196,10 @@ class _MachineStatus extends State<MachinePage> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Text(NumUtil.prseeZero(number.toString())+" TB",style: ITextStyles.textWhite14,),
-              Gaps.vGap4,
-              Text(NumUtil.prseeZero(all.toString())+" TB",style: ITextStyles.textWhite14,),
+              Gaps.vGap2,
+              Text(NumUtil.prseeZero(number.toStringAsFixed(4))+" TB",style: ITextStyles.textWhite14,),
+              Gaps.vGap6,
+              Text(NumUtil.prseeZero(all.toStringAsFixed(4))+" TB",style: ITextStyles.textWhite14,),
             ],
           ),
         ],

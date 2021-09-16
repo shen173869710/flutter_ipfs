@@ -117,7 +117,7 @@ class HomeController extends GetxController {
       item5_title = S.current.home_item_5_usdt;
       if (entity!.earningsView != null && entity!.earningsView!.CNY != null) {
         item5_1 = NumUtil.prseeZero(entity!.earningsView!.CNY!.total.toStringAsFixed(5))+" CNY";
-        item5_3 = NumUtil.prseeZero(entity!.earningsView!.CNY!.today.toStringAsFixed(5))+" FIL";
+        item5_3 = NumUtil.prseeZero(entity!.earningsView!.CNY!.today.toStringAsFixed(5))+" CNY";
         item5_4 = NumUtil.prseeZero(entity!.earningsView!.CNY!.userRealCap.toStringAsFixed(5))+" TB";
         item5_5 = NumUtil.prseeZero(entity!.earningsView!.CNY!.teamRealCap.toStringAsFixed(5))+" TB";
       }

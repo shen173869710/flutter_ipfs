@@ -331,7 +331,6 @@ class MePage extends StatelessWidget {
       case 11:
       //我的粉丝
         NavigatorUtil.jump(context, Routes.fansPage);
-
         break;
       case 12:
       //推广二维码

@@ -42,6 +42,7 @@ class _FindStatus extends State<MorePage> with SingleTickerProviderStateMixin{
                     isScrollable: false,
                     indicatorColor: Colours.button_sel,
                     labelColor: Colours.item_title_color,
+                    labelStyle: TextStyle(fontSize: 14),
                     unselectedLabelColor: Colours.item_content_color,
                     indicatorSize: TabBarIndicatorSize.label,
                     indicatorPadding: EdgeInsets.only(bottom: 15.w),
