@@ -32,7 +32,7 @@ class WalletItem extends StatelessWidget {
                       color: Colours.item_title_color
                   ),),
                   Gaps.vGap4,
-                  Text("≈"+NumUtil.prseeZero(data.cny.toStringAsFixed(8)),style: TextStyle(
+                  Text("≈"+NumUtil.prseeZero(data.cny.toStringAsFixed(8))+" CNY",style: TextStyle(
                       fontSize: 14,
                       color: Colours.item_content_color
                   ),),

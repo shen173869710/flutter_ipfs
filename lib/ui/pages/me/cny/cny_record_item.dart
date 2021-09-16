@@ -28,7 +28,7 @@ class CnyRecordItem extends StatelessWidget {
             child: Text((data.amount!>0?"+"+NumUtil.prseeZero(data.amount!.toString()):NumUtil.prseeZero(data.amount!.toString())),
                 style: TextStyle(
                     fontSize: Dimens.font_sp16,
-                  color: data.amount!>0?Colours.item_red:Colours.item_green)),
+                  color: data.amount!>0?Colours.item_green:Colours.item_red)),
             flex: 1,
           ),
           Expanded(

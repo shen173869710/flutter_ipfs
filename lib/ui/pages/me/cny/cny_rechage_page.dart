@@ -266,8 +266,6 @@ class _CnyRechageStatus extends State<CnyRechagePage> {
           setState(() {
             _headUrl = entity.url;
           });
-
-          NavigatorUtil.jump(context, Routes.cnyRechageRecord);
           // ToastUtil.show(S.current.option_success);
         }
         LogUtil.e("fromPhoteo url==" + entity.url);

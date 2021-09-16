@@ -314,7 +314,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "me_item_8": MessageLookupByLibrary.simpleMessage("扫一扫"),
         "me_item_9": MessageLookupByLibrary.simpleMessage("服务器"),
         "me_life": MessageLookupByLibrary.simpleMessage("我的钱包"),
-        "me_money": MessageLookupByLibrary.simpleMessage("总账户资产折合: (CNY)"),
+        "me_money": MessageLookupByLibrary.simpleMessage("总账户资产折合(CNY)"),
         "me_order": MessageLookupByLibrary.simpleMessage("我的订单"),
         "me_server": MessageLookupByLibrary.simpleMessage("我的服务"),
         "more_item_1": MessageLookupByLibrary.simpleMessage("星际商城"),

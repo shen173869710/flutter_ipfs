@@ -30,7 +30,7 @@ Future<void> main() async {
         statusBarColor: Colours.transparent,
         systemNavigationBarIconBrightness: Brightness.light,
         statusBarIconBrightness: Brightness.light,
-        statusBarBrightness: Brightness.light,
+        statusBarBrightness: Brightness.dark,
       );
       SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
     }

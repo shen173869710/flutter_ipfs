@@ -311,7 +311,7 @@ class _WalletWithdrawalState extends State<WalletWithdrawalPage> {
             inputFormatters: IInpitFormatters.inputMoney,
             maxLines: 1,
             focusNode: _money,
-            style: TextStyle(fontSize: 14),
+            style: TextStyle(fontSize: 14,color: Colours.item_red),
             decoration: InputDecoration(
                 focusedBorder: InputBorder.none,
                 enabledBorder: InputBorder.none,

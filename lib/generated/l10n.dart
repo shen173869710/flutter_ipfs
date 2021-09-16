@@ -1130,10 +1130,10 @@ class S {
     );
   }
 
-  /// `总账户资产折合: (CNY)`
+  /// `总账户资产折合(CNY)`
   String get me_money {
     return Intl.message(
-      '总账户资产折合: (CNY)',
+      '总账户资产折合(CNY)',
       name: 'me_money',
       desc: '',
       args: [],

@@ -327,7 +327,7 @@ class _MachineStatus extends State<MachinePage> {
           width: double.infinity,
           decoration: BoxDecoration(
               color: Colors.white,
-              border: Border.all(color: Colours.button_sel, width: 2.w),
+              border: Border.all(color: data.online == "1"?Colours.line:Colours.button_sel, width: 2.w),
               borderRadius: new BorderRadius.circular((10.w)),
               boxShadow: [
                 BoxShadow(

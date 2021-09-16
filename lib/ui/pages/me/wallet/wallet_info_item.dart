@@ -32,7 +32,7 @@ class WalletInfoItem extends StatelessWidget {
             Row(
               children: [
                 Gaps.hGap20,
-                Text(DateUtil.getTime(data.createTime),style: ITextStyles.itemContent),
+                Text(DateUtil.getTimeD(data.createTime),style: ITextStyles.itemContent),
               ],
             ),
             Gaps.vGap4,
