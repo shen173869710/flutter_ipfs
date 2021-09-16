@@ -13,6 +13,7 @@ ShareCionEntity _$ShareCionEntityFromJson(Map<String, dynamic> json) {
     ..freezeNum = json['freezeNum'] as num
     ..releaseDay = json['releaseDay'] as num
     ..releaseNow = json['releaseNow'] as num
+    ..releaseRate = json['releaseRate'] as num
     ..sid = json['sid'] as num
     ..total = json['total'] as num;
 }
@@ -24,6 +25,7 @@ Map<String, dynamic> _$ShareCionEntityToJson(ShareCionEntity instance) =>
       'freezeNum': instance.freezeNum,
       'releaseDay': instance.releaseDay,
       'releaseNow': instance.releaseNow,
+      'releaseRate': instance.releaseRate,
       'sid': instance.sid,
       'total': instance.total,
     };

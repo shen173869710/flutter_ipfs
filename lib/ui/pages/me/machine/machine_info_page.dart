@@ -1,16 +1,35 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ipfsnets/http/machine_api.dart';
 import 'package:ipfsnets/models/machine_entity.dart';
+import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
+import 'package:ipfsnets/ui/pages/me/machine/machine_hosting_page.dart';
+import 'package:ipfsnets/ui/pages/me/machine/machine_update_page.dart';
 import 'package:ipfsnets/utils/num_util.dart';
 import '../../../../include.dart';
+import 'machine_pledge_page.dart';
 
-class MachineInfoPage extends StatelessWidget {
+
+
+class MachineInfoPage extends StatefulWidget {
   late MachineEntity entity;
+  MachineInfoPage(this.entity);
+
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return MachineInfoPageState(this.entity);
+  }
+}
+
+class MachineInfoPageState extends State<MachineInfoPage>{
+  late MachineEntity entity;
+  MachineInfoPageState(this.entity);
 
   @override
   Widget build(BuildContext context) {
-    entity = ModalRoute.of(context)!.settings.arguments as MachineEntity;
+    // entity = ModalRoute.of(context)!.settings.arguments as MachineEntity;
     return Scaffold(
       backgroundColor: Colours.bg_color,
       appBar: AppBar(
@@ -93,7 +112,8 @@ class MachineInfoPage extends StatelessWidget {
                 borderRadius: new BorderRadius.circular((40.w)),
               ),
               child:GestureDetector(child:Text(S.current.machine_info_btn_1,style: ITextStyles.whiteTitle16,),onTap: (){
-                NavigatorUtil.push(context, '${Routes.machineHostingPage}?machineId=${Uri.encodeComponent(entity.machineId.toString())}');
+                // NavigatorUtil.push(context, '${Routes.machineHostingPage}?machineId=${Uri.encodeComponent(entity.machineId.toString())}');
+                   refresh(context, MachineHostingPage(entity.machineId.toString()));
               },),
             ),
             Container(
@@ -105,7 +125,8 @@ class MachineInfoPage extends StatelessWidget {
                 borderRadius: new BorderRadius.circular((40.w)),
               ),
               child:GestureDetector(child:Text(S.current.machine_info_btn_2,style: ITextStyles.whiteTitle16,),onTap: (){
-                NavigatorUtil.push(context, '${Routes.machineUpdatePage}?machineId=${Uri.encodeComponent(entity.machineId.toString())}');
+                // NavigatorUtil.push(context, '${Routes.machineUpdatePage}?machineId=${Uri.encodeComponent(entity.machineId.toString())}');
+                refresh(context, MachineUpdatePage(entity.machineId.toString()));
               },),
             ),
             Container(
@@ -117,7 +138,8 @@ class MachineInfoPage extends StatelessWidget {
                 borderRadius: new BorderRadius.circular((40.w)),
               ),
               child:GestureDetector(child:Text(S.current.machine_info_btn_3,style: ITextStyles.whiteTitle16,),onTap: (){
-                NavigatorUtil.push(context, '${Routes.machinePledgePage}?machineId=${Uri.encodeComponent(entity.machineId.toString())}');
+                // NavigatorUtil.push(context, '${Routes.machinePledgePage}?machineId=${Uri.encodeComponent(entity.machineId.toString())}');
+                refresh(context, MachinePledgePage(entity.machineId.toString()));
               },),
             ),
           ],
@@ -162,5 +184,21 @@ class MachineInfoPage extends StatelessWidget {
         )),
       ],
     );
+  }
+
+
+  Future<void> refresh(BuildContext context,Widget widget) async {
+    var data = await Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
+          return widget;})
+    );
+    if (data == null) {
+      BaseEntity baseEntity = await MachineApi.getMachineInfo(entity.machineId);
+      if (baseEntity.isOk() && baseEntity.data != null) {
+        entity = baseEntity.data;
+        setState(() {
+
+        });
+      }
+    }
   }
 }

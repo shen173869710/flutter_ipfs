@@ -27,7 +27,7 @@ class MachineApi{
   // 用户服务器详情
   static const String machine_info = "machine/app/machine/";
   static  Future<BaseEntity> getMachineInfo(num machineId) {
-    return HttpManager.getInstance().get<WalletInfoEntity>(machine_info+machineId.toString(),withLoading: true);
+    return HttpManager.getInstance().get<MachineEntity>(machine_info+machineId.toString(),withLoading: false);
   }
 
 

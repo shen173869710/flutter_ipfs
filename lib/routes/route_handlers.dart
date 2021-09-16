@@ -1,5 +1,6 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:ipfsnets/models/machine_entity.dart';
 import 'package:ipfsnets/models/market_coupon_entity.dart';
 import 'package:ipfsnets/ui/pages/home/photo_page.dart';
 import 'package:ipfsnets/ui/pages/market/market_buy_page.dart';
@@ -202,7 +203,7 @@ var machineHandler = Handler(handlerFunc: (BuildContext? context, Map<String, Li
 });
 // 我的服务器详情
 var machineInfoHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-  return MachineInfoPage();
+  return MachineInfoPage(MachineEntity());
 });
 // 我的服务器月收益
 var machineTotalHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {

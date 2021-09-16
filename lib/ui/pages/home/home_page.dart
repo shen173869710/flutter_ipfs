@@ -197,7 +197,7 @@ class _HomeStatus extends State<HomePage> {
                 duration: 500,
                 controller: SwiperController(),
                 scrollDirection: Axis.vertical,
-                autoplay: true,
+                autoplay: controller.noticeTag.length == 1?false:true,
                 onTap: (index) async {
                   String? token = await SpUtil.getString(GlobalEntiy.accessToken);
                   String url = GlobalEntiy.web_my_notice+controller.noticeTag[index].noticeId.toString()+"&token="+token!;
@@ -290,7 +290,7 @@ class _HomeStatus extends State<HomePage> {
   }
 
   Widget _swiperBuilderText(BuildContext context, int index) {
-    return Container(child: Text("       "+controller.noticeTag[index].noticeTitle,style: ITextStyles.itemTitle,maxLines: 1,),alignment: Alignment.centerLeft,);
+    return Container(child: Text("       "+controller.noticeTag[index].noticeTitle == null?"       ":controller.noticeTag[index].noticeTitle,style: ITextStyles.itemTitle,maxLines: 1,),alignment: Alignment.centerLeft,);
   }
 
   // 24小时封装成本

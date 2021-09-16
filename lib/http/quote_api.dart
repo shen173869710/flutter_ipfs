@@ -75,6 +75,6 @@ class QuoteApi{
   // 公告
   static const String find_list = "quote/app/notice/availableNoticeList";
   static  Future<BaseEntity> findList() {
-    return HttpManager.getInstance().get<List<FindEntity>>(find_list);
+    return HttpManager.getInstance().get<List<FindEntity>>(find_list,withLoading: false);
   }
 }

@@ -9,6 +9,7 @@ class ShareCionEntity {
 	late num freezeNum;
 	late num releaseDay;
 	late num releaseNow;
+	late num releaseRate;
 	late num sid;
 	late num total;
 	ShareCionEntity();

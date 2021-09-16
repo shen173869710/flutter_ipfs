@@ -7,6 +7,7 @@ import 'package:ipfsnets/models/machine_entity.dart';
 import 'package:ipfsnets/models/machine_top_entity.dart';
 import 'package:ipfsnets/net/base_entity.dart';
 import 'package:ipfsnets/res/colors.dart';
+import 'package:ipfsnets/ui/pages/me/machine/machine_info_page.dart';
 import 'package:ipfsnets/ui/pages/register/index_controller.dart';
 import 'package:ipfsnets/utils/LoadingUtils.dart';
 import 'package:ipfsnets/utils/num_util.dart';
@@ -14,8 +15,6 @@ import '../../../../include.dart';
 
 
 class MachinePage extends StatefulWidget{
-
-
 
   @override
   State<StatefulWidget> createState() {
@@ -36,15 +35,18 @@ class _MachineStatus extends State<MachinePage> {
     list = [];
     entity = MachineTopEntity();
     entity.init();
-    getData();
+    getData(true);
     super.initState();
   }
   @override
   bool get wantKeepAlive => true;
 
 
-  Future<void> getData() async {
-    LoadingUtils.show();
+  Future<void> getData(bool show) async {
+    if (show) {
+      LoadingUtils.show();
+    }
+
     BaseEntity baseEntity = await MachineApi.getMachineStatistics();
     if (baseEntity.isOk() && baseEntity.data != null) {
       entity = baseEntity.data;
@@ -56,8 +58,9 @@ class _MachineStatus extends State<MachinePage> {
     setState(() {
 
     });
-    LoadingUtils.dismiss();
-
+    if (show) {
+      LoadingUtils.dismiss();
+    }
   }
 
 
@@ -401,8 +404,14 @@ class _MachineStatus extends State<MachinePage> {
     );
   }
 
-  void onItemClick(BuildContext context, int index){
-    NavigatorUtil.push(context,Routes.machineInfoPage,arguments: list[index]);
-
+  void onItemClick(BuildContext context, int index) async {
+    // NavigatorUtil.push(context,Routes.machineInfoPage,arguments: list[index]);
+    var data = await Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
+      return MachineInfoPage(list[index]);})
+    );
+    getData(false);
   }
+
+
+
 }

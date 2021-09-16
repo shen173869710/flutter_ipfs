@@ -84,6 +84,8 @@ class EntityFactory {
       return HomeEntity.fromJson(json)as T;
     }else if (name == "FindEntity"){
       return FindEntity.fromJson(json)as T;
+    }else if (name == "MachineEntity"){
+      return MachineEntity.fromJson(json)as T;
     }else {
       return json as T;
     }

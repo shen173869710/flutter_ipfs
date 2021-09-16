@@ -197,7 +197,7 @@ class MachinePledgeState extends State<MachinePledgePage>{
     BaseEntity baseEntity = await MachineApi.machinePledgePay(data.machineId,pwd);
     if (baseEntity.isOk()) {
       ToastUtil.show(S.current.machine_pledge_sucess);
-      NavigatorUtil.goBack(context);
+      NavigatorUtil.goBackWithParams(context, true);
     }else{
       ToastUtil.show(baseEntity.msg);
     }
