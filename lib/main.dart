@@ -25,9 +25,9 @@ Future<void> main() async {
       // 以下两行 设置android状态栏为透明的沉浸。写在组件渲染之后，是为了在渲染后进行set赋值，覆盖状态栏，写在渲染之前MaterialApp组件会覆盖掉这个值。
       SystemUiOverlayStyle systemUiOverlayStyle =
       SystemUiOverlayStyle(
-        systemNavigationBarColor: Color(0xFF000000),
+        systemNavigationBarColor: Color(0xFFFFFFFF),
         systemNavigationBarDividerColor: null,
-        statusBarColor: Colours.app_bar_bg,
+        statusBarColor: Colours.transparent,
         systemNavigationBarIconBrightness: Brightness.light,
         statusBarIconBrightness: Brightness.light,
         statusBarBrightness: Brightness.light,

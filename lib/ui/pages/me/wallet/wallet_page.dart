@@ -129,8 +129,8 @@ class _WalletPageState extends State<WalletPage> {
     return Text.rich(TextSpan(
       children: [
         TextSpan(
-            text: NumUtil.prseeZero(cnySum.toStringAsFixed(8)),
-            style: TextStyle(color: Colours.item_red, fontSize: 32)),
+            text: cnySum.toString(),
+            style: TextStyle(color: Colours.item_red, fontSize: 30)),
         TextSpan(text: " ", style: ITextStyles.itemContent),
         TextSpan(text: "CNY", style: ITextStyles.itemTitle),
       ],

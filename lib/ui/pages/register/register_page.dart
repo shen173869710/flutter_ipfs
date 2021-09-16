@@ -137,7 +137,7 @@ class RegisterPage extends StatelessWidget {
               focusedBorder: InputBorder.none,
               enabledBorder: InputBorder.none,
               border: InputBorder.none,
-              hintText: controller.isPhone?S.current.register_email_hint:S.current.login_phone),
+              hintText: controller.isPhone?S.current.register_email_hint:S.current.register_phone_hint),
         )),
 
         Expanded(child: SizedBox()),

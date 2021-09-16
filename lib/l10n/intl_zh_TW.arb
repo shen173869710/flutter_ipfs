@@ -31,7 +31,7 @@
   "tab_quotes": "行情",
   "tab_me": "我的",
   "no_network": "网络不可用,请稍后重试",
-  "not_open":"暂未开放",
+  "not_open":"敬请期待",
 
   "login_title": "你好,",
   "login_title_1": "欢迎来到INSTAR",
@@ -47,6 +47,7 @@
   "register_login": "我已注册,去登陆",
   "register_phone": "手机注册",
   "register_email": "邮箱注册",
+  "register_phone_hint": "请输入手机号",
   "register_email_hint": "请输入邮箱",
   "register_share_hint": "请输入邀请码",
   "forgot_by_phone": "手机找回",

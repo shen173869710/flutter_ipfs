@@ -454,6 +454,8 @@ class _HomeStatus extends State<HomePage> {
       onTap: () {
         if (title == S.current.home_wallet) {
           NavigatorUtil.jump(context, Routes.walletPage);
+        }else{
+          ToastUtil.show(S.current.not_open);
         }
       },
     );

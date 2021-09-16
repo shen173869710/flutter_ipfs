@@ -490,6 +490,16 @@ class S {
     );
   }
 
+  /// `请输入手机号`
+  String get register_phone_hint {
+    return Intl.message(
+      '请输入手机号',
+      name: 'register_phone_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `请输入邀请码`
   String get register_share_hint {
     return Intl.message(
@@ -940,10 +950,10 @@ class S {
     );
   }
 
-  /// `暂未开放`
+  /// `敬请期待`
   String get not_open {
     return Intl.message(
-      '暂未开放',
+      '敬请期待',
       name: 'not_open',
       desc: '',
       args: [],

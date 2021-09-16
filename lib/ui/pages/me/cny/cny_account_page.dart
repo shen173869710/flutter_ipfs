@@ -168,7 +168,7 @@ class CnyAccountPage extends StatelessWidget {
     return Text.rich(TextSpan(
       children: [
         TextSpan(
-            text: controller.balance == null ?"0":NumUtil.prseeZero(controller.balance.toString()),
+            text: controller.balance == null ?"0":NumUtil.prseeZero(controller.balance.toStringAsFixed(6)),
             style: TextStyle(color: Colours.item_red, fontSize: 30)),
         TextSpan(text: " ", style: ITextStyles.itemContent),
         TextSpan(text: "CNY", style: ITextStyles.itemTitle),

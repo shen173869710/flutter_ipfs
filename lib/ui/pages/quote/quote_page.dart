@@ -63,18 +63,18 @@ class _QuoteStatus extends State<QuotePage> with TickerProviderStateMixin{
               backgroundColor: Colours.app_bar_bg,
               title: Text("INSTAR", style: ITextStyles.whiteTitle,
               ),
-              actions: [
-                IconButton(icon: Icon(Icons.search,color: Colours.text_white,),onPressed: () async{
-                  String? result = await showSearch<String>(context: context,delegate: SearchBarDelegate());
-                  if (StringUtil.isNotEmpty(result!)) {
-                    tabController.index = 3;
-                    setState(() {
-                        controller.setResule(result);
-                    });
-
-                  }
-                })
-              ],
+              // actions: [
+              //   IconButton(icon: Icon(Icons.search,color: Colours.text_white,),onPressed: () async{
+              //     String? result = await showSearch<String>(context: context,delegate: SearchBarDelegate());
+              //     if (StringUtil.isNotEmpty(result!)) {
+              //       tabController.index = 3;
+              //       setState(() {
+              //           controller.setResule(result);
+              //       });
+              //
+              //     }
+              //   })
+              // ],
               bottom: PreferredSize(
                 preferredSize: Size(double.infinity, 90.w),
                 child: Material(

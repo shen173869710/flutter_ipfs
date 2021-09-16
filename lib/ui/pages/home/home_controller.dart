@@ -49,7 +49,11 @@ class HomeController extends GetxController {
     item5_4 = "";
     item5_5 = "";
     entity = HomeEntity();
-    noticeTag = [];
+
+    FindEntity findEntity = FindEntity();
+    findEntity.noticeTitle = "";
+    noticeTag.add(findEntity);
+    noticeTag.add(findEntity);
   }
 
   setHomeEntity(HomeEntity homeEntity) {
@@ -134,6 +138,10 @@ class HomeController extends GetxController {
     if(size > 0) {
       noticeTag.clear();
       noticeTag.addAll(find);
+    }else{
+      FindEntity findEntity = FindEntity();
+      findEntity.noticeTitle = "暂无公告";
+      noticeTag.add(FindEntity());
     }
 
     update();
