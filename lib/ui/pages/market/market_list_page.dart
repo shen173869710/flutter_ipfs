@@ -50,7 +50,8 @@ class _MarketListState extends BaseListPageState<MarketListPage> with AutomaticK
   @override
   Future<BaseEntity> getData() async{
     BaseEntity entity = await MarketApi.getMachineById(id, false);
-    if (entity.isOk()) {
+    if (entity.isOk() && entity.data != null) {
+      list.clear();
       list.addAll(entity.data);
       setState(() {
 

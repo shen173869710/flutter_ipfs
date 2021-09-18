@@ -174,11 +174,11 @@ class _WalletRechageState extends State<WalletRechagePage> {
             Gaps.vGap12,
             Text(S.current.wallet_recharge_address,style: ITextStyles.itemTitle16,),
             Gaps.vGap8,
-            Text(controller.address,style: TextStyle(fontSize: 14,color: Colours.button_sel),),
+            Text(controller.address == null?"":controller.address,style: TextStyle(fontSize: 14,color: Colours.button_sel),),
             Gaps.vGap8,
             Center(
               child:TextButton(onPressed:(){
-                Clipboard.setData(ClipboardData(text: controller.address)).then((value) => ToastUtil.show(S.current.copy_success));
+                Clipboard.setData(ClipboardData(text: controller.address == null?"":controller.address)).then((value) => ToastUtil.show(S.current.copy_success));
 
               },
                   child: Text(S.current.wallet_recharge_copy,style: TextStyle(fontSize: 14,color:Colours.button_sel),),

@@ -1,11 +1,10 @@
 
 
 import 'package:fluttertoast/fluttertoast.dart';
-
 import '../include.dart';
 
 class ToastUtil {
-  static void show(String msg, {int duration = 2000}) {
+  static void show(String msg, {int duration = 3000}) {
     if (msg == null) {
       return;
     }

@@ -62,9 +62,13 @@ class _FindStatusPageState extends State<FindStatusPage> {
         WebView(
           initialUrl: url,
           javascriptMode: JavascriptMode.unrestricted,
+          javascriptChannels:  <JavascriptChannel>[
+            _javascriptChannel(context),
+          ].toSet(),
           allowsInlineMediaPlayback: true,
           // navigationDelegate: (NavigationRequest request){
           //   if (request.url.contains("notice-list")) {
+          //     LogUtil.e(request.url);
           //     NavigatorUtil.goWebViewNewPage(context, "title", request.url);
           //     return NavigationDecision.prevent;
           //   }
@@ -88,4 +92,12 @@ class _FindStatusPageState extends State<FindStatusPage> {
       ],
     );
   }
+}
+JavascriptChannel _javascriptChannel(BuildContext context) {
+  return JavascriptChannel(
+      name: 'toDetail',
+      onMessageReceived: (JavascriptMessage message) {
+        print('=======================');
+        print(message);
+      });
 }

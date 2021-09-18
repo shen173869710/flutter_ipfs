@@ -81,12 +81,7 @@ class _IndexPageState extends State<IndexPage> {
               controller.changePage(index);
             },
           ),
-          body: WillPopScope(
-            onWillPop: BackTop.backDeskTop, child:IndexedStack(
-            index: controller.currentIndex,
-            children: pages,
-          ),
-          )
+          body: pages[controller.currentIndex],
       );
     });
   }

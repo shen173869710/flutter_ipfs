@@ -197,8 +197,6 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage>{
       entity = await QuoteApi.getQuoteHome(widget.id);
     }
 
-    list.clear();
-    list.addAll(entity.data);
     if (id == 1) {
       price1 = 0;
       gains1 = 0;
@@ -206,10 +204,14 @@ class _QuoteOptionalState extends BaseListPageState<QuoteOptionalPage>{
       price2 = 0;
       gains2 = 0;
     }
-    if (entity.isOk()) {
-      setState(() {
+    if (entity.data != null) {
+      list.clear();
+      list.addAll(entity.data);
+      if (entity.isOk()) {
+        setState(() {
 
-      });
+        });
+      }
     }
     return entity;
   }

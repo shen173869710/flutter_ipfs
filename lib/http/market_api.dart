@@ -20,7 +20,7 @@ class MarketApi{
   static const String machine_home = "machine/app/type/mini/list";
 
   static  Future<BaseEntity> getMachineHome() {
-    return HttpManager.getInstance().get<List<MarketBarEntity>>(machine_home,withLoading: true);
+    return HttpManager.getInstance().get<List<MarketBarEntity>>(machine_home,withLoading: false);
   }
   static const String machine_list = "machine/app/fil/list/";
   static  Future<BaseEntity> getMachineById(num id, bool show) {
@@ -101,6 +101,6 @@ class MarketApi{
   // 区块首页
   static const String home_info = "machine/app/index";
   static  Future<BaseEntity> homeInfo() {
-    return HttpManager.getInstance().get<HomeEntity>(home_info);
+    return HttpManager.getInstance().get<HomeEntity>(home_info,withLoading: false);
   }
 }
